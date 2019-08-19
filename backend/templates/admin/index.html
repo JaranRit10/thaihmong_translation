@@ -1,0 +1,257 @@
+
+{% extends "index.html" %}
+
+{%block title%}admin{%endblock%}
+
+{%block body%}
+
+        <span id="textset"></span>
+        <div class="row" style="padding-bottom: 20px">
+            <input class="form-control form-control" placeholder="ค้นหา..."
+                   id="wordtosearch" autofocus style="width: 30%">
+            <select class="form-control" id="select-numwordshow"
+                    style="width: 70px">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="ทั้งหมด">ทั้งหมด</option>
+            </select>
+            <!-- Button to Open the Modal -->
+            <button type="button" class="btn btn-success" id="button_addwordAdmin"
+                    data-toggle="modal" data-target="#addwordAdmin" style="float: left">
+                เพิ่มคำศัพท์
+            </button>
+        </div>
+
+        <p id="numwordshowAddmin"></p>
+
+
+        <table class = "searchword" align="center" class="table table-hover table-sm">
+            <thead >
+                <tr class = "searchword">
+                    <th class = "searchword">ที่</th>
+                    <th class = "searchword">ภาษาไทย</th>
+                    <th class = "searchword">ชนิดคำ</th>
+                    <th class = "searchword">ภาษาม้ง</th>
+                    <th style="width: 120px; "></th>
+                </tr>
+            </thead>
+            <tbody class = "tbody_searchword">
+
+            </tbody >
+            <tfoot class = "tfoot_searchword">
+
+            </tfoot>
+        </table>
+
+
+    <!-- Modal add word -->
+    <div class="modal fade bd-example-modal-lg" id="addwordAdmin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"   aria-hidden="true">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">เพิ่มคำศัพท์ใหม่</h5>
+                <button type="button" id="close_modal_add" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-12" >
+                          <table id="table_addwordAdmin" >
+                              <tr id="table_addwordAdmin">
+                                  <th id="table_addwordAdmin"></th>
+                                  <th style="float: left" id="table_addwordAdmin">ภาษาไทย</th>
+                              </tr>
+                              <tr id="table_addwordAdmin">
+                                  <td id="table_addwordAdmin" style="width: 100px">คำศัพท์</td>
+                                  <td id="table_addwordAdmin">
+                                      <input type="text" class="form-control form-control"
+                                             style="float: left" id="thaiwordAdd" >
+                                  </td>
+                              </tr>
+                              <tr id="table_addwordAdmin">
+                                  <td id="table_addwordAdmin">ชนิดคำ</td>
+                                  <td id="table_addwordAdmin">
+                                      <select class="form-control" id="selectclassword_add">
+                                        <option value="NOUN">คำนาม(NOUN)</option>
+                                        <option value="VERB">คำกริยา(VERB)</option>
+                                        <option value="ADP">คำบุพบท(ADP)</option>
+                                        <option value="AUX">กริยาช่วย(AUX)</option>
+                                        <option value="CCONJ">คำเชื่อม(CCONJ)</option>
+                                        <option value="DET">คำบ่งชี้เฉพาะหรือไม่ชี้เฉพาะ(DET)</option>
+                                        <option value="PRON">คำสรรพนาม(PRON)</option>
+                                        <option value="SCONJ">คำสันธาน(SCONJ)</option>
+                                        <option value="NUM">ตัวเลข(NUM)</option>
+                                        <option value="PART">คำอนุภาคทั่วไป(PART)</option>
+                                        <option value="ADJ">คำคุณศัพท์(ADJ)</option>
+                                        <option value="ADJ">คำคุณศัพท์(ADJ)</option>
+                                        <option value="INTJ">คำอุทาน(INTJ)</option>
+                                        <option value="ADV">คำวิเศษณ์(ADV)</option>
+                                        <option value="PROPN">คำนามชี้เฉพาะหรือวิสามานยนาม(PROPN)</option>
+                                        <option value="X">อื่นๆ(X)</option>
+                                      </select>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                        <div class="vertical line"></div>
+                      <div class="col-md-6 col-sm-12">
+                          <table id="table_addwordAdmin">
+                              <tr id="table_addwordAdmin">
+                                  <th id="table_addwordAdmin"></th>
+                                  <th style="float: left">ภาษาม้ง</th>
+                              </tr>
+                              <tr id="table_addwordAdmin">
+                                  <td id="table_addwordAdmin">คำศัพท์</td>
+                                  <td id="table_addwordAdmin">
+                                      <input type="text" class="form-control form-control" style="float: left" id="hmongwordAdd">
+                                  </td>
+                              </tr>
+
+                          </table>
+                      </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="savewordadd" >บันทึก</button>
+                <button type="button" class="btn btn-primary" id="clearwordadd">ล้าง</button>
+                <button type="button" id="close_modal_add" class="btn btn-danger" class="close" data-dismiss="modal">ยกเลิก</button>
+
+              </div>
+            </div>
+       </div>
+    </div>
+
+    <!-- Modal update or edit word -->
+    <div class="modal fade bd-example-modal-lg" id="editwordAdmin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"   aria-hidden="true">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">แก้ไขคำศัพท์</h5>
+                <button type="button" id="close_modal_edit" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-12" >
+                          <table id="table_editwordAdmin" >
+                              <tr id="table_editwordAdmin">
+                                  <th id="table_editwordAdmin"></th>
+                                  <th style="float: left" id="table_editwordAdmin">ภาษาไทย</th>
+                              </tr>
+                              <tr id="table_editwordAdmin">
+                                  <td id="table_editwordAdmin" style="width: 100px">คำศัพท์</td>
+                                  <td id="table_editwordAdmin">
+                                      <input type="text"  class="form-control form-control" style="float: left" id="thaiwordEdit">
+                                  </td>
+                              </tr>
+                              <tr id="table_editwordAdmin">
+                                  <td id="table_editwordAdmin">ชนิดคำ</td>
+                                  <td id="table_editwordAdmin">
+                                      <select class="form-control" id="selectclassword_edit">
+                                        <option value="NOUN">คำนาม(NOUN)</option>
+                                        <option value="VERB">คำกริยา(VERB)</option>
+                                        <option value="ADP">คำบุพบท(ADP)</option>
+                                        <option value="AUX">กริยาช่วย(AUX)</option>
+                                        <option value="CCONJ">คำเชื่อม(CCONJ)</option>
+                                        <option value="DET">คำบ่งชี้เฉพาะหรือไม่ชี้เฉพาะ(DET)</option>
+                                        <option value="PRON">คำสรรพนาม(PRON)</option>
+                                        <option value="SCONJ">คำสันธาน(SCONJ)</option>
+                                        <option value="NUM">ตัวเลข(NUM)</option>
+                                        <option value="PART">คำอนุภาคทั่วไป(PART)</option>
+                                        <option value="ADJ">คำคุณศัพท์(ADJ)</option>
+                                        <option value="INTJ">คำอุทาน(INTJ)</option>
+                                        <option value="ADV">คำวิเศษณ์(ADV)</option>
+                                        <option value="PROPN">คำนามชี้เฉพาะหรือวิสามานยนาม(PROPN)</option>
+                                        <option value="X">อื่นๆ(X)</option>
+                                      </select>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                        <div class="vertical line"></div>
+                      <div class="col-md-6 col-sm-12">
+                          <table id="table_editwordAdmin">
+                              <tr id="table_editwordAdmin">
+                                  <th id="table_editwordAdmin"></th>
+                                  <th style="float: left">ภาษาม้ง</th>
+                              </tr>
+                              <tr id="table_editwordAdmin">
+                                  <td id="table_editwordAdmin">คำศัพท์</td>
+                                  <td id="table_editwordAdmin">
+                                      <input type="text" class="form-control form-control" style="float: left" id="hmongwordedit">
+                                  </td>
+                              </tr>
+
+                          </table>
+                      </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="savewordedit" data-dismiss="modal">บันทึก</button>
+                <button type="button" class="btn btn-primary" id="clearwordedit">ล้าง</button>
+                <button type="button" id="close_modal_edit" class="btn btn-danger" class="close" data-dismiss="modal" >ยกเลิก</button>
+
+              </div>
+            </div>
+       </div>
+    </div>
+
+
+
+    <!-- Button trigger modal -->
+{#    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deletewordModal">#}
+{#      Launch demo modal#}
+{#    </button>#}
+
+    <!-- Modal delete word -->
+    <div class="modal fade" id="deletewordModal" tabindex="-1" role="dialog" aria-labelledby="deletewordModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deletewordModalLabel" style="align: center">ลบคำศัพท์</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div>
+
+            </div>
+              <table id="table_delete">
+                  <tr class="table_delete">
+                      <th class="table_delete" colspan="2">คำศัพท์ที่ต้องการลบ</th>
+                  </tr>
+                  <tr class="table_delete" >
+                      <td class="table_delete" style="width: 40%; text-align: right; ">คำศัพท์ภาษาไทย : </td>
+                      <td class="table_delete" style="width: 40%; text-align: left"><span class="wordthaiModal_delete"></span></td>
+                  </tr>
+                  <tr class="table_delete">
+                      <td class="table_delete" style="width: 40%; text-align: right">คำศัพท์ภาษาม้ง : </td>
+                      <td class="table_delete" style="width: 40%; text-align: left"><span class="wordhmongModal_delete"></span></td>
+                  </tr>
+                  <tr class="table_delete">
+                      <td class="table_delete" style="width: 40%; text-align: right">ชนิดของคำ : </td>
+                      <td class="table_delete" style="width: 40%; text-align: left"><span class="classwordModal_delete"></span></td>
+                  </tr >
+              </table>
+
+
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirm_deleteword">ลบ</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{%endblock%}

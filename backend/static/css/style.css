@@ -1,0 +1,286 @@
+/*manage font*/
+    @font-face {
+        font-family: "roboto-light";
+        src: url('font/roboto/Roboto-Light.ttf');
+
+    }
+
+    @font-face {
+        font-family: "roboto-regular";
+        src: url('font/roboto/Roboto-Regular.ttf');
+
+    }
+
+    @font-face {
+        font-family: "roboto-thin";
+        src: url('font/roboto/Roboto-Thin.ttf');
+
+    }
+
+    @font-face {
+        font-family: "db adman x";
+        src: url('font/db_adman_x.ttf');
+
+    }
+    @font-face {
+        font-family: "roboto-bold";
+        src: url('font/roboto/Roboto-Bold.ttf');
+
+    }
+/*end manage font*/
+
+/*manage global element*/
+    body{
+        background:url("../img/UP_logo.png");
+        background-repeat: no-repeat;
+        background-size:20%;
+        background-position: center;
+        background-color: #E9F8FE;
+
+        font-family:"roboto-light";
+        font-size: 22px;
+        color: black;
+        text-align: center;
+    }
+
+    .container{
+        padding-top: 10px;
+        padding-bottom: 45px;
+    }
+
+    h1,h2,h3,h4{
+        font-family:"roboto-bold";
+    }
+
+    p{
+        font-family:"roboto-light";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    #p_bold{
+        font-size: 22px;
+        font-style: normal;
+        font-weight: bold;
+        color: #3a33d1;
+    }
+
+    a{
+        font-size: 1.5625em;
+        color: black;
+    }
+
+    hr {
+      display: block;
+      margin-top: 0em;
+      margin-bottom: 0em;
+      margin-left: auto;
+      margin-right: auto;
+      border-style: inset;
+      border-width: 1px;
+    }
+
+/*end manage global element*/
+
+#thaiword{
+    padding-left: 8px;
+
+}
+
+.span_result_translate:hover{
+    background-color: yellow;
+
+}
+
+
+/*manage index addmin page*/
+
+    /*#side_thaiword{*/
+        /*background-color: #8fd19e;*/
+        /*border-radius: 10px;*/
+    /*}*/
+
+    /*#side_result{*/
+        /*border-radius: 10px;*/
+        /*background-color: #86cfda;*/
+    /*}*/
+
+    input#wordtosearch{
+        /*for search in admin page*/
+        margin: 5px;
+    }
+    select#select-numwordshow{
+        margin: 5px;
+    }
+    button#button_addwordAdmin{
+        margin: 5px;
+    }
+
+
+    table.searchword {
+      table-layout: auto;
+      width: 100%;
+    }
+    .contro_searchword{
+        /*button edit and update*/
+        float: left;
+    }
+    th.searchword{
+        background-color: #28a745
+    }
+    th.searchword,td.searchword{
+        border: 1px solid blue;
+    }
+    tr.searchword:hover{
+        background-color: #86cfda;
+    }
+
+
+    table#table_addwordAdmin{
+        table-layout: auto;
+        width: 100%;
+        border-collapse:collapse;
+    }
+    #table_addwordAdmin{
+        /*border: 1px solid black;*/
+        padding: 2px;
+    }
+    p#numwordshowAddmin{
+        float : left;
+    }
+
+
+    table#table_delete{
+        table-layout: auto;
+        width: 100%;
+    }
+    .table_delete{
+        /*border: 1px solid black;*/
+    }
+    td.table_delete{
+       padding-right: 5px
+    }
+    tr.table_delete:hover{
+       background-color: #cccccc;
+    }
+/*end for index addmin page*/
+
+
+
+
+/*จากรัน*/
+.navbar {
+      padding-top: 10px;
+      font-family:"db adman x";
+      /*overflow: hidden;*/
+      background-color: #9D6AED;
+      top: 0;
+      width: 100%;
+      border: 1px solid #9D6AED;
+      box-shadow: 2px 1px 6px #9D6AED;
+     /*margin-bottom: 10px;*/
+}
+#wordBar {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 2px ;
+  text-decoration: none;
+}
+#wordBar:hover {
+  color: black;
+}
+/*=====================================*/
+.footer {
+    font-family:"db adman x";
+    overflow: hidden;
+    background-color: #9D6AED;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: white;
+    padding: 1px;
+    border: 1px solid #9D6AED;
+    box-shadow: 2px 1px 6px #9D6AED;
+    font-size: 16px;
+}
+/*=====================================*/
+.box {              /* แถวในการจัด กล่องข้อความ  */
+    outline: none;
+    margin-top: 4%;
+    padding: 10px;
+}
+
+
+/*=====================================*/
+.thai {             /* ตัวหนังสือ ข้างบนของกล่องข้อความ */
+    margin-top: 20px;
+    color: blue;
+    margin-left: 43px;
+    font-size: 22px;
+}
+/*============= page tester ========================*/
+
+textarea{
+    resize: none;
+    overflow: hidden;
+    width: 100%;
+    height: 150px;
+    margin-left: 2px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -2px;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.1s;
+  padding-top: 45px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 1px 4px #999;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.1s;
+}
+
+.sidenav a:hover {
+  color: black;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 30px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*============= css for admin page ======================*/
+.active-cyan-3 input[type=text] {
+    border: 1px solid #4dd0e1;
+    box-shadow: 0 0 0 1px #4dd0e1;
+    width: 30%;
+}

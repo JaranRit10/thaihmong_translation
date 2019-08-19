@@ -1,0 +1,63 @@
+
+{% extends "index.html" %}
+
+{%block title %}wellcome to recommend{%endblock%}
+
+
+{%block body%}
+
+    <div class="ui three item menu" style="height: 50px; width: 50%;" >
+          <a class="item" id="addnewWord_newword"
+             style="height: 50px; width: 50%; background-color: #b5d592">เพิ่มคำศัพท์</a>
+          <a class="item" id="checkWord_newword"
+             style="height: 50px; width: 50%; background-color: #b5d592">ตรวจสอบความถูกต้อง</a>
+    </div>
+
+
+
+    <div class="show_addnewWord_newword">
+        <table id = "table_addnewWord_newword" align="center" class="table table-hover table-sm">
+            <thead >
+                <tr class = "table_addnewWord_newword">
+                    <th class = "table_addnewWord_newword">ที่</th>
+                    <th class = "table_addnewWord_newword">ภาษาไทย</th>
+                    <th class = "table_addnewWord_newword">ชนิดคำ</th>
+                    <th class = "table_addnewWord_newword">ภาษาม้ง</th>
+                </tr>
+            </thead>
+
+            <tbody class = "table_addnewWord_newword" id="tbody_addnewWord_newword">
+
+            </tbody >
+            <tfoot class = "table_addnewWord_newword">
+            </tfoot>
+        </table>
+    </div>
+
+
+    <div class="show_checkWord_newword">
+        <table id = "table_checkWord_newword" align="center" class="table table-hover table-sm">
+            <thead >
+                <tr class = "table_checkWord_newword">
+                    <th class = "table_checkWord_newword">ที่</th>
+                    <th class = "table_checkWord_newword">ภาษาไทย</th>
+                    <th class = "table_checkWord_newword">ภาษาม้ง</th>
+                    <th class = "table_checkWord_newword" colspan="2" style="width: 10%">สถานะ</th>
+                </tr>
+            </thead>
+            <tbody class = "table_checkWord_newword" id="tbody_checkWord_newword">
+
+            </tbody >
+
+            <tfoot class = "table_checkWord_newword">
+
+            </tfoot>
+        </table>
+    </div>
+
+
+{%endblock%}
+
+{% block custom_js %}
+    <script src="{{url_for('static',filename='js/show_recommend.js')}}"></script>
+{% endblock %}

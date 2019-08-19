@@ -1,0 +1,43 @@
+
+{% extends "index.html" %}
+
+{%block title%}Thai-Hmong Translator{%endblock%}
+
+
+{%block body %}
+
+    <h3><span id="clock" style="float: right"></span></h3>
+    <br>
+
+    <button id="translate2" type="button" class="btn btn-primary">send by ajax get with json</button>
+    <button id="get">get</button>
+    <br><br>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12" id="side_thaiword">
+            <p>ภาษาไทย</p>
+            <textarea placeholder="กรุณาป้อนประโยค"  class="textareathai"
+                      id="thaiword" autofocus ></textarea>
+        </div>
+        <div class="col-md-6 col-sm-12" id="side_result">
+            <p>ภาษาม้ง</p>
+            <div id="result_translate">
+                <span style="float: left">การแปล</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <p>คำที่เลือก</p>
+    <span id="wordselect"></span>
+
+    <hr>
+
+{%endblock%}
+
+{% block custom_js %}
+
+    <script src="{{url_for('static',filename='js/index_page.js')}}"></script>
+
+{% endblock %}

@@ -1,0 +1,287 @@
+
+{% extends "index.html" %}
+
+{%block title %}test{%endblock%}
+
+{%block body%}
+
+ <!-- button select table -->
+        <div class="ui three item menu" style="height: 50px">
+          <a class="item" id="yourRecommend">คำที่คุณแนะนำ</a>
+          <a class="item" id="getRecommend">ประโยคแนะนำ</a>
+          <a class="item" id="getNewword">คำที่ระบบไม่มี</a>
+        </div>
+
+        <div>
+            <!-- select number rows of page -->
+            <div class="form-group">
+                <select name="state" id="select_maxrow_Recommend" class="form-control" style="width: 150px;">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="all">แสดงทั้งหมด</option>
+                </select>
+            </div>
+
+            <!-- table reccommend -->
+            <div class="data_reccommend "> <!-- table-responsive  -->
+                <table id="tableRecommend" class="table-bordered table-hover " border="1"  width="100%" >
+                <!-- head table recommend-->
+                    <thead id="thead_getrecommend" style="background-color: #0d71bb">
+                      <tr>
+                          <th>id</th>
+                          <th>ประโยคภาษาไทย</th>
+                          <th>ประโยคภาษาม้ง</th>
+                          <th>เวลาส่ง</th>
+                          <th>ชนิดที่ผิด</th>
+                      </tr>
+                    </thead>
+                    <!-- body dynamic rows recommend-->
+                    <tbody id="tbody_getrecommend">
+
+                    </tbody>
+
+                </table>
+
+                <div style="font-size: 14px; float: left;">
+                    <p>แสดงแถว <span id="startRow_Recommend"></span> ถึง <span id="endRow_Recommend"></span> จากทั้งหมด <span id="totalRow_Recommend"></span></p>
+                </div>
+                <div class="pagination-container" style="float: right;">
+                    <nav>
+                        <ul class="pagination_Recommend"></ul>
+                    </nav>
+                </div>
+            </div> <!-- end div recommend -->
+            <!-- table newword -->
+            <div class="data_newword">
+                <table  id="tableNewword" border="1" class="table table-hover"  width="100%" >
+                <!--  head table newword -->
+                    <thead id="thead_getnewword" style="background-color: #0d71bb">
+                      <tr>
+                        <th>id</th>
+                        <th>Sentence_id</th>
+                        <th>Use_update </th>
+                        <th>New_word</th>
+                        <th>Num_Recommennd </th>
+                      </tr>
+                    </thead>
+                    <!-- body dynamic rows  newword-->
+                    <tbody id="tbody_getnewword">
+
+                    </tbody>
+                </table>
+
+                <div style="font-size: 14px; float: left;">
+                    <p>แสดงแถว <span id="startRow_Newword"></span> ถึง <span id="endRow_Newword"></span> จากทั้งหมด <span id="totalRow_Newword"></span></p>
+                </div>
+
+                <div class="pagination-container" style="float: right;">
+                    <nav>
+                        <ul class="pagination_Newword"></ul>
+                    </nav>
+                </div>
+            </div>
+
+
+            <!-- Modal  Recommend -->
+            <div id="add_recommend" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"   aria-hidden="true">
+               <div class="modal-dialog modal-xl">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">เพิ่มประโยคที่คุณจะแนะนำ</h5>
+
+                        <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-md-6 col-sm-12" >
+                                  <table id="table_addsentanceRecommend" style="border: 0px">
+                                      <tr id="table_addsentanceRecommend">
+                                          <th id="table_addsentanceRecommend"></th>
+                                          <th style="float: left" id="table_addwordAdmin">ประโยคภาษาไทย</th>
+                                      </tr>
+                                      <tr id="table_thaisentence_show">
+                                          <th id="table_thaisentence">ประโยค</th>
+                                          <td id="thaisentence">
+
+                                          </td>
+                                      </tr>
+                                      <tr id="table_thaisentence">
+                                          <th id="table_thaisentence">แก้ไข</th>
+                                          <td id="table_thaisentence">
+                                              <input type="text" class="form-control form-control" style="float: left" id="input_thaisentence">
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+
+                              <div class="col-md-6 col-sm-12">
+                                  <table id="table_hmongsentence">
+                                      <tr id="table_hmongsentence">
+                                          <th id="table_hmongsentence"></th>
+                                          <th style="float: left">ประโยคภาษาม้ง</th>
+                                      </tr>
+                                      <tr id="table_hmongsentence_show">
+                                          <th id="table_hmongsentence">ประโยค</th>
+                                          <td id="hmongsentence">
+
+                                          </td>
+                                      </tr>
+                                       <tr id="table_hmongsentence">
+                                          <th id="table_hmongsentence">แก้ไข</th>
+                                          <td id="table_hmongsentence">
+                                              <input type="text" class="form-control form-control" style="float: left" id="input_hmongsentence">
+                                          </td>
+                                      </tr>
+
+                                  </table>
+                              </div>
+
+
+                            </div>
+                         </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="saveword_editRecommend">บันทึก</button>
+                        <button type="button" class="btn btn-primary" id="clearword_editRecommend">ล้าง</button>
+                        <button type="button" id="close_modal_editRecommend" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+
+                      </div>
+                    </div>
+               </div>
+            </div>
+            <!-- modal delete rows-->
+            <div id="deleteRow_recommend" class="modal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">ยืนยันการลบ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>ยืนยันการลบ.</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="savewordadd">ยืนยัน</button>
+                      <button type="button" id="close_modal" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Modal  Newword -->
+            <div class="modal fade bd-example-modal-xl" id="edit_newword" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"   aria-hidden="true">
+               <div class="modal-dialog modal-xl">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">เพิ่มคำศัพท์ใหม่</h5>
+                        <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                       <!-- modal body -->
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-md-6 col-sm-12" >
+                                  <table id="table_addwordNewword">
+                                      <tr id="table_addwordNewword">
+                                          <th id="table_addwordNewword"></th>
+                                          <th style="float: left" id="table_addwordNewword">ภาษาไทย</th>
+                                      </tr>
+                                      <tr id="table_addwordNewword">
+                                          <td id="table_addwordNewword">คำศัพท์</td>
+                                          <td id="table_addwordNewword">
+                                              <input type="text" class="form-control form-control" style="float: left" id="input_thaiWord">
+                                          </td>
+                                      </tr>
+                                      <tr id="table_addwordNewword">
+                                          <td id="table_addwordNewword">ชนิดคำ</td>
+                                          <td id="table_addwordNewword">
+                                              <select class="form-control" id="selectclassword">
+                                                <option value="NOUN">คำนาม(NOUN)</option>
+                                                <option value="VERB">คำกริยา(VERB)</option>
+                                                <option value="ADP">คำบุพบท(ADP)</option>
+                                                <option value="AUX">กริยาช่วย(AUX)</option>
+                                                <option value="CCONJ">คำเชื่อม(CCONJ)</option>
+                                                <option value="DET">คำบ่งชี้เฉพาะหรือไม่ชี้เฉพาะ(DET)</option>
+                                                <option value="PRON">คำสรรพนาม(PRON)</option>
+                                                <option value="SCONJ">คำสันธาน(SCONJ)</option>
+                                                <option value="NUM">ตัวเลข(NUM)</option>
+                                                <option value="PART">คำอนุภาคทั่วไป(PART)</option>
+                                                <option value="ADJ">คำคุณศัพท์(ADJ)</option>
+                                                <option value="ADJ">คำคุณศัพท์(ADJ)</option>
+                                                <option value="INTJ">คำอุทาน(INTJ)</option>
+                                                <option value="ADV">คำวิเศษณ์(ADV)</option>
+                                                <option value="PROPN">คำนามชี้เฉพาะหรือวิสามานยนาม(PROPN)</option>
+                                                <option value="X">อื่นๆ(X)</option>
+                                              </select>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+
+                              <div class="col-md-6 col-sm-12">
+                                  <table id="table_addwordNewword">
+                                      <tr id="table_addwordNewword">
+                                          <th id="table_addwordNewword"></th>
+                                          <th style="float: left">ภาษาม้ง</th>
+                                      </tr>
+                                      <tr id="table_addwordNewword">
+                                          <td id="table_addwordNewword">คำศัพท์</td>
+                                          <td id="table_addwordNewword">
+                                              <input type="text" class="form-control form-control" style="float: left" id="input_hmongWord">
+                                          </td>
+                                      </tr>
+
+                                  </table>
+                              </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="saveNewword">บันทึก</button>
+                        <button type="button" class="btn btn-primary" id="clearwordadd">ล้าง</button>
+                        <button type="button" id="close_modal" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+
+                      </div>
+                    </div>
+               </div>
+            </div>
+             <!-- modal delete rows newword-->
+            <div id="deleteRow_mewword" class="modal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">ยืนยันการลบ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>ยืนยันการลบ.</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="savewordadd">ยืนยัน</button>
+                      <button type="button" id="close_modal" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+{%endblock%}
+
+{% block custom_js %}
+    <script src="{{url_for('static',filename='js/test.js')}}"></script>
+{% endblock %}

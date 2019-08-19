@@ -1,0 +1,21 @@
+
+{% extends "index.html" %}
+
+{%block title %}login{%endblock%}
+
+{%block body%}
+    <form action="/checkLogin" method="post" id="formLogin" >
+        <div align="center">
+            <p><a style="color: red">*</a>ชื่อผู้ใช้</p>
+            <input class="form-control" placeholder="กรุณาป้อนชื่อผู้ใช้" name="username" id="username_login"
+            style="width: 30%;">
+
+            <p ><a style="color: red">*</a>รหัสผ่าน</p>
+            <input class="form-control" type="password" id="password_login" name="password" placeholder="กรุณาป้อนรหัสผ่าน"
+            style="width: 30%;">
+            <br>
+            <button class="btn btn-primary" id ="submitLogin">เข้าสู่ระบบ</button>
+        </div>
+    </form>
+
+{%endblock%}
