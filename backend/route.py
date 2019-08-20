@@ -12,7 +12,6 @@ app.config['SECRET_KEY']='40PdS98eZy2mz5hqGIXIOg'
 def fortest ():
     return render_template('public/fortest.html')
 
-
 # public route
 @app.route("/")
 def Hompage ():

@@ -9,7 +9,8 @@
     <!--for css file-->
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 
-    <!--for semantic cdn-->
+    <!--for semantic-->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules/semantic-ui/dist/semantic.min.css')}}">
 
     <!--include boostrap-->
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
@@ -21,39 +22,39 @@
 </head>
 
 <body>
-{#        <div class="row">#}
-{#            <div class="navbar">#}
-{#                <div class="col-6">#}
-{#                    <a id="wordBar"><i class="bars icon" onclick="menubar()"></i></a>#}
-{#                    <a id="wordBar" href="/" style="margin-left: 10px"><h3>แปลภาษาไทย-ม้งอัตโนมัติ</h3></a>#}
-{#                    {% if 'USERNAME' in session %}#}
-{#                    {% if send[2]==0%}#}
-{#                        <br>#}
-{#                        <a href="/admin" style="float: left"><h3>Addmin page</h3></a>#}
-{#                    {% endif %}#}
-{#                    {% endif %}#}
-{#                </div>#}
-{#                <div class="col-6" >#}
-{#                    <div style="float: right">#}
-{#                    {% if 'USERNAME' in session %}#}
-{#                        <div>#}
-{#                            <span> สวัสดี คุณ {{send[0]}}<a href="/logout">ลงชื่อออก</a></span>#}
-{#                        </div>#}
-{#                    {% else %}#}
-{#                        <span><a href="/login">ลงชื่อเข้าใช้</a></span>#}
-{#                    {% endif %}#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#        <!--    ************ show menu bar  ******************-->#}
-{#        <div id="mySidenav" class="sidenav">#}
-{#            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>#}
-{#            <a href="/">โปรแกรมแปลภาษาไทย-ม้งอัตโนมัติ</a>#}
-{#            <a href="/about">เกี่ยวกับ Thai-Hmong tranlator</a>#}
-{#            <a href="/help">ความช่วยเหลือ</a>#}
-{##}
-{#        </div>#}
+<!--{#        <div class="row">#}-->
+<!--{#            <div class="navbar">#}-->
+<!--{#                <div class="col-6">#}-->
+<!--{#                    <a id="wordBar"><i class="bars icon" onclick="menubar()"></i></a>#}-->
+<!--{#                    <a id="wordBar" href="/" style="margin-left: 10px"><h3>แปลภาษาไทย-ม้งอัตโนมัติ</h3></a>#}-->
+<!--{#                    {% if 'USERNAME' in session %}#}-->
+<!--{#                    {% if send[2]==0%}#}-->
+<!--{#                        <br>#}-->
+<!--{#                        <a href="/admin" style="float: left"><h3>Addmin page</h3></a>#}-->
+<!--{#                    {% endif %}#}-->
+<!--{#                    {% endif %}#}-->
+<!--{#                </div>#}-->
+<!--{#                <div class="col-6" >#}-->
+<!--{#                    <div style="float: right">#}-->
+<!--{#                    {% if 'USERNAME' in session %}#}-->
+<!--{#                        <div>#}-->
+<!--{#                            <span> สวัสดี คุณ {{send[0]}}<a href="/logout">ลงชื่อออก</a></span>#}-->
+<!--{#                        </div>#}-->
+<!--{#                    {% else %}#}-->
+<!--{#                        <span><a href="/login">ลงชื่อเข้าใช้</a></span>#}-->
+<!--{#                    {% endif %}#}-->
+<!--{#                    </div>#}-->
+<!--{#                </div>#}-->
+<!--{#            </div>#}-->
+<!--{#        </div>#}-->
+<!--{#        &lt;!&ndash;    ************ show menu bar  ******************&ndash;&gt;#}-->
+<!--{#        <div id="mySidenav" class="sidenav">#}-->
+<!--{#            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>#}-->
+<!--{#            <a href="/">โปรแกรมแปลภาษาไทย-ม้งอัตโนมัติ</a>#}-->
+<!--{#            <a href="/about">เกี่ยวกับ Thai-Hmong tranlator</a>#}-->
+<!--{#            <a href="/help">ความช่วยเหลือ</a>#}-->
+<!--{##}-->
+<!--{#        </div>#}-->
 
 
 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -91,14 +92,8 @@
         {% endif %}
       </li>
     </ul>
-
   </div>
 </nav>
-
-
-
-
-
 
 
         <div class="container">
@@ -129,11 +124,16 @@
 <!--include js semantic ui-->
 {#<script src="{{url_for('static',filename='css/Semantic-UI-CSS-master/semantic.min.js')}}"></script>#}
 
+<!--include autosize-->
+<script src="{{url_for('static',filename='node_modules/autosize/dist/autosize.min.js')}}"></script>
+
+<!--include semantic-->
+<script src="{{url_for('static',filename='node_modules/semantic-ui/dist/semantic.min.js')}}"></script>
+
 
 {% block custom_js %}
 <!--custom js-->
     <script src="{{url_for('static',filename='js/script.js')}}"></script>
-
 {% endblock %}
 
 
