@@ -2,6 +2,7 @@ from flask import render_template,Flask, redirect, url_for, request,jsonify,sess
 from backend.Grammar import Grammar
 from backend.Database import Database
 import backend.Translate
+
 import json
 
 app = Flask(__name__)
