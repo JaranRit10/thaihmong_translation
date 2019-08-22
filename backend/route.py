@@ -1,5 +1,5 @@
 from flask import render_template,Flask, redirect, url_for, request,jsonify,session
-from back
+from backend.Grammar import Grammar
 from backend.Database import Database
 import backend.Translate
 
