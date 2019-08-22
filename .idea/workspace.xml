@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c242835f-a623-4f0f-a9d2-1cbabc4ab42d" name="Default Changelist" comment="update" />
+    <list default="true" id="c242835f-a623-4f0f-a9d2-1cbabc4ab42d" name="Default Changelist" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,15 +11,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/thaihmong_translation$route.coverage" NAME="route Coverage Results" MODIFIED="1566412019436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/thaihmong_translation$route.coverage" NAME="route Coverage Results" MODIFIED="1566444227090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/route.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="299">
+              <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#83#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,6 +109,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,7 +139,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,7 +207,8 @@
       <workItem from="1566298896938" duration="3373000" />
       <workItem from="1566370037486" duration="10378000" />
       <workItem from="1566404314198" duration="1207000" />
-      <workItem from="1566412010698" duration="673000" />
+      <workItem from="1566412010698" duration="937000" />
+      <workItem from="1566444040673" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1566223980825</created>
@@ -239,16 +245,24 @@
       <option name="project" value="LOCAL" />
       <updated>1566396993395</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update">
+      <created>1566412935591</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566412935601</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34775000" />
+    <option name="totallyTimeSpent" value="35824000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2080537" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21073826" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -307,8 +321,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/route.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="299">
+          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
