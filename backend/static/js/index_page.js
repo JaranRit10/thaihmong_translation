@@ -101,37 +101,32 @@ $(document).ready(function () {
         });
     }
 
-    var x =0
+    var x = 0
     $("#thaiword").keydown(function () {
-        var x;
-        i++
-        if(time==1){
+        x++;
+        if (x == 1) {
+            setTime = setTimeout(function () {
+                console.log("1")
+                tran()
+                x=0
+            }, 200);
+        }else {
+            console.log("clear")
+            clearTimeout(setTime)
+            setTime = setTimeout(function () {
+                console.log("1")
+                tran()
+                x=0
+            }, 200);
 
         }
-        else {
 
+        function tran() {
+            var word = $("#thaiword").val();
+            $("#show").html(word);
+            translate2();
         }
-        x = setTimeout(function () {
-            console.log("1")
-        }, 2000);
-
-        // setTimeout(a, 50)
-        //
-        // function a() {
-        //     var word = $("#thaiword").val();
-        //     $("#show").html(word);
-        //     translate2();
-        // }
     });
-
-    $("#start").click(function () {
-
-    })
-
-
-    $("#stop").click(function () {
-        clearTimeout(x);
-    })
 
 
     // from a NodeList
