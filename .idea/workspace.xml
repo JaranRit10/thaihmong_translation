@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c242835f-a623-4f0f-a9d2-1cbabc4ab42d" name="Default Changelist" comment="update" />
+    <list default="true" id="c242835f-a623-4f0f-a9d2-1cbabc4ab42d" name="Default Changelist" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dataset.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dataset.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Translate.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Translate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/addOneSmoothing.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/addOneSmoothing.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/route.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/static/js/index_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/static/js/index_page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/testfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/testfile.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,49 +20,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/thaihmong_translation$route.coverage" NAME="route Coverage Results" MODIFIED="1566464173890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/thaihmong_translation$prob.coverage" NAME="prob Coverage Results" MODIFIED="1566567010387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/thaihmong_translation$testfile.coverage" NAME="testfile Coverage Results" MODIFIED="1566487774949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/thaihmong_translation$Database.coverage" NAME="Database Coverage Results" MODIFIED="1566494047833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/thaihmong_translation$route.coverage" NAME="route Coverage Results" MODIFIED="1566567472058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/route.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/testfile.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2850">
-              <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/static/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+            <state relative-caret-position="160">
+              <caret line="153" column="29" lean-forward="true" selection-start-line="153" selection-start-column="29" selection-end-line="153" selection-end-column="29" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#0#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/Database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,19 +54,78 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/static/js/index_page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3225">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
+            <state relative-caret-position="132">
+              <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+              <folding>
+                <element signature="e#1478#1505#0" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="e#57#63#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="e#56#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/static/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2225">
+              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/static/js/test.js">
+        <entry file="file://$PROJECT_DIR$/backend/Dataset.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5875">
-              <caret line="235" column="10" selection-start-line="235" selection-start-column="10" selection-end-line="235" selection-end-column="10" />
+            <state relative-caret-position="275">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/prob.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/static/js/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/static/js/show_recommend.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/templates/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/templates/admin/index.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -82,6 +135,10 @@
       <find>thaiword</find>
       <find>roboto-regular</find>
       <find>db adman x</find>
+      <find>get</find>
+      <find>search</find>
+      <find>log</find>
+      <find>tran</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -90,11 +147,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/templates/index.html" />
-        <option value="$PROJECT_DIR$/backend/static/css/style.css" />
-        <option value="$PROJECT_DIR$/backend/static/js/index_page.js" />
+        <option value="$PROJECT_DIR$/backend/Translate.py" />
+        <option value="$PROJECT_DIR$/backend/testfile.py" />
         <option value="$PROJECT_DIR$/backend/templates/public/index.html" />
+        <option value="$PROJECT_DIR$/backend/templates/index.html" />
+        <option value="$PROJECT_DIR$/backend/Database.py" />
+        <option value="$PROJECT_DIR$/backend/Dataset.txt" />
+        <option value="$PROJECT_DIR$/backend/static/js/index_page.js" />
         <option value="$PROJECT_DIR$/backend/route.py" />
+        <option value="$PROJECT_DIR$/backend/static/css/style.css" />
       </list>
     </option>
   </component>
@@ -134,6 +195,19 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="thaihmong_translation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thaihmong_translation" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thaihmong_translation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thaihmong_translation" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -160,7 +234,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.route">
+    <configuration name="Database" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="thaihmong_translation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/Database.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="prob" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="thaihmong_translation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/prob.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="route" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="thaihmong_translation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -183,9 +301,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="testfile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="thaihmong_translation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/testfile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.route" />
+        <item itemvalue="Python.prob" />
+        <item itemvalue="Python.Database" />
+        <item itemvalue="Python.testfile" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +355,13 @@
       <workItem from="1566454984137" duration="29000" />
       <workItem from="1566456239166" duration="1716000" />
       <workItem from="1566463212783" duration="604000" />
-      <workItem from="1566475363297" duration="2053000" />
+      <workItem from="1566475363297" duration="3025000" />
+      <workItem from="1566481876865" duration="12728000" />
+      <workItem from="1566532505525" duration="646000" />
+      <workItem from="1566537203883" duration="637000" />
+      <workItem from="1566542134523" duration="622000" />
+      <workItem from="1566551167877" duration="4020000" />
+      <workItem from="1566566351434" duration="2823000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1566223980825</created>
@@ -260,7 +409,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41883000" />
+    <option name="totallyTimeSpent" value="64331000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -275,13 +424,13 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20469798" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18993288" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31586403" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31586403" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -325,34 +474,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/static/js/jquery.autosize.js" />
     <entry file="file://$PROJECT_DIR$/backend/static/semantic/gulpfile.js" />
-    <entry file="file://$PROJECT_DIR$/backend/templates/public/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="278" column="18" lean-forward="true" selection-start-line="278" selection-start-column="18" selection-end-line="278" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2850">
-          <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/static/js/index_page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3225">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/static/js/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5875">
@@ -360,25 +481,144 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/public/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7150">
+          <caret line="286" column="14" selection-start-line="286" selection-start-column="14" selection-end-line="286" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/testfile3.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/testfile2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Grammar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="49" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="10" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/addOneSmoothing.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/testfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Translate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#181#2211#0" />
+            <element signature="e#2327#3880#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/templates/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        <state relative-caret-position="82">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/route.py">
+    <entry file="file://$PROJECT_DIR$/backend/Dataset.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="275">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/testfile.py">
+    <entry file="file://$PROJECT_DIR$/backend/prob.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/route.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="153" column="29" lean-forward="true" selection-start-line="153" selection-start-column="29" selection-end-line="153" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/static/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/static/js/show_recommend.js">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/static/js/index_page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+          <folding>
+            <element signature="e#1478#1505#0" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="e#57#63#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="e#56#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2225">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

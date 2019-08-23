@@ -96,6 +96,7 @@ class Translate():
             print("in method traslateThaiHmong")
             return sendResult
 
+    continue_word =["ๆ"]
     def traslateThaiHmong(self,allSentence):
         usegrammar = Grammar()
         # getPlob = Translate()
@@ -112,6 +113,8 @@ class Translate():
                 newword =[]
                 for i in range(0, len(wordlist) - 1):
                     # print(wordlist[i][0],wordlist[i][1])
+                    if(wordlist[i][0] in self.continue_word):
+                        continue
                     if(wordlist[i][1]=="NUM"):
                         try:
                             # สำหรับแปลตัวเลข

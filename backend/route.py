@@ -129,9 +129,6 @@ def wellcomeRecommend():
         return redirect(url_for("Hompage"))
 
 
-
-
-
 # for translate in weppage
 @app.route("/transtate",methods=['POST'])
 def transtate ():
@@ -161,6 +158,22 @@ def transtate2 ():
         else:
             data = ""
     return jsonify(data)
+
+@app.route('/clickSearch',methods=['POST'])
+def clickSearch():
+    word = request.form['word']
+    word = str(word)
+    word = word.strip()
+    print(word)
+
+    if(word!=""):
+        data = Database()
+        result = data.clickSearch(word)
+        # print(result)
+        # print(word)
+    else:
+        result=""
+    return jsonify({'getData':result})
 
 # from run *****************************
 @app.route('/Showsentence')
@@ -209,12 +222,12 @@ def searchword():
     word = request.form['word']
     word = str(word)
     word = word.strip()
-    print(word)
+    # print(word)
     if(word!=""):
         data = Database()
         result = data.searchword(word)
-        print(result)
-        print(word)
+        # print(result)
+        # print(word)
     else:
         print("word null")
         result=""

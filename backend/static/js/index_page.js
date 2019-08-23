@@ -22,15 +22,42 @@ $(document).ready(function () {
         var txt = '';
         if (window.getSelection) {
             txt = window.getSelection().toString();
+            seachWord(txt)
         } else if (document.selection) {
             txt = document.selection.createRange().text;
         }
-        document.getElementById("wordselect").innerHTML = txt;
+        // document.getElementById("wordselect").innerHTML = txt;
     }
 
     $("#thaiword").click(function () {
         get_selection()
     })
+
+    function seachWord(txt) {
+        if (txt!=''){
+            $.ajax({
+			data : {
+			    word : txt
+            },
+			type : 'POST',
+			url : '/clickSearch',
+            dataType: "json",
+            success:(function(data) {
+                try {
+                    console.log(data.getData)
+                    var word = data.getData
+                    document.getElementById("wordselect").innerHTML = word
+                }
+                catch(err) {
+
+                }
+            }),
+            error:function (error) {
+                console.log(error)
+            }
+		});
+        }
+    }
 
 
 // for translate in weppage
@@ -80,13 +107,15 @@ $(document).ready(function () {
                 $("#result_translate").empty()
                 for (i = 0; i < data.length; i++) {
                     var result = ""
+                    console.log( data)
                     for (j = 0; j < data[i].length; j++) {
-                        console.log(data)
+                        console.log(typeof data[i])
+
                         if (data[i][j] > 1) {
-
                             result += '<span class="span_result_translate" style="float: left">' + data[i][0] + " &nbsp;" + '</span>'
+                            console.log("11")
                         } else {
-
+                            console.log("22")
                             result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
                         }
                     }
@@ -139,7 +168,7 @@ $(document).ready(function () {
     autosize($('textarea'));
 
     $("textarea").resize(function () {
-        console.log("11")
+
     });
 
 })

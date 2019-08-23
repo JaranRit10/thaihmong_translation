@@ -187,7 +187,6 @@ class Database() :
                     INSERT INTO `recommend`
                     (`Admin_id`,`Thaihmongword_word_id`, `Recommend_id`,`Datetime`,`Management_type`,`Managed_words`) 
                     VALUES (%s,%s,%s,%s,%s,%s)
-                
             """
             time = datetime.datetime.now()
             value_insert = ()
@@ -198,7 +197,20 @@ class Database() :
         except Exception as e:
             print(e)
 
-
+    def clickSearch(self,word):
+        try:
+            mycursor = self.mydb.cursor()
+            word = str(word)
+            word = word.strip()
+            sql = "SELECT Thai_word,Hmong_word,Word_class FROM thaihmongword WHERE Thai_word = %s LIMIT 10"
+            adr = (word,)
+            mycursor.execute(sql, adr)
+            myresult = mycursor.fetchall()
+            return myresult
+        except Exception as e:
+            print(e)
+            print("Eror in method searchword")
+            return ""
 
 
 # for admin
@@ -209,7 +221,7 @@ class Database() :
             word = word.strip()
             lang = detect(word)
             if (lang == 'th'):
-                print(type(lang))
+                # print(type(lang))
                 sql = "SELECT * FROM thaihmongword WHERE Thai_word like %s LIMIT 101"
             else:
                 sql = "SELECT * FROM thaihmongword WHERE Hmong_word like %s LIMIT 101"
@@ -221,6 +233,7 @@ class Database() :
         except Exception as e:
             print(e)
             print("Eror in method searchword")
+
 
     def insert_time_management(self,Admin_id,Thaihmongword_word_id,Recommend_id,Management_type,Managed_words):
 
@@ -331,5 +344,5 @@ if __name__ == '__main__':
     # a = dd.getRecommend()
     #     # for j in a:
     #     #     print(j)
-    a = dd.insertNewword_toNewword(1,"tt","test")
+    a = dd.clickSearch("ไป")
     print(a)
