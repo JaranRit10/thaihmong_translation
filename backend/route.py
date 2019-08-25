@@ -1,6 +1,6 @@
 from flask import render_template,Flask, redirect, url_for, request,jsonify,session
 from backend import Grammar
-from backend.ก import Database
+from backend.Database import Database
 
 from backend import Translate
 
@@ -226,7 +226,7 @@ def searchword():
     # print(word)
     if(word!=""):
         data = Database()
-        result = data.searchword(word)
+        result = data.searchWord(word)
         # print(result)
         # print(word)
     else:
