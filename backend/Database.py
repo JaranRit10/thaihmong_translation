@@ -212,9 +212,7 @@ class Database() :
             print("Eror in method searchword")
             return ""
 
-
-# for admin
-    def searchword(self,word):
+    def searchWord(self,word):
         try:
             mycursor = self.mydb.cursor()
             word = str(word)
@@ -233,7 +231,6 @@ class Database() :
         except Exception as e:
             print(e)
             print("Eror in method searchword")
-
 
     def insert_time_management(self,Admin_id,Thaihmongword_word_id,Recommend_id,Management_type,Managed_words):
 

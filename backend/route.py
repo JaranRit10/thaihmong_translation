@@ -1,12 +1,13 @@
 from flask import render_template,Flask, redirect, url_for, request,jsonify,session
 from backend import Grammar
-from backend import Database
+from backend.ก import Database
+
 from backend import Translate
 
 import json
 
+
 app = Flask(__name__)
-sentaceHmong = Grammar()
 app.config['SECRET_KEY']='40PdS98eZy2mz5hqGIXIOg'
 
 @app.route("/tt")

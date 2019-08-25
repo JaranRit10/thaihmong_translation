@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c242835f-a623-4f0f-a9d2-1cbabc4ab42d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Translate.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Translate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/route.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/route.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/js/index_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/static/js/index_page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/js/show_recommend.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/static/js/show_recommend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/public/fortest.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/public/fortest.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,18 +16,51 @@
     <SUITE FILE_PATH="coverage/thaihmong_translation$prob.coverage" NAME="prob Coverage Results" MODIFIED="1566567010387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/thaihmong_translation$testfile.coverage" NAME="testfile Coverage Results" MODIFIED="1566487774949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/thaihmong_translation$Database.coverage" NAME="Database Coverage Results" MODIFIED="1566494047833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
-    <SUITE FILE_PATH="coverage/thaihmong_translation$route.coverage" NAME="route Coverage Results" MODIFIED="1566709892955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/thaihmong_translation$route.coverage" NAME="route Coverage Results" MODIFIED="1566723819668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/route.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            <state relative-caret-position="50">
+              <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/Database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="182" column="23" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
               <folding>
-                <element signature="e#0#83#0" expanded="true" />
+                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#319#1689#0" />
+                <element signature="e#1738#2552#0" />
+                <element signature="e#2590#2882#0" />
+                <element signature="e#2935#3625#0" />
+                <element signature="e#3661#3945#0" />
+                <element signature="e#3994#4597#0" />
+                <element signature="e#4675#5464#0" />
+                <element signature="e#5553#6296#0" />
+                <element signature="e#6348#6907#0" />
+                <element signature="e#6949#7421#0" />
+                <element signature="e#8261#8883#0" />
+                <element signature="e#8971#10335#0" />
+                <element signature="e#10438#11284#0" />
+                <element signature="e#11345#11489#0" />
+                <element signature="e#11549#12204#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/Dataset.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -51,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
+            <state relative-caret-position="1175">
               <caret line="47" column="77" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="77" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -100,6 +129,8 @@
       <find>translate2</find>
       <find>tran</find>
       <find>tt</find>
+      <find>sentaceHmong</find>
+      <find>Database</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,7 +141,6 @@
       <list>
         <option value="$PROJECT_DIR$/backend/testfile.py" />
         <option value="$PROJECT_DIR$/backend/templates/public/index.html" />
-        <option value="$PROJECT_DIR$/backend/Database.py" />
         <option value="$PROJECT_DIR$/backend/Dataset.txt" />
         <option value="$PROJECT_DIR$/backend/static/css/style.css" />
         <option value="$PROJECT_DIR$/backend/static/js/test.js" />
@@ -119,6 +149,7 @@
         <option value="$PROJECT_DIR$/backend/static/js/index_page.js" />
         <option value="$PROJECT_DIR$/backend/templates/public/fortest.html" />
         <option value="$PROJECT_DIR$/backend/templates/index.html" />
+        <option value="$PROJECT_DIR$/backend/Database.py" />
         <option value="$PROJECT_DIR$/backend/route.py" />
       </list>
     </option>
@@ -134,7 +165,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,44 +183,11 @@
               <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="thaihmong_translation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="thaihmong_translation" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="thaihmong_translation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="thaihmong_translation" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="thaihmong_translation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="thaihmong_translation" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="thaihmong_translation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="thaihmong_translation" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="thaihmong_translation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="thaihmong_translation" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,7 +339,8 @@
       <workItem from="1566566351434" duration="9266000" />
       <workItem from="1566588374408" duration="2259000" />
       <workItem from="1566632893733" duration="8252000" />
-      <workItem from="1566709879746" duration="270000" />
+      <workItem from="1566709879746" duration="1523000" />
+      <workItem from="1566721437696" duration="2166000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1566223980825</created>
@@ -393,11 +391,18 @@
       <option name="project" value="LOCAL" />
       <updated>1566571505450</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update 25/8/2562 import modules">
+      <created>1566710389157</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1566710389157</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81555000" />
+    <option name="totallyTimeSpent" value="84974000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -410,14 +415,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23825504" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20067114" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34560907" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34560907" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -426,7 +430,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33144477" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.6373938" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -442,7 +446,8 @@
     <MESSAGE value="gitignore" />
     <MESSAGE value="update" />
     <MESSAGE value="update 23/8/2562 between present" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 23/8/2562 between present" />
+    <MESSAGE value="update 25/8/2562 import modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 25/8/2562 import modules" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -539,23 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/Database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/Dataset.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/addOneSmoothing.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -594,12 +582,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/flask/globals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="869">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/flask/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="209" column="23" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/templates/public/fortest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="109" selection-end-column="10" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1175">
+          <caret line="47" column="77" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="77" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -624,23 +636,42 @@
     <entry file="file://$PROJECT_DIR$/backend/templates/admin/viewComment.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/backend/Dataset.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="47" column="77" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="77" />
+        <state relative-caret-position="150">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="182" column="23" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#319#1689#0" />
+            <element signature="e#1738#2552#0" />
+            <element signature="e#2590#2882#0" />
+            <element signature="e#2935#3625#0" />
+            <element signature="e#3661#3945#0" />
+            <element signature="e#3994#4597#0" />
+            <element signature="e#4675#5464#0" />
+            <element signature="e#5553#6296#0" />
+            <element signature="e#6348#6907#0" />
+            <element signature="e#6949#7421#0" />
+            <element signature="e#8261#8883#0" />
+            <element signature="e#8971#10335#0" />
+            <element signature="e#10438#11284#0" />
+            <element signature="e#11345#11489#0" />
+            <element signature="e#11549#12204#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/route.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#83#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="50">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
