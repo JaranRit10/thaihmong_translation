@@ -105,19 +105,13 @@ $(document).ready(function () {
                 // console.log(data[0])
                 // console.log(data[1])
                 $("#result_translate").empty()
+                console.log(data)
                 for (i = 0; i < data.length; i++) {
                     var result = ""
-                    console.log( data)
-                    for (j = 0; j < data[i].length; j++) {
-                        console.log(typeof data[i])
 
-                        if (data[i][j] > 1) {
-                            result += '<span class="span_result_translate" style="float: left">' + data[i][0] + " &nbsp;" + '</span>'
-                            console.log("11")
-                        } else {
-                            console.log("22")
-                            result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
-                        }
+                    for (j = 0; j < data[i].length; j++) {
+                        console.log(typeof data[i][0])
+                        result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
                     }
                     $("#result_translate").append(result)
                     $("#result_translate").append("<br>")

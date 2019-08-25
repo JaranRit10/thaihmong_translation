@@ -126,8 +126,8 @@ $(document).ready(function () {
                             // console.log(data[i][2]+" "+data[i][3])
                             var tr = "<tr id=tr_checkWord_Recommend_"+data[i][0]+">"
                             tr += "<td>"+(i+1)+"</td>"
-                            tr += "<td id=thaiword_checkWord_newword_"+data[i][0]+">"+data[i][2]+"</td>"
-                            tr += "<td id=hmong_checkWord_newword_"+data[i][0]+">"+data[i][3]+"</td>"
+                            tr += "<td id=thaiword_checkWord_newword_"+data[i][0]+">"+data[i][1]+"</td>"
+                            tr += "<td id=hmong_checkWord_newword_"+data[i][0]+">"+data[i][2]+"</td>"
 
                             tr += "<td>"+"<button  class=\"btn btn-success btn-xs\" " +
                                 "id=\"button_checkWord_newword\" for='true' value='"+data[i][0]+"'>ถูก</button>"+"</td>"

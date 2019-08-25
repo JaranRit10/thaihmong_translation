@@ -1,7 +1,7 @@
 from flask import render_template,Flask, redirect, url_for, request,jsonify,session
-from backend.Grammar import Grammar
-from backend.Database import Database
-import backend.Translate
+from backend import Grammar
+from backend import Database
+from backend import Translate
 
 import json
 
@@ -137,7 +137,7 @@ def transtate ():
         check = str(text)
         check = check.strip()
         if(check!=""):
-            a = backend.Translate.Translate()
+            a = Translate.Translate()
             aa = a.traslateThaiHmong_0(text)
             data = str(aa)
             data = data.split("|\\")
@@ -153,7 +153,7 @@ def transtate2 ():
         check = str(text)
         check = check.strip()
         if(check!=""):
-            data = backend.Translate.Translate()
+            data = Translate.Translate()
             data = data.traslateThaiHmong(text)
         else:
             data = ""

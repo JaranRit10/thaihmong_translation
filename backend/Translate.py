@@ -104,6 +104,7 @@ class Translate():
         try:
             allSentence = str(allSentence)
             getSentence = allSentence.split("\n")
+
             s_sentence =[]
             for  sentence in getSentence :
                 wordlist = usegrammar.grammarHmong(sentence)
@@ -111,6 +112,7 @@ class Translate():
                 # loop check word in sentence
                 s_word = []
                 newword =[]
+
                 for i in range(0, len(wordlist) - 1):
                     # print(wordlist[i][0],wordlist[i][1])
                     if(wordlist[i][0] in self.continue_word):
@@ -147,6 +149,7 @@ class Translate():
                             # print("Error in sub method traslateThaiHmong")
                 # s_word = getPlob.bigramprob(s_word)
                 s_word = self.bigramprob(s_word)
+
                 s_sentence.append(s_word)
                 # print(newword)
 
