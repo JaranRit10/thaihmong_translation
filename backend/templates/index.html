@@ -19,6 +19,7 @@
 
     <!--custom css-->
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index_page.css')}}">
 
 
 </head>
@@ -32,14 +33,14 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand ml-lg-5" href="/"><h3>Thai-Hmong translator</h3></a>
+    <a class="navbar-brand ml-lg-5" href="/"><h2>Thai-Hmong translator</h2></a>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
 
             {% if 'USERNAME' in session %}
-            <a class="nav-item nav-link">สวัสดีคุณ {{send[0]}}</a>
+            <a class="nav-item nav-link">{{send[0]}}</a>
             <li class="nav-item dropdown">
                 <a class="nav-item nav-link dropdown-toggle"
                    id="navbarDropdown" data-toggle="dropdown"
@@ -48,6 +49,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     {% if send[2]==0%}
                     <a class="dropdown-item" href="/admin">admin page</a>
+                    <a class="dropdown-item" href="/">โปรไฟล์</a>
                     {% else %}
                     <a class="dropdown-item" href="/">โปรไฟล์</a>
                     {% endif %}
@@ -74,22 +76,31 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-header ">
+
+                <h3 class="modal-title" id="exampleModalLabel" style="margin: 0 auto;">เข้าสู่ระบบ</h3>
+                <div class="clearfix">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                </div>
+
             </div>
             <form action="/checkLogin" method="post" id="formLogin">
 
                 <div class="modal-body">
                     <div align="center">
-                        <p style="align:left"><a style="color: red">*</a>ชื่อผู้ใช้</p>
+                        <div class="row">
+                            <p style="float: left; margin-left: 5%;"><a style="color: red">*</a>ชื่อผู้ใช้</p>
+                        </div>
                         <input class="form-control" placeholder="กรุณาป้อนชื่อผู้ใช้" name="username"
                                id="username_login"
                                style="width: 80%;">
 
-                        <p><a style="color: red">*</a>รหัสผ่าน</p>
+                        <div class="row" style="margin-top: 10px">
+                            <p style="float: left; margin-left: 5%;"><a style="color: red">*</a>รหัสผ่าน</p>
+
+                        </div>
                         <input class="form-control" type="password" id="password_login" name="password"
                                placeholder="กรุณาป้อนรหัสผ่าน"
                                style="width: 80%;">
@@ -99,6 +110,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button class="btn btn-primary" id="submitLogin">เข้าสู่ระบบ</button>
+
                 </div>
             </form>
 

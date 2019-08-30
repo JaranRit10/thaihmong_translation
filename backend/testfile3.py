@@ -1,10 +1,17 @@
 
+import threading
+import time
 
+def sleeper(n,name):
+    print(f"{name} sleep 5 minut")
+    time.sleep(n)
+    print("wake up")
 
-word_managed = set()
+t = threading.Thread(target=sleeper,name='thread1',args=(5,"thread1"))
+t = threading.Thread(target=sleeper,name='thread1',args=(5,"thread1"))
 
-word_managed.add(4)
-word_managed.add(3)
-if(not 3 in word_managed):
-    print("OK")
-print(word_managed)
+t.start()
+t.join()
+
+print("\nhello")
+print("\nhello6")

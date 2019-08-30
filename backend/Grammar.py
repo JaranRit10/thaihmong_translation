@@ -10,7 +10,7 @@ class Grammar () :
         # print("แบบ 2 : " + str(tltk.nlp.pos_tag_wordlist(WordLst)))
         list = tltk.nlp.pos_tag_wordlist(WordLst)
 
-        # print(list)
+        print(list)
         # print(type(list))
 
         print("ผลลัพธ์เริ่มต้น : " + str(list))

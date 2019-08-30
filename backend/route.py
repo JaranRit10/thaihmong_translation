@@ -57,9 +57,9 @@ def help():
         return render_template('public/help.html',send = send)
     return render_template('public/help.html')
 
-@app.route('/login')
-def login():
-    return render_template('public/login.html')
+# @app.route('/login')
+# def login():
+#     return render_template('public/login.html')
 
 @app.route('/checkLogin',methods=['POST'])
 def checkLogin():
@@ -93,13 +93,11 @@ def checkLogin():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-
         send = [userName, userid,Privilege_user]
-
-        print("sesion :::"+str( send[0])+"**"+ str(send[1]))
+        # print("sesion :::"+str( send[0])+"**"+ str(send[1]))
         return render_template('public/index.html',send = send)
     else:
-        return render_template('public/login.html')
+        return redirect(url_for("Hompage"))
 
 @app.route('/getdata-user', methods=['POST'])
 def getdatauser():
