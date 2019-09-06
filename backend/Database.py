@@ -131,7 +131,6 @@ class Database() :
             print("Eror in method getNewword")
         return myresult
 
-
     def insertSentence_newword(self,Thai_sentence,Hmong_sentence):
         mycursor = self.mydb.cursor()
 
@@ -332,14 +331,57 @@ class Database() :
             connection.rollback()  # rollback if any exception occured
             print("Failed inserting record into python_users table {}".format(error))
 
+    def insertTranslated_sentence(self,time_translate,thai_sentence,hmong_sentence,frequency):
+        try:
+            connection = self.mydb
+            sql_insert_query = """ INSERT INTO `translated_sentence`
+                        (`time_translate`,`thai_sentence`, `hmong_sentence`,`frequency`) 
+                        VALUES (%s,%s,%s,%s)"""
 
+            time = datetime.datetime.now()
+            value_insert = (time, thai_sentence, hmong_sentence, frequency)
+            cursor = connection.cursor()
+            cursor.execute(sql_insert_query, value_insert)
+            connection.commit()
+        except Exception as e:
+            print(e)
+
+    def search_translated_sentence(self,thai_sentence):
+        try:
+            mycursor = self.mydb.cursor()
+            word = str(thai_sentence)
+            word = word.strip()
+            sql = """SELECT id_translated_sentence,time_translate
+                  thai_sentence,hmong_sentence,frequency 
+                  FROM translated_sentence 
+                  WHERE thai_sentence =%s """
+            adr = (word,)
+            mycursor.execute(sql, adr)
+            myresult = mycursor.fetchall()
+            return myresult
+        except Exception as e:
+            print(e)
+
+    def update_translated_sentence(self,id,frequency):
+        try:
+            connection = self.mydb
+            cursor = connection.cursor()
+            update_query = """ 
+            UPDATE translated_sentence 
+            SET frequency=%s 
+            where id_translated_sentence =%s """
+
+            frequency = int(frequency)+1
+            value_update = (frequency,id)
+            cursor.execute(update_query,value_update)
+            connection.commit()
+            print("update successfully")
+        except mysql.connector.Error as error:
+            connection.rollback()  # rollback if any exception occured
+            print("Failed inserting record into python_users table {}".format(error))
 
 if __name__ == '__main__':
-
+    import time
+    ss= time.time()
     dd = Database()
-    # aa = dd.insertNewword_addmin("test","test","test","1")
-    # a = dd.getRecommend()
-    #     # for j in a:
-    #     #     print(j)
-    a = dd.clickSearch("ไป")
-    print(a)
+    dd.update_translated_sentence(2,1)

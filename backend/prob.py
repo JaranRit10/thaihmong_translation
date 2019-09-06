@@ -120,6 +120,8 @@ class prob:
             return False,0
 
 if __name__ == '__main__':
+    import time
+    ss = time.time()
     b = prob()
-    aa = b.propbigram('<s>','peb')
-    print(aa)
+    aa = b.propbigram('peb','yog')
+    print(aa ,time.time()-ss)

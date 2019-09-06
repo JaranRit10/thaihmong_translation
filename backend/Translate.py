@@ -5,6 +5,7 @@ import json
 import time,timeit
 import multiprocessing as mp
 import time
+import ast
 
 class Translate():
 
@@ -104,8 +105,6 @@ class Translate():
             print("in method traslateThaiHmong")
             return sendResult
 
-    def sentence_tran(self):
-        global sentence_tran
 
     continue_word =["ๆ"]
     def traslateThaiHmong(self,allSentence):
@@ -116,9 +115,9 @@ class Translate():
             allSentence = str(allSentence)
             getSentence = allSentence.split("\n")
 
-
             s_sentence =[]
             for  sentence in getSentence :
+
                 wordlist = usegrammar.grammarHmong(sentence)
                 # print("wordlist :"+str(wordlist))
                 # loop check word in sentence
@@ -159,6 +158,7 @@ class Translate():
                         except Exception as e:
                             print(e)
                             # print("Error in sub method traslateThaiHmong")
+
                 # s_word = getPlob.bigramprob(s_word)
                 s_word = self.bigramprob(s_word)
 
