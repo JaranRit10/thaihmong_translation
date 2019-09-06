@@ -1,17 +1,22 @@
-
-import threading
+from multiprocessing import Pool
 import time
 
-def sleeper(n,name):
-    print(f"{name} sleep 5 minut")
-    time.sleep(n)
-    print("wake up")
 
-t = threading.Thread(target=sleeper,name='thread1',args=(5,"thread1"))
-t = threading.Thread(target=sleeper,name='thread1',args=(5,"thread1"))
+class C:
+    def f(self, name):
+        time.sleep(1)
+        return ('hello %s,' % name)
 
-t.start()
-t.join()
 
-print("\nhello")
-print("\nhello6")
+
+    def run(self,tt):
+        pool = Pool(processes=2)
+        a = pool.map(self.f, tt)
+        return a
+
+
+if __name__ == '__main__':
+    s = time.time()
+    c = C()
+    d= c.run(('frank', 'justin', 'osi', 'thomas'))
+    print(d ,time.time()-s)

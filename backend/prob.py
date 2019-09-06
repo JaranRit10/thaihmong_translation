@@ -78,34 +78,32 @@ class prob:
         return listOfProb, cStar
 
     def start(self):
-        fileName = 'Dataset.txt'
+        fileName = 'file/Dataset.txt'
         data = self.readFile(fileName)
         listOfBigrams, unigramCounts, bigramCounts = self.createBigram(data)
-        # print(listOfBigrams)
-        # print(unigramCounts)
-        # print(bigramCounts)
-        prob = self.calcBigramProb(listOfBigrams, unigramCounts, bigramCounts)
-        return  prob
+        print(listOfBigrams)
+        print(unigramCounts)
+        print(bigramCounts)
+        # prob = self.calcBigramProb(listOfBigrams, unigramCounts, bigramCounts)
+        # return  prob
 
     def start_add(self):
 
-        fileName = 'Dataset.txt'
+        fileName = 'file/Dataset.txt'
         data = self.readFile(fileName)
         listOfBigrams, unigramCounts, bigramCounts = self.createBigram(data)
         # print(listOfBigrams)
         # print(unigramCounts)
         # print(bigramCounts)
         prob = self.addOneSmothing(listOfBigrams, unigramCounts, bigramCounts)
-        f = open("addOneSmoothing.txt", "w")
+        f = open("file/addOneSmoothing.txt", "w")
         f.write(str(prob[0]))
         f.close()
         return  prob[0]
 
     def propbigram(self,w1,w2):
-
-        f = open("addOneSmoothing.txt", "r")
+        f = open("file/addOneSmoothing.txt", "r")
         prob = f.read()
-
         prob = ast.literal_eval(prob)
         w1 = str(w1)
         w2 = str(w2)
@@ -123,4 +121,5 @@ class prob:
 
 if __name__ == '__main__':
     b = prob()
-    b.start_add()
+    aa = b.propbigram('<s>','peb')
+    print(aa)

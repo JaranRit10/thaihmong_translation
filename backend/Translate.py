@@ -3,9 +3,12 @@ from backend.Grammar import Grammar
 from backend.prob import prob
 import json
 import time,timeit
+import multiprocessing as mp
+import time
 
 class Translate():
 
+    # __|font , center_f|center_b , back|__ หลักการคิดการคำนวณ bigram
     def bigramprob(self,word):
         print("used method bigramprob")
         def sort(e):
@@ -19,8 +22,10 @@ class Translate():
                         try:
                             splitFont = word[i-1].split()
                             split_last = splitFont[len(splitFont)-1]
-                            print(split_last)
-                            font = bigram.propbigram(split_last, word[i][j])
+                            center_f =  word[i][j].split()
+                            center_f = center_f[0]
+                            # print("--",split_last,"*",center_f)
+                            font = bigram.propbigram(split_last, center_f)
                             if (font[1] == 0):
                                 font = (False, 0.0001)
 
@@ -30,8 +35,11 @@ class Translate():
                         try:
                             splitBack = word[i+1].split()
                             split_first = splitBack[0]
+                            center_b = word[i][j].split()
+                            center_b = center_b[len(center_b)-1]
+
                             print(split_first)
-                            back = bigram.propbigram(word[i][j], split_first)
+                            back = bigram.propbigram(center_b, split_first)
                         except Exception as e:
                             print(e)
                             back = (False, 0.0001)
@@ -96,6 +104,9 @@ class Translate():
             print("in method traslateThaiHmong")
             return sendResult
 
+    def sentence_tran(self):
+        global sentence_tran
+
     continue_word =["ๆ"]
     def traslateThaiHmong(self,allSentence):
         usegrammar = Grammar()
@@ -104,6 +115,7 @@ class Translate():
         try:
             allSentence = str(allSentence)
             getSentence = allSentence.split("\n")
+
 
             s_sentence =[]
             for  sentence in getSentence :
@@ -173,26 +185,55 @@ class Translate():
             return s_sentence
 
 
+    def traslateThaiHmong_Thread(self,allSentence):
+        usegrammar = Grammar()
+        # getPlob = Translate()
+        data = backend.Database.Database()
+        pool = mp.Pool(processes=5)
+        try:
+            allSentence = str(allSentence)
+            getSentence = allSentence.split("\n")
+
+            s_sentence =[]
+            wordlist = []
+
+            # for sentence in getSentence :
+            #     wordlist.append(usegrammar.grammarHmong(sentence))
+            # print(wordlist)
+
+            pool = mp.Pool(processes=3)
+            wordlist = (pool.map(usegrammar.grammarHmong, getSentence))
+            print(wordlist)
+
+            return wordlist
+
+        except Exception as e:
+            print(e)
+            print("in method traslateThaiHmong")
+            return s_sentence
+
+
 if __name__ == '__main__' :
 
+    ss = time.time()
     tt = Translate()
-
-
-    i=0
-    use = []
-    sen = ["ปลาของเรา","บ้านของเราเป็นสีขาว","พ่อแม่เราไปทำงานในบ้านของเธอ"]
-    for i in range(0, len(sen)):
-        for i in range(0,len(sen)):
-            t = sen[i]
-            s = time.time()
-            ss = tt.traslateThaiHmong(t)
-            print(ss)
-            ts = time.time()
-            print("time :",ts-s)
-            use.append(ts-s)
-    print(use)
-    print("เวลาเฉลี่ย :",(sum(use)/len(use)))
-
-
+    aa = tt.traslateThaiHmong_Thread("เราไปทำงานที่ไหน\nพ่อแม่เราทำงาน")
+    print(time.time()- ss)
+    # i=0
+    # use = []
+    # sen = ["ไปด้วยกัน","กินข้าวกันยัง","เราเพื่อนกัน"]
+    # for i in range(0, len(sen)):
+    #     for i in range(0,len(sen)):
+    #         t = sen[i]
+    #         s = time.time()
+    #         ss = tt.traslateThaiHmong(t)
+    #         print(ss)
+    #         ts = time.time()
+    #         print("time :",ts-s)
+    #         use.append(ts-s)
+    # print(use)
+    # print("เวลาเฉลี่ย :",(sum(use)/len(use)))
+    #
+    #
 
 

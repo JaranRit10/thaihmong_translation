@@ -1,7 +1,11 @@
 import  tltk.nlp
+from multiprocessing import Pool
+import time
+
 class Grammar () :
 
     questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม']
+
     def grammarHmong(self,Text):
         global list
         Text = Text.strip()
@@ -45,9 +49,7 @@ class Grammar () :
                 self.sentence3()
                 check[3] = 0
         print("ผลลัพธ์สุดท้าย : "+str(list))
-
         return  list
-
 
     # แสดงความเป็นเจ้าของ
     def sentence1(self):
@@ -163,13 +165,25 @@ class Grammar () :
             except Exception as e:
                 print(e )
 
-
     def complete(self):
         print("ผลลัพธ์ : " + str(list))
 
-
 if __name__ == '__main__':
-            tran = Grammar()
-            word = "บ้านของใคร"
-            t = tran.grammarHmong(word)
-            print("return : "+str(t))
+
+
+        # tran = Grammar()
+        # ss = time.time()
+        # for i in range(4):
+        #     word = "เราไปไหน"
+        #     t = tran.grammarHmong(word)
+        #     print("return : "+str(t))
+        # print(time.time()-ss)
+
+
+
+        tran = Grammar()
+        ss = time.time()
+        word = ["เราไปไหน","เราไปไหน","เราไปไหน","เราไปไหน"]
+        t = tran.theadRun(word)
+        print("return : " + str(t))
+        print(time.time()-ss)

@@ -1,11 +1,10 @@
-import threading
+from backend.testfile3 import C
+import time
+class a:
+    pass
 
-def worker(number):
-    print("I am thread : "+str(number))
-
-thread_list = []
-
-for i in range(4):
-    thread = threading.Thread(target=worker,args=(i,))
-    thread_list.append(thread)
-    thread.start()
+if __name__ == '__main__':
+    tt = C()
+    s = time.time()
+    ss = tt.run(('frank', 'justin', 'osi', 'thomas'))
+    print(ss ,time.time()-s)
