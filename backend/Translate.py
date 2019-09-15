@@ -102,11 +102,12 @@ class Translate():
 
         except Exception as e:
             print(e)
-            print("in method traslateThaiHmong")
+            print("in method traslateThaiHmong_0")
             return sendResult
 
 
     continue_word =["ๆ"]
+    buffer_sentence = []
     def traslateThaiHmong(self,allSentence):
         usegrammar = Grammar()
         # getPlob = Translate()
@@ -217,7 +218,8 @@ if __name__ == '__main__' :
 
     ss = time.time()
     tt = Translate()
-    aa = tt.traslateThaiHmong_Thread("เราไปทำงานที่ไหน\nพ่อแม่เราทำงาน")
+    aa = tt.traslateThaiHmong_Thread("แพ้กูหรอ  คนนั้นกูเอง")
+    print(aa)
     print(time.time()- ss)
     # i=0
     # use = []

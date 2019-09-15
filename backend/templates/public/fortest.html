@@ -7,58 +7,36 @@
 
 <h3><span id="clock" style="float: right"></span></h3>
 <br>
-<br>
 
-<div class="card">
-    <div class="card-header">
-        <div class="row">
-            <div class="col-6">ภาษาไทย</div>
-            <div class="col-6">ภาษาม้ง</div>
 
-        </div>
+<button id="translate2" type="button" class="btn btn-primary">แปลไทย-ม้ง</button>
+<br><br>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12" id="side_thaiword">
+        <p>ภาษาไทย</p>
+        <textarea placeholder="กรุณาป้อนประโยค" class="textareathai"
+                  id="thaiword" autofocus></textarea>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-6 col-sm-12 ">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="side_thaiword">
-                            <textarea placeholder="กรุณาป้อนประโยค" class="textareathai"
-                                      id="thaiword" autofocus></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 ">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="side_result">
-                            <div id="result_translate">
-                                <span style="float: left">การแปล</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="col-md-6 col-sm-12" id="side_result">
+        <p>ภาษาม้ง</p>
+        <div id="result_translate">
+            <span style="float: left">การแปล</span>
         </div>
     </div>
 </div>
 
+<hr>
 
-<div class="row margin-top">
+<div class="row">
+    <div class="col-md-6 col-sm-0"></div>
     <div class="col-md-6 col-sm-12">
-        <div class="card">
-            <p>ตัวอย่างรูประโยค</p>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12">
-        <div class="card">
-            <p class="float-left">คำที่เลือก</p>
-            <span id="wordselect"></span>
-        </div>
+        <p>คำที่เลือก</p>
+        <span id="wordselect"></span>
     </div>
 </div>
-</div>
+
+
 
 
 {%endblock%}

@@ -6,12 +6,16 @@
     padding: 0;
 }
 
-.card {
-    border-radius: 1rem;
-
+.card-header {
+    background-color: white;
 }
 
-textarea{
+.card.tran {
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+textarea {
     resize: none;
     overflow: hidden;
     width: 100%;
@@ -23,21 +27,28 @@ textarea{
     background-color: #FFFFFF;
 }
 
-#result_translate{
-    background-color: #d2d6d5;
+#result_translate {
+    background-color: #f5f5f5;
 }
-.margin-top{
-    margin-top: 20px;
+
+.margin-top {
+    margin-top: 60px;
 }
 
 
-#thaiword{
+#thaiword {
     padding-left: 8px;
 
 }
 
-.span_result_translate:hover{
+.span_result_translate:hover {
     background-color: yellow;
     border-radius: 0.2rem;
     cursor: pointer;
+
+}
+
+.translateword{
+    text-align: left;
+    padding: 10px;
 }

@@ -46,7 +46,8 @@ $(document).ready(function () {
                 try {
                     console.log(data.getData)
                     var word = data.getData
-                    document.getElementById("wordselect").innerHTML = word
+                    var box = "<div><h4>คำแปลของ </h4>+word+</div>"
+                    document.getElementById("wordselect").innerHTML = box
                 }
                 catch(err) {
 
@@ -90,7 +91,7 @@ $(document).ready(function () {
     $('#translate2').click(function () {
         translate2()
     })
-
+    var result = ""
     function translate2() {
         $.ajax({
             data: {
@@ -107,7 +108,7 @@ $(document).ready(function () {
                 $("#result_translate").empty()
                 console.log(data)
                 for (i = 0; i < data.length; i++) {
-                    var result = ""
+                    result = ""
 
                     for (j = 0; j < data[i].length; j++) {
                         console.log(typeof data[i][0])
@@ -132,16 +133,24 @@ $(document).ready(function () {
                 console.log("1")
                 tran()
                 x=0
-            }, 200);
+            }, 100);
         }else {
-            console.log("clear")
+
             clearTimeout(setTime)
+            wait_tran()
             setTime = setTimeout(function () {
                 console.log("1")
                 tran()
                 x=0
-            }, 200);
+            }, 300);
 
+        }
+
+        function wait_tran(){
+            console.log("clear")
+            var ww = result + '<span class="span_result_translate" style="float: left">' + "..."+ '</span>'
+            $("#result_translate").empty()
+            $("#result_translate").append(ww)
         }
 
         function tran() {

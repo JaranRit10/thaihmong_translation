@@ -123,5 +123,4 @@ if __name__ == '__main__':
     import time
     ss = time.time()
     b = prob()
-    aa = b.propbigram('peb','yog')
-    print(aa ,time.time()-ss)
+    aa = b.start_add()

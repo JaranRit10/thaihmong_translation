@@ -262,9 +262,9 @@ class Database() :
 
             connection = self.mydb
             sql_insert_query = """ INSERT INTO `thaihmongword`
-                                  (`id_word`,`Thai_word`, `Hmong_word`,`Word_class`) 
-                                  VALUES (%s,%s,%s,%s)"""
-            value_insert = (id_word,Thai_word,Hmong_word,Word_class)
+                                  (`id_word`,`Thai_word`, `Hmong_word`,`Word_class`,`Adder`) 
+                                  VALUES (%s,%s,%s,%s,%s)"""
+            value_insert = (id_word,Thai_word,Hmong_word,Word_class,Addmin_id)
             cursor = connection.cursor()
             cursor.execute(sql_insert_query,value_insert)
             connection.commit()
@@ -295,8 +295,8 @@ class Database() :
             Managed_words = Managed_words[0][0]
 
             update_query = """ UPDATE thaihmongword SET Thai_word=%s, 
-                Hmong_word=%s,Word_class=%s where id_word =%s """
-            value_update = (Thai_word,Hmong_word,Word_class,id_word)
+                Hmong_word=%s,Word_class=%s,Adder=%s where id_word =%s """
+            value_update = (Thai_word,Hmong_word,Word_class,Addmin_id,id_word)
 
             cursor.execute(update_query,value_update)
             connection.commit()

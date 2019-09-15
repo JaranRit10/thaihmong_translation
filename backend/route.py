@@ -1,7 +1,7 @@
 from flask import render_template,Flask, redirect, url_for, request,jsonify,session
 from backend import Grammar
 from backend.Database import Database
-
+import time
 from backend import Translate
 
 import json
@@ -147,6 +147,7 @@ def transtate ():
 
 @app.route("/transtate2",methods=['POST'])
 def transtate2 ():
+    # time.sleep(5)
     if(request.method=='POST'):
         text = request.form['sentence']
         check = str(text)
