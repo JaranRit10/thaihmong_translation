@@ -34,29 +34,53 @@ $(document).ready(function () {
     })
 
     function seachWord(txt) {
-        if (txt!=''){
+        if (txt != '') {
             $.ajax({
-			data : {
-			    word : txt
-            },
-			type : 'POST',
-			url : '/clickSearch',
-            dataType: "json",
-            success:(function(data) {
-                try {
-                    console.log(data.getData)
-                    var word = data.getData
-                    var box = "<div><h4>คำแปลของ </h4>+word+</div>"
-                    document.getElementById("wordselect").innerHTML = box
-                }
-                catch(err) {
+                data: {
+                    word: txt
+                },
+                type: 'POST',
+                url: '/clickSearch',
+                dataType: "json",
+                success: (function (data) {
+                    try {
+                        var word = data.getData[0]
+                        var wordClass = data.getData[1]
+                        // console.log(word)
+                        // console.log(wordClass)
 
+
+                        var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
+                        box += '<table>'
+
+                        for (var i in wordClass) {
+                            box += '<tr class="clickTran_trf">'
+                            box += '<td>' + '<span class="clickTran_class">' + i + '</span></td>'
+                            box += '</tr>'
+                            box += '<tr class="clickTranclickTran_trs">'
+                            box += '<td><span class="clickTran_wordtran">' + word + '</span></td>'
+                            for (var j in wordClass[i]) {
+                                if(i>1){
+                                    box += '<span class="clickTran_comma">,</span> '
+                                }
+                                box += '<td><span class="clickTran_traned ">'+wordClass[i][j]+'</span>'
+
+                            }
+                            box += '</tr>'
+                        }
+
+                        box += '</table>'
+
+                        $('.translateword').empty()
+                        $('.translateword').append(box)
+                    } catch (err) {
+
+                    }
+                }),
+                error: function (error) {
+                    console.log(error)
                 }
-            }),
-            error:function (error) {
-                console.log(error)
-            }
-		});
+            });
         }
     }
 
@@ -92,6 +116,7 @@ $(document).ready(function () {
         translate2()
     })
     var result = ""
+
     function translate2() {
         $.ajax({
             data: {
@@ -106,12 +131,12 @@ $(document).ready(function () {
                 // console.log(data[0])
                 // console.log(data[1])
                 $("#result_translate").empty()
-                console.log(data)
+                // console.log(data)
                 for (i = 0; i < data.length; i++) {
                     result = ""
 
                     for (j = 0; j < data[i].length; j++) {
-                        console.log(typeof data[i][0])
+                        // console.log(typeof data[i][0])
                         result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
                     }
                     $("#result_translate").append(result)
@@ -130,25 +155,25 @@ $(document).ready(function () {
         x++;
         if (x == 1) {
             setTime = setTimeout(function () {
-                console.log("1")
+                // console.log("1")
                 tran()
-                x=0
+                x = 0
             }, 100);
-        }else {
+        } else {
 
             clearTimeout(setTime)
             wait_tran()
             setTime = setTimeout(function () {
-                console.log("1")
+                // console.log("1")
                 tran()
-                x=0
+                x = 0
             }, 300);
 
         }
 
-        function wait_tran(){
+        function wait_tran() {
             console.log("clear")
-            var ww = result + '<span class="span_result_translate" style="float: left">' + "..."+ '</span>'
+            var ww = result + '<span class="span_result_translate" style="float: left">' + "..." + '</span>'
             $("#result_translate").empty()
             $("#result_translate").append(ww)
         }
