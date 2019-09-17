@@ -5,12 +5,28 @@
 
 {%block body%}
 
- <!-- button select table -->
-        <div class="ui three item menu" style="height: 50px">
-          <a class="item" id="yourRecommend">คำที่คุณแนะนำ</a>
-          <a class="item" id="getRecommend">ประโยคแนะนำ</a>
-          <a class="item" id="getNewword">คำที่ระบบไม่มี</a>
-        </div>
+
+
+    <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px; width: 1150px; ">
+         <div class="card-header">
+             <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item" style="background-color: #4dd0e1">
+                      <a href="#" id="yourRecommend">คำที่คุณแนะนำ</a>
+                  </li>
+                  <li class="list-group-item" style="background-color: #4dd0e1">
+                      <a id="getRecommend">ประโยคแนะนำ</a>
+                  </li>
+                  <li class="list-group-item" style="background-color: #4dd0e1">
+                      <a id="getNewword" tabindex="-1" aria-disabled="true">คำที่ระบบไม่มี</a>
+                  </li>
+            </ul>
+         </div>
+        <!-- button select table -->
+<!--        <div class="ui three item menu" style="height: 50px">-->
+<!--          <a class="item" id="yourRecommend">คำที่คุณแนะนำ</a>-->
+<!--          <a class="item" id="getRecommend">ประโยคแนะนำ</a>-->
+<!--          <a class="item" id="getNewword">คำที่ระบบไม่มี</a>-->
+<!--        </div>-->
 
         <div>
             <!-- select number rows of page -->
@@ -28,9 +44,9 @@
 
             <!-- table reccommend -->
             <div class="data_reccommend "> <!-- table-responsive  -->
-                <table id="tableRecommend" class="table-bordered table-hover " >
+                <table id="tableRecommend" class="table-bordered table-hover " width="100%" >
                 <!-- head table recommend-->
-                    <thead id="thead_getrecommend" style="background-color: #0d71bb">
+                    <thead id="thead_getrecommend" style="background-color: #4dd0e1">
                       <tr>
                           <th>id</th>
                           <th>ประโยคภาษาไทย</th>
@@ -279,6 +295,9 @@
             </div>
 
         </div>
+    </div>
+    <br><br>
+    <div> </div>
 
 {%endblock%}
 

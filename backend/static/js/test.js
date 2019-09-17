@@ -39,8 +39,8 @@ $(document).ready( function () {
                                 "<td class='contro_recommendRow'>" +
                                     "<button type='button' class='btn btn-success btn-xs' " +
                                     "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
-                                    " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button>" +
-
+                                    " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
+                                "<td class='contro_recommendRow'>" +
                                     "<button type='button' class='btn btn-success btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
                                     "id='delte_searchword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                             "</tr>"
