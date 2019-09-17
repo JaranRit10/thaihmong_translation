@@ -73,7 +73,7 @@ def checkLogin():
         return render_template('public/login.html')
     # for admin
     elif (get[0][1]==0):
-        session["USERNAME"] = get[0][5] + " " + get[0][6]
+        session["USERNAME"] = [get[0][5] , get[0][6]]
         session["USER_ID"] = get[0][0]
         session["Privilege_user"] = get[0][1]
 

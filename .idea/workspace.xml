@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c242835f-a623-4f0f-a9d2-1cbabc4ab42d" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -20,6 +21,9 @@
 =======
       <change beforePath="$PROJECT_DIR$/backend/testfile3.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/testfile3.py" afterDir="false" />
 >>>>>>> 3d8909754999d7e008db5b4960dbb03f33d0934d
+=======
+      <change beforePath="$PROJECT_DIR$/backend/testfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/testfile.py" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,17 +75,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/templates/public/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6975">
-              <caret line="285" column="53" selection-start-line="285" selection-start-column="49" selection-end-line="285" selection-end-column="53" />
+            <state relative-caret-position="150">
+              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/testfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/static/js/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="8" />
+            <state relative-caret-position="300">
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
               <folding>
                 <element signature="e#441#2404#0" />
                 <element signature="n#style#0;n#button#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
@@ -179,7 +195,6 @@
       <list>
         <option value="$PROJECT_DIR$/backend/static/js/show_recommend.js" />
         <option value="$PROJECT_DIR$/backend/static/js/script.js" />
-        <option value="$PROJECT_DIR$/backend/testfile.py" />
         <option value="$PROJECT_DIR$/backend/Dataset.txt" />
         <option value="$PROJECT_DIR$/backend/testfile4.py" />
         <option value="$PROJECT_DIR$/backend/file/translated.txt" />
@@ -200,10 +215,11 @@
         <option value="$PROJECT_DIR$/backend/testfile3.py" />
         <option value="$PROJECT_DIR$/backend/Translate.py" />
         <option value="$PROJECT_DIR$/backend/static/js/test.js" />
+        <option value="$PROJECT_DIR$/backend/testfile.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -512,8 +528,12 @@
       <workItem from="1568609419345" duration="21785000" />
       <workItem from="1568633899623" duration="1175000" />
       <workItem from="1568642406844" duration="2428000" />
+<<<<<<< Updated upstream
       <workItem from="1568687067492" duration="5587000" />
 >>>>>>> 3d8909754999d7e008db5b4960dbb03f33d0934d
+=======
+      <workItem from="1568687067492" duration="6153000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1566223980825</created>
@@ -598,7 +618,7 @@
 <<<<<<< HEAD
 =======
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275535000" />
+    <option name="totallyTimeSpent" value="276101000" />
   </component>
 >>>>>>> cc11137cc2a838615125c5c68ba99adb9e14f9ac
   <component name="TodoView">
@@ -613,15 +633,14 @@
 <<<<<<< HEAD
 =======
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1552" height="840" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1552" height="840" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15549597" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22520107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3700565" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3700565" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -630,7 +649,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.44617563" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.44491526" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -901,16 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/testfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/route.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -965,17 +974,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/public/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6975">
-          <caret line="285" column="53" selection-start-line="285" selection-start-column="49" selection-end-line="285" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/static/js/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="8" />
+        <state relative-caret-position="300">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
             <element signature="e#441#2404#0" />
             <element signature="n#style#0;n#button#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
@@ -987,7 +989,27 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
 >>>>>>> cc11137cc2a838615125c5c68ba99adb9e14f9ac
+=======
+    <entry file="file://$PROJECT_DIR$/backend/templates/public/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/testfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> Stashed changes
   </component>
   <component name="masterDetails">
     <states>
