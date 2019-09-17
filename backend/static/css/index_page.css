@@ -48,7 +48,51 @@ textarea {
 
 }
 
+
+/*click to trnslate*/
 .translateword{
     text-align: left;
-    padding: 10px;
+    margin: 15px;
+}
+
+.clickTran_word{
+    margin-top: 14px;
+    color: black;
+}
+
+.clickTran_first{
+    text-align: left;
+    font-size: 16px;
+    color:#777777;
+}
+
+.clickTran_class{
+    font-size: 14px;
+    color: blue;
+}
+.clickTran_traned{
+    color: #777777;
+    font-size: 14px;
+}
+.clickTran_traned:hover{
+    color:black;
+}
+
+span.clickTran_traned{
+    padding-left: 3px;
+}
+
+.clickTran_wordtran{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16px;
+    color:black;
+}
+.clickTran_comma{
+    color:#777777;
+}
+
+.clickTran_trs{
+    width: 10px;
+    height: 2px;
 }

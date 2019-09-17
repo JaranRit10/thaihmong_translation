@@ -208,6 +208,7 @@ def addword():
 def profile_user():
     return render_template('public/profile_user.html')
 
+# ==============================================================
 # admin route
 @app.route('/admin')
 def adminpage():

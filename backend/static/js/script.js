@@ -346,3 +346,154 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
+// ================== page profile ===========================================
+$(document).ready( function () {
+
+    $('#button_change_img').click(function () {
+            changeProfile()
+    })
+        $('#button_edit_img').click(function () {
+            removeImage()
+        })
+        $('#button_editProfile').click(function () {
+            $('#Edit_Profilename').show()
+        })
+
+    // $('#button_change_img').on('click', function () {
+    //     var readURL = function(input) {
+    //         if (input.files && input.files[0]) {
+    //             var reader = new FileReader();
+    //
+    //             reader.onload = function (e) {
+    //                 $('#imag').attr('src', e.target.result);
+    //             }
+    //
+    //             reader.readAsDataURL(input.files[0]);
+    //         }
+    //     }
+    //     $(".file-upload").on('change', function(){
+    //         readURL(this);
+    //     });
+    // })
+
+
+    function changeProfile() {
+        $('#image').click();
+    }
+    $('#image').change(function () {
+        var imgPath = this.value;
+        var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
+            readURL(this);
+        else
+            alert("Please select image file (jpg, jpeg, png).")
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.readAsDataURL(input.files[0]);
+            reader.onload = function (e) {
+                $('#img').attr('src', e.target.result);
+//              $("#remove").val(0);
+            };
+        }
+    }
+        function removeImage() {
+            $('#img').attr('src', 'http://ssl.gstatic.com/accounts/ui/avatar_2x.png');
+    //      $("#remove").val(1);
+        }
+// ==================================================================================
+//         $("#file-picker").change(function(){
+//
+//         var input = document.getElementById('file-picker');
+//
+//         for (var i=0; i<input.files.length; i++)
+//         {
+//         //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+//             var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+//
+//             if ((ext == 'jpg') || (ext == 'png'))
+//             {
+//                 $("#msg").text("Files are supported")
+//             }
+//             else
+//             {
+//                 $("#msg").text("Files are NOT supported")
+//                 document.getElementById("file-picker").value ="";
+//             }
+//
+//         }
+//
+//
+//     } );
+        // =====================================================================
+    /*
+    We need to register the required plugins to do image manipulation and previewing.
+    // */
+    // FilePond.registerPlugin(
+    //     // encodes the file as base64 data
+    //   FilePondPluginFileEncode,
+    //
+    //     // validates files based on input type
+    //   FilePondPluginFileValidateType,
+    //
+    //     // corrects mobile image orientation
+    //   FilePondPluginImageExifOrientation,
+    //
+    //     // previews the image
+    //   FilePondPluginImagePreview,
+    //
+    //     // crops the image to a certain aspect ratio
+    //   FilePondPluginImageCrop,
+    //
+    //     // resizes the image to fit a certain size
+    //   FilePondPluginImageResize,
+    //
+    //     // applies crop and resize information on the client
+    //   FilePondPluginImageTransform
+    // );
+    // // Select the file input and use create() to turn it into a pond
+    // // in this example we pass properties along with the create method
+    // // we could have also put these on the file input element itself
+    // FilePond.create(
+    //     document.querySelector('input'),
+    //     {
+    //         labelIdle: `Drag & Drop your picture or <span class="filepond--label-action">Browse</span>`,
+    //         imagePreviewHeight: 170,
+    //         imageCropAspectRatio: '1:1',
+    //         imageResizeTargetWidth: 200,
+    //         imageResizeTargetHeight: 200,
+    //         stylePanelLayout: 'compact circle',
+    //         styleLoadIndicatorPosition: 'center bottom',
+    //         styleButtonRemoveItemPosition: 'center bottom'
+    //     }
+    // );
+    // ==================================================================================
+
+    profile()
+    function profile() {
+            $.ajax({
+                type : 'POST',
+                url : '/profile',
+                success:(function(data) {
+                    // console.log(data.getData.length)
+                   $("tbody#tbody_profile").empty()
+                    for (x of data.getData) {
+                        $("tbody#tbody_profile").append(
+                            "<tr id='trprofile' >" +
+                                "<td class='firstnameRow' id='firstnameRow"+ x[0] +"'>" + x[1] + "</td>" +
+                                "<td class='lastnameRow' id='lastnameRow"+ x[0] +"'>" + x[2] + "</td>" +
+                                "<td class='emailRow' id='emailRow"+ x[0] +"'>" + x[3] + "</td>" +
+
+                            "</tr>"
+                        );
+                    }
+
+                 }),
+                error:function(error) {
+                    console.log(error)
+                }
+            });
+        }
+
+});
