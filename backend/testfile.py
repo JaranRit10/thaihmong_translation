@@ -24,8 +24,6 @@ for x in range(5):
 
 start = time.time()
 
-
-
 for worker in range(10):
     q.put(worker)
 q.join()
