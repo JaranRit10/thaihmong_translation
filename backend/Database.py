@@ -201,7 +201,7 @@ class Database():
         except Exception as e:
             print(e)
 
-    def clickS(self,word):
+    def clickS(self,word,word_class="*"):
         try:
             mycursor = self.mydb.cursor()
             word = str(word)
@@ -209,10 +209,10 @@ class Database():
             lang = detect(word)
             if (lang =='th'):
                 sql = "SELECT Word_class,Hmong_word FROM thaihmongword WHERE Thai_word = %s LIMIT 20"
+                adr = (word,)
             else:
-                sql = "SELECT Thai_word FROM thaihmongword WHERE Hmong_word = %s LIMIT 20"
-
-            adr = (word,)
+                sql = "SELECT Thai_word FROM thaihmongword WHERE Hmong_word = %s and Word_class =%s LIMIT 20"
+                adr = (word,word_class)
             mycursor.execute(sql, adr)
             get = mycursor.fetchall()
             return get
@@ -233,7 +233,7 @@ class Database():
                     # w = data[g_word[0]]
                     # w.append(g_word[1])
                     # data[g_word[0]] = w
-                    w_hmong = self.clickS(g_word[1])  # search hmong word
+                    w_hmong = self.clickS(g_word[1],g_word[0])  # search hmong word
                     set_w = {g_word[1]: w_hmong}  # create word to put in class name
                     data[g_word[0]].append(set_w)   # put to class name
 
@@ -241,7 +241,7 @@ class Database():
 
                 else:
                     word_class[g_word[0]] = 1 #create name in set format
-                    w_hmong = self.clickS(g_word[1]) # search hmong word
+                    w_hmong = self.clickS(g_word[1],g_word[0]) # search hmong word
                     set_w ={g_word[1]:w_hmong} # create word to put in class name
                     data[g_word[0]] = [set_w] # put to class name
 
@@ -433,4 +433,3 @@ if __name__ == '__main__':
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
     # print(hh)
 
-['ให้', {'VERB': [{'pub': [('ให้',)]}, {'muab': [('กอบโกย',), ('ควัก',), ('หยิบ',), ('ให้',)]}], 'SCONJ': [{'kom': [('ให้',)]}]}]
