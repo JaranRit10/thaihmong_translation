@@ -9,25 +9,24 @@
 
     <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px; width: 1150px; ">
          <div class="card-header">
-             <ul class="list-group list-group-horizontal">
-                  <li class="list-group-item" style="background-color: #4dd0e1">
-                      <a href="#" id="yourRecommend">คำที่คุณแนะนำ</a>
-                  </li>
-                  <li class="list-group-item" style="background-color: #4dd0e1">
-                      <a id="getRecommend">ประโยคแนะนำ</a>
-                  </li>
-                  <li class="list-group-item" style="background-color: #4dd0e1">
-                      <a id="getNewword" tabindex="-1" aria-disabled="true">คำที่ระบบไม่มี</a>
-                  </li>
-            </ul>
+             <div class="btn-group" style="height: 60px; float: left">
+              <button id="yourRecommend" type="button" class="btn btn-primary" ><h4>คำที่คุณแนะนำ</h4></button>
+              <button id="getRecommend" type="button" class="btn btn-primary" ><h4>ประโยคแนะนำ</h4></button>
+              <button id="getNewword" type="button" class="btn btn-primary" tabindex="-1" aria-disabled="true"><h4>คำที่ระบบไม่มี</h4></button>
+            </div>
+<!--             <ul class="list-group list-group-horizontal" style="height: 60px;">-->
+<!--                  <li class="list-group-item" style="background-color: #4dd0e1;  padding: 5px;">-->
+<!--                      <a href="#" id="yourRecommend">คำที่คุณแนะนำ</a>-->
+<!--                  </li>-->
+<!--                  <li class="list-group-item" style="background-color: #4dd0e1;  padding: 5px;">-->
+<!--                      <a href="#" id="getRecommend">ประโยคแนะนำ</a>-->
+<!--                  </li>-->
+<!--                  <li class="list-group-item" style="background-color: #4dd0e1;  padding: 5px; ">-->
+<!--                      <a href="#" id="getNewword" tabindex="-1" aria-disabled="true">คำที่ระบบไม่มี</a>-->
+<!--                  </li>-->
+<!--            </ul>-->
          </div>
-        <!-- button select table -->
-<!--        <div class="ui three item menu" style="height: 50px">-->
-<!--          <a class="item" id="yourRecommend">คำที่คุณแนะนำ</a>-->
-<!--          <a class="item" id="getRecommend">ประโยคแนะนำ</a>-->
-<!--          <a class="item" id="getNewword">คำที่ระบบไม่มี</a>-->
-<!--        </div>-->
-
+        <br>
         <div>
             <!-- select number rows of page -->
             <div class="form-group">

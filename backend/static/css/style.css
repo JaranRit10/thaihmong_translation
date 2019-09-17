@@ -267,3 +267,18 @@
     box-shadow: 0 0 0 1px #4dd0e1;
     width: 30%;
 }
+/*============== button hover ===================================*/
+.btn-primary {
+
+    color: #fff;
+    background: linear-gradient(to bottom, #FBBA26 10%, #fff542 100%);
+    /*background: #FBBA26;*/
+    border-color: #000000; /*set the color you want here*/
+}
+.btn-primary:hover {
+    -webkit-transform: scale(1.1);
+    /*background: #31708f;*/
+    color: #fff;
+    background: linear-gradient(to bottom, #fbb91d 8%, #fff542 100%);
+    border-color: #000000; /*set the color you want here*/
+}

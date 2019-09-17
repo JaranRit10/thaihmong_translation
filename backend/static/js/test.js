@@ -235,5 +235,11 @@ $(document).ready( function () {
              // $('input#input_hmongWord').val(hmongWord)
 
         })
+    
+    
 
 }); //end ready
+
+$(document).ready( function () {
+    
+});

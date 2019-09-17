@@ -5,101 +5,108 @@
 {%block body%}
 
 
-   <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px;">
-    <div id="user-profile-2" class="user-profile" >
-		<div class="tabbable">
-			<div class="tab-content no-border padding-24">
-				<div id="home" class="tab-pane in active">
-					<div class="row">
-						<div class="col-xs-12 col-sm-3 center">
-<!--							<span class="profile-picture">-->
-<!--								<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png">-->
-<!--							</span>-->
-							<!-- == image profile == -->
-                            <div class="text-center">
-<!--{#                                <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">#}-->
-                                    <img id="img" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail">
+<!--   <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px;">-->
+<!--    <div id="user-profile-2" class="user-profile" >-->
+<!--		<div class="tabbable">-->
+<!--			<div class="tab-content no-border padding-24">-->
+<!--				<div id="home" class="tab-pane in active">-->
+<!--					<div class="row">-->
+<!--						<div class="col-xs-12 col-sm-3 center">-->
+<!--&lt;!&ndash;							<span class="profile-picture">&ndash;&gt;-->
+<!--&lt;!&ndash;								<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png">&ndash;&gt;-->
+<!--&lt;!&ndash;							</span>&ndash;&gt;-->
+<!--							&lt;!&ndash; == image profile == &ndash;&gt;-->
+<!--                            <div class="text-center">-->
+<!--&lt;!&ndash;                                    {% img = "default_user" %}&ndash;&gt;-->
+<!--&lt;!&ndash;{#                                <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">#}&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <img id="imag" src="http://bootdey.com/img/Content/avatar/avatar6.png" class="avatar img-circle img-thumbnail">&ndash;&gt;-->
 
-                                    <br><br>
-<!--{#                                    <input id="file-picker" type="file" name="file" accept="image/*" multiple>#}-->
-<!--{#                                    <div id="msg"></div>#}-->
-<!--{#                                    <input type="submit" value="Upload!" id="upload-button">#}-->
+<!--                                    <br><br>-->
+<!--&lt;!&ndash;{#                                    <input id="file-picker" type="file" name="file" accept="image/*" multiple>#}&ndash;&gt;-->
+<!--&lt;!&ndash;{#                                    <div id="msg"></div>#}&ndash;&gt;-->
+<!--&lt;!&ndash;{#                                    <input type="submit" value="Upload!" id="upload-button">#}&ndash;&gt;-->
 
-                                    <input type="file" id="image" style="display: none;"/>
-<!--{#    								<input id="upload_image" type="file" class="text-center center-block file-upload">#}-->
-                                    <button id="button_change_img" type="button" class="btn btn-primary file-upload">เลือกรูป</button>
-                                    <button id="button_edit_img" type="button" class="btn btn-success">ลบรูป</button>
-<!--                                </form>-->
-							</div><br>
-						</div><!-- /.col -->
-						<div class="col-xs-12 col-sm-9 ">
-							<div style="text-align:left;">
-								<h3> Jaran Ritdetwong </h3>
-							</div>
-							<br><br>
-                            <div>
-                                <table class="table table-sm">
-                                      <tr>
-                                          <th scope="col">Firstname</th>
-                                          <td>John</td>
-                                      </tr>
-                                      <tr>
-                                            <th scope="col">Lastname</th>
-                                            <td>Doe</td>
-                                      </tr>
-                                      <tr>
-                                            <th scope="col">email</th>
-                                            <td>john@example.com</td>
-                                      </tr>
-                                    <tr>
-                                        <th> </th>
-                                        <td> </td>
-                                    </tr>
+<!--                                    <input type="file" id="image" style="display: none;"/>-->
+<!--&lt;!&ndash;{#    								<input id="upload_image" type="file" class="text-center center-block file-upload">#}&ndash;&gt;-->
+<!--                                    <button id="button_change_img" type="button" class="btn btn-primary file-upload">เลือกรูป</button>-->
+<!--                                    <button id="button_edit_img" type="button" class="btn btn-success">ลบรูป</button>-->
+<!--&lt;!&ndash;                                </form>&ndash;&gt;-->
+<!--							</div><br>-->
+<!--						</div>&lt;!&ndash; /.col &ndash;&gt;-->
+<!--						<div class="col-xs-12 col-sm-9 ">-->
+<!--							<div style="text-align:left;">-->
+<!--								<h3> Jaran Ritdetwong </h3>-->
+<!--							</div>-->
+<!--							<br><br>-->
+<!--                            <div>-->
+<!--                                <table class="table table-sm">-->
+<!--                                      <tr>-->
+<!--                                          <th scope="col">Firstname</th>-->
+<!--                                          <td>John</td>-->
+<!--                                      </tr>-->
+<!--                                      <tr>-->
+<!--                                            <th scope="col">Lastname</th>-->
+<!--                                            <td>Doe</td>-->
+<!--                                      </tr>-->
+<!--                                      <tr>-->
+<!--                                            <th scope="col">email</th>-->
+<!--                                            <td>john@example.com</td>-->
+<!--                                      </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th> </th>-->
+<!--                                        <td> </td>-->
+<!--                                    </tr>-->
 
-                                 <tbody id="tbody_profile">
+<!--                                 <tbody id="tbody_profile">-->
 
-                                 </tbody>
-                              </table>
-                            </div>
+<!--                                 </tbody>-->
+<!--                              </table>-->
+<!--                            </div>-->
 
-                            <button id="button_editProfile" type="button" class="btn btn-danger" style="float: right;">แก้ไข</button><br>
-						</div><!-- /.col -->
-					</div><!-- /.row -->
-					<div class="space-20"></div>
-				</div><!-- /#home -->
-			</div>
-		</div>
-	</div> <!-- /div profile -->
+<!--                            <button id="button_editProfile" type="button" class="btn btn-danger" style="float: right;">แก้ไข</button><br>-->
+<!--						</div>&lt;!&ndash; /.col &ndash;&gt;-->
+<!--					</div>&lt;!&ndash; /.row &ndash;&gt;-->
+<!--					<div class="space-20"></div>-->
+<!--				</div>&lt;!&ndash; /#home &ndash;&gt;-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div> &lt;!&ndash; /div profile &ndash;&gt;-->
 
-       <br>
+<!--       <br>-->
 
-    </div> <!-- /div card -->
+<!--    </div> &lt;!&ndash; /div card &ndash;&gt;-->
 
-    <div id="Edit_Profilename" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">แก้ไขข้อมูล</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <p>ยืนยันการแก้ไข.</p>
+<!--    <div id="Edit_Profilename" class="modal" tabindex="-1" role="dialog">-->
+<!--      <div class="modal-dialog modal-dialog-centered" role="document">-->
+<!--        <div class="modal-content">-->
+<!--          <div class="modal-header">-->
+<!--            <h5 class="modal-title">แก้ไขข้อมูล</h5>-->
+<!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                <span aria-hidden="true">&times;</span>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--          <div class="modal-body">-->
+<!--              <p>ยืนยันการแก้ไข.</p>-->
 
-          </div>
-          <div class="modal-footer">
-              <button type="button" id="save_editProfile" class="btn btn-primary">ยืนยัน</button>
-              <button type="button" id="close_editProfile" class="btn btn-danger" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
-          </div>
-        </div>
-      </div>
+<!--          </div>-->
+<!--          <div class="modal-footer">-->
+<!--              <button type="button" id="save_editProfile" class="btn btn-primary">ยืนยัน</button>-->
+<!--              <button type="button" id="close_editProfile" class="btn btn-danger" data-dismiss="modal" aria-label="Close">ยกเลิก</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <br>-->
+<!--    <button id="button_showrecomment" type="button" class="btn btn-primary btn-lg"><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>-->
+<!--    <br>-->
+    <br><br>
+    <div>
+        <h1>Hello world</h1>
     </div>
 
-    <br>
-    <button id="button_showrecomment" type="button" class="btn btn-primary btn-lg"><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
-    <br>
-    <br><br>
-    <div> </div>
+{% endblock %}
 
-{%endblock%}
+<!--{% block custom_js %}-->
+<!--    <script src="{{url_for('static',filename='js/script.js')}}"></script>-->
+<!--{% endblock %}-->

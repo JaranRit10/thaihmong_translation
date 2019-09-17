@@ -422,6 +422,22 @@ class Database():
             connection.rollback()  # rollback if any exception occured
             print("Failed inserting record into python_users table {}".format(error))
 
+        # ==============================================================
+        # profile data
+        def profile(self):
+            mycursor = self.mydb.cursor()
+            try:
+                sql = "SELECT Username,User_password,Email FROM user_ WHERE id_user=3"
+                mycursor.execute(sql)
+                myresult = mycursor.fetchall()
+
+            except Exception as e:
+                print(e)
+                print("Eror in method profile")
+            return myresult
+
+        # =======================================================
+
 
 if __name__ == '__main__':
     import time
