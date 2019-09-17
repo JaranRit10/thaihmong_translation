@@ -24,12 +24,14 @@ for x in range(5):
 
 start = time.time()
 
+
+
 for worker in range(10):
     q.put(worker)
 q.join()
 
 
 print("entire job took :",time.time()-start)
-
+print("run")
 
 

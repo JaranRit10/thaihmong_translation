@@ -110,6 +110,10 @@ class Database():
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
         except Exception as e:
+            sql = "SELECT * FROM newword"
+            mycursor.execute(sql)
+            myresult = mycursor.fetchall()
+
             print(e)
             print("Eror in method getNewword")
         return myresult
@@ -202,7 +206,12 @@ class Database():
             mycursor = self.mydb.cursor()
             word = str(word)
             word = word.strip()
-            sql = "SELECT Word_class,Hmong_word FROM thaihmongword WHERE Thai_word = %s LIMIT 10"
+            lang = detect(word)
+            if (lang =='th'):
+                sql = "SELECT Word_class,Hmong_word FROM thaihmongword WHERE Thai_word = %s LIMIT 20"
+            else:
+                sql = "SELECT Thai_word FROM thaihmongword WHERE Hmong_word = %s LIMIT 20"
+
             adr = (word,)
             mycursor.execute(sql, adr)
             get = mycursor.fetchall()
@@ -218,14 +227,25 @@ class Database():
             print(get)
             word_class = {}
             data = {}
+            word_Hmong = {}
             for g_word in get:
                 if (g_word[0] in word_class):
-                    w = data[g_word[0]]
-                    w.append(g_word[1])
-                    data[g_word[0]] = w
+                    # w = data[g_word[0]]
+                    # w.append(g_word[1])
+                    # data[g_word[0]] = w
+                    w_hmong = self.clickS(g_word[1])  # search hmong word
+                    set_w = {g_word[1]: w_hmong}  # create word to put in class name
+                    data[g_word[0]].append(set_w)   # put to class name
+
+                    pass
+
                 else:
-                    word_class[g_word[0]] = 1
-                    data[g_word[0]] = [g_word[1]]
+                    word_class[g_word[0]] = 1 #create name in set format
+                    w_hmong = self.clickS(g_word[1]) # search hmong word
+                    set_w ={g_word[1]:w_hmong} # create word to put in class name
+                    data[g_word[0]] = [set_w] # put to class name
+
+
             # print("data :", data)
             data =[word,data]
             return data
@@ -406,10 +426,11 @@ class Database():
 if __name__ == '__main__':
     import time
 
-    # ss = time.time()
-    # dd = Database()
-    # get = dd.clickSearch("ให้")
-    # print(get)
-    hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
-    print(hh)
+    ss = time.time()
+    dd = Database()
+    get = dd.clickSearch("ให้")
+    print(get)
+    # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
+    # print(hh)
 
+['ให้', {'VERB': [{'pub': [('ให้',)]}, {'muab': [('กอบโกย',), ('ควัก',), ('หยิบ',), ('ให้',)]}], 'SCONJ': [{'kom': [('ให้',)]}]}]

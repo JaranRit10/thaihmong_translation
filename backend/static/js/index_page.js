@@ -46,29 +46,41 @@ $(document).ready(function () {
                     try {
                         var word = data.getData[0]
                         var wordClass = data.getData[1]
-                        // console.log(word)
-                        // console.log(wordClass)
+                        console.log(word)
+                        console.log(wordClass)
 
 
                         var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
                         box += '<table>'
 
                         for (var i in wordClass) {
+                            // console.log(i)
+                            // console.log(wordClass[i])
+                            // console.log(wordClass[i][num])
                             box += '<tr class="clickTran_trf">'
-                            box += '<td>' + '<span class="clickTran_class">' + i + '</span></td>'
-                            box += '</tr>'
-                            box += '<tr class="clickTranclickTran_trs">'
-                            box += '<td><span class="clickTran_wordtran">' + word + '</span></td>'
-                            for (var j in wordClass[i]) {
-                                if(i>1){
-                                    box += '<span class="clickTran_comma">,</span> '
-                                }
-                                box += '<td><span class="clickTran_traned ">'+wordClass[i][j]+'</span>'
+                                + '<td>' + '<span class="clickTran_class">' + i + '</span></td>'
+                                + '</tr>'
+                            for (var word in wordClass[i] ){
+                                console.log(wordClass[i][word])
+                                for (var s_word in wordClass[i][word]) {
+                                    // word translated
+                                    console.log(s_word)
 
+                                    box += '<tr class="clickTranclickTran_trs">'
+                                        +  '<td><span class="clickTran_wordtran">' + s_word + '</span></td>'
+                                    for ( var s_wordSlated in wordClass[i][word][s_word]) {
+                                        console.log(s_wordSlated)
+                                        console.log(wordClass[i][word][s_word][s_wordSlated])
+
+                                        if(s_wordSlated>0){
+                                            box += '<span class="clickTran_comma">,</span> '
+                                        }
+                                        box += '<td><span class="clickTran_traned ">'+wordClass[i][word][s_word][s_wordSlated]+'</span>'
+                                    }
+                                }
                             }
                             box += '</tr>'
                         }
-
                         box += '</table>'
 
                         $('.translateword').empty()
@@ -167,7 +179,7 @@ $(document).ready(function () {
                 // console.log("1")
                 tran()
                 x = 0
-            }, 300);
+            }, 200);
 
         }
 

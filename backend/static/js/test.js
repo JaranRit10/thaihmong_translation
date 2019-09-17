@@ -10,6 +10,7 @@ $(document).ready( function () {
         });
 
         $('#getNewword').click(function () {
+            getNewword()
             $('.data_reccommend').hide()
             $('.data_newword').show()
         });
@@ -151,7 +152,7 @@ $(document).ready( function () {
             getRecommend()
         })
 
-        updateword_Recommend()
+        // updateword_Recommend()
         function updateword_Recommend(){
             $('button#saveword_editRecommend').click(function () {
                 editThai_recommend = $('input#input_thaisentence').val()
@@ -174,7 +175,7 @@ $(document).ready( function () {
 
 
         // funtion getNewword ===========================
-        getNewword()
+        // getNewword()
         // var length_rowNewword
         function getNewword() {
             $.ajax({

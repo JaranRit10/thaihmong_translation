@@ -107,62 +107,73 @@ class Translate():
 
 
     continue_word =["ๆ"]
-    buffer_sentence = []
+    buffer_sentence = {}
     def traslateThaiHmong(self,allSentence):
         usegrammar = Grammar()
         # getPlob = Translate()
         data = backend.Database.Database()
+        # for clear buffer
+        if (len(self.buffer_sentence)>500):
+            self.buffer_sentence.clear()
         try:
             allSentence = str(allSentence)
             getSentence = allSentence.split("\n")
 
             s_sentence =[]
             for  sentence in getSentence :
+                sentence = sentence.strip()
+                if sentence is None:
+                    print("sentence is null")
+                    continue
+                # for buffer sentence made the program not try again.
+                if(sentence  not in self.buffer_sentence):
+                    wordlist = usegrammar.grammarHmong(sentence)
+                    # print("wordlist :"+str(wordlist))
+                    # loop check word in sentence
+                    s_word = []
+                    newword =[]
+                    for i in range(0, len(wordlist) - 1):
+                        # print(wordlist[i][0],wordlist[i][1])
+                        if(wordlist[i][0] in self.continue_word):
+                            continue
+                        if(wordlist[i][1]=="NUM"):
+                            try:
+                                # สำหรับแปลตัวเลข
+                                number = int(wordlist[i][0])
+                                number = number+1
+                                get = [(0, wordlist[i][0], wordlist[i][0], 'NUM', 0, 0)]
+                            except:
+                                print("sentence have a number.")
+                                get = data.searchFortran(wordlist[i][0], wordlist[i][1])
+                        else:
+                            get = data.searchFortran(wordlist[i][0],wordlist[i][1])
+                        # print(len(get))
+                        # print(get)
+                        if(len(get)>1):
+                            w =[]
+                            for gett in get:
+                                w.append(gett[2])
+                            s_word.append(w)
+                        else:
+                            # print(get[0][2])
+                            g = get[0][2]
+                            s_word.append(str(g))
+                            try:
+                                if (get[0][0] == "None"):
+                                    newword.append(get[0])
 
-                wordlist = usegrammar.grammarHmong(sentence)
-                # print("wordlist :"+str(wordlist))
-                # loop check word in sentence
-                s_word = []
-                newword =[]
 
-                for i in range(0, len(wordlist) - 1):
-                    # print(wordlist[i][0],wordlist[i][1])
-                    if(wordlist[i][0] in self.continue_word):
-                        continue
-                    if(wordlist[i][1]=="NUM"):
-                        try:
-                            # สำหรับแปลตัวเลข
-                            number = int(wordlist[i][0])
-                            number = number+1
-                            get = [(0, wordlist[i][0], wordlist[i][0], 'NUM', 0, 0)]
-                        except:
-                            print("sentence have a number.")
-                            get = data.searchFortran(wordlist[i][0], wordlist[i][1])
-                    else:
-                        get = data.searchFortran(wordlist[i][0],wordlist[i][1])
-                    # print(len(get))
-                    # print(get)
-                    if(len(get)>1):
-                        w =[]
-                        for gett in get:
-                            w.append(gett[2])
-                        s_word.append(w)
-                    else:
-                        # print(get[0][2])
-                        g = get[0][2]
-                        s_word.append(str(g))
-                        try:
-                            if (get[0][0] == "None"):
-                                newword.append(get[0])
+                            except Exception as e:
+                                print(e)
+                                # print("Error in sub method traslateThaiHmong")
 
-
-                        except Exception as e:
-                            print(e)
-                            # print("Error in sub method traslateThaiHmong")
-
-                # s_word = getPlob.bigramprob(s_word)
-                s_word = self.bigramprob(s_word)
-
+                    # s_word = getPlob.bigramprob(s_word)
+                    s_word = self.bigramprob(s_word)
+                    self.buffer_sentence[sentence] = s_word
+                else:
+                    print("get in buffer")
+                    s_word = self.buffer_sentence[sentence]
+                print("s_word : ",s_word)
                 s_sentence.append(s_word)
                 # print(newword)
 
@@ -218,8 +229,10 @@ if __name__ == '__main__' :
 
     ss = time.time()
     tt = Translate()
-    aa = tt.traslateThaiHmong_Thread("แพ้กูหรอ  คนนั้นกูเอง")
-    print(aa)
+    while(1):
+        ww = input("input :")
+        aa = tt.traslateThaiHmong(ww)
+        print(aa)
     print(time.time()- ss)
     # i=0
     # use = []
