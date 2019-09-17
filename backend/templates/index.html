@@ -39,7 +39,11 @@
         <ul class="navbar-nav ml-auto">
 
             {% if 'USERNAME' in session %}
-            <a class="nav-item nav-link">{{send[0][0]}}</a>
+            <span class="nav-item nav-link">
+                <img  class="user_image" src="{{url_for('static',filename='img/user_/flask_icon.png')}}">
+                <span>{{send[0][0]}}</span>
+                
+            </span>
             <li class="nav-item dropdown">
                 <a class="nav-item nav-link dropdown-toggle"
                    id="navbarDropdown" data-toggle="dropdown"
