@@ -207,11 +207,25 @@ def addword():
 
 @app.route('/profile_user')
 def profile_user():
-    return render_template('public/profile_user.html')
+    if "USERNAME" in session and "USER_ID" in session:
+        userName = session["USERNAME"]
+        userid = session["USER_ID"]
+        Privilege_user = session["Privilege_user"]
+        send = [userName, userid, Privilege_user]
+        return render_template('public/profile_user.html', send=send)
+    else:
+        return render_template('public/index.html')
 
 @app.route('/profile')
 def profile():
-    return render_template('public/profile.html')
+    if "USERNAME" in session and "USER_ID" in session:
+        userName = session["USERNAME"]
+        userid = session["USER_ID"]
+        Privilege_user = session["Privilege_user"]
+        send = [userName, userid, Privilege_user]
+        return render_template('public/profile.html', send=send)
+    else:
+        return render_template('public/index.html')
 
 # ==============================================================
 # admin route

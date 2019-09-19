@@ -338,26 +338,24 @@ $(document).ready(function () {
 
 // จากรัน
 // ====== หน้าต่าง navbar ===================
-function menubar() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
+// function menubar() {
+//     document.getElementById("mySidenav").style.width = "250px";
+// }
+//
+// function closeNav() {
+//     document.getElementById("mySidenav").style.width = "0";
+// }
 
 // ================== page profile ===========================================
-// $(document).ready( function () {
-//
-//     $('#button_change_img').click(function () {
-//             changeProfile()
-//     })
-//         $('#button_edit_img').click(function () {
-//             removeImage()
-//         })
-//         $('#button_editProfile').click(function () {
-//             $('#Edit_Profilename').show()
-//         })
+$(document).ready( function () {
+
+    $('#button_change_img').click(function () {
+            changeProfile()
+    })
+    $('#button_edit_img').click(function () {
+        removeImage()
+    })
+
 
     // $('#button_change_img').on('click', function () {
     //     var readURL = function(input) {
@@ -377,31 +375,31 @@ function closeNav() {
     // })
 
 
-//     function changeProfile() {
-//         $('#image').click();
-//     }
-//     $('#image').change(function () {
-//         var imgPath = this.value;
-//         var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-//         if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
-//             readURL(this);
-//         else
-//             alert("Please select image file (jpg, jpeg, png).")
-//     });
-//     function readURL(input) {
-//         if (input.files && input.files[0]) {
-//             var reader = new FileReader();
-//             reader.readAsDataURL(input.files[0]);
-//             reader.onload = function (e) {
-//                 $('#imag').attr('src', e.target.result);
-// //              $("#remove").val(0);
-//             };
-//         }
-//     }
-//         function removeImage() {
-//             $('#imag').attr('src', );
-//     //      $("#remove").val(1);
-//         }
+    function changeProfile() {
+        $('#image').click();
+    }
+    $('#image').change(function () {
+        var imgPath = this.value;
+        var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
+            readURL(this);
+        else
+            alert("Please select image file (jpg, jpeg, png).")
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.readAsDataURL(input.files[0]);
+            reader.onload = function (e) {
+                $('#imag').attr('src', e.target.result);
+//              $("#remove").val(0);
+            };
+        }
+    }
+        function removeImage() {
+            // $('#imag').attr('src', filename='img/user_/default_user.png');
+         $("#imag").val(1);
+        }
 // ==================================================================================
 //         $("#file-picker").change(function(){
 //
@@ -496,4 +494,4 @@ function closeNav() {
     //         });
     //     }
 
-// });
+});

@@ -14,17 +14,7 @@
                   <button id="getRecommend" type="button" class="btn btn-primary" ><h4>ประโยคแนะนำ</h4></button>
                   <button id="getNewword" type="button" class="btn btn-primary" tabindex="-1" aria-disabled="true"><h4>คำที่ระบบไม่มี</h4></button>
              </div>
-<!--             <ul class="list-group list-group-horizontal" style="height: 60px;">-->
-<!--                  <li class="list-group-item" style="background-color: #4dd0e1;  padding: 5px;">-->
-<!--                      <a href="#" id="yourRecommend">คำที่คุณแนะนำ</a>-->
-<!--                  </li>-->
-<!--                  <li class="list-group-item" style="background-color: #4dd0e1;  padding: 5px;">-->
-<!--                      <a href="#" id="getRecommend">ประโยคแนะนำ</a>-->
-<!--                  </li>-->
-<!--                  <li class="list-group-item" style="background-color: #4dd0e1;  padding: 5px; ">-->
-<!--                      <a href="#" id="getNewword" tabindex="-1" aria-disabled="true">คำที่ระบบไม่มี</a>-->
-<!--                  </li>-->
-<!--            </ul>-->
+
          </div>
         <br>
         <div>
@@ -58,7 +48,7 @@
                 <!-- head table recommend-->
                     <thead id="thead_getrecommend" style="background-color: #4dd0e1">
                       <tr>
-                          <th>id</th>
+                          <th>ลำดับ</th>
                           <th>ประโยคภาษาไทย</th>
                           <th>ประโยคภาษาม้ง</th>
                           <th>เวลาส่ง</th>
@@ -95,15 +85,15 @@
                         <option value="all">แสดงทั้งหมด</option>
                     </select>
                 </div>
-                <table id="tableNewword" border="1" class="table table-hover"  width="100%" >
+                <table id="tableNewword" class="table-bordered table-hover"  style="box-shadow: 2px 1px 4px #999; width: 100%; " >
                 <!--  head table newword -->
-                    <thead id="thead_getnewword" style="background-color: #0d71bb">
+                    <thead id="thead_getnewword" style="background-color: #4dd0e1">
                       <tr>
-                        <th>id</th>
-                        <th>Sentence_id</th>
-                        <th>Use_update </th>
-                        <th>New_word</th>
-                        <th>Num_Recommennd </th>
+                        <th>ลำดับ</th>
+                        <th>ประโยคแนะนำ</th>
+                        <th>อัพเดท </th>
+                        <th>คำใหม่</th>
+                        <th>เลขเชื่อมประโยคแนะนำ </th>
                       </tr>
                     </thead>
                     <!-- body dynamic rows  newword-->

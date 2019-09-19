@@ -5,17 +5,20 @@ $(document).ready( function () {
 
 
         $('#getRecommend').click(function () {
+            getRecommend()
+            $("tbody#tbody_getnewword").empty()
             $('.data_reccommend').show()
             $('.data_newword').hide()
         });
 
         $('#getNewword').click(function () {
-            // getNewword()
+            getNewword()
             $('.data_reccommend').hide()
             $('.data_newword').show()
         });
 
-        getRecommend()
+        // getNewword()
+        // getRecommend()
         function getRecommend() {
             $.ajax({
                 type : 'POST',
@@ -172,7 +175,7 @@ $(document).ready( function () {
 
 
         // funtion getNewword ===========================
-        getNewword()
+        // getNewword()
         // var length_rowNewword
         function getNewword() {
             $.ajax({
@@ -233,82 +236,82 @@ $(document).ready( function () {
         })
 
     // pagination newword
-    //     var tableN = '#tableNewword';
-    //     function paginationNewword(length_rowNewword) {
-    //         // reset num button page
-    //         $('.pagination_Newword').html('')
-    //
-    //         var check_maxRows_newword = ($("#select_maxrow_newword").val())
-    //         // console.log("max-check :"+check_maxRows)
-    //         if(check_maxRows_newword =='all'){
-    //             maxRows_newword = length_rowNewword
-    //         }else {
-    //             maxRows_newword = check_maxRows_newword
-    //         }
-    //         var totalRows_newword = length_rowNewword
-    //
-    //         // console.log('length_rowNewword ='+length_rowNewword)
-    //         // console.log('totalRows ='+totalRows)
-    //
-    //         var trnum_newword = 0;
-    //         $(tableN+' tr:gt(0)').each(function () {
-    //             trnum_newword++
-    //             if(trnum_newword > maxRows_newword){
-    //                 $(this).hide()
-    //             }
-    //             if(trnum_newword <= maxRows_newword){
-    //                 $(this).show()
-    //             }
-    //         });
-    //
-    //         // create button to page
-    //         if (totalRows_newword > maxRows_newword){
-    //             var pagenum_newword = Math.ceil(totalRows_newword/maxRows_newword);
-    //             var lastPage_newword = 0
-    //             lastPage_newword = pagenum_newword
-    //             for(var i=1;i<=pagenum_newword;){
-    //                 $('.pagination_Newword').append('<button class="pageButton_newword" id="'+i+'">' +
-    //                     '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
-    //             }
-    //         }
-    //         // show rows pervios button
-    //         $('#startRow_Newword').text(1)
-    //         $('#endRow_Newword').text((maxRows_newword))
-    //         $('#totalRow_Newword').text(totalRows_newword)
-    //
-    //         // click select button
-    //         $('.pageButton_Newword:first-child').addClass('btn btn-danger');
-    //         $('.pageButton_newword').on('click',function () {
-    //             var pageNum_newword = this.id
-    //             // active button
-    //             $('.pageButton_newword').removeClass('btn btn-danger');
-    //             $(this).addClass('btn btn-danger');
-    //
-    //             // var row
-    //             var trIndex_newword = 0;
-    //             //loop show rows
-    //             $(tableN+' tr:gt(0)').each(function () {
-    //                 trIndex_newword++
-    //                 if(trIndex_newword > (maxRows_newword*pageNum_newword) || trIndex_newword <= (maxRows_newword*pageNum_newword)-maxRows_newword){
-    //                     $(this).hide()
-    //                 }else {
-    //                     $(this).show()
-    //                 }
-    //             })
-    //
-    //             $('#startRow_Newword').text(((maxRows_newword*pageNum_newword)-maxRows_newword)+1)
-    //
-    //             if (pageNum_newword == lastPage_newword){
-    //                 $('#endRow_Newword').text((totalRows_newword))
-    //             } else {
-    //                 $('#endRow_Newword').text((maxRows_newword*pageNum_newword))
-    //             }
-    //             $('#totalRow_Newword').text(totalRows_newword)
-    //         })
-    //
-    //     } // end funtion pagination
+        var tableN = '#tableNewword';
+        function paginationNewword(length_rowNewword) {
+            // reset num button page
+            $('.pagination_Newword').html('')
+
+            var check_maxRows_newword = ($("#select_maxrow_newword").val())
+            // console.log("max-check :"+check_maxRows)
+            if(check_maxRows_newword =='all'){
+                maxRows_newword = length_rowNewword
+            }else {
+                maxRows_newword = check_maxRows_newword
+            }
+            var totalRows_newword = length_rowNewword
+
+            // console.log('length_rowNewword ='+length_rowNewword)
+            // console.log('totalRows ='+totalRows)
+
+            var trnum_newword = 0;
+            $(tableN+' tr:gt(0)').each(function () {
+                trnum_newword++
+                if(trnum_newword > maxRows_newword){
+                    $(this).hide()
+                }
+                if(trnum_newword <= maxRows_newword){
+                    $(this).show()
+                }
+            });
+
+            // create button to page
+            if (totalRows_newword > maxRows_newword){
+                var pagenum_newword = Math.ceil(totalRows_newword/maxRows_newword);
+                var lastPage_newword = 0
+                lastPage_newword = pagenum_newword
+                for(var i=1;i<=pagenum_newword;){
+                    $('.pagination_Newword').append('<button class="pageButton_newword" id="'+i+'">' +
+                        '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
+                }
+            }
+            // show rows pervios button
+            $('#startRow_Newword').text(1)
+            $('#endRow_Newword').text((maxRows_newword))
+            $('#totalRow_Newword').text(totalRows_newword)
+
+            // click select button
+            $('.pageButton_Newword:first-child').addClass('paginationButton');
+            $('.pageButton_newword').on('click',function () {
+                var pageNum_newword = this.id
+                // active button
+                $('.pageButton_newword').removeClass('paginationButton');
+                $(this).addClass('paginationButton');
+
+                // var row
+                var trIndex_newword = 0;
+                //loop show rows
+                $(tableN+' tr:gt(0)').each(function () {
+                    trIndex_newword++
+                    if(trIndex_newword > (maxRows_newword*pageNum_newword) || trIndex_newword <= (maxRows_newword*pageNum_newword)-maxRows_newword){
+                        $(this).hide()
+                    }else {
+                        $(this).show()
+                    }
+                })
+
+                $('#startRow_Newword').text(((maxRows_newword*pageNum_newword)-maxRows_newword)+1)
+
+                if (pageNum_newword == lastPage_newword){
+                    $('#endRow_Newword').text((totalRows_newword))
+                } else {
+                    $('#endRow_Newword').text((maxRows_newword*pageNum_newword))
+                }
+                $('#totalRow_Newword').text(totalRows_newword)
+            })
+
+        } // end funtion pagination
         // click class select
-        $('#select_maxrow_Recommend').on('change',function() {
+        $('#select_maxrow_newword').on('change',function() {
                 getNewword()
         })
         // SideNav Initialization
