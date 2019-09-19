@@ -444,8 +444,9 @@ if __name__ == '__main__':
 
     ss = time.time()
     dd = Database()
-    get = dd.clickSearch("ให้")
-    print(get)
+    aa = dd.getRecommend()
+    # get = dd.clickSearch("ให้")
+    print(aa)
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
     # print(hh)
 

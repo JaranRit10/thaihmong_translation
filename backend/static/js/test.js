@@ -10,15 +10,12 @@ $(document).ready( function () {
         });
 
         $('#getNewword').click(function () {
-            getNewword()
+            // getNewword()
             $('.data_reccommend').hide()
             $('.data_newword').show()
         });
 
-
-
         getRecommend()
-
         function getRecommend() {
             $.ajax({
                 type : 'POST',
@@ -44,8 +41,8 @@ $(document).ready( function () {
                                     "<button type='button' class='btn btn-success btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
                                     "id='delte_searchword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                             "</tr>"
-
                         );
+                        "<br>"
 
                     }
                     paginationRecommend(data.getData.length)
@@ -73,7 +70,7 @@ $(document).ready( function () {
         })
 
         // pagination
-        var table = '#tableRecommend';
+        var tableR = '#tableRecommend';
         function paginationRecommend(length_rowRecommend) {
             // reset num button page
             $('.pagination_Recommend').html('')
@@ -91,7 +88,7 @@ $(document).ready( function () {
             // console.log('totalRows ='+totalRows)
 
             var trnum = 0;
-            $(table+' tr:gt(0)').each(function () {
+            $(tableR+' tr:gt(0)').each(function () {
                 trnum++
                 if(trnum > maxRows){
                     $(this).hide()
@@ -117,17 +114,17 @@ $(document).ready( function () {
             $('#totalRow_Recommend').text(totalRows)
 
             // click select button
-            $('.pageButton:first-child').addClass('btn btn-danger');
+            $('.pageButton:first-child').addClass('paginationButton');
             $('.pageButton').on('click',function () {
                 var pageNum = this.id
                 // active button
-                $('.pageButton').removeClass('btn btn-danger');
-                $(this).addClass('btn btn-danger');
+                $('.pageButton').removeClass('paginationButton');
+                $(this).addClass('paginationButton');
 
                 var row
                 var trIndex = 0;
                 //loop show rows
-                $(table+' tr:gt(0)').each(function () {
+                $(tableR+' tr:gt(0)').each(function () {
                     trIndex++
                     if(trIndex > (maxRows*pageNum) || trIndex <= (maxRows*pageNum)-maxRows){
                         $(this).hide()
@@ -175,7 +172,7 @@ $(document).ready( function () {
 
 
         // funtion getNewword ===========================
-        // getNewword()
+        getNewword()
         // var length_rowNewword
         function getNewword() {
             $.ajax({
@@ -197,12 +194,12 @@ $(document).ready( function () {
                                 "<td class='contro_newwordRow'>" +
                                     "<button type='button' class='btn btn-success btn-xs' " +
                                     "data-toggle='modal' data-target='#edit_newword' id='edit_tdNewword' " +
-                                    " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button>" +
+                                    " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
 
+                                "<td class='contro_newwordRow'>" +
                                     "<button type='button' class='btn btn-success btn-xs' data-toggle='modal' data-target='#deleteRow_mewword' " +
                                     "id='delete_newword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                             "</tr>"
-
                             );
                     }
                     var date = data.getData[0][1]
@@ -211,8 +208,7 @@ $(document).ready( function () {
                     var d = new Date(date);
                     console.log('new_d'+d)
 
-
-                    // paginationNewword(data.getData.length)
+                    paginationNewword(data.getData.length)
                 }),
                 error: function(error) {
                     console.log(error)
@@ -235,11 +231,93 @@ $(document).ready( function () {
              // $('input#input_hmongWord').val(hmongWord)
 
         })
-    
-    
+
+    // pagination newword
+    //     var tableN = '#tableNewword';
+    //     function paginationNewword(length_rowNewword) {
+    //         // reset num button page
+    //         $('.pagination_Newword').html('')
+    //
+    //         var check_maxRows_newword = ($("#select_maxrow_newword").val())
+    //         // console.log("max-check :"+check_maxRows)
+    //         if(check_maxRows_newword =='all'){
+    //             maxRows_newword = length_rowNewword
+    //         }else {
+    //             maxRows_newword = check_maxRows_newword
+    //         }
+    //         var totalRows_newword = length_rowNewword
+    //
+    //         // console.log('length_rowNewword ='+length_rowNewword)
+    //         // console.log('totalRows ='+totalRows)
+    //
+    //         var trnum_newword = 0;
+    //         $(tableN+' tr:gt(0)').each(function () {
+    //             trnum_newword++
+    //             if(trnum_newword > maxRows_newword){
+    //                 $(this).hide()
+    //             }
+    //             if(trnum_newword <= maxRows_newword){
+    //                 $(this).show()
+    //             }
+    //         });
+    //
+    //         // create button to page
+    //         if (totalRows_newword > maxRows_newword){
+    //             var pagenum_newword = Math.ceil(totalRows_newword/maxRows_newword);
+    //             var lastPage_newword = 0
+    //             lastPage_newword = pagenum_newword
+    //             for(var i=1;i<=pagenum_newword;){
+    //                 $('.pagination_Newword').append('<button class="pageButton_newword" id="'+i+'">' +
+    //                     '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
+    //             }
+    //         }
+    //         // show rows pervios button
+    //         $('#startRow_Newword').text(1)
+    //         $('#endRow_Newword').text((maxRows_newword))
+    //         $('#totalRow_Newword').text(totalRows_newword)
+    //
+    //         // click select button
+    //         $('.pageButton_Newword:first-child').addClass('btn btn-danger');
+    //         $('.pageButton_newword').on('click',function () {
+    //             var pageNum_newword = this.id
+    //             // active button
+    //             $('.pageButton_newword').removeClass('btn btn-danger');
+    //             $(this).addClass('btn btn-danger');
+    //
+    //             // var row
+    //             var trIndex_newword = 0;
+    //             //loop show rows
+    //             $(tableN+' tr:gt(0)').each(function () {
+    //                 trIndex_newword++
+    //                 if(trIndex_newword > (maxRows_newword*pageNum_newword) || trIndex_newword <= (maxRows_newword*pageNum_newword)-maxRows_newword){
+    //                     $(this).hide()
+    //                 }else {
+    //                     $(this).show()
+    //                 }
+    //             })
+    //
+    //             $('#startRow_Newword').text(((maxRows_newword*pageNum_newword)-maxRows_newword)+1)
+    //
+    //             if (pageNum_newword == lastPage_newword){
+    //                 $('#endRow_Newword').text((totalRows_newword))
+    //             } else {
+    //                 $('#endRow_Newword').text((maxRows_newword*pageNum_newword))
+    //             }
+    //             $('#totalRow_Newword').text(totalRows_newword)
+    //         })
+    //
+    //     } // end funtion pagination
+        // click class select
+        $('#select_maxrow_Recommend').on('change',function() {
+                getNewword()
+        })
+        // SideNav Initialization
+
+        // $(".button-collapse").sideNav();
+
 
 }); //end ready
 
 $(document).ready( function () {
-    
+
 });

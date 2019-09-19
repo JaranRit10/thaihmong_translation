@@ -175,7 +175,8 @@ def clickSearch():
         result=""
     return jsonify({'getData':result})
 
-# from run *****************************
+
+# from run ***************************************************************************
 @app.route('/Showsentence')
 def Showsentence():
     # data = Database()
@@ -208,11 +209,9 @@ def addword():
 def profile_user():
     return render_template('public/profile_user.html')
 
-@app.route('/profile',methods=['POST'])
+@app.route('/profile')
 def profile():
-    data = Database()
-    result = data.profile()
-    return jsonify({'getData':result})
+    return render_template('public/profile.html')
 
 # ==============================================================
 # admin route

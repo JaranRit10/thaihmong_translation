@@ -10,10 +10,10 @@
     <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px; width: 1150px; ">
          <div class="card-header">
              <div class="btn-group" style="height: 60px; float: left">
-              <button id="yourRecommend" type="button" class="btn btn-primary" ><h4>คำที่คุณแนะนำ</h4></button>
-              <button id="getRecommend" type="button" class="btn btn-primary" ><h4>ประโยคแนะนำ</h4></button>
-              <button id="getNewword" type="button" class="btn btn-primary" tabindex="-1" aria-disabled="true"><h4>คำที่ระบบไม่มี</h4></button>
-            </div>
+                  <button id="yourRecommend" type="button" class="btn btn-primary" ><h4>คำที่คุณแนะนำ</h4></button>
+                  <button id="getRecommend" type="button" class="btn btn-primary" ><h4>ประโยคแนะนำ</h4></button>
+                  <button id="getNewword" type="button" class="btn btn-primary" tabindex="-1" aria-disabled="true"><h4>คำที่ระบบไม่มี</h4></button>
+             </div>
 <!--             <ul class="list-group list-group-horizontal" style="height: 60px;">-->
 <!--                  <li class="list-group-item" style="background-color: #4dd0e1;  padding: 5px;">-->
 <!--                      <a href="#" id="yourRecommend">คำที่คุณแนะนำ</a>-->
@@ -29,21 +29,32 @@
         <br>
         <div>
             <!-- select number rows of page -->
-            <div class="form-group">
-                <select name="state" id="select_maxrow_Recommend" class="form-control" style="width: 150px;">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value="all">แสดงทั้งหมด</option>
-                </select>
-            </div>
+<!--            <div class="form-group">-->
+<!--                <select name="state" id="select_maxrow_Recommend" class="form-control" style="width: 150px;">-->
+<!--                    <option value="5">5</option>-->
+<!--                    <option value="10">10</option>-->
+<!--                    <option value="15">15</option>-->
+<!--                    <option value="20">20</option>-->
+<!--                    <option value="50">50</option>-->
+<!--                    <option value="100">100</option>-->
+<!--                    <option value="all">แสดงทั้งหมด</option>-->
+<!--                </select>-->
+<!--            </div>-->
 
             <!-- table reccommend -->
             <div class="data_reccommend "> <!-- table-responsive  -->
-                <table id="tableRecommend" class="table-bordered table-hover " width="100%" >
+                <div class="form-group">
+                    <select name="state" id="select_maxrow_Recommend" class="form-control" style="width: 150px;">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="all">แสดงทั้งหมด</option>
+                    </select>
+                </div>
+                <table id="tableRecommend" class="table-bordered table-hover " style="box-shadow: 2px 1px 4px #999; width: 100%; ">
                 <!-- head table recommend-->
                     <thead id="thead_getrecommend" style="background-color: #4dd0e1">
                       <tr>
@@ -58,7 +69,7 @@
                     <tbody id="tbody_getrecommend">
 
                     </tbody>
-
+                    <br>
                 </table>
 
                 <div style="font-size: 14px; float: left;">
@@ -70,9 +81,21 @@
                     </nav>
                 </div>
             </div> <!-- end div recommend -->
+<!--            =============================================================================================-->
             <!-- table newword -->
             <div class="data_newword">
-                <table  id="tableNewword" border="1" class="table table-hover"  width="100%" >
+                 <div class="form-group">
+                    <select name="state" id="select_maxrow_newword" class="form-control" style="width: 150px;">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="all">แสดงทั้งหมด</option>
+                    </select>
+                </div>
+                <table id="tableNewword" border="1" class="table table-hover"  width="100%" >
                 <!--  head table newword -->
                     <thead id="thead_getnewword" style="background-color: #0d71bb">
                       <tr>

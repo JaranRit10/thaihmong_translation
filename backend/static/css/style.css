@@ -309,3 +309,6 @@ tr.table_delete:hover {
     background: linear-gradient(to bottom, #fbb91d 8%, #fff542 100%);
     border-color: #000000; /*set the color you want here*/
 }
+.paginationButton{
+    background: #6200EE;
+}
