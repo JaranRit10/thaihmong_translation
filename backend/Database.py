@@ -74,7 +74,7 @@ class Database():
             print(e)
             print("Eror in method login")
         return myresult
-
+# ===========================================================
     def getRecommend(self):
         mycursor = self.mydb.cursor()
         try:
@@ -117,6 +117,8 @@ class Database():
             print(e)
             print("Eror in method getNewword")
         return myresult
+
+
 
     def getNewword_toAdd(self, userID):
         mycursor = self.mydb.cursor()
@@ -422,21 +424,21 @@ class Database():
             connection.rollback()  # rollback if any exception occured
             print("Failed inserting record into python_users table {}".format(error))
 
-        # ==============================================================
-        # profile data
-        def profile(self):
-            mycursor = self.mydb.cursor()
-            try:
-                sql = "SELECT Username,User_password,Email FROM user_ WHERE id_user=3"
-                mycursor.execute(sql)
-                myresult = mycursor.fetchall()
-
-            except Exception as e:
-                print(e)
-                print("Eror in method profile")
+    # ==============================================================
+    # profile data
+    def getprofile(self):
+        mycursor = self.mydb.cursor()
+        try:
+            sql = "SELECT * FROM user_ WHERE id_user=3"
+            mycursor.execute(sql)
+            myresult = mycursor.fetchall()
             return myresult
+        except Exception as e:
+            print(e)
+            print("Eror in method getProfile")
 
-        # =======================================================
+    # =======================================================
+
 
 
 if __name__ == '__main__':
@@ -444,7 +446,7 @@ if __name__ == '__main__':
 
     ss = time.time()
     dd = Database()
-    aa = dd.getRecommend()
+    aa = dd.getprofile()
     # get = dd.clickSearch("ให้")
     print(aa)
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]

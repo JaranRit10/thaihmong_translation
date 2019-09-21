@@ -227,6 +227,12 @@ def profile():
     else:
         return render_template('public/index.html')
 
+@app.route('/getprofile',methods=['POST'])
+def getprofile():
+    data = Database()
+    result = data.getprofile()
+    return jsonify({'getData':result})
+
 # ==============================================================
 # admin route
 @app.route('/admin')

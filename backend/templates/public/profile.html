@@ -13,40 +13,72 @@
                             <div class="col-xs-12 col-sm-3 center">
                                 <div class="text-center">
                                     <img id="imag" src="{{url_for('static',filename='img/user_/default_user.png')}}" class="avatar img-circle img-thumbnail">
-                                    <br><br>
-
                                     <input type="file" id="image" style="display: none;"/>
                                     <button id="button_change_img" type="button" class="btn btn-primary file-upload">เลือกรูป</button>
                                     <button id="button_edit_img" type="button" class="btn btn-success">ลบรูป</button>
+
+<!--                                    <div id="" class="image-previewer" data-cropzee=""></div>-->
+<!--                                    <canvas id="cropzee-hidden-canvas"></canvas>-->
+<!--                                    <div id="cropzee-modal" class="cropzee-modal">-->
+<!--                                          <div id="cropzee-close" class="cropzee-close">&times;</div>-->
+<!--                                          <div id="cropzee-modal-display-container" class="cropzee-modal-display-container">-->
+<!--                                            <div id="cropzee-modal-display" class="cropzee-modal-display"></div>-->
+<!--                                            <div id="cropzee-modal-cropper" class="cropzee-modal-cropper"></div>-->
+<!--                                            <div id="cropzee-modal-display2" class="cropzee-modal-display" style="clip: rect(46px, 205px, 205px, 46px);"></div>-->
+<!--                                            <div id="cropzee-cropper-outline" class="cropzee-cropper-outline" style="left:45px; top:45px; width: 160px; height: 160px;"></div>-->
+<!--                                          </div>-->
+<!--                                          <div class="cropzee-modal-buttons-container">-->
+<!--                                            <a id="cropzee-download-button" class="cropzee-modal-button" data-ripple="">-->
+<!--                                              <img class="cropzee-svg" src="assets/icons/feather/download.svg">-->
+<!--                                            </a>-->
+<!--                                            <a id="cropzee-rotate-button" class="cropzee-modal-button" data-ripple="">->-->
+<!--                                              <img class="cropzee-svg" src="assets/icons/feather/rotate-ccw.svg">-->
+<!--                                            </a>-->
+<!--                                            <a id="cropzee-crop-button" class="cropzee-modal-button" data-ripple="">-->
+<!--                                              <img class="cropzee-svg" src="assets/icons/feather/crop.svg">-->
+<!--                                            </a>-->
+<!--                                            <a id="cropzee-save-button" class="cropzee-modal-button" data-ripple="">-->
+<!--                                              <img class="cropzee-svg" src="assets/icons/feather/check-square.svg">-->
+<!--                                            </a>-->
+<!--                                          </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="cropzee-cropping-canvas-container">-->
+<!--                                      <canvas id="cropzee-cropping-canvas"></canvas>-->
+<!--                                    </div>-->
+
+                                    <br><br>
+
                                 </div><br>
                             </div><!-- col-xs-12 -->
                             <div class="col-xs-12 col-sm-9 ">
                                 <div style="text-align:left;">
-                                    <h3> Jaran Ritdetwong </h3>
+                                    <h3 id="headName"> </h3>
+                                    <h3 id="headLastname"> </h3>
                                 </div>
                                 <br><br>
                                 <div>
                                     <table class="table table-sm">
                                           <tr>
-                                              <th scope="col">Firstname</th>
-                                              <td>John</td>
+                                              <th scope="col">USERNAME</th>
+                                              <td id="tdUsername"></td>
                                           </tr>
                                           <tr>
-                                                <th scope="col">Lastname</th>
-                                                <td>Doe</td>
+                                                <th scope="col">PASWORD</th>
+                                                <td>
+                                                    <input id="tdPassword" type="password" value="" >
+<!--                                                    <span toggle="#password-field" class="fa fa-eye-slash" onclick="showPassword()"></span>-->
+                                                    <input type="checkbox" onclick="showPassword()">
+                                                </td>
+
                                           </tr>
                                           <tr>
-                                                <th scope="col">email</th>
-                                                <td>john@example.com</td>
+                                                <th scope="col">EMAIL</th>
+                                                <td id="tdEmail"></td>
                                           </tr>
                                         <tr>
                                             <th> </th>
                                             <td> </td>
                                         </tr>
-
-                                     <tbody id="tbody_profile">
-
-                                     </tbody>
                                   </table>
                                 </div>
 
@@ -59,29 +91,74 @@
         </div><!-- user-profile-2 -->
     </div><!-- end card -->
 
-    <!-- Model edit -->
-    <div id="Edit_Profilename" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">แก้ไขข้อมูล</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p> ยืนยันการแก้ไข.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">ยืนยัน</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    <!-- Modal  Profile -->
+            <div id="Edit_Profilename" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-xl">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">ทำการแก้ไขข้อมูล</h5>
+
+                        <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-md-6 col-sm-12" >
+                                  <table id="table_editprofile">
+                                      <tr id="tr_">
+                                          <th id="th_"></th>
+                                          <th style="float: left" id="th2_">data profile</th>
+                                      </tr>
+                                      <tr id="tr_editusername">
+                                          <th id="th_editusername">Username: </th>
+                                          <td id="td_editusername">
+                                              <input type="text" class="form-control form-control" style="float: left" id="input_editusername">
+                                          </td>
+                                      </tr>
+                                      <tr id="tr_editpassword">
+                                          <th id="th_editpassword">Password: </th>
+                                          <td id="td_editpassword">
+                                              <input type="text" class="form-control form-control" style="float: left" id="input_editpassword">
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                                <!--  -->
+                              <div class="col-md-6 col-sm-12">
+                                  <table id="table_email">
+                                      <tr id="tr_email">
+                                          <th id="th_email"> </th>
+                                          <th style="float: left"> </th>
+                                      </tr>
+                                       <tr id="tr_editemail">
+                                          <th id="th_editemail">Email: </th>
+                                          <td id="td_editemail">
+                                              <input type="text" class="form-control form-control" style="float: left" id="inputtd_editemail">
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="saveword_editProfile">บันทึก</button>
+                        <button type="button" class="btn btn-primary" id="clearword_editProfile">ล้าง</button>
+                        <button type="button" id="close_modal_editProfile" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                      </div>
+                    </div>
+               </div>
+            </div> <!-- end model -->
+
 
     <br>
     <button id="button_showrecomment" type="button" class="btn btn-primary btn-lg"><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
     <br><br><br>
 
+{% endblock %}
+{% block custom_js %}
+    <script src="{{url_for('static',filename='js/profile.js')}}"></script>
 {% endblock %}
