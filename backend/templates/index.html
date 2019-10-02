@@ -8,6 +8,7 @@
     <link rel="icon" href= "{{url_for('static',filename='img/logoProject_PNG.png')}}">
     <!--for css file-->
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/color.css')}}">
 
     <!--for semantic-->
 <!--    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules/semantic-ui/dist/semantic.min.css')}}">-->
@@ -19,16 +20,26 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/index_page.css')}}">
 
-    <!-- jquery to page profile -->
-    <link rel="stylesheet" href="/path/to/jquery-ui.min.css">
-    <link rel="stylesheet" href="/path/to/cropzee.css">
+<!--===============================================================================-->
+    <!-- sidebar -->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+
+<!--    &lt;!&ndash; Bootstrap CSS CDN &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
+<!--    &lt;!&ndash; Our Custom CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="style.css">-->
+
+<!--    &lt;!&ndash; Font Awesome JS &ndash;&gt;-->
+<!--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>-->
+<!--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>-->
 
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark py-1">
+<nav class="navbar navbar-expand-lg navbar-dark py-1 color_nav">
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +75,7 @@
             </li>
             {% else %}
             <span class="nav-link">
-                <button type="button" class="btn btn-primary" data-toggle="modal"
+                <button type="button" class="color_button1" data-toggle="modal"
                         data-target="#exampleModal">
                     ลงชื่อเข้าใช้
                 </button>
@@ -113,8 +124,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" id="submitLogin">เข้าสู่ระบบ</button>
+                    <button type="button" class="color_button3 color_box-shadow" data-dismiss="modal">Close</button>
+                    <button class="color_button1 color_box-shadow" id="submitLogin">เข้าสู่ระบบ</button>
 
                 </div>
             </form>
@@ -128,7 +139,7 @@
 </div>
 
 <!-- ************ footer ****************************-->
-<div class="footer">
+<div class="footer color_nav">
     <p>copyrigth 2019 Thai-hmong Translator</p>
 </div>
 
@@ -159,12 +170,13 @@
 <!--include semantic-->
 <!--<script src="{{url_for('static',filename='node_modules/semantic-ui/dist/semantic.min.js')}}"></script>-->
 
-
-<!-- jquery to page profile -->
-    <script src="/path/to/jquery.min.js" ></script>
-    <script src="/path/to/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" defer></script>
-    <script src="/path/to/cropzee.js" defer></script>
+<!--================== sidebar ====================================================================-->
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--    &lt;!&ndash; Popper.JS &ndash;&gt;-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>-->
+<!--    &lt;!&ndash; Bootstrap JS &ndash;&gt;-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>-->
 
 
 {% block custom_js %}

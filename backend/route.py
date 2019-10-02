@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY']='40PdS98eZy2mz5hqGIXIOg'
 
 @app.route("/tt")
-def fortest ():
+def fortest (): 
     return render_template('public/fortest.html')
 
 # public route

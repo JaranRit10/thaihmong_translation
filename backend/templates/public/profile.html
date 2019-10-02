@@ -13,41 +13,12 @@
                             <div class="col-xs-12 col-sm-3 center">
                                 <div class="text-center">
                                     <img id="imag" src="{{url_for('static',filename='img/user_/default_user.png')}}" class="avatar img-circle img-thumbnail">
+                                    <p id="demo"></p>
                                     <input type="file" id="image" style="display: none;"/>
-                                    <button id="button_change_img" type="button" class="btn btn-primary file-upload">เลือกรูป</button>
-                                    <button id="button_edit_img" type="button" class="btn btn-success">ลบรูป</button>
-
-<!--                                    <div id="" class="image-previewer" data-cropzee=""></div>-->
-<!--                                    <canvas id="cropzee-hidden-canvas"></canvas>-->
-<!--                                    <div id="cropzee-modal" class="cropzee-modal">-->
-<!--                                          <div id="cropzee-close" class="cropzee-close">&times;</div>-->
-<!--                                          <div id="cropzee-modal-display-container" class="cropzee-modal-display-container">-->
-<!--                                            <div id="cropzee-modal-display" class="cropzee-modal-display"></div>-->
-<!--                                            <div id="cropzee-modal-cropper" class="cropzee-modal-cropper"></div>-->
-<!--                                            <div id="cropzee-modal-display2" class="cropzee-modal-display" style="clip: rect(46px, 205px, 205px, 46px);"></div>-->
-<!--                                            <div id="cropzee-cropper-outline" class="cropzee-cropper-outline" style="left:45px; top:45px; width: 160px; height: 160px;"></div>-->
-<!--                                          </div>-->
-<!--                                          <div class="cropzee-modal-buttons-container">-->
-<!--                                            <a id="cropzee-download-button" class="cropzee-modal-button" data-ripple="">-->
-<!--                                              <img class="cropzee-svg" src="assets/icons/feather/download.svg">-->
-<!--                                            </a>-->
-<!--                                            <a id="cropzee-rotate-button" class="cropzee-modal-button" data-ripple="">->-->
-<!--                                              <img class="cropzee-svg" src="assets/icons/feather/rotate-ccw.svg">-->
-<!--                                            </a>-->
-<!--                                            <a id="cropzee-crop-button" class="cropzee-modal-button" data-ripple="">-->
-<!--                                              <img class="cropzee-svg" src="assets/icons/feather/crop.svg">-->
-<!--                                            </a>-->
-<!--                                            <a id="cropzee-save-button" class="cropzee-modal-button" data-ripple="">-->
-<!--                                              <img class="cropzee-svg" src="assets/icons/feather/check-square.svg">-->
-<!--                                            </a>-->
-<!--                                          </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="cropzee-cropping-canvas-container">-->
-<!--                                      <canvas id="cropzee-cropping-canvas"></canvas>-->
-<!--                                    </div>-->
-
+                                    <button id="button_change_img" type="button" class="color_button1 file-upload">เลือกรูป</button>
+                                    <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
+                                    <button id="path_image" type="button" class="btn btn-success" onclick="pathImage()">local</button>
                                     <br><br>
-
                                 </div><br>
                             </div><!-- col-xs-12 -->
                             <div class="col-xs-12 col-sm-9 ">
@@ -82,7 +53,7 @@
                                   </table>
                                 </div>
 
-                                <button id="button_editProfile" type="button" class="btn btn-danger" data-toggle="modal" data-target="#Edit_Profilename" style="float: right;">แก้ไข</button><br>
+                                <button id="button_editProfile" type="button" class="color_button4" data-toggle="modal" data-target="#Edit_Profilename" style="float: right;">แก้ไข</button><br>
                             </div><!-- /.col -->
                         </div><!-- row -->
                     </div><!-- id="home" -->
@@ -145,9 +116,9 @@
                          </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="saveword_editProfile">บันทึก</button>
-                        <button type="button" class="btn btn-primary" id="clearword_editProfile">ล้าง</button>
-                        <button type="button" id="close_modal_editProfile" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                        <button type="button" class="color_button1" id="saveword_editProfile">บันทึก</button>
+                        <button type="button" class="color_button3" id="clearword_editProfile">ล้าง</button>
+                        <button type="button" id="close_modal_editProfile" class="color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
                       </div>
                     </div>
                </div>
@@ -155,7 +126,7 @@
 
 
     <br>
-    <button id="button_showrecomment" type="button" class="btn btn-primary btn-lg"><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
+    <button id="button_showrecomment" type="button" class="color_button1 btn-lg"><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
     <br><br><br>
 
 {% endblock %}

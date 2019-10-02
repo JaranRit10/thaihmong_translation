@@ -1,4 +1,3 @@
-
 // จากรัน
 // ====== หน้าต่าง navbar ===================
 // function menubar() {
@@ -8,78 +7,81 @@
 // function closeNav() {
 //     document.getElementById("mySidenav").style.width = "0";
 // }
+$(document).ready(function () {
 
-    profile()
-    function profile() {
-            $.ajax({
-                type : 'POST',
-                url : '/getprofile',
-                success:(function(data) {
-                    // console.log(data.getData.length)
-                    var username
-                    var passwordd
-                    var firstname
-                    var lastname
-                    var email
-                   $("tbody#tbody_profile").empty()
-                    for (x of data.getData) {
+profile()
+function profile() {
+    $.ajax({
+        type: 'POST',
+        url: '/getprofile',
+        success: (function (data) {
+            // console.log(data.getData.length)
+            var username
+            var passwordd
+            var firstname
+            var lastname
+            var email
+            $("tbody#tbody_profile").empty()
+            for (x of data.getData) {
 
-                        $("td#tdUsername").append(
-                            "<h4 class='usernameRow' id='usernameRow"+ x[0] +"'>" + x[3] + "</h4>"
-                        );
-                        // $("input#tdPassword").append(
-                        //     "<p class='passwordRow' id='passwordRow"+ x[0] +"'>" + x[5] + "</p>"
-                        // );
-                        $("td#tdEmail").append(
-                            "<h4 class='emailRow' id='emailRow"+ x[0] +"'>" + x[10] + "</h4>"
-                        );
-                        username = x[3]
-                        passwordd = x[4]
-                        email = x[10]
-                        // console.log("d ",passwordd)
-                        firstname = x[5]
-                        lastname = x[6]
-                    }
-                    password1(passwordd,firstname,lastname)
-                    Edit_profie(username,passwordd,email)
-                }),
-                error:function(error) {
-                    console.log(error)
-                }
-            });
-    }
-    <!-- send password -->
-    function password1(x1,x2,x3) {
-        var passwords = x1
-        var name = x2
-        var last = x3
-        console.log("x:",x)
-        document.getElementById('tdPassword').value = passwords;
-        document.getElementById('headName').innerText = name;
-        document.getElementById('headLastname').innerText = last;
-    }
-    <!-- send edit profile -->
-    function Edit_profie(u1,u2,u3) {
-        var user = u1
-        var pass = u2
-        var email = u3
-        document.getElementById('input_editusername').value = user;
-        document.getElementById('input_editpassword').value = pass;
-        document.getElementById('inputtd_editemail').value = email;
-    }
+                $("td#tdUsername").append(
+                    "<h4 class='usernameRow' id='usernameRow" + x[0] + "'>" + x[3] + "</h4>"
+                );
+                // $("input#tdPassword").append(
+                //     "<p class='passwordRow' id='passwordRow"+ x[0] +"'>" + x[5] + "</p>"
+                // );
+                $("td#tdEmail").append(
+                    "<h4 class='emailRow' id='emailRow" + x[0] + "'>" + x[10] + "</h4>"
+                );
+                username = x[3]
+                passwordd = x[4]
+                email = x[10]
+                // console.log("d ",passwordd)
+                firstname = x[5]
+                lastname = x[6]
+            }
+            password1(passwordd, firstname, lastname)
+            Edit_profie(username, passwordd, email)
+        }),
+        error: function (error) {
+            console.log(error)
+        }
+    });
+}
 
-    // showPassword()
-    function showPassword() {
-      var x = document.getElementById("tdPassword");
-      if (x.type === "password") {
+<!-- send password -->
+function password1(x1, x2, x3) {
+    var passwords = x1
+    var name = x2
+    var last = x3
+    console.log("x:", x)
+    document.getElementById('tdPassword').value = passwords;
+    document.getElementById('headName').innerText = name;
+    document.getElementById('headLastname').innerText = last;
+}
+
+<!-- send edit profile -->
+function Edit_profie(u1, u2, u3) {
+    var user = u1
+    var pass = u2
+    var email = u3
+    document.getElementById('input_editusername').value = user;
+    document.getElementById('input_editpassword').value = pass;
+    document.getElementById('inputtd_editemail').value = email;
+}
+
+// showPassword()
+function showPassword() {
+    var x = document.getElementById("tdPassword");
+    if (x.type === "password") {
         x.type = "text";
-      } else {
+    } else {
         x.type = "password";
-      }
     }
+}
 
 // ================== page profile ===========================================
-$(document).ready( function () {
+// $(document).ready(function () {
 
     $('#button_change_img').click(function () {
         changeProfile()
@@ -87,6 +89,42 @@ $(document).ready( function () {
     $('#button_edit_img').click(function () {
         removeImage()
     })
+
+    function changeProfile() {
+        $('#image').click();
+    }
+
+    $('#image').change(function () {
+        var imgPath = this.value;
+        var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
+            readURL(this);
+        else
+            alert("Please select image file (jpg, jpeg, png).")
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.readAsDataURL(input.files[0]);
+            reader.onload = function (e) {
+                $('#imag').attr('src', e.target.result);
+                // $("#remove").val(0);
+            };
+        }
+    }
+
+    function removeImage() {
+        $('#imag').attr('src', 'default_user.png');
+        // $("#imag").val(1);
+    }
+
+    // =================================================================
+    function pathImage() {
+        var x = document.getElementById("imag").src;
+        console.log("pathimage:",x)
+        document.getElementById("demo").innerHTML = x;
+    }
 
 
     // $('#button_change_img').on('click', function () {
@@ -107,58 +145,27 @@ $(document).ready( function () {
     // })
 
 
-    function changeProfile() {
-        $('#image').click();
-    }
-    $('#image').change(function () {
-        var imgPath = this.value;
-        var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-        if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
-            readURL(this);
-        else
-            alert("Please select image file (jpg, jpeg, png).")
-    });
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.readAsDataURL(input.files[0]);
-            reader.onload = function (e) {
-                $('#imag').attr('src', e.target.result);
-                // $("#remove").val(0);
-            };
-        }
-    }
-    function removeImage() {
-        $('#imag').attr('src', '/img/user_/default_user.png');
-         // $("#imag").val(1);
-    }
 
-    cropzee('#image');
+    $(function () {
+        $('#imag').each(function () {
+            var maxWidth = 200; // Max width for the image
+            var maxHeight = 140;    // Max height for the image
+            var maxratio = maxHeight / maxWidth;
+            var width = $(this).width();    // Current image width
+            var height = $(this).height();  // Current image height
+            var curentratio = height / width;
+            // Check if the current width is larger than the max
 
-
-    $(function() {
-      $('#imag').each(function() {
-        var maxWidth = 200; // Max width for the image
-        var maxHeight = 140;    // Max height for the image
-        var maxratio=maxHeight/maxWidth;
-        var width = $(this).width();    // Current image width
-        var height = $(this).height();  // Current image height
-        var curentratio=height/width;
-        // Check if the current width is larger than the max
-
-        if(curentratio>maxratio)
-        {
-            ratio = maxWidth / width;   // get ratio for scaling image
-            $(this).css("width", maxWidth); // Set new width
-            $(this).css("height", height *ratio); // Scale height based on ratio
-        }
-        else
-        {
-            ratio = maxHeight / height; // get ratio for scaling image
-            $(this).css("height", maxHeight);   // Set new height
-            $(this).css("width", width * ratio);    // Scale width based on ratio
-        }
-      });
+            if (curentratio > maxratio) {
+                ratio = maxWidth / width;   // get ratio for scaling image
+                $(this).css("width", maxWidth); // Set new width
+                $(this).css("height", height * ratio); // Scale height based on ratio
+            } else {
+                ratio = maxHeight / height; // get ratio for scaling image
+                $(this).css("height", maxHeight);   // Set new height
+                $(this).css("width", width * ratio);    // Scale width based on ratio
+            }
+        });
     });
 
     // $(document).ready(function(){
@@ -175,16 +182,7 @@ $(document).ready( function () {
     //     });
     // });
 
-    // var maxWidth = 600;
-    //     $("#imag").each(function () {
-    //       var imageWidth = $(this).width();
-    //       var imageHeight = $(this).height();
-    //         if (imageWidth > maxWidth) {
-    //           var percentdiff = (imageWidth - maxWidth) / imageWidth * 100;
-    //           $(this).width(maxWidth);
-    //           $(this).height(imageHeight - (imageHeight * percentdiff / 100));
-    //         }
-    //    });
+
 // ==================================================================================
 //         $("#file-picker").change(function(){
 //
@@ -209,7 +207,7 @@ $(document).ready( function () {
 //
 //
 //     } );
-        // =====================================================================
+    // =====================================================================
     /*
     We need to register the required plugins to do image manipulation and previewing.
     // */
@@ -254,5 +252,12 @@ $(document).ready( function () {
     // ==================================================================================
 
 
+    // ------------- jquery sidebar -------------------------------
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+            $(this).toggleClass('active');
+        });
+    });
 
 });

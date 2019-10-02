@@ -37,11 +37,11 @@ $(document).ready( function () {
                                 "<td class='recommendRow' id='tdRecommend_type_"+ x[0] +"'>" + x[4] + "</td>" +
 
                                 "<td class='contro_recommendRow'>" +
-                                    "<button type='button' class='btn btn-success btn-xs' " +
+                                    "<button type='button' class='btn color_button2 btn-xs' " +
                                     "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
                                     " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
                                 "<td class='contro_recommendRow'>" +
-                                    "<button type='button' class='btn btn-success btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
+                                    "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
                                     "id='delte_searchword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                             "</tr>"
                         );
@@ -117,12 +117,12 @@ $(document).ready( function () {
             $('#totalRow_Recommend').text(totalRows)
 
             // click select button
-            $('.pageButton:first-child').addClass('paginationButton');
+            $('.pageButton:first-child').addClass('color_button3');
             $('.pageButton').on('click',function () {
                 var pageNum = this.id
                 // active button
-                $('.pageButton').removeClass('paginationButton');
-                $(this).addClass('paginationButton');
+                $('.pageButton').removeClass('color_button3');
+                $(this).addClass('color_button3');
 
                 var row
                 var trIndex = 0;
@@ -195,12 +195,12 @@ $(document).ready( function () {
                                 "<td class='trNewword' id='trNewword_Num_Recommennd_"+ x[0] +"'>" + x[4] + "</td>" +
 
                                 "<td class='contro_newwordRow'>" +
-                                    "<button type='button' class='btn btn-success btn-xs' " +
+                                    "<button type='button' class='btn color_button2 btn-xs' " +
                                     "data-toggle='modal' data-target='#edit_newword' id='edit_tdNewword' " +
                                     " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
 
                                 "<td class='contro_newwordRow'>" +
-                                    "<button type='button' class='btn btn-success btn-xs' data-toggle='modal' data-target='#deleteRow_mewword' " +
+                                    "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_mewword' " +
                                     "id='delete_newword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                             "</tr>"
                             );
@@ -280,12 +280,12 @@ $(document).ready( function () {
             $('#totalRow_Newword').text(totalRows_newword)
 
             // click select button
-            $('.pageButton_Newword:first-child').addClass('paginationButton');
+            $('.pageButton_Newword:first-child').addClass('color_button3');
             $('.pageButton_newword').on('click',function () {
                 var pageNum_newword = this.id
                 // active button
-                $('.pageButton_newword').removeClass('paginationButton');
-                $(this).addClass('paginationButton');
+                $('.pageButton_newword').removeClass('color_button3');
+                $(this).addClass('color_button3');
 
                 // var row
                 var trIndex_newword = 0;
