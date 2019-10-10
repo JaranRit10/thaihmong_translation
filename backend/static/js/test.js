@@ -1,326 +1,415 @@
 $(document).ready( function () {
 
+    $('.data_reccommend').show()
+    $('.data_newword').hide()
+
+
+    $('#getRecommend').click(function () {
+        getRecommend()
+        $("tbody#tbody_getnewword").empty()
         $('.data_reccommend').show()
         $('.data_newword').hide()
+    });
 
+    $('#getNewword').click(function () {
+        getNewword()
+        $('.data_reccommend').hide()
+        $('.data_newword').show()
+    });
 
-        $('#getRecommend').click(function () {
-            getRecommend()
-            $("tbody#tbody_getnewword").empty()
-            $('.data_reccommend').show()
-            $('.data_newword').hide()
-        });
+    // getNewword()
+    // getRecommend()
+    function getRecommend() {
+        $.ajax({
+            type : 'POST',
+            url : '/getRecommend',
+            success:(function(data) {
+                // console.log(data.getData.length)
+                $("tbody#tbody_getrecommend").empty()
+                var count=1;
+                for (x of data.getData) {
 
-        $('#getNewword').click(function () {
-            getNewword()
-            $('.data_reccommend').hide()
-            $('.data_newword').show()
-        });
+                    $("tbody#tbody_getrecommend").append(
+                        "<tr id='trRecommend_"+ x[0] +"'>" +
+                        "<td class='recommendRow' name='"+x[0]+"' id='tdRecommend_id_"+ x[0] +"'>" + count + "</td>" +
+                        "<td class='recommendRow' id='tdRecommend_thaiword_"+ x[0] +"'>" + x[2] + "</td>" +
+                        "<td class='recommendRow' id='tdRecommend_hmongword_"+ x[0] +"'>" + x[3] + "</td>" +
+                        "<td class='recommendRow' id='tdRecommend_time_"+ x[0] +"'>" + x[1] + "</td>" +
+                        "<td class='recommendRow' id='tdRecommend_type_"+ x[0] +"'>" + x[4] + "</td>" +
 
-        // getNewword()
-        // getRecommend()
-        function getRecommend() {
-            $.ajax({
-                type : 'POST',
-                url : '/getRecommend',
-                success:(function(data) {
-                    // console.log(data.getData.length)
-                   $("tbody#tbody_getrecommend").empty()
-                    for (x of data.getData) {
-
-                        $("tbody#tbody_getrecommend").append(
-                            "<tr id='trRecommend' >" +
-                                "<td class='recommendRow' id='tdRecommend_id_"+ x[0] +"'>" + x[0] + "</td>" +
-                                "<td class='recommendRow' id='tdRecommend_thaiword_"+ x[0] +"'>" + x[2] + "</td>" +
-                                "<td class='recommendRow' id='tdRecommend_hmongword_"+ x[0] +"'>" + x[3] + "</td>" +
-                                "<td class='recommendRow' id='tdRecommend_time_"+ x[0] +"'>" + x[1] + "</td>" +
-                                "<td class='recommendRow' id='tdRecommend_type_"+ x[0] +"'>" + x[4] + "</td>" +
-
-                                "<td class='contro_recommendRow'>" +
-                                    "<button type='button' class='btn color_button2 btn-xs' " +
-                                    "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
-                                    " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
-                                "<td class='contro_recommendRow'>" +
-                                    "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
-                                    "id='delte_searchword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
-                            "</tr>"
-                        );
-                        "<br>"
-
-                    }
-                    paginationRecommend(data.getData.length)
-                 }),
-                error:function(error) {
-                    console.log(error)
+                        "<td class='contro_recommendRow' id='edit_recommendRow_"+ x[0] +"'>" +
+                        "<button type='button' class='btn color_button2 btn-xs' " +
+                        "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
+                        " style='margin-right: ;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
+                        "<td class='contro_recommendRow' id='delete_recommendRow_"+ x[0] +"'>" +
+                        "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
+                        "id='delete_tdRecommend' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
+                        "</tr>"
+                    );
+                    "<br>"
+                    count= count+1;
                 }
-            });
-        }
+                paginationRecommend(data.getData.length)
+                // deleteRow()
+            }),
+            error:function(error) {
+                console.log(error)
+            }
+        });
+    }
 
-        // show model rows recommend
-        $(this).on('click', 'button#edit_tdRecommend', function(){
-            var idsentence = $(this).val()
-            var thaisentence = $("#tdRecommend_thaiword_"+idsentence).text();
-            var hmongsentence = $('#tdRecommend_hmongword_'+idsentence).text();
+    // show model rows recommend
+    $(this).on('click', 'button#edit_tdRecommend', function(){
+        var idsentence = $(this).val()
+        var numbersentence = $("#tdRecommend_id_"+idsentence).text();
+        var thaisentence = $("#tdRecommend_thaiword_"+idsentence).text();
+        var hmongsentence = $('#tdRecommend_hmongword_'+idsentence).text();
+        var grammarsentence = $('#tdRecommend_type_'+idsentence).text();
 
-            console.log(idsentence+" "+thaisentence+" "+hmongsentence)
-             $('td#thaisentence').empty()
-             $('td#hmongsentence').empty()
-             $('td#thaisentence').append(thaisentence)
-             $('td#hmongsentence').append(hmongsentence)
-             $('input#input_thaisentence').val(thaisentence)
-             $('input#input_hmongsentence').val(hmongsentence)
+        console.log(idsentence+" "+thaisentence+" "+hmongsentence+""+grammarsentence)
+        $('td#thaisentence').empty()
+        $('td#hmongsentence').empty()
+        $('td#grammarsentence').empty()
+        $('td#thaisentence').append(thaisentence)
+        $('td#hmongsentence').append(hmongsentence)
+        $('td#grammarsentence').append(grammarsentence)
+        $('input#input_thaisentence').val(thaisentence)
+        $('input#input_hmongsentence').val(hmongsentence)
+        $('input#input_grammarsentence').val(grammarsentence)
+
+        var saveThai_recommend
+        var saveHmong_recommend
+        var saveGrammar_recommend
+        $('button#saveword_editRecommend').click(function () {
+            saveThai_recommend = $('input#input_thaisentence').val()
+            saveHmong_recommend = $('input#input_hmongsentence').val()
+            saveGrammar_recommend = $('input#input_grammarsentence').val()
+            console.log("thai:",saveThai_recommend)
+            console.log("hmong:",saveHmong_recommend)
+            console.log("grammar:",saveGrammar_recommend)
+            console.log("id:",idsentence)
+
+            saveRecommend()
+            function saveRecommend() {
+                $.ajax({
+                    data : {
+                        id_recommend:idsentence,
+                        Thai_recommend:saveThai_recommend,
+                        Hmong_recommend:saveHmong_recommend,
+                        Grammar_recommend:saveGrammar_recommend
+                    },
+                    type : 'POST',
+                    url : '/save_Recommend',
+                    success:(function(data) {
+                        alert("data:",data)
+                        if (data == 1){
+                            getRecommend()
+                            alert("save success")
+                        }
+                        else{
+                            alert(data)
+                        }
+                    }),
+                    error:function(error) {
+                        console.log(error)
+                    }
+                });
+            }
 
         })
 
-        // pagination
-        var tableR = '#tableRecommend';
-        function paginationRecommend(length_rowRecommend) {
-            // reset num button page
-            $('.pagination_Recommend').html('')
+        $('button#clearword_editRecommend').click(function () {
+            $('input#input_thaisentence').val(" ")
+            $('input#input_hmongsentence').val(" ")
+            $('input#input_grammarsentence').val(" ")
+        })
+        // updateTable_recommend(numbersentence, saveThai_recommend, saveHmong_recommend, saveGrammar_recommend)
+    })
 
-            var check_maxRows = ($("#select_maxrow_Recommend").val())
-            // console.log("max-check :"+check_maxRows)
-            if(check_maxRows=='all'){
-                maxRows = length_rowRecommend
-            }else {
-                maxRows = check_maxRows
-            }
-            var totalRows = length_rowRecommend
+    // function deleteRow() {
+        $(this).on('click', 'button#delete_tdRecommend',function (){
+            var iddelete = $(this).val()
+            console.log("id:",iddelete)
+            deleterow(iddelete)
+            // $('button#delet_row').on('click',function () {
+            //     var rowid = $('#trRecommend_'+iddelete)
+            //     console.log("rowid:",rowid)
+            //     document.getElementById("tableRecommend").deleteRow(iddelete);
+            //     // document.getElementById(tbody_getrecommend).removeChild(document.getElementById(rowid));
+            //     // var row = document.getElementById(rowid);
+            //     // row.parentElement.removeChild(row);
+            // })
 
-            // console.log('maxRows ='+maxRows)
-            // console.log('totalRows ='+totalRows)
-
-            var trnum = 0;
-            $(tableR+' tr:gt(0)').each(function () {
-                trnum++
-                if(trnum > maxRows){
-                    $(this).hide()
+        })
+        function deleterow(id) {
+            var idrow = id
+            $('button#delet_row').on('click',function () {
+                var rowid = $('#trRecommend_'+idrow)
+                console.log("rowid:",rowid)
+                document.getElementById("tableRecommend").deleteRow(idrow);
+                // document.getElementById(tbody_getrecommend).removeChild(document.getElementById(rowid));
+                // var row = document.getElementById(rowid);
+                // row.parentElement.removeChild(row);
+            })
+        }
+    // }
+    function updateTable_recommend(id_recommend, Thai_recommend, Hmong_recommend, type_error) {
+        $.ajax({
+            data: {
+                idword: id_recommend,
+                userID: Thai_recommend,
+                thaiword: Hmong_recommend,
+                hmongword: type_error,
+            },
+            type: 'POST',
+            url: '/updateTable_recommend',
+            dataType: "json",
+            success: (function (data) {
+                if (data.state == true) {
+                    alert("แก้ไขสำเร็จ")
+                    // seachWord_Admin()
+                } else {
+                    alert("แก้ไขผิดพลาด")
                 }
-                if(trnum <= maxRows){
+            }),
+            error: function (error) {
+                console.log(error)
+            }
+        });
+    }
+
+
+    // pagination
+    var tableR = '#tableRecommend';
+    function paginationRecommend(length_rowRecommend) {
+        // reset num button page
+        $('.pagination_Recommend').html('')
+
+        var check_maxRows = ($("#select_maxrow_Recommend").val())
+        // console.log("max-check :"+check_maxRows)
+        if(check_maxRows=='all'){
+            maxRows = length_rowRecommend
+        }else {
+            maxRows = check_maxRows
+        }
+        var totalRows = length_rowRecommend
+
+        // console.log('maxRows ='+maxRows)
+        // console.log('totalRows ='+totalRows)
+
+        var trnum = 0;
+        $(tableR+' tr:gt(0)').each(function () {
+            trnum++
+            if(trnum > maxRows){
+                $(this).hide()
+            }
+            if(trnum <= maxRows){
+                $(this).show()
+            }
+        });
+
+        // create button to page
+        if (totalRows > maxRows){
+            var pagenum = Math.ceil(totalRows/maxRows);
+            var lastPage = 0
+            lastPage = pagenum
+            for(var i=1;i<=pagenum;){
+                $('.pagination_Recommend').append('<button class="pageButton" id="'+i+'">' +
+                    '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
+            }
+        }
+        // show rows pervios button
+        $('#startRow_Recommend').text(1)
+        $('#endRow_Recommend').text((maxRows))
+        $('#totalRow_Recommend').text(totalRows)
+
+        // click select button
+        $('.pageButton:first-child').addClass('color_button3');
+        $('.pageButton').on('click',function () {
+            var pageNum = this.id
+            // active button
+            $('.pageButton').removeClass('color_button3');
+            $(this).addClass('color_button3');
+
+            var row
+            var trIndex = 0;
+            //loop show rows
+            $(tableR+' tr:gt(0)').each(function () {
+                trIndex++
+                if(trIndex > (maxRows*pageNum) || trIndex <= (maxRows*pageNum)-maxRows){
+                    $(this).hide()
+                }else {
                     $(this).show()
                 }
-            });
+            })
 
-            // create button to page
-            if (totalRows > maxRows){
-                var pagenum = Math.ceil(totalRows/maxRows);
-                var lastPage = 0
-                lastPage = pagenum
-                for(var i=1;i<=pagenum;){
-                    $('.pagination_Recommend').append('<button class="pageButton" id="'+i+'">' +
-                        '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
-                }
+            $('#startRow_Recommend').text(((maxRows*pageNum)-maxRows)+1)
+
+            if (pageNum == lastPage){
+                $('#endRow_Recommend').text((totalRows))
+            } else {
+                $('#endRow_Recommend').text((maxRows*pageNum))
             }
-            // show rows pervios button
-            $('#startRow_Recommend').text(1)
-            $('#endRow_Recommend').text((maxRows))
             $('#totalRow_Recommend').text(totalRows)
-
-            // click select button
-            $('.pageButton:first-child').addClass('color_button3');
-            $('.pageButton').on('click',function () {
-                var pageNum = this.id
-                // active button
-                $('.pageButton').removeClass('color_button3');
-                $(this).addClass('color_button3');
-
-                var row
-                var trIndex = 0;
-                //loop show rows
-                $(tableR+' tr:gt(0)').each(function () {
-                    trIndex++
-                    if(trIndex > (maxRows*pageNum) || trIndex <= (maxRows*pageNum)-maxRows){
-                        $(this).hide()
-                    }else {
-                        $(this).show()
-                    }
-                })
-
-                $('#startRow_Recommend').text(((maxRows*pageNum)-maxRows)+1)
-
-                if (pageNum == lastPage){
-                    $('#endRow_Recommend').text((totalRows))
-                } else {
-                    $('#endRow_Recommend').text((maxRows*pageNum))
-                }
-                $('#totalRow_Recommend').text(totalRows)
-            })
-
-        } // end funtion pagination
-        // click class select
-        $('#select_maxrow_Recommend').on('change',function() {
-            getRecommend()
         })
 
-        // updateword_Recommend()
-        function updateword_Recommend(){
-            $('button#saveword_editRecommend').click(function () {
-                editThai_recommend = $('input#input_thaisentence').val()
-                editHmong_recommend = $('input#input_hmongsentence').val()
+    } // end funtion pagination
+    // click class select
+    $('#select_maxrow_Recommend').on('change',function() {
+        getRecommend()
+    })
 
-                if (editThai_recommend ){
-                    alert('กรุณากรอกข้อมูลใหม่')
-                } else {
-                    console.log('editthai '+editThai_recommend)
-                    console.log('editHmong '+editHmong_recommend)
+
+
+
+    // funtion getNewword ===========================
+    // getNewword()
+    // var length_rowNewword
+    function getNewword() {
+        $.ajax({
+            type: 'POST',
+            url: '/getNewword',
+            success: (function (data) {
+                // length_rowNewword = data.getData.length
+                // console.log('length_rowNewword '+length_rowNewword)
+                // console.log(data.getData.length)
+                $("tbody#tbody_getnewword").empty()
+                for (x of data.getData) {
+                    $("tbody#tbody_getnewword").append(
+                        "<tr id='trNewword' >" +
+                        "<td class='trNewword' id='trNewword_id_"+          x[0] +"'>" + x[0] + "</td>" +
+                        "<td class='trNewword' id='trNewword_Sentence_id_"+ x[0] +"'>" + x[1] + "</td>" +
+                        "<td class='trNewword' id='trNewword_Use_update_"+  x[0] +"'>" + x[2] + "</td>" +
+                        "<td class='trNewword' id='trNewword_New_word_"+    x[0] +"'>" + x[3] + "</td>" +
+                        "<td class='trNewword' id='trNewword_Num_Recommennd_"+ x[0] +"'>" + x[4] + "</td>" +
+
+                        "<td class='contro_newwordRow'>" +
+                        "<button type='button' class='btn color_button2 btn-xs' " +
+                        "data-toggle='modal' data-target='#edit_newword' id='edit_tdNewword' " +
+                        " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
+
+                        "<td class='contro_newwordRow'>" +
+                        "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_mewword' " +
+                        "id='delete_newword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
+                        "</tr>"
+                    );
                 }
-            })
+                var date = data.getData[0][1]
+                console.log('new_date'+date)
 
-            $('button#clearword_editRecommend').click(function () {
-                $('input#input_thaisentence').empty()
-                $('input#input_hmongsentence').empty()
-            })
-            // return editThai_recommend,editHmong_recommend
-        }
+                var d = new Date(date);
+                console.log('new_d'+d)
 
+                paginationNewword(data.getData.length)
+            }),
+            error: function(error) {
+                console.log(error)
+            }
+        });
+    } //end funtion
 
-        // funtion getNewword ===========================
-        // getNewword()
-        // var length_rowNewword
-        function getNewword() {
-            $.ajax({
-                type: 'POST',
-                url: '/getNewword',
-                success: (function (data) {
-                    // length_rowNewword = data.getData.length
-                    // console.log('length_rowNewword '+length_rowNewword)
-                    // console.log(data.getData.length)
-                    for (x of data.getData) {
-                        $("tbody#tbody_getnewword").append(
-                            "<tr id='trNewword' >" +
-                                "<td class='trNewword' id='trNewword_id_"+          x[0] +"'>" + x[0] + "</td>" +
-                                "<td class='trNewword' id='trNewword_Sentence_id_"+ x[0] +"'>" + x[1] + "</td>" +
-                                "<td class='trNewword' id='trNewword_Use_update_"+  x[0] +"'>" + x[2] + "</td>" +
-                                "<td class='trNewword' id='trNewword_New_word_"+    x[0] +"'>" + x[3] + "</td>" +
-                                "<td class='trNewword' id='trNewword_Num_Recommennd_"+ x[0] +"'>" + x[4] + "</td>" +
+    // show model rows recommend
+    $(this).on('click', 'button#edit_tdNewword', function(){
+        var idWord = $(this).val()
+        var thaiWord = $("#trNewword_New_word_"+idWord).text();
+        var hmongWord = $('#input_hmongWord'+idWord).text();
 
-                                "<td class='contro_newwordRow'>" +
-                                    "<button type='button' class='btn color_button2 btn-xs' " +
-                                    "data-toggle='modal' data-target='#edit_newword' id='edit_tdNewword' " +
-                                    " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
+        console.log(idWord+" "+thaiWord+" "+hmongWord)
+        // $('td#thaiWord').empty()
+        // $('td#hmongWord').empty()
+        // $('td#thaiWord').append(thaiWord)
+        // $('td#hmongWord').append(hmongWord)
+        $('input#input_thaiWord').val(thaiWord)
+        // $('input#input_hmongWord').val(hmongWord)
 
-                                "<td class='contro_newwordRow'>" +
-                                    "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_mewword' " +
-                                    "id='delete_newword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
-                            "</tr>"
-                            );
-                    }
-                    var date = data.getData[0][1]
-                    console.log('new_date'+date)
-
-                    var d = new Date(date);
-                    console.log('new_d'+d)
-
-                    paginationNewword(data.getData.length)
-                }),
-                error: function(error) {
-                    console.log(error)
-                }
-            });
-        } //end funtion
-
-        // show model rows recommend
-         $(this).on('click', 'button#edit_tdNewword', function(){
-            var idWord = $(this).val()
-            var thaiWord = $("#trNewword_New_word_"+idWord).text();
-            var hmongWord = $('#input_hmongWord'+idWord).text();
-
-            console.log(idWord+" "+thaiWord+" "+hmongWord)
-             // $('td#thaiWord').empty()
-             // $('td#hmongWord').empty()
-             // $('td#thaiWord').append(thaiWord)
-             // $('td#hmongWord').append(hmongWord)
-             $('input#input_thaiWord').val(thaiWord)
-             // $('input#input_hmongWord').val(hmongWord)
-
-        })
+    })
 
     // pagination newword
-        var tableN = '#tableNewword';
-        function paginationNewword(length_rowNewword) {
-            // reset num button page
-            $('.pagination_Newword').html('')
+    var tableN = '#tableNewword';
+    function paginationNewword(length_rowNewword) {
+        // reset num button page
+        $('.pagination_Newword').html('')
 
-            var check_maxRows_newword = ($("#select_maxrow_newword").val())
-            // console.log("max-check :"+check_maxRows)
-            if(check_maxRows_newword =='all'){
-                maxRows_newword = length_rowNewword
-            }else {
-                maxRows_newword = check_maxRows_newword
+        var check_maxRows_newword = ($("#select_maxrow_newword").val())
+        // console.log("max-check :"+check_maxRows)
+        if(check_maxRows_newword =='all'){
+            maxRows_newword = length_rowNewword
+        }else {
+            maxRows_newword = check_maxRows_newword
+        }
+        var totalRows_newword = length_rowNewword
+
+        // console.log('length_rowNewword ='+length_rowNewword)
+        // console.log('totalRows ='+totalRows)
+
+        var trnum_newword = 0;
+        $(tableN+' tr:gt(0)').each(function () {
+            trnum_newword++
+            if(trnum_newword > maxRows_newword){
+                $(this).hide()
             }
-            var totalRows_newword = length_rowNewword
+            if(trnum_newword <= maxRows_newword){
+                $(this).show()
+            }
+        });
 
-            // console.log('length_rowNewword ='+length_rowNewword)
-            // console.log('totalRows ='+totalRows)
+        // create button to page
+        if (totalRows_newword > maxRows_newword){
+            var pagenum_newword = Math.ceil(totalRows_newword/maxRows_newword);
+            var lastPage_newword = 0
+            lastPage_newword = pagenum_newword
+            for(var i=1;i<=pagenum_newword;){
+                $('.pagination_Newword').append('<button class="pageButton_newword" id="'+i+'">' +
+                    '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
+            }
+        }
+        // show rows pervios button
+        $('#startRow_Newword').text(1)
+        $('#endRow_Newword').text((maxRows_newword))
+        $('#totalRow_Newword').text(totalRows_newword)
 
-            var trnum_newword = 0;
+        // click select button
+        $('.pageButton_Newword:first-child').addClass('color_button3');
+        $('.pageButton_newword').on('click',function () {
+            var pageNum_newword = this.id
+            // active button
+            $('.pageButton_newword').removeClass('color_button3');
+            $(this).addClass('color_button3');
+
+            // var row
+            var trIndex_newword = 0;
+            //loop show rows
             $(tableN+' tr:gt(0)').each(function () {
-                trnum_newword++
-                if(trnum_newword > maxRows_newword){
+                trIndex_newword++
+                if(trIndex_newword > (maxRows_newword*pageNum_newword) || trIndex_newword <= (maxRows_newword*pageNum_newword)-maxRows_newword){
                     $(this).hide()
-                }
-                if(trnum_newword <= maxRows_newword){
+                }else {
                     $(this).show()
                 }
-            });
-
-            // create button to page
-            if (totalRows_newword > maxRows_newword){
-                var pagenum_newword = Math.ceil(totalRows_newword/maxRows_newword);
-                var lastPage_newword = 0
-                lastPage_newword = pagenum_newword
-                for(var i=1;i<=pagenum_newword;){
-                    $('.pagination_Newword').append('<button class="pageButton_newword" id="'+i+'">' +
-                        '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
-                }
-            }
-            // show rows pervios button
-            $('#startRow_Newword').text(1)
-            $('#endRow_Newword').text((maxRows_newword))
-            $('#totalRow_Newword').text(totalRows_newword)
-
-            // click select button
-            $('.pageButton_Newword:first-child').addClass('color_button3');
-            $('.pageButton_newword').on('click',function () {
-                var pageNum_newword = this.id
-                // active button
-                $('.pageButton_newword').removeClass('color_button3');
-                $(this).addClass('color_button3');
-
-                // var row
-                var trIndex_newword = 0;
-                //loop show rows
-                $(tableN+' tr:gt(0)').each(function () {
-                    trIndex_newword++
-                    if(trIndex_newword > (maxRows_newword*pageNum_newword) || trIndex_newword <= (maxRows_newword*pageNum_newword)-maxRows_newword){
-                        $(this).hide()
-                    }else {
-                        $(this).show()
-                    }
-                })
-
-                $('#startRow_Newword').text(((maxRows_newword*pageNum_newword)-maxRows_newword)+1)
-
-                if (pageNum_newword == lastPage_newword){
-                    $('#endRow_Newword').text((totalRows_newword))
-                } else {
-                    $('#endRow_Newword').text((maxRows_newword*pageNum_newword))
-                }
-                $('#totalRow_Newword').text(totalRows_newword)
             })
 
-        } // end funtion pagination
-        // click class select
-        $('#select_maxrow_newword').on('change',function() {
-                getNewword()
-        })
-        // SideNav Initialization
+            $('#startRow_Newword').text(((maxRows_newword*pageNum_newword)-maxRows_newword)+1)
 
-        // $(".button-collapse").sideNav();
+            if (pageNum_newword == lastPage_newword){
+                $('#endRow_Newword').text((totalRows_newword))
+            } else {
+                $('#endRow_Newword').text((maxRows_newword*pageNum_newword))
+            }
+            $('#totalRow_Newword').text(totalRows_newword)
+        })
+
+    } // end funtion pagination
+    // click class select
+    $('#select_maxrow_newword').on('change',function() {
+        getNewword()
+    })
+    // SideNav Initialization
+
+    // $(".button-collapse").sideNav();
 
 
 }); //end ready
 
-$(document).ready( function () {
-
-});
+// $(document).ready( function () {
+//
+// });

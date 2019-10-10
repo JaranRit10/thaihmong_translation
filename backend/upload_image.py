@@ -1,29 +1,35 @@
-from flask import Flask, render_template
-from flask_dropzone import Dropzone
-from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
+# importing os module
 import os
 
-app = Flask(__name__)
-dropzone = Dropzone(app)
-# Dropzone settings
-app.config['DROPZONE_UPLOAD_MULTIPLE'] = True
-app.config['DROPZONE_ALLOWED_FILE_CUSTOM'] = True
-app.config['DROPZONE_ALLOWED_FILE_TYPE'] = 'image/*'
-app.config['DROPZONE_REDIRECT_VIEW'] = 'results'
-# Uploads settings
-app.config['UPLOADED_PHOTOS_DEST'] = os.getcwd() + '/uploads'
-photos = UploadSet('photos', IMAGES)
-configure_uploads(app, photos)
-patch_request_class(app)  # set maximum file size, default is 16MB
+from flask import Flask, request, render_template, send_from_directory
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+# Function to rename multiple files
+def main():
+    i = 0
+
+    # target = os.path.join(APP_ROOT, 'static/img/user_')
+    # # target = os.path.join(APP_ROOT, 'static/')
+    # print(target)
+    # if not os.path.isdir(target):
+    #     os.mkdir(target)
+    # else:
+    #     print("Couldn't create upload directory: {}".format(target))
+    # print(request.files.getlist("file"))
+
+    for filename in os.listdir("xyz"):
+        dst = str(i) + ".jpg"
+        src = 'xyz' + filename
+        dst = 'xyz' + dst
+
+        # rename() function will
+        # rename all the files
+        aa = os.rename(src, dst)
+        print(aa)
+        i += 1
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/results')
-def results():
-    return render_template('results.html')
-
-
+# Driver Code
+if __name__ == '__main__':
+    # Calling main() function
+    main()

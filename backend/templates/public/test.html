@@ -18,18 +18,6 @@
          </div>
         <br>
         <div>
-            <!-- select number rows of page -->
-<!--            <div class="form-group">-->
-<!--                <select name="state" id="select_maxrow_Recommend" class="form-control" style="width: 150px;">-->
-<!--                    <option value="5">5</option>-->
-<!--                    <option value="10">10</option>-->
-<!--                    <option value="15">15</option>-->
-<!--                    <option value="20">20</option>-->
-<!--                    <option value="50">50</option>-->
-<!--                    <option value="100">100</option>-->
-<!--                    <option value="all">แสดงทั้งหมด</option>-->
-<!--                </select>-->
-<!--            </div>-->
 
             <!-- table reccommend -->
             <div class="data_reccommend "> <!-- table-responsive  -->
@@ -119,7 +107,7 @@
                <div class="modal-dialog modal-xl">
                    <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">เพิ่มประโยคที่คุณจะแนะนำ</h5>
+                        <h5 class="modal-title" id="Modalrecommend">เพิ่มประโยคที่คุณจะแนะนำ</h5>
 
                         <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
@@ -130,19 +118,19 @@
                             <div class="row">
                               <div class="col-md-6 col-sm-12" >
                                   <table id="table_addsentanceRecommend" style="border: 0px">
-                                      <tr id="table_addsentanceRecommend">
-                                          <th id="table_addsentanceRecommend"></th>
+                                      <tr id="tr_addsentanceRecommend">
+                                          <th id="th_addsentanceRecommend"></th>
                                           <th style="float: left" id="table_addwordAdmin">ประโยคภาษาไทย</th>
                                       </tr>
                                       <tr id="table_thaisentence_show">
-                                          <th id="table_thaisentence">ประโยค</th>
+                                          <th id="th_thaisentence">ประโยค : </th>
                                           <td id="thaisentence">
 
                                           </td>
                                       </tr>
-                                      <tr id="table_thaisentence">
-                                          <th id="table_thaisentence">แก้ไข</th>
-                                          <td id="table_thaisentence">
+                                      <tr id="tr_thaisentence">
+                                          <th id="th_thaisentence2">แก้ไข</th>
+                                          <td id="td_thaisentence">
                                               <input type="text" class="form-control form-control" style="float: left" id="input_thaisentence">
                                           </td>
                                       </tr>
@@ -151,19 +139,19 @@
 
                               <div class="col-md-6 col-sm-12">
                                   <table id="table_hmongsentence">
-                                      <tr id="table_hmongsentence">
-                                          <th id="table_hmongsentence"></th>
+                                      <tr id="tr_hmongsentence">
+                                          <th id="th_hmongsentence"></th>
                                           <th style="float: left">ประโยคภาษาม้ง</th>
                                       </tr>
                                       <tr id="table_hmongsentence_show">
-                                          <th id="table_hmongsentence">ประโยค</th>
+                                          <th id="th_hmongsentence_show">ประโยค : </th>
                                           <td id="hmongsentence">
 
                                           </td>
                                       </tr>
-                                       <tr id="table_hmongsentence">
-                                          <th id="table_hmongsentence">แก้ไข</th>
-                                          <td id="table_hmongsentence">
+                                       <tr id="tr_hmongsentence_input">
+                                          <th id="th_hmongsentence_input">แก้ไข</th>
+                                          <td id="td_hmongsentence_input">
                                               <input type="text" class="form-control form-control" style="float: left" id="input_hmongsentence">
                                           </td>
                                       </tr>
@@ -171,12 +159,35 @@
                                   </table>
                               </div>
 
+                                <div class="col-md-6 col-sm-12">
+                                    <br>
+                                    <table id="table_grammarsentence">
+                                        <tr id="tr_grammarsentence">
+                                            <th id="th_grammarsentence"></th>
+                                            <th style="float: left">ชนิดไวยากรณ์</th>
+                                        </tr>
+                                        <tr id="table_grammarsentence_show">
+                                            <th id="th_grammarsentence_show">ชนิด : </th>
+                                            <td id="grammarsentence">
+
+                                            </td>
+                                        </tr>
+                                        <tr id="tr_grammarsentence_input">
+                                            <th id="th_grammarsentence_input">แก้ไข</th>
+                                            <td id="td_grammarsentence_input">
+                                                <input type="text" class="form-control form-control" style="float: left" id="input_grammarsentence">
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+
 
                             </div>
                          </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn color_button1" id="saveword_editRecommend">บันทึก</button>
+                        <button type="button" class="btn color_button1" id="saveword_editRecommend" class="close" data-dismiss="modal" aria-label="Close">บันทึก</button>
                         <button type="button" class="btn color_button3" id="clearword_editRecommend">ล้าง</button>
                         <button type="button" id="close_modal_editRecommend" class="btn color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
 
@@ -184,6 +195,7 @@
                     </div>
                </div>
             </div>
+
             <!-- modal delete rows-->
             <div id="deleteRow_recommend" class="modal" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
@@ -198,8 +210,8 @@
                     <p>ยืนยันการลบ.</p>
                   </div>
                   <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" id="savewordadd">ยืนยัน</button>
-                      <button type="button" id="close_modal" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                      <button type="button" class="btn color_button1" id="delet_row" data-dismiss="modal" aria-label="Close">ยืนยัน</button>
+                      <button type="button" id="close_modalnewword" class="btn color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
                   </div>
                 </div>
               </div>

@@ -410,10 +410,8 @@ class Database():
         try:
             connection = self.mydb
             cursor = connection.cursor()
-            update_query = """ 
-            UPDATE translated_sentence 
-            SET frequency=%s 
-            where id_translated_sentence =%s """
+            update_query = """ UPDATE translated_sentence SET frequency=%s 
+                            where id_translated_sentence =%s """
 
             frequency = int(frequency) + 1
             value_update = (frequency, id)
@@ -438,7 +436,24 @@ class Database():
             print("Eror in method getProfile")
 
     # =======================================================
+    # update page recommend
+    def update_recommend(self,id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend):
+        try:
+            connection = self.mydb
+            cursor = connection.cursor()
 
+            update_query = """ UPDATE recommend 
+            SET Thai_recommend=%s, Hmong_recommend=%s,type_error=%s 
+            WHERE id_recommend=%s"""
+            value_update = (Thai_recommend, Hmong_recommend, Grammar_recommend, id_recommend)
+
+            cursor.execute(update_query, value_update)
+            connection.commit()
+            print("update successfully")
+            return 1
+        except Exception as e:
+            print("Failed inserting record into python_users table {}".format(e))
+            return e
 
 
 if __name__ == '__main__':
@@ -446,7 +461,7 @@ if __name__ == '__main__':
 
     ss = time.time()
     dd = Database()
-    aa = dd.getprofile()
+    aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
     # get = dd.clickSearch("ให้")
     print(aa)
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]

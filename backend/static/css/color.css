@@ -5,6 +5,8 @@
     /*background: linear-gradient(4deg, rgba(148,5,133,1) 0%, rgba(196,22,204,1) 41%, rgba(205,11,230,1) 100%);*/
     background: rgb(171, 87, 201);
     background: linear-gradient(143deg, rgb(171, 87, 201) 0%, rgb(185, 79, 206) 43%, rgb(198, 94, 215) 100%);
+    box-shadow: 2px 1px 4px #999;
+    /*box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     /*border: 1px solid #E432D2;*/
     /*box-shadow: 2px 1px 6px #E432D2;*/
 }
@@ -12,8 +14,8 @@
 .color_button1 {
     border-color: #ece23f;
     background: linear-gradient(to bottom, #efaf27 10%, #ece23f 100%);
-    box-shadow: 2px 1px 4px #999;
-
+    box-shadow: 1px 1px 4px #999;
+    border-radius: 5px;
 }
 /*background: linear-gradient(to bottom, #fbb91d 8%, #fff542 100%);*/
 /*    !*border-color: #000000; !*set the color you want here*!*!*/
@@ -31,6 +33,7 @@
     background: linear-gradient(to bottom, #0bb622 8%, #1fc929 100%);
     border-color: #1fc929;
     box-shadow: 2px 1px 4px #999;
+    border-radius: 5px;
 }
 /*background: linear-gradient(to bottom, #0bc121 8%, #1fda29 100%);*/
 /*    border-color: #1fda29;*/
@@ -44,6 +47,7 @@
     background: linear-gradient(to bottom, #51f3e0 8%, #62fcfc 100%);
     border-color: #62fcfc;
     box-shadow: 2px 1px 4px #999;
+    border-radius: 5px;
 }
 .color_button3:hover {
     -webkit-transform: scale(1.1);
@@ -55,6 +59,7 @@
     background: linear-gradient(to bottom, #d61f36 8%, #d83722 100%);
     border-color: #D83722;
     box-shadow: 2px 1px 4px #999;
+    border-radius: 5px;
 }
 .color_button4:hover {
     -webkit-transform: scale(1.1);
@@ -82,7 +87,11 @@
     /*box-shadow: 2px 1px 6px #9d6aed;*/
 }
 
-
+/*------- sidebar a hover -------*/
+/*.sidebar a:hover:not(.active) {*/
+/*  background-color: #555;*/
+/*  color: white;*/
+/*}*/
 
 
 

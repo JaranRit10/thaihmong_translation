@@ -83,10 +83,11 @@ $(document).ready(function () {
                             tr += '<td class="searchword" id="' + "searchword_hmongword_" + x[0] + '">' + x[2] + '</td>'
 
                             tr += '<td class="contro_searchword">' +
-                                '<button type="button" class="btn btn-success btn-xs" ' +
+                                '<button type="button" class="btn color_button2 btn-xs" ' +
                                 'data-toggle="modal" data-target="#editwordAdmin" id="edit_searchword" ' +
-                                ' style="margin-right: 2px;" value="' + x[0] + '">Edit</button>' +
-                                '<button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#deletewordModal" ' +
+                                ' style="margin-right: 2px;" value="' + x[0] + '">Edit</button>'
+                            tr += '<td class="contro_searchword">' +
+                                '<button type="button" class="btn color_button2 btn-xs" data-toggle="modal" data-target="#deletewordModal" ' +
                                 'id="delte_searchword" value="' + x[0] + '">Delete</button></td>'
 
                             tr += '</tr>'

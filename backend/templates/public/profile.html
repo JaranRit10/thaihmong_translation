@@ -12,12 +12,19 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 center">
                                 <div class="text-center">
-                                    <img id="imag" src="{{url_for('static',filename='img/user_/default_user.png')}}" class="avatar img-circle img-thumbnail">
-                                    <p id="demo"></p>
-                                    <input type="file" id="image" style="display: none;"/>
-                                    <button id="button_change_img" type="button" class="color_button1 file-upload">เลือกรูป</button>
-                                    <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
-                                    <button id="path_image" type="button" class="btn btn-success" onclick="pathImage()">local</button>
+                                    <img id="imag" src="{{url_for('static',filename='img/default_user.png')}}" class="avatar img-circle img-thumbnail">
+
+                                    <form id="upload-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
+                                        <input id="image" type="file" name="file" accept="image/*" multiple style="display: none;"/>
+                                        <button id="button_change_img" name="file" type="button" class="color_button1 file-upload">เลือกรูป</button>
+                                        <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
+                                        <br>
+                                        <input type="submit" value="Upload!" id="upload-button" class="color_button3">
+                                    </form>
+<!--                                    <input type="file" id="image" style="display: none;"/>-->
+<!--                                    <button id="button_change_img" type="button" class="color_button1 file-upload">เลือกรูป</button>-->
+<!--                                    <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>-->
+<!--                                    <button id="path_image" type="button" class="btn btn-success" onclick="pathImage()">local</button>-->
                                     <br><br>
                                 </div><br>
                             </div><!-- col-xs-12 -->
@@ -52,7 +59,7 @@
                                         </tr>
                                   </table>
                                 </div>
-
+                                <br>
                                 <button id="button_editProfile" type="button" class="color_button4" data-toggle="modal" data-target="#Edit_Profilename" style="float: right;">แก้ไข</button><br>
                             </div><!-- /.col -->
                         </div><!-- row -->
@@ -116,7 +123,7 @@
                          </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="color_button1" id="saveword_editProfile">บันทึก</button>
+                        <button type="button" class="color_button1" id="saveword_editProfile" data-dismiss="modal" aria-label="Close">บันทึก</button>
                         <button type="button" class="color_button3" id="clearword_editProfile">ล้าง</button>
                         <button type="button" id="close_modal_editProfile" class="color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
                       </div>
@@ -124,9 +131,11 @@
                </div>
             </div> <!-- end model -->
 
-
+    <div class = "col-md-4 col-lg-2">
+      <button class = "btn btn-btn-primary btn-block"> ลงทะเบียน </button>
+    </div>
     <br>
-    <button id="button_showrecomment" type="button" class="color_button1 btn-lg"><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
+    <button id="button_showrecomment" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
     <br><br><br>
 
 {% endblock %}

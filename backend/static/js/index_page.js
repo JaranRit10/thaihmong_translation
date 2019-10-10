@@ -211,4 +211,13 @@ $(document).ready(function () {
 
     });
 
+
+    // ====== หน้าต่าง sidebar ===================================================================
+    // function menubar() {
+    //     document.getElementById("mySidenav").style.width = "250px";
+    // }
+    // function closeNav() {
+    //     document.getElementById("mySidenav").style.width = "0";
+    // }
+
 })

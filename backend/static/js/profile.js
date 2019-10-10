@@ -16,6 +16,7 @@ function profile() {
         url: '/getprofile',
         success: (function (data) {
             // console.log(data.getData.length)
+            var id_user
             var username
             var passwordd
             var firstname
@@ -25,14 +26,15 @@ function profile() {
             for (x of data.getData) {
 
                 $("td#tdUsername").append(
-                    "<h4 class='usernameRow' id='usernameRow" + x[0] + "'>" + x[3] + "</h4>"
+                    "<h5 class='usernameRow' id='usernameRow" + x[0] + "'>" + x[3] + "</h5>"
                 );
                 // $("input#tdPassword").append(
                 //     "<p class='passwordRow' id='passwordRow"+ x[0] +"'>" + x[5] + "</p>"
                 // );
                 $("td#tdEmail").append(
-                    "<h4 class='emailRow' id='emailRow" + x[0] + "'>" + x[10] + "</h4>"
+                    "<h5 class='emailRow' id='emailRow" + x[0] + "'>" + x[10] + "</h5>"
                 );
+                id_user = x[0]
                 username = x[3]
                 passwordd = x[4]
                 email = x[10]
@@ -68,16 +70,27 @@ function Edit_profie(u1, u2, u3) {
     document.getElementById('input_editusername').value = user;
     document.getElementById('input_editpassword').value = pass;
     document.getElementById('inputtd_editemail').value = email;
-}
-
-// showPassword()
-function showPassword() {
-    var x = document.getElementById("tdPassword");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
+    // edit input
+    $('#saveword_editProfile').click(function () {
+        var input_user = $('input#input_editusername').val()
+        var input_pass = $('input#input_editpassword').val()
+        var input_email = $('input#inputtd_editemail').val()
+        // console.log("user:",input_user)
+        // console.log("pass:",input_pass)
+        // console.log("email:",input_email)
+        $('#tdUsername').empty()
+        $('#tdPassword').empty()
+        $('#tdEmail').empty()
+        $('#tdUsername').append(input_user)
+        document.getElementById('tdPassword').value = input_pass;
+        // $('#tdPassword').append(input_pass)
+        $('#tdEmail').append(input_email)
+    })
+    $('#clearword_editProfile').click(function () {
+        $('#input_editusername').val(" ")
+        $('#input_editpassword').val(" ")
+        $('#inputtd_editemail').val(" ")
+    })
 }
 
 // ================== page profile ===========================================
@@ -110,14 +123,41 @@ function showPassword() {
             reader.onload = function (e) {
                 $('#imag').attr('src', e.target.result);
                 // $("#remove").val(0);
+                // image on navbar
+                $('#icon_user').attr('src', e.target.result)
             };
         }
     }
 
     function removeImage() {
-        $('#imag').attr('src', 'default_user.png');
+        $('#imag').attr('src', "/static/img/default_user.png");
         // $("#imag").val(1);
     }
+    // =================================================================
+
+    $("#file-picker").change(function(){
+
+        var input = document.getElementById('file-picker');
+
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+
+            if ((ext == 'jpg') || (ext == 'png'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+
+        }
+
+
+    } );
 
     // =================================================================
     function pathImage() {
@@ -253,11 +293,20 @@ function showPassword() {
 
 
     // ------------- jquery sidebar -------------------------------
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-            $(this).toggleClass('active');
-        });
-    });
+    // $(document).ready(function () {
+    //     $('#sidebarCollapse').on('click', function () {
+    //         $('#sidebar').toggleClass('active');
+    //         $(this).toggleClass('active');
+    //     });
+    // });
 
 });
+
+function showPassword() {
+    var x = document.getElementById("tdPassword");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}

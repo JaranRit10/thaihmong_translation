@@ -3,6 +3,7 @@ from backend import Grammar
 from backend.Database import Database
 import time
 from backend import Translate
+# from backend import upload_image
 
 import json
 
@@ -200,9 +201,26 @@ def getNewword():
     result = data.getNewword()
     return jsonify({'getData':result})
 
-@app.route('/addword')
-def addword():
-    return render_template('public/addword.html')
+@app.route('/updateTable_recommend',methods=['POST'])
+def updateTable_recommend():
+    check = False
+    if(request.method=='POST'):
+       try:
+           id_recommend = request.form['id_recommend']
+           Thai_recommend = request.form['Thai_recommend']
+           Hmong_recommend = request.form['Hmong_recommend']
+           type_error = request.form['type_error']
+
+
+           db = Database()
+           db.updateWord(id_recommend,Thai_recommend,Hmong_recommend,type_error)
+           check = True
+
+       except Exception as e:
+            print(e)
+            print("error in update funtion updateword")
+            return jsonify({'state': False})
+    return jsonify({'state':check})
 
 
 @app.route('/profile_user')
@@ -215,6 +233,15 @@ def profile_user():
         return render_template('public/profile_user.html', send=send)
     else:
         return render_template('public/index.html')
+# -------------- profile page ---------------------------------
+import os
+from uuid import uuid4
+
+from flask import Flask, request, render_template, send_from_directory
+
+__author__ = 'ibininja'
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route('/profile')
 def profile():
@@ -233,7 +260,82 @@ def getprofile():
     result = data.getprofile()
     return jsonify({'getData':result})
 
-# ==============================================================
+
+@app.route("/profile", methods=["POST"])
+def upload():
+    target = os.path.join(APP_ROOT, 'static/img/user_')
+    # target = os.path.join(APP_ROOT, 'static/')
+    print(target)
+    if not os.path.isdir(target):
+        os.mkdir(target)
+    else:
+        print("Couldn't create upload directory: {}".format(target))
+    print(request.files.getlist("file"))
+
+    for upload in request.files.getlist("file"):
+
+        # i = 0
+        # for rename in os.listdir("static/img/user_/"):
+        #     dst = str(i) + ".jpg"
+        #     src = "static/img/user_/" + rename
+        #     dst = "static/img/user_/" + dst
+        #
+        #     # rename() function will
+        #     # rename all the files
+        #     os.rename(src, dst)
+        #     i += 1
+        print(upload)
+        print("{} is the file name".format(upload.filename))
+        filename = upload.filename
+
+        i = 1
+        # for file in os.listdir():
+        # src = filename
+        # dst = str(i) + ".jpg"
+            # rename the original file
+        # os.rename(src, dst)
+        # i += 1
+        # print(path)
+        destination = "/".join([target, filename])
+        print ("Accept incoming file:", filename)
+        print ("Save it to:", destination)
+        upload.save(destination)
+
+    if "USERNAME" in session and "USER_ID" in session:
+        userName = session["USERNAME"]
+        userid = session["USER_ID"]
+        Privilege_user = session["Privilege_user"]
+        send = [userName, userid, Privilege_user]
+        return render_template('public/profile.html', send=send)
+    else:
+        return render_template('public/index.html')
+    # return send_from_directory("images", filename, as_attachment=True)
+    # return render_template("public/profile.html")
+
+@app.route('/profile/<filename>')
+def send_image(filename):
+    return send_from_directory("static/img/user_", filename)
+
+# ------------- end profile page -------------------------------
+# save word page recomend
+@app.route('/save_Recommend', methods=["POST"])
+def save_Recommend():
+    if (request.method == 'POST'):
+        id_recommend = request.form["id_recommend"]
+        Thai_recommend = request.form["Thai_recommend"]
+        Hmong_recommend = request.form["Hmong_recommend"]
+        Grammar_recommend = request.form["Grammar_recommend"]
+        # User_id = request.form["User_id"]
+        print("id_recommend ", id_recommend)
+        print("Thai_recommend ", Thai_recommend)
+        print("Hmong_recommend ", Hmong_recommend)
+        print("Grammar_recommend ", Grammar_recommend)
+        database = Database()
+        state = database.update_recommend(id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend)
+    return state
+
+
+# ================= end run =============================================
 # admin route
 @app.route('/admin')
 def adminpage():
