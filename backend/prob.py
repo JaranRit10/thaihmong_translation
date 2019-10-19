@@ -1,5 +1,6 @@
 import re
 import ast
+import os
 class prob:
     def readFile(self,fileName):
         data = []
@@ -102,26 +103,36 @@ class prob:
         return  prob[0]
 
     def propbigram(self,w1,w2):
-        f = open("file/addOneSmoothing.txt", "r")
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, 'file/addOneSmoothing.txt')
+        f = open(filename, "r")
         prob = f.read()
         prob = ast.literal_eval(prob)
+        f.close()
         w1 = str(w1)
         w2 = str(w2)
         w1 = w1.lower()
         w2 = w2.lower()
         bigram = (w1, w2)
+
         # print(bigram in prob)
         # print(prob[bigram])
-        f.close()
+
         try:
-            return bigram in prob,prob[bigram]
+            return ((bigram in prob),prob[bigram])
         except Exception as e:
-            print(e)
+            print("word have not!! ",e)
             return False,0
 
+
 if __name__ == '__main__':
-    import time
-    ss = time.time()
+    # import time
+    # ss = time.time()
     b = prob()
     # aa = b.start_add()
+    print(b.propbigram("lus",'tsev'))
 
+    # import os
+    # path = os.getcwd()
+    # print(type(path))
+# G:\thaihmong_translation\backend\file\addOneSmoothing.txt

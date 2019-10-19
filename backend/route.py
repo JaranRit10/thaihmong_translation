@@ -4,7 +4,6 @@ from backend.Database import Database
 import time
 from backend import Translate
 # from backend import upload_image
-
 import json
 
 

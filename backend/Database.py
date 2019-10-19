@@ -37,6 +37,8 @@ class Database():
                     if (myresult == []):
                         myresult = list([('None', word, word, wordClass)])
 
+                        input("คำที่หาย :"+str(myresult))
+
             else:
                 # ลบ <Fail> ออกจาก word
                 if (word.find('<Fail>') != -1):
@@ -461,9 +463,9 @@ if __name__ == '__main__':
 
     ss = time.time()
     dd = Database()
-    aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
-    # get = dd.clickSearch("ให้")
-    print(aa)
+    # aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
+    get = dd.clickSearch("ให้")
+    print(get)
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
     # print(hh)
 
