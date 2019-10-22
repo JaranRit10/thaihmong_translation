@@ -1,3 +1,16 @@
+// จากรัน
+// ====== หน้าต่าง navbar ===================
+$('#wordBar').click(function () {
+    document.getElementById("mySidenav").style.width = "250px";
+})
+function menubar() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+
 $(document).ready(function () {
 
 

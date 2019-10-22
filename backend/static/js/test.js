@@ -99,10 +99,10 @@ $(document).ready( function () {
                         Grammar_recommend:saveGrammar_recommend
                     },
                     type : 'POST',
-                    url : '/save_Recommend',
+                    url : '/save_wordRecommend',
                     success:(function(data) {
-                        alert("data:",data)
-                        if (data == 1){
+                        // alert("data:",data)
+                        if (data.state == true){
                             getRecommend()
                             alert("save success")
                         }
@@ -115,7 +115,6 @@ $(document).ready( function () {
                     }
                 });
             }
-
         })
 
         $('button#clearword_editRecommend').click(function () {
@@ -123,60 +122,54 @@ $(document).ready( function () {
             $('input#input_hmongsentence').val(" ")
             $('input#input_grammarsentence').val(" ")
         })
-        // updateTable_recommend(numbersentence, saveThai_recommend, saveHmong_recommend, saveGrammar_recommend)
+
     })
 
-    // function deleteRow() {
-        $(this).on('click', 'button#delete_tdRecommend',function (){
-            var iddelete = $(this).val()
-            console.log("id:",iddelete)
-            deleterow(iddelete)
-            // $('button#delet_row').on('click',function () {
-            //     var rowid = $('#trRecommend_'+iddelete)
-            //     console.log("rowid:",rowid)
-            //     document.getElementById("tableRecommend").deleteRow(iddelete);
-            //     // document.getElementById(tbody_getrecommend).removeChild(document.getElementById(rowid));
-            //     // var row = document.getElementById(rowid);
-            //     // row.parentElement.removeChild(row);
-            // })
-
-        })
-        function deleterow(id) {
-            var idrow = id
+    $(this).on('click', 'button#delete_tdRecommend',function (){
+        var iddelete = $(this).val()
+        console.log("id:",iddelete)
+        var numbersentence = $("#tdRecommend_id_"+iddelete).text();
+        var thaisentence = $("#tdRecommend_thaiword_"+iddelete).text();
+        var hmongsentence = $('#tdRecommend_hmongword_'+iddelete).text();
+        var grammarsentence = $('#tdRecommend_type_'+iddelete).text();
+        console.log("numbersentence:",numbersentence)
+        console.log("thaisentence:",thaisentence)
+        console.log("hmongsentence:",hmongsentence)
+        console.log("grammarsentence:",grammarsentence)
+        deleterow()
+        function deleterow() {
             $('button#delet_row').on('click',function () {
-                var rowid = $('#trRecommend_'+idrow)
+                var rowid = $('#trRecommend_'+iddelete)
                 console.log("rowid:",rowid)
-                document.getElementById("tableRecommend").deleteRow(idrow);
-                // document.getElementById(tbody_getrecommend).removeChild(document.getElementById(rowid));
-                // var row = document.getElementById(rowid);
-                // row.parentElement.removeChild(row);
+                // document.getElementById("tableRecommend").deleteRow(idrow);
+                $.ajax({
+                    data: {
+                        id_recommend:iddelete,
+                        Thai_recommend:thaisentence,
+                        Hmong_recommend:hmongsentence,
+                        Grammar_recommend:grammarsentence
+                    },
+                    type: 'POST',
+                    url: '/delete_Recommend',
+                    dataType: "json",
+                    success: (function (data) {
+                        if (data.state == true) {
+                            getRecommend()
+                            alert("ทำการลบสำเร็จ")
+                            // seachWord_Admin()
+                        } else {
+                            alert("ทำการลบไม่สำเร็จ")
+                        }
+                    }),
+                    error: function (error) {
+                        console.log(error)
+                    }
+                });
             })
+
         }
-    // }
-    function updateTable_recommend(id_recommend, Thai_recommend, Hmong_recommend, type_error) {
-        $.ajax({
-            data: {
-                idword: id_recommend,
-                userID: Thai_recommend,
-                thaiword: Hmong_recommend,
-                hmongword: type_error,
-            },
-            type: 'POST',
-            url: '/updateTable_recommend',
-            dataType: "json",
-            success: (function (data) {
-                if (data.state == true) {
-                    alert("แก้ไขสำเร็จ")
-                    // seachWord_Admin()
-                } else {
-                    alert("แก้ไขผิดพลาด")
-                }
-            }),
-            error: function (error) {
-                console.log(error)
-            }
-        });
-    }
+    })
+
 
 
     // pagination
@@ -274,26 +267,29 @@ $(document).ready( function () {
                 // console.log('length_rowNewword '+length_rowNewword)
                 // console.log(data.getData.length)
                 $("tbody#tbody_getnewword").empty()
+                var coute = 1;
                 for (x of data.getData) {
                     $("tbody#tbody_getnewword").append(
                         "<tr id='trNewword' >" +
-                        "<td class='trNewword' id='trNewword_id_"+          x[0] +"'>" + x[0] + "</td>" +
-                        "<td class='trNewword' id='trNewword_Sentence_id_"+ x[0] +"'>" + x[1] + "</td>" +
-                        "<td class='trNewword' id='trNewword_Use_update_"+  x[0] +"'>" + x[2] + "</td>" +
-                        "<td class='trNewword' id='trNewword_New_word_"+    x[0] +"'>" + x[3] + "</td>" +
-                        "<td class='trNewword' id='trNewword_Num_Recommennd_"+ x[0] +"'>" + x[4] + "</td>" +
+                            "<td class='trNewword' name='"+x[0]+"' id='trNewword_id_"+ x[0] +"'>" + coute + "</td>" +
+                            "<td class='trNewword' id='trNewword_Sentence_id_"+ x[0] +"'>" + x[1] + "</td>" +
+                            "<td class='trNewword' id='trNewword_thaiword_"+  x[0] +"'>" + x[2] + "</td>" +
+                            "<td class='trNewword' id='trNewword_hmongword_"+    x[0] +"'>" + x[3] + "</td>" +
+                            "<td class='trNewword' id='trNewword_New_word_"+    x[0] +"'>" + x[4] + "</td>" +
 
-                        "<td class='contro_newwordRow'>" +
-                        "<button type='button' class='btn color_button2 btn-xs' " +
-                        "data-toggle='modal' data-target='#edit_newword' id='edit_tdNewword' " +
-                        " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
+                            "<td class='contro_newwordRow'>" +
+                            "<button type='button' class='btn color_button2 btn-xs' " +
+                            "data-toggle='modal' data-target='#edit_newword' id='edit_tdNewword' " +
+                            " style='margin-right: 2px;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
 
-                        "<td class='contro_newwordRow'>" +
-                        "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_mewword' " +
-                        "id='delete_newword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
+                            "<td class='contro_newwordRow'>" +
+                            "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_mewword' " +
+                            "id='delete_newword' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                         "</tr>"
                     );
+                    coute = coute+1;
                 }
+
                 var date = data.getData[0][1]
                 console.log('new_date'+date)
 
@@ -310,19 +306,161 @@ $(document).ready( function () {
 
     // show model rows recommend
     $(this).on('click', 'button#edit_tdNewword', function(){
+        // checkSelect()
         var idWord = $(this).val()
-        var thaiWord = $("#trNewword_New_word_"+idWord).text();
-        var hmongWord = $('#input_hmongWord'+idWord).text();
+        var thaiWord = $("#trNewword_thaiword_"+idWord).text();
+        var hmongWord = $("#trNewword_hmongword_"+idWord).text();
+        var typWord = $('#trNewword_New_word_'+idWord).text();
 
-        console.log(idWord+" "+thaiWord+" "+hmongWord)
-        // $('td#thaiWord').empty()
-        // $('td#hmongWord').empty()
-        // $('td#thaiWord').append(thaiWord)
-        // $('td#hmongWord').append(hmongWord)
+        console.log(idWord+" "+thaiWord+" "+hmongWord+" "+typWord)
+
         $('input#input_thaiWord').val(thaiWord)
-        // $('input#input_hmongWord').val(hmongWord)
+        $('input#input_hmongWord').val(hmongWord)
+        // $('select#select_newword').val(hmongWord)
 
+
+        // click save newword
+        $('button#saveNewword').click(function () {
+            var thaiword = $('input#input_thaiWord').val()
+            var hmongword = $('input#input_hmongWord').val()
+            var typword = $('select#select_newword').val()
+            console.log("thaiword:",thaiword)
+            console.log("hmongword:",hmongword)
+            console.log("typword:",typword)
+            saveNewword()
+            function saveNewword() {
+                $.ajax({
+                    data : {
+                        id_newword:idWord,
+                        Thai_newword:thaiword,
+                        Hmong_newword:hmongword,
+                        tpy_newword:typword
+                    },
+                    type : 'POST',
+                    url : '/save_Newword',
+                    success:(function(data) {
+                        // alert("data:",data)
+                        if (data.state == true){
+                            getNewword()
+                            alert("save success")
+                        }
+                        else{
+                            alert(data)
+                        }
+                    }),
+                    error:function(error) {
+                        console.log(error)
+                    }
+                });
+            }
+        })//end button save newword
+    }) //end button edit newword
+
+    $(this).on('click', 'button#delete_newword', function(){
+        var idWord = $(this).val()
+        var thaiWord = $("#trNewword_thaiword_"+idWord).text();
+        var hmongWord = $("#trNewword_hmongword_"+idWord).text();
+        var typWord = $('#trNewword_New_word_'+idWord).text();
+
+        console.log(idWord+" "+thaiWord+" "+hmongWord+" "+typWord)
+
+        // click save newword
+        $('button#save_model_newword').click(function () {
+            // var thaiword = $('input#input_thaiWord').val()
+            // var hmongword = $('input#input_hmongWord').val()
+            // var typword = $('select#select_newword').val()
+            // console.log("thaiword:",thaiword)
+            // console.log("hmongword:",hmongword)
+            // console.log("typword:",typword)
+            deleteNewword()
+            function deleteNewword() {
+                $.ajax({
+                    data : {
+                        id_newword:idWord,
+                        Thai_newword:thaiWord,
+                        Hmong_newword:hmongWord,
+                        tpy_newword:typWord
+                    },
+                    type : 'POST',
+                    url : '/delete_Newword',
+                    success:(function(data) {
+                        // alert("data:",data)
+                        if (data.state == true){
+                            getNewword()
+                            alert("save success")
+                        }
+                        else{
+                            alert(data)
+                        }
+                    }),
+                    error:function(error) {
+                        console.log(error)
+                    }
+                });
+            }
+        })//end button save newword
+    }) //end button edit newword
+
+    // select newword
+     $('select#select_newword').change(function () {
+        checkSelect()
     })
+    function checkSelect() {
+        // var check_valueSelect = ($("#select_newword").val())
+        // console.log("select:",check_valueSelect)
+        // document.getElementById("select_value").value = check_valueSelect;
+
+        var select = document.getElementById("select_newword");
+        console.log("select:",select)
+        var option = select.options[select.selectedIndex];
+        console.log("option:",option)
+        if (option.id == "NOUN")
+        {
+            document.getElementById("select_newword").value = option.text;
+        }
+        else if(option.id == "VERB"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "ADP"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "AUX"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "CCONJ"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "DET"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "PRON"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "SCONJ"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "NUM"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "PART"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "ADJ"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "INTJ"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "ADV"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "PROPN"){
+            document.getElementById("select_value").value = option.text;
+        }
+        else if(option.id == "X"){
+            document.getElementById("select_value").value = option.text;
+        }
+    }
 
     // pagination newword
     var tableN = '#tableNewword';
@@ -359,7 +497,7 @@ $(document).ready( function () {
             var lastPage_newword = 0
             lastPage_newword = pagenum_newword
             for(var i=1;i<=pagenum_newword;){
-                $('.pagination_Newword').append('<button class="pageButton_newword" id="'+i+'">' +
+                $('.pagination_Newword').append('<button class="pageButton_newword color_button3" id="'+i+'">' +
                     '<span>'+ i++ +'<span class="sr-only">(current)</span></span></button>').show()
             }
         }
@@ -403,13 +541,12 @@ $(document).ready( function () {
     $('#select_maxrow_newword').on('change',function() {
         getNewword()
     })
-    // SideNav Initialization
 
+
+    // SideNav Initialization
+    
     // $(".button-collapse").sideNav();
 
 
 }); //end ready
 
-// $(document).ready( function () {
-//
-// });

@@ -5,8 +5,6 @@
 
 {%block body%}
 
-
-
     <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px; width: 1150px; ">
          <div class="card-header">
              <div class="btn-group" style="height: 60px; float: left">
@@ -79,9 +77,9 @@
                       <tr>
                         <th>ลำดับ</th>
                         <th>ประโยคแนะนำ</th>
-                        <th>อัพเดท </th>
-                        <th>คำใหม่</th>
-                        <th>เลขเชื่อมประโยคแนะนำ </th>
+                        <th>คำภาษาไทย </th>
+                        <th>คำภาษาม้ง</th>
+                        <th>ไวยากรณ์ </th>
                       </tr>
                     </thead>
                     <!-- body dynamic rows  newword-->
@@ -224,7 +222,7 @@
                    <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">เพิ่มคำศัพท์ใหม่</h5>
-                        <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" id="close_modal_newword" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
@@ -234,20 +232,20 @@
                             <div class="row">
                               <div class="col-md-6 col-sm-12" >
                                   <table id="table_addwordNewword">
-                                      <tr id="table_addwordNewword">
-                                          <th id="table_addwordNewword"></th>
-                                          <th style="float: left" id="table_addwordNewword">ภาษาไทย</th>
+                                      <tr id="tr_addwordNewword">
+                                          <th id="th_addwordNewword"></th>
+                                          <th style="float: left" id="th_addwordNewword1">ภาษาไทย</th>
                                       </tr>
-                                      <tr id="table_addwordNewword">
-                                          <td id="table_addwordNewword">คำศัพท์</td>
-                                          <td id="table_addwordNewword">
+                                      <tr id="tr_addwordNewword1">
+                                          <td id="td_addwordNewword_thai">คำศัพท์</td>
+                                          <td id="td_addwordNewword_thai1">
                                               <input type="text" class="form-control form-control" style="float: left" id="input_thaiWord">
                                           </td>
                                       </tr>
-                                      <tr id="table_addwordNewword">
-                                          <td id="table_addwordNewword">ชนิดคำ</td>
-                                          <td id="table_addwordNewword">
-                                              <select class="form-control" id="selectclassword">
+                                      <tr id="tr_addwordNewword2">
+                                          <td id="td_addwordNewword_thai_2">ชนิดคำ</td>
+                                          <td id="td_addwordNewword_thai2">
+                                              <select class="form-control" name="select_newword" id="select_newword">
                                                 <option value="NOUN">คำนาม(NOUN)</option>
                                                 <option value="VERB">คำกริยา(VERB)</option>
                                                 <option value="ADP">คำบุพบท(ADP)</option>
@@ -259,26 +257,26 @@
                                                 <option value="NUM">ตัวเลข(NUM)</option>
                                                 <option value="PART">คำอนุภาคทั่วไป(PART)</option>
                                                 <option value="ADJ">คำคุณศัพท์(ADJ)</option>
-                                                <option value="ADJ">คำคุณศัพท์(ADJ)</option>
                                                 <option value="INTJ">คำอุทาน(INTJ)</option>
                                                 <option value="ADV">คำวิเศษณ์(ADV)</option>
                                                 <option value="PROPN">คำนามชี้เฉพาะหรือวิสามานยนาม(PROPN)</option>
                                                 <option value="X">อื่นๆ(X)</option>
                                               </select>
+                                              <input type="text" name="select_value" id="select_value">
                                           </td>
                                       </tr>
                                   </table>
                               </div>
 
                               <div class="col-md-6 col-sm-12">
-                                  <table id="table_addwordNewword">
-                                      <tr id="table_addwordNewword">
-                                          <th id="table_addwordNewword"></th>
+                                  <table id="table_addwordNewword_">
+                                      <tr id="tr_addwordNewword_">
+                                          <th id="th_addwordNewword_"></th>
                                           <th style="float: left">ภาษาม้ง</th>
                                       </tr>
-                                      <tr id="table_addwordNewword">
-                                          <td id="table_addwordNewword">คำศัพท์</td>
-                                          <td id="table_addwordNewword">
+                                      <tr id="tr_addwordNewword_hmong">
+                                          <td id="td_addwordNewword_hmong">คำศัพท์</td>
+                                          <td id="td_addwordNewword_hmong1">
                                               <input type="text" class="form-control form-control" style="float: left" id="input_hmongWord">
                                           </td>
                                       </tr>
@@ -289,9 +287,9 @@
                          </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn color_button1" id="saveNewword">บันทึก</button>
-                        <button type="button" class="btn color_button1" id="clearwordadd">ล้าง</button>
-                        <button type="button" id="close_modal" class="btn color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                        <button type="button" class="btn color_button1" id="saveNewword" data-dismiss="modal" aria-label="Close">บันทึก</button>
+                        <button type="button" class="btn color_button3" id="clearwordadd">ล้าง</button>
+                        <button type="button" id="close_modal_button" class="btn color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
 
                       </div>
                     </div>
@@ -302,7 +300,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">ยืนยันการลบ</h5>
+                    <h5 class="modal-title"> ยืนยันการลบ </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -311,8 +309,8 @@
                     <p>ยืนยันการลบ.</p>
                   </div>
                   <div class="modal-footer">
-                      <button type="button" class="btn color_button1" id="savewordadd">ยืนยัน</button>
-                      <button type="button" id="close_modal" class="btn color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                      <button type="button" class="btn color_button1" id="save_model_newword" data-dismiss="modal" aria-label="Close">ยืนยัน</button>
+                      <button type="button" id="close_modal_deleteNewword" class="btn color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
                   </div>
                 </div>
               </div>

@@ -6,20 +6,24 @@
 
     <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px;">
         <div id="user-profile-2" class="user-profile" >
+
             <div class="tabbable">
                 <div class="tab-content no-border padding-24">
                     <div id="home" class="tab-pane in active">
+
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 center">
                                 <div class="text-center">
                                     <img id="imag" src="{{url_for('static',filename='img/default_user.png')}}" class="avatar img-circle img-thumbnail">
-
-                                    <form id="upload-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
+<!--                                    <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">-->
+                                    <form id="upload-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data" target="iframe_target">
+                                        <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
                                         <input id="image" type="file" name="file" accept="image/*" multiple style="display: none;"/>
                                         <button id="button_change_img" name="file" type="button" class="color_button1 file-upload">เลือกรูป</button>
                                         <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
                                         <br>
-                                        <input type="submit" value="Upload!" id="upload-button" class="color_button3">
+                                        <button type="submit" value="อัพโหลด!" id="upload-button" class="color_button3">อัพโหลด!</button>
+<!--                                        <button id="show_image" type="button" class="color_button1" ></button>-->
                                     </form>
 <!--                                    <input type="file" id="image" style="display: none;"/>-->
 <!--                                    <button id="button_change_img" type="button" class="color_button1 file-upload">เลือกรูป</button>-->
@@ -131,11 +135,12 @@
                </div>
             </div> <!-- end model -->
 
-    <div class = "col-md-4 col-lg-2">
-      <button class = "btn btn-btn-primary btn-block"> ลงทะเบียน </button>
-    </div>
+
     <br>
-    <button id="button_showrecomment" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
+<!--    <div class = "col-md-4 col-lg-2">-->
+<!--        <button class = "btn btn-btn-primary btn-block"> ลงทะเบียน </button>-->
+        <button id="button_showrecomment" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
+<!--    </div>-->
     <br><br><br>
 
 {% endblock %}

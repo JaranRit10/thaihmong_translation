@@ -427,6 +427,7 @@ class Database():
     def getprofile(self):
         mycursor = self.mydb.cursor()
         try:
+            # id = id_user
             sql = "SELECT * FROM user_ WHERE id_user=3"
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
@@ -455,13 +456,87 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
+    # delete page recommend
+    def delete_recommend(self,id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend):
+        try:
+            connection = self.mydb
+            cursor = connection.cursor()
+
+            delete_query = """DELETE FROM recommend 
+            WHERE id_recommend=%s and Thai_recommend=%s and Hmong_recommend=%s and type_error=%s"""
+            id_delete = (id_recommend, Thai_recommend, Hmong_recommend, Grammar_recommend)
+
+            cursor.execute(delete_query, id_delete)
+            connection.commit()
+            print("delete successfully")
+            return 1
+        except Exception as e:
+            print("Failed inserting record into python_users table {}".format(e))
+            return e
+
+    # update page newword
+    def update_newword(self,id_newword,Thai_newword,Hmong_newword,Grammar_newword):
+        try:
+            connection = self.mydb
+            cursor = connection.cursor()
+
+            update_query = """ UPDATE newword 
+            SET Thai_word=%s, Hmong_word=%s,New_word_wordclass=%s 
+            WHERE id_newword=%s"""
+            value_update = (Thai_newword,Hmong_newword,Grammar_newword, id_newword)
+
+            cursor.execute(update_query, value_update)
+            connection.commit()
+            print("update successfully")
+            return 1
+        except Exception as e:
+            print("Failed inserting record into python_users table {}".format(e))
+            return e
+
+# delete page newword
+    def delete_newword(self,id_newword,Thai_newword,Hmong_newword,Grammar_newword):
+        try:
+            connection = self.mydb
+            cursor = connection.cursor()
+
+            delete_query = """DELETE FROM newword 
+            WHERE id_newword=%s and Thai_word=%s and Hmong_word=%s and New_word_wordclass=%s"""
+            id_delete = (id_newword,Thai_newword,Hmong_newword,Grammar_newword)
+
+            cursor.execute(delete_query, id_delete)
+            connection.commit()
+            print("delete successfully")
+            return 1
+        except Exception as e:
+            print("Failed inserting record into python_users table {}".format(e))
+            return e
+
+    # update page profile
+    def update_profile(self,id_user, Username, User_password, Email):
+        try:
+            connection = self.mydb
+            cursor = connection.cursor()
+
+            update_query = """ UPDATE user_ 
+            SET Username=%s, User_password=%s, Email=%s 
+            WHERE id_user=%s"""
+            value_update = (Username,User_password,Email,id_user)
+
+            cursor.execute(update_query, value_update)
+            connection.commit()
+            print("update profile successfully")
+            return 1
+        except Exception as e:
+            print("Failed inserting record into python_users table {}".format(e))
+            return e
+
 
 if __name__ == '__main__':
     import time
 
     ss = time.time()
     dd = Database()
-    aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
+    aa = dd.update_profile(3,"จรัญ",12345,"jaran@gmail.com123")
     # get = dd.clickSearch("ให้")
     print(aa)
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]

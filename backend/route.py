@@ -98,6 +98,7 @@ def checkLogin():
         # print("sesion :::"+str( send[0])+"**"+ str(send[1]))
         return render_template('public/index.html',send = send)
     else:
+
         return redirect(url_for("Hompage"))
 
 @app.route('/getdata-user', methods=['POST'])
@@ -201,27 +202,6 @@ def getNewword():
     result = data.getNewword()
     return jsonify({'getData':result})
 
-@app.route('/updateTable_recommend',methods=['POST'])
-def updateTable_recommend():
-    check = False
-    if(request.method=='POST'):
-       try:
-           id_recommend = request.form['id_recommend']
-           Thai_recommend = request.form['Thai_recommend']
-           Hmong_recommend = request.form['Hmong_recommend']
-           type_error = request.form['type_error']
-
-
-           db = Database()
-           db.updateWord(id_recommend,Thai_recommend,Hmong_recommend,type_error)
-           check = True
-
-       except Exception as e:
-            print(e)
-            print("error in update funtion updateword")
-            return jsonify({'state': False})
-    return jsonify({'state':check})
-
 
 @app.route('/profile_user')
 def profile_user():
@@ -256,6 +236,8 @@ def profile():
 
 @app.route('/getprofile',methods=['POST'])
 def getprofile():
+    # id_user = request.form["id_user"]
+    # print("id user = ",id_user)
     data = Database()
     result = data.getprofile()
     return jsonify({'getData':result})
@@ -287,7 +269,6 @@ def upload():
         print(upload)
         print("{} is the file name".format(upload.filename))
         filename = upload.filename
-
         i = 1
         # for file in os.listdir():
         # src = filename
@@ -301,40 +282,171 @@ def upload():
         print ("Save it to:", destination)
         upload.save(destination)
 
+    image_names = os.listdir('static/img/user_/')
+    print("name image:",image_names)
+
     if "USERNAME" in session and "USER_ID" in session:
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
         send = [userName, userid, Privilege_user]
         return render_template('public/profile.html', send=send)
+        # return filename
     else:
         return render_template('public/index.html')
     # return send_from_directory("images", filename, as_attachment=True)
-    # return render_template("public/profile.html")
 
-@app.route('/profile/<filename>')
-def send_image(filename):
-    return send_from_directory("static/img/user_", filename)
+@app.route('/profile')
+def send_image():
+    image_names = os.listdir('static/img/user_/')
+    print("name image:",image_names)
+    return render_template("profile.html", image_names=image_names)
+
+# @app.route('/send_imageProfile', methods=["POST"])
+# def send_imageProfile():
+#     image_names = os.listdir('static/img/user_/')
+#     print("name image:",image_names)
+#     return jsonify({'send_imageProfile': image_names})
+    # return render_template("send_imageProfile", image_names=image_names)
+
+# @app.route('/profile/<filename>')
+# def send_image(filename):
+#     return send_from_directory("static/img/user_", filename)
+
+
+# save word page newword
+@app.route('/save_Profile', methods=["POST"])
+def save_Profile():
+    check = False
+    if (request.method == 'POST'):
+        try:
+            id_user = request.form["id_user_"]
+            input_user = request.form["input_user_"]
+            input_pass = request.form["input_pass_"]
+            input_email = request.form["input_email_"]
+            print("id_recommend ", id_user)
+            print("Thai_recommend ", input_user)
+            print("Hmong_recommend ", input_pass)
+            print("Grammar_recommend ", input_email)
+            database = Database()
+            state = database.update_profile(id_user,input_user,input_pass,input_email)
+            print("state:",state)
+            check = True
+
+        except Exception as e:
+            print(e)
+            print("error in update funtion update Recommend")
+            return jsonify({'state': False})
+
+    return jsonify({'state': check})
 
 # ------------- end profile page -------------------------------
 # save word page recomend
-@app.route('/save_Recommend', methods=["POST"])
-def save_Recommend():
+@app.route('/save_wordRecommend', methods=["POST"])
+def save_wordRecommend():
+    check = False
     if (request.method == 'POST'):
-        id_recommend = request.form["id_recommend"]
-        Thai_recommend = request.form["Thai_recommend"]
-        Hmong_recommend = request.form["Hmong_recommend"]
-        Grammar_recommend = request.form["Grammar_recommend"]
-        # User_id = request.form["User_id"]
-        print("id_recommend ", id_recommend)
-        print("Thai_recommend ", Thai_recommend)
-        print("Hmong_recommend ", Hmong_recommend)
-        print("Grammar_recommend ", Grammar_recommend)
-        database = Database()
-        state = database.update_recommend(id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend)
-    return state
+        try:
+            id_recommend = request.form["id_recommend"]
+            Thai_recommend = request.form["Thai_recommend"]
+            Hmong_recommend = request.form["Hmong_recommend"]
+            Grammar_recommend = request.form["Grammar_recommend"]
+            # User_id = request.form["User_id"]
+            print("id_recommend ", id_recommend)
+            print("Thai_recommend ", Thai_recommend)
+            print("Hmong_recommend ", Hmong_recommend)
+            print("Grammar_recommend ", Grammar_recommend)
+            database = Database()
+            state = database.update_recommend(id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend)
+            print("state:",state)
+            check = True
+
+        except Exception as e:
+            print(e)
+            print("error in update funtion update Recommend")
+            return jsonify({'state': False})
+
+    return jsonify({'state': check})
+
+@app.route('/delete_Recommend',methods=['POST'])
+def delete_Recommend():
+    check = False
+    if(request.method=='POST'):
+        try:
+            id_recommend = request.form["id_recommend"]
+            Thai_recommend = request.form["Thai_recommend"]
+            Hmong_recommend = request.form["Hmong_recommend"]
+            Grammar_recommend = request.form["Grammar_recommend"]
+            # User_id = request.form["User_id"]
+            print("id_recommend ", id_recommend)
+            print("Thai_recommend ", Thai_recommend)
+            print("Hmong_recommend ", Hmong_recommend)
+            print("Grammar_recommend ", Grammar_recommend)
+
+            data = Database()
+            data.delete_recommend(id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend)
+            check = True
+
+        except Exception as e:
+            print(e)
+            print("error in delete funtion deleteword")
+            return jsonify({'state': False})
+
+    return jsonify({'state':check})
 
 
+# save word page newword
+@app.route('/save_Newword', methods=["POST"])
+def save_Newword():
+    check = False
+    if (request.method == 'POST'):
+        try:
+            id_newword = request.form["id_newword"]
+            Thai_newword = request.form["Thai_newword"]
+            Hmong_newword = request.form["Hmong_newword"]
+            Grammar_newword = request.form["tpy_newword"]
+            # User_id = request.form["User_id"]
+            print("id_newword ", id_newword)
+            print("Thai_newword ", Thai_newword)
+            print("Hmong_newword ", Hmong_newword)
+            print("Grammar_newword ", Grammar_newword)
+            database = Database()
+            state = database.update_newword(id_newword,Thai_newword,Hmong_newword,Grammar_newword)
+            print("state:",state)
+            check = True
+
+        except Exception as e:
+            print(e)
+            print("error in update funtion update Recommend")
+            return jsonify({'state': False})
+
+    return jsonify({'state': check})
+
+# delete newword
+@app.route('/delete_Newword',methods=['POST'])
+def delete_Newword():
+    check = False
+    if(request.method=='POST'):
+        try:
+            id_newword = request.form["id_newword"]
+            Thai_newword = request.form["Thai_newword"]
+            Hmong_newword = request.form["Hmong_newword"]
+            Grammar_newword = request.form["tpy_newword"]
+            print("id_recommend ", id_newword)
+            print("Thai_recommend ", Thai_newword)
+            print("Hmong_recommend ", Hmong_newword)
+            print("Grammar_recommend ", Grammar_newword)
+
+            data = Database()
+            data.delete_newword(id_newword, Thai_newword, Hmong_newword, Grammar_newword)
+            check = True
+
+        except Exception as e:
+            print(e)
+            print("error in delete funtion deleteword")
+            return jsonify({'state': False})
+
+    return jsonify({'state':check})
 # ================= end run =============================================
 # admin route
 @app.route('/admin')
@@ -447,6 +559,8 @@ def checkWord_Recommend ():
         data = get.getRecommend_toCheck(userID)
         return jsonify(data)
     return redirect(url_for("Hompage"))
+
+
 
 if __name__ == "__main__" :
     app.run(debug=True)

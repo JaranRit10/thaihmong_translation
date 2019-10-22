@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
 
 
-
 </head>
 
 <body>
@@ -31,7 +30,11 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-
+<!--    <div class="col-10" >-->
+        <a id="wordBar" href="#"><i class="bars icon" onclick="menubar()"></i></a>
+<!--    <i class='fas fa-list-ul' style='font-size:24px'></i>-->
+<!--        <a class="wordBar" href="/" style="margin-left: 10px; margin-top: 10px;"><h3>แปลภาษาไทย-ม้งอัตโนมัติ</h3></a>-->
+<!--    </div>-->
 <!--    <a class=""></a>-->
     <a class="navbar-brand ml-lg-5" href="/"><h2>Thai-Hmong translator</h2></a>
 
@@ -51,20 +54,18 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     {% if send[2]==0%}
-                    <a class="dropdown-item" href="/admin">admin page</a>
-                    <a class="dropdown-item" href="/profile">โปรไฟล์</a>
+                        <a class="dropdown-item" href="/admin">admin page</a>
+                        <a class="dropdown-item" href="/profile">โปรไฟล์</a>
                     {% else %}
-                    <a class="dropdown-item" href="/profile">โปรไฟล์</a>
+                        <a class="dropdown-item" href="/profile">โปรไฟล์</a>
                     {% endif %}
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/logout">ลงชื่อออก</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">ลงชื่อออก</a>
                 </div>
-
             </li>
             {% else %}
             <span class="nav-link">
-                <button type="button" class="color_button1" data-toggle="modal"
-                        data-target="#exampleModal">
+                <button type="button" class="color_button1" data-toggle="modal" data-target="#exampleModal">
                     ลงชื่อเข้าใช้
                 </button>
             </span>
@@ -105,17 +106,13 @@
                         <div class="row">
                             <p style="float: left; margin-left: 5%;"><a style="color: red">*</a>ชื่อผู้ใช้</p>
                         </div>
-                        <input class="form-control" placeholder="กรุณาป้อนชื่อผู้ใช้" name="username"
-                               id="username_login"
-                               style="width: 80%;">
+                        <input class="form-control" placeholder="กรุณาป้อนชื่อผู้ใช้" name="username" id="username_login" style="width: 80%;">
 
                         <div class="row" style="margin-top: 10px">
                             <p style="float: left; margin-left: 5%;"><a style="color: red">*</a>รหัสผ่าน</p>
 
                         </div>
-                        <input class="form-control" type="password" id="password_login" name="password"
-                               placeholder="กรุณาป้อนรหัสผ่าน"
-                               style="width: 80%;">
+                        <input class="form-control" type="password" id="password_login" name="password" placeholder="กรุณาป้อนรหัสผ่าน" style="width: 80%;">
                         <br>
                     </div>
                 </div>
@@ -136,7 +133,7 @@
 
 <!-- ************ footer ****************************-->
 <div class="footer color_nav">
-    <p>copyrigth 2019 Thai-hmong Translator</p>
+    <p>copyrigth &copy; 2019 Thai-hmong Translator</p>
 </div>
 
 {% block script %}
@@ -160,7 +157,8 @@
 <!--include semantic-->
 <!--<script src="{{url_for('static',filename='node_modules/semantic-ui/dist/semantic.min.js')}}"></script>-->
 
-
+<!--<script type="text/javascript" src="jquery.js"></script>-->
+<!--<script type="text/javascript" src="jquery.form.js"></script>-->
 
 {% block custom_js %}
 <!--custom js-->
