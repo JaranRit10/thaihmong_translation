@@ -59,7 +59,7 @@ class Translate():
                     word.insert(i,get)
                     # print(word)
             except Exception as e:
-                print(e, "in method bigramprob")
+                print(e, "in method bigramprob.Translation")
 
         return word
 
@@ -195,7 +195,6 @@ class Translate():
             print(e)
             print("in method traslateThaiHmong")
             return s_sentence
-
 
     def traslateThaiHmong_Thread(self,allSentence):
         usegrammar = Grammar()
