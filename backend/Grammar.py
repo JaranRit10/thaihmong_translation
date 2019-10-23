@@ -4,6 +4,7 @@ import time
 
 class Grammar () :
 
+    notquestionword = ['ใช่']
     questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม']
 
     def grammarHmong(self,Text):

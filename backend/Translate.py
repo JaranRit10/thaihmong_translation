@@ -161,8 +161,6 @@ class Translate():
                             try:
                                 if (get[0][0] == "None"):
                                     newword.append(get[0])
-
-
                             except Exception as e:
                                 print(e)
                                 # print("Error in sub method traslateThaiHmong")

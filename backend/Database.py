@@ -37,7 +37,8 @@ class Database():
                     if (myresult == []):
                         myresult = list([('None', word, word, wordClass)])
 
-                        input("คำที่หาย :"+str(myresult))
+                        if(myresult[0][3]!="PUNCT"): #สำหรับตรวจสอบคำที่หายไป ในการ test
+                            input("คำที่หาย :"+str(myresult))
 
             else:
                 # ลบ <Fail> ออกจาก word

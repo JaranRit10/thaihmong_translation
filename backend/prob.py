@@ -129,8 +129,8 @@ if __name__ == '__main__':
     # import time
     # ss = time.time()
     b = prob()
-    # aa = b.start_add()
-    print(b.propbigram("lus",'tsev'))
+    aa = b.start_add()
+    print(b.propbigram("rau",'koj'))
 
     # import os
     # path = os.getcwd()
