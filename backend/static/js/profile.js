@@ -22,47 +22,61 @@ $(document).ready(function () {
 
     profile()
     function profile() {
-        // var id_user = a
-        // console.log("id_user:",id_user)
         $.ajax({
-            type: 'POST',
-            url: '/getprofile',
-            success: (function (data) {
-                // console.log(data.getData.length)
-                var id_user
-                var username
-                var passwordd
-                var firstname
-                var lastname
-                var email
-                $("tbody#tbody_profile").empty()
-                for (x of data.getData) {
+            type : 'POST',
+            url : '/getdata-user',
+            success:(function(data) {
+                var getUser_id = data.dataUser[1]
+                console.log("getUser_id:",getUser_id)
+                $.ajax({
+                    type: 'POST',
+                    url: '/getprofile',
+                    success: (function (data) {
+                        // console.log(data.getData.length)
+                        var id_user
+                        var username
+                        var passwordd
+                        var firstname
+                        var lastname
+                        var email
+                        $("tbody#tbody_profile").empty()
+                        for (x of data.getData) {
+                            var id = x[0]
+                            console.log("id:",id)
+                            if(getUser_id == id){
+                                $("td#tdUsername").append(
+                                    "<h5 class='usernameRow' id='usernameRow" + x[0] + "'>" + x[3] + "</h5>"
+                                );
+                                // $("input#tdPassword").append(
+                                //     "<p class='passwordRow' id='passwordRow"+ x[0] +"'>" + x[5] + "</p>"
+                                // );
+                                $("td#tdEmail").append(
+                                    "<h5 class='emailRow' id='emailRow" + x[0] + "'>" + x[10] + "</h5>"
+                                );
+                                id_user = x[0]
+                                username = x[3]
+                                passwordd = x[4]
+                                email = x[10]
+                                // console.log("d ",passwordd)
+                                firstname = x[5]
+                                lastname = x[6]
+                            }
 
-                    $("td#tdUsername").append(
-                        "<h5 class='usernameRow' id='usernameRow" + x[0] + "'>" + x[3] + "</h5>"
-                    );
-                    // $("input#tdPassword").append(
-                    //     "<p class='passwordRow' id='passwordRow"+ x[0] +"'>" + x[5] + "</p>"
-                    // );
-                    $("td#tdEmail").append(
-                        "<h5 class='emailRow' id='emailRow" + x[0] + "'>" + x[10] + "</h5>"
-                    );
-                    id_user = x[0]
-                    username = x[3]
-                    passwordd = x[4]
-                    email = x[10]
-                    // console.log("d ",passwordd)
-                    firstname = x[5]
-                    lastname = x[6]
-                }
-                password1(passwordd, firstname, lastname)
-                Edit_profie(username, passwordd, email, id_user)
-                save_dataProfile(username, passwordd, email, id_user)
+                        }
+                        password1(passwordd, firstname, lastname)
+                        Edit_profie(username, passwordd, email, id_user)
+                        save_dataProfile(username, passwordd, email, id_user)
+                    }),
+                    error: function (error) {
+                        console.log(error)
+                    }
+                });
             }),
-            error: function (error) {
+            error:function (error) {
                 console.log(error)
             }
         });
+
         function password1(x1, x2, x3) {
             var passwords = x1
             var name = x2
@@ -228,57 +242,24 @@ $(document).ready(function () {
     //     send_imageProfile(a)
     // }
 
-    $('#upload-button').click(function () {
-        // $('#show_image').click(function () {
-        //     send_imageProfile()
-        //     var a = a
-        //     $('#imag').attr('src', "/static/img/user_/"+a);
-        // })
-        // $('#image').change(function () {
-        //     var imgPath = this.value;
-        //     var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-        //     // var ext = imgPath.substring(imgPath.lastIndexOf(':') + 11)
-        //     // console.log("Path img:",ext)
-        //     // console.log("Path img1:",xx)
-        //     if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
-        //         readURL(this);
-        //     else
-        //         alert("Please select image file (jpg, jpeg, png).")
-        // });
-        // function readURL(input) {
-        //     if (input.files && input.files[0]) {
-        //
-        //         var reader = new FileReader();
-        //         reader.readAsDataURL(input.files[0]);
-        //         reader.onload = function (e) {
-        //             $('#imag').attr('src', e.target.result);
-        //             // $("#remove").val(0);
-        //             // image on navbar
-        //             $('#icon_user').attr('src', e.target.result)
-        //         };
-        //     }
-        // }
-        // pathImage()
-        // send_imag()
 
-    });
-    function send_imag() {
-        // var a = a
-        // $('#imag').attr('src', "/static/img/user_/"+a);
-        $.ajax({
-            type : 'POST',
-            url : '/send_imageProfile',
-            success:(function(data) {
-                alert("data:",data)
-                var d = data
-                console.log("d:",d)
-                $('#imag').attr('src', "/static/img/user_/"+d);
-            }),
-            error:function(error) {
-                console.log(error)
-            }
-        });
-    }
+    // function send_imag() {
+    //     // var a = a
+    //     // $('#imag').attr('src', "/static/img/user_/"+a);
+    //     $.ajax({
+    //         type : 'POST',
+    //         url : '/send_imageProfile',
+    //         success:(function(data) {
+    //             alert("data:",data)
+    //             var d = data
+    //             console.log("d:",d)
+    //             $('#imag').attr('src', "/static/img/user_/"+d);
+    //         }),
+    //         error:function(error) {
+    //             console.log(error)
+    //         }
+    //     });
+    // }
     // =================================================================
 
     // $("#file-picker").change(function(){

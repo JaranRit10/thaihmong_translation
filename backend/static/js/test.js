@@ -31,19 +31,20 @@ $(document).ready( function () {
 
                     $("tbody#tbody_getrecommend").append(
                         "<tr id='trRecommend_"+ x[0] +"'>" +
-                        "<td class='recommendRow' name='"+x[0]+"' id='tdRecommend_id_"+ x[0] +"'>" + count + "</td>" +
-                        "<td class='recommendRow' id='tdRecommend_thaiword_"+ x[0] +"'>" + x[2] + "</td>" +
-                        "<td class='recommendRow' id='tdRecommend_hmongword_"+ x[0] +"'>" + x[3] + "</td>" +
-                        "<td class='recommendRow' id='tdRecommend_time_"+ x[0] +"'>" + x[1] + "</td>" +
-                        "<td class='recommendRow' id='tdRecommend_type_"+ x[0] +"'>" + x[4] + "</td>" +
+                            "<td class='recommendRow' name='"+x[0]+"' id='tdRecommend_id_"+ x[0] +"'>" + count + "</td>" +
+                            "<td class='recommendRow' id='tdRecommend_thaiword_"+ x[0] +"'>" + x[2] + "</td>" +
+                            "<td class='recommendRow' id='tdRecommend_hmongword_"+ x[0] +"'>" + x[3] + "</td>" +
+                            "<td class='recommendRow' id='tdRecommend_time_"+ x[0] +"'>" + x[1] + "</td>" +
+                            "<td class='recommendRow' id='tdRecommend_type_"+ x[0] +"'>" + x[4] + "</td>" +
 
-                        "<td class='contro_recommendRow' id='edit_recommendRow_"+ x[0] +"'>" +
-                        "<button type='button' class='btn color_button2 btn-xs' " +
-                        "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
-                        " style='margin-right: ;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
-                        "<td class='contro_recommendRow' id='delete_recommendRow_"+ x[0] +"'>" +
-                        "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
-                        "id='delete_tdRecommend' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
+                            "<td class='contro_recommendRow' id='edit_recommendRow_"+ x[0] +"'>" +
+                            "<button type='button' class='btn color_button2 btn-xs' " +
+                            "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
+                            " style='margin-right: ;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
+
+                            "<td class='contro_recommendRow' id='delete_recommendRow_"+ x[0] +"'>" +
+                            "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
+                            "id='delete_tdRecommend' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                         "</tr>"
                     );
                     "<br>"

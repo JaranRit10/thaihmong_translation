@@ -252,34 +252,60 @@ def upload():
     else:
         print("Couldn't create upload directory: {}".format(target))
     print(request.files.getlist("file"))
-
+    # i = 1
     for upload in request.files.getlist("file"):
 
-        # i = 0
-        # for rename in os.listdir("static/img/user_/"):
-        #     dst = str(i) + ".jpg"
-        #     src = "static/img/user_/" + rename
-        #     dst = "static/img/user_/" + dst
-        #
-        #     # rename() function will
-        #     # rename all the files
-        #     os.rename(src, dst)
-        #     i += 1
         print(upload)
         print("{} is the file name".format(upload.filename))
         filename = upload.filename
-        i = 1
-        # for file in os.listdir():
-        # src = filename
+
         # dst = str(i) + ".jpg"
-            # rename the original file
+        # src = "static/img/user_/" + filename
+        # dst = "static/img/user_/" + dst
+        # # rename() function will
+        # # rename all the files
         # os.rename(src, dst)
         # i += 1
-        # print(path)
+
         destination = "/".join([target, filename])
         print ("Accept incoming file:", filename)
         print ("Save it to:", destination)
         upload.save(destination)
+
+
+    # if "USER_ID" in session:
+    #     userid = session["USER_ID"]
+    #     print("userID:",userid)
+    # id = userid
+    # print("id:", id)
+    i = 1
+    for rename in os.listdir("static/img/user_/"):
+        print("rename:",rename)
+        print("i:",i)
+        # print("id:",id)
+        if (rename != i):
+            dst = str(i) + ".jpg"
+            src = "static/img/user_/" + rename
+            dst = "static/img/user_/" + dst
+            # rename() function will
+            # rename all the files
+            os.rename(src, dst)
+        # k = 1
+        # for j in os.listdir("static/img/user_/"):
+        #     print("j:",j)
+        #     print("k:", k)
+        #     num = str(k) + ".jpg"
+        #     print("num:",num)
+        #     print("rename:", rename)
+        #     if (rename != num):
+        #         dst = str(i) + ".jpg"
+        #         src = "static/img/user_/" + rename
+        #         dst = "static/img/user_/" + dst
+        #         # rename() function will
+        #         # rename all the files
+        #         os.rename(src, dst)
+        #     k += 1
+        i += 1
 
     image_names = os.listdir('static/img/user_/')
     print("name image:",image_names)

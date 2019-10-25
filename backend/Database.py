@@ -430,7 +430,7 @@ class Database():
         mycursor = self.mydb.cursor()
         try:
             # id = id_user
-            sql = "SELECT * FROM user_ WHERE id_user=3"
+            sql = "SELECT * FROM user_ "
             mycursor.execute(sql)
             myresult = mycursor.fetchall()
             return myresult
