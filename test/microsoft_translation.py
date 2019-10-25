@@ -1,18 +1,15 @@
-
-
 # from microsofttranslator import Translator
 # translator = Translator('<Your Client ID>', '<Your Client Secret>')
 # print (translator.translate("Hello", "pt"))
-tex = '''
-Ua ke nrog cov lus uas 
 
+tex = '''
 Koj hais tau zoo heev. 
 
 Cia kuv ua kom paub kuv cov phooj ywg rau koj. 
 
 Ua tsaug rau koj lub plawv. 
 
-Nws yog impressed nrog koj ua hauj lwm. 
+Nws yog impressed nrog koj ua hauj lwm heev. 
 
 Nws yog impressed nrog koj ua hauj lwm. 
 
@@ -102,7 +99,7 @@ Puas muaj ib lub sij hawm thaum nyob ze?
 
 Leej twg yog tus sau? 
 
-Puas muaj tej yam muaj kua no? 
+Koj puas muaj txiv apples? 
 
 qhov no yog dab tsi? 
 
@@ -114,7 +111,7 @@ Kuv yuav nrhiav tau ib lub tsheb zoo rau koj.
 
 Kuv tsav lub tsheb mus ua haujlwm xiav. 
 
-Kuv xav kom kuv muaj nyiaj mus yuav ib lub tsheb tshiab. 
+Kuv xav tias kuv muaj nyiaj mus yuav ib lub tsheb tshiab. 
 
 Zoo saib koj dua thaum ub. 
 
@@ -128,7 +125,7 @@ Nws tsis tso tus neeg nyob hauv lub tsev no.
 
 Nws qab nws saib yog 
 
-Koj ua dab tsi lawm? 
+Qhov no nws tsis dhau ib puas zoo li cas? 
 
 Tom qab tsev kawm ntawv, peb yuav tsum mus ncaj lub tsev txhua. 
 
@@ -136,7 +133,7 @@ Kuv tsis xav kom nws khauv xim tom qab nws.
 
 Nws yuav tsum tau txaj muag rau nws tus kheej. 
 
-Kuv muab nws tus kheej rau cov teeb meem los ntawm... 
+Qhov teeb meem yog dab tsi? 
 
 Nws yog lwm yam. 
 
@@ -166,11 +163,11 @@ Koj yog lig mistaken.
 
 Kuv mus muaj tau dav hlau. 
 
-Kuv muab nws tus kheej rau cov teeb meem ntawm tus. 
+Kuv solved qhov teeb meem yog cov khiav. 
 
 Nws xav ua koj tuaj cauj thiab txhob tu siab nws. 
 
-Kuv yuav mus lob sij hawm yam tsis ntshai. 
+Kuv yuav mus txeeb lub sij hawm uas tsis ntshai. 
 
 Thov tawm hauv lub tuam tsev no tam sim ntawd. 
 
@@ -180,7 +177,7 @@ Kuv tsis tau kom zoo rau nws.
 
 Kuv xav hais tias nws tseem zoo meej xwb. 
 
-Nws yuav ua tau los ntawm ib tug neeg designer. 
+Nws yog tsim los ntawm ib tug neeg designer. 
 
 Nws yog incredibly zoo kawg. 
 
@@ -200,21 +197,41 @@ Nws nco lig.
 
 Kuv xav hais lus ncaj qha rau nws. 
 
-Kuv xav hais lus ncaj qha rau nws. 
+Kuv xav kom koj hais tag nrho rau nws los ntawm koj. 
 
 Tsis ploj tsis qhia rau leej twg. 
 
 Kuv yuav tsis mus ntawm no tsis ua hauj lwm. 
 
-Muaj ob peb paub tab nyob ib ncig ntawm lub tsev uas kuv xav kom koj ua. 
+Koj yuav tsum ua tsis muaj tus pab. 
 
 Peb yuav tsum ua tam sim ntawd. 
 
 Qee zaus, tshwj xeeb tshaj yog rau cov hnub thaum ntxov. 
-'''
 
+'''
 tex = tex.splitlines()
-print(tex,"\n-------------------------------\n")
+print(tex, "\n-------------------------------\n")
 for i in tex:
-    if(i!=''):
+    if (i != ''):
         print(i)
+
+
+# import openpyxl
+# import xlrd
+# from backend.Translate import Translate
+#
+# loc = ("sentence100_test.xlsx")
+# wb = xlrd.open_workbook(loc)
+# sheet = wb.sheet_by_index(0)
+# sheet.cell_value(0, 0)
+# wb_s = openpyxl.Workbook()
+# sheet_s = wb_s.active
+# tran = Translate()
+# start = 1
+# data_translated = []
+# header = ['ประโยคที่มีคำว่าของ', 'ประโยคคำถาม', 'ประโยคที่มีการบอกลักษณะนาม', 'ประโยคที่มีการใช้ โดย']
+# for i in range(sheet.nrows - start):
+#     get_thai = sheet.cell_value(i + start, 1)
+#     sentence_thai = str(get_thai)
+#     print(sentence_thai, "\n")

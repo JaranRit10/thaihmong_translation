@@ -21,12 +21,17 @@ class Database():
             database="thaihmong_translator"
         )
         try:
+            word_notTag =['แก่']
+
             if (word.find('<Fail>') == -1):
                 mycursor = mydb.cursor()
-                sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s and Word_class= %s "
-                adr = (word, wordClass,)
-                mycursor.execute(sql, adr)
-                myresult = mycursor.fetchall()
+                if(word not in word_notTag):
+                    sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s and Word_class= %s "
+                    adr = (word, wordClass,)
+                    mycursor.execute(sql, adr)
+                    myresult = mycursor.fetchall()
+                else:
+                    myresult = []
 
                 if (myresult == []):
                     sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s and Hmong_word IS NOT null "
@@ -37,7 +42,8 @@ class Database():
                     if (myresult == []):
                         myresult = list([('None', word, word, wordClass)])
 
-                        input("คำที่หาย :"+str(myresult))
+                        # if(myresult[0][3]!="PUNCT"): #สำหรับตรวจสอบคำที่หายไป ในการ test
+                        #     input("คำที่หาย :"+str(myresult))
 
             else:
                 # ลบ <Fail> ออกจาก word
@@ -259,20 +265,37 @@ class Database():
             return ""
 
     def searchWord(self, word):
+        myresult =[]
         try:
             mycursor = self.mydb.cursor()
             word = str(word)
             word = word.strip()
             lang = detect(word)
-            if (lang == 'th'):
-                # print(type(lang))
-                sql = "SELECT * FROM thaihmongword WHERE Thai_word like %s LIMIT 101"
-            else:
-                sql = "SELECT * FROM thaihmongword WHERE Hmong_word like %s LIMIT 101"
-            word = word + '%'
-            adr = (word,)
-            mycursor.execute(sql, adr)
-            myresult = mycursor.fetchall()
+            for i in range(2):
+                if (lang == 'th'):
+                    # print(type(lang))
+                    if(i==0):
+                        sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s "
+                    else:
+                        sql = "SELECT * FROM thaihmongword WHERE Thai_word like %s AND Thai_word != %s LIMIT 101"
+                else:
+                    if(i==0):
+                        sql = "SELECT * FROM thaihmongword WHERE Hmong_word = %s "
+                    else:
+                        sql = "SELECT * FROM thaihmongword WHERE Hmong_word like %s AND Hmong_word != %s LIMIT 101"
+
+                if(i==0):
+                    word_used = word
+                    adr = (word_used,)
+                else:
+                    word_used = word+ '%'
+                    adr = (word_used,word)
+                # print(sql,adr)
+                mycursor.execute(sql, adr)
+                myresult.extend(mycursor.fetchall())
+                # print(myresult)
+                # input(":")
+
             return myresult
         except Exception as e:
             print(e)
@@ -538,14 +561,16 @@ if __name__ == '__main__':
 
     ss = time.time()
     dd = Database()
+    print(dd.searchWord("เป็น"))
+
 # <<<<<<< HEAD
-    aa = dd.update_profile(3,"จรัญ",12345,"jaran@gmail.com123")
+#     aa = dd.update_profile(3,"จรัญ",12345,"jaran@gmail.com123")
     # get = dd.clickSearch("ให้")
-    print(aa)
+    # print(aa)
 # =======
     # aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
-    get = dd.clickSearch("ให้")
-    print(get)
+    # get = dd.clickSearch("ให้")
+    # print(get)
 # >>>>>>> f770979729287b11809bd325c9fbd8634cf4f676
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
     # print(hh)

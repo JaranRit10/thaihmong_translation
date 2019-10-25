@@ -3,6 +3,7 @@ import openpyxl
 import xlrd
 from backend.Translate import Translate
 import time
+
 class testing:
     def complete(self,data):
         sentence = ''
@@ -33,6 +34,7 @@ class testing:
             get_thai = sheet.cell_value(i+start, 1)
             sentence_thai =str(get_thai)
             # print(sentence_thai,"\n")
+
             if(sentence_thai not in header):
             # sentence_thai = 'บ้านของฉัน'
                 sentence_hmong = self.complete(tran.traslateThaiHmong(sentence_thai)[0])

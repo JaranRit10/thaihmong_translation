@@ -1,6 +1,3 @@
-import  tltk.nlp
-
-if __name__ == '__main__':
-    while(1):
-        print ("OK")123
-        WordLst = tltk.nlp.word_segment(Text).split('|')
+a = [1,2,3,4,5]
+b = a*3
+print(b)

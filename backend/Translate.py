@@ -113,6 +113,7 @@ class Translate():
         # getPlob = Translate()
         data = backend.Database.Database()
         # for clear buffer
+        self.buffer_sentence.clear()
         if (len(self.buffer_sentence)>500):
             self.buffer_sentence.clear()
         try:
@@ -161,8 +162,6 @@ class Translate():
                             try:
                                 if (get[0][0] == "None"):
                                     newword.append(get[0])
-
-
                             except Exception as e:
                                 print(e)
                                 # print("Error in sub method traslateThaiHmong")

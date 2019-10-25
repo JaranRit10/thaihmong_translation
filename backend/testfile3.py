@@ -1,15 +1,9 @@
 
 
 if __name__ == '__main__':
-    import time
-    bb = {"เรา":"peb","เรา":"peb","เรา2":"peb","เรา3":"peb"}
-    for i in range(1000):
-        bb[i]= i+2
-        if(len(bb) >800):
-            print("bb(clear)",bb)
-            bb.clear()
-
-        print(bb)
-    time.sleep(2)
-    bb.clear()
-    print('clear all')
+    questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม']
+    senten_list = [('ขอ', 'VERB'), ('ฉัน', 'PRON'), ('ลอง', 'VERB'), ('ได้', 'ADV'), ('ไหม', 'PART'), ('<s/>', 'PUNCT')]
+    print(senten_list[len(senten_list) - 2][0] in questionword)
+    if (senten_list[len(senten_list) - 2][0] in questionword and
+            senten_list[len(senten_list) - 3][0] == "ได้"):
+        print("------------OK--------------------")

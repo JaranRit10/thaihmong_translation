@@ -8,13 +8,16 @@ class prob:
         dataset = file.read()
         dataset = dataset.lower()
         dataset = re.split('\n', dataset)
-        for sentence in dataset:
-            get = re.findall(r"[\w']+", sentence)
-            # print((get))
-            get.insert(0,"<s>")
-            get.insert(len(get),"</s>")
-            # print(get)
-            data.append(get)
+        for get_sentence in dataset:
+            sentence = get_sentence.strip()
+            if(sentence !=''):
+                get = re.findall(r"[\w']+", sentence)
+                # print((get))
+                get.insert(0,"<s>")
+                get.insert(len(get),"</s>")
+                # print(get)
+                data.append(get)
+
         return data
 
     def createBigram(self,data):
@@ -129,8 +132,8 @@ if __name__ == '__main__':
     # import time
     # ss = time.time()
     b = prob()
-    # aa = b.start_add()
-    print(b.propbigram("lus",'tsev'))
+    aa = b.start_add()
+    print(b.propbigram("rau",'koj'))
 
     # import os
     # path = os.getcwd()
