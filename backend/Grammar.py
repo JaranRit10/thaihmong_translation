@@ -5,7 +5,7 @@ import time
 class Grammar () :
 
     notquestionword = ['ใช่']
-    questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม']
+    questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม','หรือไม่']
 
     def grammarHmong(self,Text):
         global senten_list
@@ -38,8 +38,10 @@ class Grammar () :
                 self.complete()
                 check[0] = False
             # ประโยคการแสดงความเป็นเจ้าของ ไม่มีคำว่าของ
+            un_sentence = ['อะไร']
             if (x <= len(senten_list) - 2):
-                    if (check[1] == True and senten_list[x][1] == "NOUN" and senten_list[x + 1][1] == "PRON"):
+                    if (check[1] == True and senten_list[x][1] == "NOUN"
+                            and senten_list[x + 1][1] == "PRON" and senten_list[x + 1][0] not in un_sentence):
                         self.sentence1_1()
                         self.complete()
                         check[1] = False
@@ -128,15 +130,24 @@ class Grammar () :
     def sentence2(self):
         print("ประโยคคำถาม")
         check = False
-        for x in range(0, len(senten_list) - 2):
-            if(senten_list[x][1]== "VERB"):
-                first =x
-                senten_list.insert(first, senten_list[len(senten_list) - 2])
-                senten_list.pop(len(senten_list) - 2)
-                check = True
-                break
+        if(senten_list[len(senten_list)-2][0] in self.questionword and
+                senten_list[len(senten_list)-3][0] =="ได้"):
+            # สลับสองตำแหน่งหลัง
+            senten_list[len(senten_list) - 2], senten_list[len(senten_list) - 3] = senten_list[len(senten_list) - 3],senten_list[len(senten_list) - 2]
+            check = True
+        else:
+            for x in range(0, len(senten_list) - 2):
+                if (senten_list[x][1] == "VERB" or senten_list[x][1] == "AUX"):
+                    first = x
+                    senten_list.insert(first, senten_list[len(senten_list) - 2])
+                    senten_list.pop(len(senten_list) - 2)
+                    check = True
+                    break
         if(check==False):
+            #สลับสองตำแหน่งหลังง
             senten_list[len(senten_list) - 2], senten_list[len(senten_list) - 3] = senten_list[len(senten_list) - 3] , senten_list[len(senten_list) - 2]
+
+
 
     classifier = ['รูป', 'ตัว', 'หลัง', 'พระองค์', 'องค์', 'ตน', 'ใบ', 'เรื่อง', 'สิ่ง', 'อัน', 'เลา', 'เชือก',
                   'เรือน', 'เล่ม', 'แท่ง', 'คน', 'กิ่ง', 'ขวด', 'ขอน', 'คัมภีร์', 'ฉบับ', 'ฉาก', 'ชุด',

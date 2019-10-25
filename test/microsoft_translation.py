@@ -3,15 +3,13 @@
 # print (translator.translate("Hello", "pt"))
 
 tex = '''
-Ua ke nrog cov lus uas 
-
 Koj hais tau zoo heev. 
 
 Cia kuv ua kom paub kuv cov phooj ywg rau koj. 
 
 Ua tsaug rau koj lub plawv. 
 
-Nws yog impressed nrog koj ua hauj lwm. 
+Nws yog impressed nrog koj ua hauj lwm heev. 
 
 Nws yog impressed nrog koj ua hauj lwm. 
 
@@ -101,7 +99,7 @@ Puas muaj ib lub sij hawm thaum nyob ze?
 
 Leej twg yog tus sau? 
 
-Puas muaj tej yam muaj kua no? 
+Koj puas muaj txiv apples? 
 
 qhov no yog dab tsi? 
 
@@ -135,7 +133,7 @@ Kuv tsis xav kom nws khauv xim tom qab nws.
 
 Nws yuav tsum tau txaj muag rau nws tus kheej. 
 
-Kuv muab nws tus kheej rau cov teeb meem los ntawm... 
+Qhov teeb meem yog dab tsi? 
 
 Nws yog lwm yam. 
 
@@ -165,7 +163,7 @@ Koj yog lig mistaken.
 
 Kuv mus muaj tau dav hlau. 
 
-Kuv muab nws tus kheej rau cov teeb meem ntawm tus. 
+Kuv solved qhov teeb meem yog cov khiav. 
 
 Nws xav ua koj tuaj cauj thiab txhob tu siab nws. 
 
@@ -179,7 +177,7 @@ Kuv tsis tau kom zoo rau nws.
 
 Kuv xav hais tias nws tseem zoo meej xwb. 
 
-Nws yuav ua tau los ntawm ib tug neeg designer. 
+Nws yog tsim los ntawm ib tug neeg designer. 
 
 Nws yog incredibly zoo kawg. 
 
@@ -199,17 +197,18 @@ Nws nco lig.
 
 Kuv xav hais lus ncaj qha rau nws. 
 
-Kuv xav hais lus ncaj qha rau nws. 
+Kuv xav kom koj hais tag nrho rau nws los ntawm koj. 
 
 Tsis ploj tsis qhia rau leej twg. 
 
 Kuv yuav tsis mus ntawm no tsis ua hauj lwm. 
 
-Muaj ob peb paub tab nyob ib ncig ntawm lub tsev uas kuv xav kom koj ua. 
+Koj yuav tsum ua tsis muaj tus pab. 
 
 Peb yuav tsum ua tam sim ntawd. 
 
 Qee zaus, tshwj xeeb tshaj yog rau cov hnub thaum ntxov. 
+
 '''
 tex = tex.splitlines()
 print(tex, "\n-------------------------------\n")
@@ -217,7 +216,7 @@ for i in tex:
     if (i != ''):
         print(i)
 
-#
+
 # import openpyxl
 # import xlrd
 # from backend.Translate import Translate

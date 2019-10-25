@@ -113,6 +113,7 @@ class Translate():
         # getPlob = Translate()
         data = backend.Database.Database()
         # for clear buffer
+        self.buffer_sentence.clear()
         if (len(self.buffer_sentence)>500):
             self.buffer_sentence.clear()
         try:
