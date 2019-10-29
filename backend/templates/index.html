@@ -18,6 +18,9 @@
     <!--include boostrap-->
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
 
+    <!--  include crop image  -->
+<!--    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='upload-and-crop-image/bootstrap.min.css')}}">-->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='upload-and-crop-image/croppie.css')}}">
 
 </head>
 
@@ -142,7 +145,7 @@
 <!--include jquery-->
 <script src="{{url_for('static',filename='node_modules/jquery/dist/jquery.min.js')}}"></script>
 
-{<!--include boostrap js-->
+<!--include boostrap js-->
 <script src="{{url_for('static',filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <!--include popper-->
@@ -159,6 +162,11 @@
 
 <!--<script type="text/javascript" src="jquery.js"></script>-->
 <!--<script type="text/javascript" src="jquery.form.js"></script>-->
+
+<!--  include crop image  -->
+<script src="{{url_for('static',filename='upload-and-crop-image/jquery.min.js')}}"></script>
+<!--<script src="{{url_for('static',filename='upload-and-crop-image/bootstrap.min.js')}}"></script>-->
+<script src="{{url_for('static',filename='upload-and-crop-image/croppie.js')}}"></script>
 
 {% block custom_js %}
 <!--custom js-->

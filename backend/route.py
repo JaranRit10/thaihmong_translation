@@ -3,9 +3,13 @@ from backend import Grammar
 from backend.Database import Database
 import time
 from backend import Translate
-# from backend import upload_image
 import json
 
+import base64
+from io import BytesIO
+from PIL import Image
+import uuid
+import io
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='40PdS98eZy2mz5hqGIXIOg'
@@ -240,6 +244,38 @@ def getprofile():
     data = Database()
     result = data.getprofile()
     return jsonify({'getData':result})
+
+
+@app.route('/crop',methods=['POST'])
+def crop():
+    try:
+        image = request.form["image"]
+        print("image:",image)
+        id_user = request.form["getUser_id"]
+        print("id_user:", id_user)
+
+        file = image
+        starter = file.find(',')
+        print("starter:", starter)
+        image_data = file[starter + 1:]
+        print("image_data1:", image_data)
+        image_data = bytes(image_data, encoding="ascii")
+        print("image_data2:", image_data)
+        im = Image.open(BytesIO(base64.b64decode(image_data)))
+        print("im:",im)
+        image_path = "static/img/user_/"
+        print("image_path:", image_path)
+        image_name = id_user + '.png'
+        print("image_name:", image_name)
+        path = image_path + image_name
+        print("path:", path)
+
+        im.save(image_path + image_name)
+
+    except Exception as e:
+        print(e)
+        print("error in update funtion update Recommend")
+    return jsonify({'getData': path})
 
 
 @app.route("/profile", methods=["POST"])
