@@ -4,146 +4,175 @@
 
 {%block body%}
 
-    <div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px;">
-        <div id="user-profile-2" class="user-profile" >
+<div class="card" style="box-shadow: 2px 1px 4px #999; margin-top: 25px; padding: 20px;">
+    <div id="user-profile-2" class="user-profile" >
 
-            <div class="tabbable">
-                <div class="tab-content no-border padding-24">
-                    <div id="home" class="tab-pane in active">
+        <div class="tabbable">
+            <div class="tab-content no-border padding-24">
+                <div id="home" class="tab-pane in active">
 
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-3 center">
-                                <div class="text-center">
-                                    <img id="imag" src="{{url_for('static',filename='img/default_user.png')}}" class="avatar img-circle img-thumbnail">
-<!--                                    <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">-->
-                                    <form id="upload-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data" target="iframe_target">
-                                        <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
-                                        <input id="image" type="file" name="file" accept="image/*" multiple style="display: none;"/>
-                                        <button id="button_change_img" name="file" type="button" class="color_button1 file-upload">เลือกรูป</button>
-                                        <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
-                                        <br>
-                                        <button type="submit" value="อัพโหลด!" id="upload-button" class="color_button3">อัพโหลด!</button>
-<!--                                        <button id="show_image" type="button" class="color_button1" ></button>-->
-                                    </form>
-<!--                                    <input type="file" id="image" style="display: none;"/>-->
-<!--                                    <button id="button_change_img" type="button" class="color_button1 file-upload">เลือกรูป</button>-->
-<!--                                    <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>-->
-<!--                                    <button id="path_image" type="button" class="btn btn-success" onclick="pathImage()">local</button>-->
-                                    <br><br>
-                                </div><br>
-                            </div><!-- col-xs-12 -->
-                            <div class="col-xs-12 col-sm-9 ">
-                                <div style="text-align:left;">
-                                    <h3 id="headName"> </h3>
-                                    <h3 id="headLastname"> </h3>
-                                </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 center">
+                            <div class="text-center">
+                                {% if 'USERNAME' in session %}
+                                    <img id="imag" src="static/img/user_/{{send[1]}}.png" class="avatar img-circle img-thumbnail">
+
+                                {% else %}
+                                    <img id="imag_else" src="{{url_for('static',filename='img/default_user.png')}}" class="avatar img-circle img-thumbnail">
+
+                                {% endif %}
+
+<!--                                <form id="upload-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data" target="iframe_target">-->
+<!--                                    <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>-->
+                                    <input id="image" type="file" name="file" accept="image/*" multiple style="display: none;"/>
+                                    <button id="button_change_img" name="file" type="button" class="color_button1 file-upload">เลือกรูป</button>
+                                    <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
+                                    <br>
+<!--                                    <a id="repage_profile" href="/profile" style="display: none"></a>-->
+<!--                                </form>-->
                                 <br><br>
-                                <div>
-                                    <table class="table table-sm">
-                                          <tr>
-                                              <th scope="col">USERNAME</th>
-                                              <td id="tdUsername"></td>
-                                          </tr>
-                                          <tr>
-                                                <th scope="col">PASWORD</th>
-                                                <td>
-                                                    <input id="tdPassword" type="password" value="" >
-<!--                                                    <span toggle="#password-field" class="fa fa-eye-slash" onclick="showPassword()"></span>-->
-                                                    <input type="checkbox" onclick="showPassword()">
-                                                </td>
-
-                                          </tr>
-                                          <tr>
-                                                <th scope="col">EMAIL</th>
-                                                <td id="tdEmail"></td>
-                                          </tr>
-                                        <tr>
-                                            <th> </th>
-                                            <td> </td>
-                                        </tr>
-                                  </table>
-                                </div>
-                                <br>
-                                <button id="button_editProfile" type="button" class="color_button4" data-toggle="modal" data-target="#Edit_Profilename" style="float: right;">แก้ไข</button><br>
-                            </div><!-- /.col -->
-                        </div><!-- row -->
-                    </div><!-- id="home" -->
-                </div><!-- tab-content -->
-            </div><!-- tabbable -->
-        </div><!-- user-profile-2 -->
-    </div><!-- end card -->
-
-
-    <!-- Modal  Profile -->
-            <div id="Edit_Profilename" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-               <div class="modal-dialog modal-xl">
-                   <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">ทำการแก้ไขข้อมูล</h5>
-
-                        <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-md-6 col-sm-12" >
-                                  <table id="table_editprofile">
-                                      <tr id="tr_">
-                                          <th id="th_"></th>
-                                          <th style="float: left" id="th2_">data profile</th>
-                                      </tr>
-                                      <tr id="tr_editusername">
-                                          <th id="th_editusername">Username: </th>
-                                          <td id="td_editusername">
-                                              <input type="text" class="form-control form-control" style="float: left" id="input_editusername">
-                                          </td>
-                                      </tr>
-                                      <tr id="tr_editpassword">
-                                          <th id="th_editpassword">Password: </th>
-                                          <td id="td_editpassword">
-                                              <input type="text" class="form-control form-control" style="float: left" id="input_editpassword">
-                                          </td>
-                                      </tr>
-                                  </table>
-                              </div>
-                                <!--  -->
-                              <div class="col-md-6 col-sm-12">
-                                  <table id="table_email">
-                                      <tr id="tr_email">
-                                          <th id="th_email"> </th>
-                                          <th style="float: left"> </th>
-                                      </tr>
-                                       <tr id="tr_editemail">
-                                          <th id="th_editemail">Email: </th>
-                                          <td id="td_editemail">
-                                              <input type="text" class="form-control form-control" style="float: left" id="inputtd_editemail">
-                                          </td>
-                                      </tr>
-                                  </table>
-                              </div>
+                            </div><br>
+                        </div><!-- col-xs-12 -->
+                        <div class="col-xs-12 col-sm-9 ">
+                            <div style="text-align:left;">
+                                <h3 id="headName"> </h3>
+                                <h3 id="headLastname"> </h3>
                             </div>
-                         </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="color_button1" id="saveword_editProfile" data-dismiss="modal" aria-label="Close">บันทึก</button>
-                        <button type="button" class="color_button3" id="clearword_editProfile">ล้าง</button>
-                        <button type="button" id="close_modal_editProfile" class="color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
-                      </div>
+                            <br><br>
+                            <div>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th scope="col">USERNAME</th>
+                                        <td id="tdUsername"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">PASWORD</th>
+                                        <td>
+                                            <input id="tdPassword" type="password" value="" >
+                                            <!--                                                    <span toggle="#password-field" class="fa fa-eye-slash" onclick="showPassword()"></span>-->
+                                            <input type="checkbox" onclick="showPassword()">
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">EMAIL</th>
+                                        <td id="tdEmail"></td>
+                                    </tr>
+                                    <tr>
+                                        <th> </th>
+                                        <td> </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br>
+                            <button id="button_editProfile" type="button" class="color_button4" data-toggle="modal" data-target="#Edit_Profilename" style="float: right;">แก้ไข</button><br>
+                        </div><!-- /.col -->
+                    </div><!-- row -->
+                </div><!-- id="home" -->
+            </div><!-- tab-content -->
+        </div><!-- tabbable -->
+    </div><!-- user-profile-2 -->
+</div><!-- end card -->
+
+<!-- model crop image -->
+<div id="uploadimageModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Crop Image</h4>
+                <button id="close_model_crop" type="button" class="close" data-dismiss="modal"  aria-label="Close">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8 text-center">
+                        <div id="image_demo" style="width:350px; margin-top:30px"></div>
                     </div>
-               </div>
-            </div> <!-- end model -->
+                    <div class="col-md-4" style="padding-top:30px;">
+                        <br />
+                        <br />
+                        <br />
+                        <button id="enter_image" class="btn btn-success crop_image">อัพโหลดภาพ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close_model_crop" type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">ออก</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal  Profile -->
+<div id="Edit_Profilename" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">ทำการแก้ไขข้อมูล</h5>
+
+                <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12" >
+                            <table id="table_editprofile">
+                                <tr id="tr_">
+                                    <th id="th_"></th>
+                                    <th style="float: left" id="th2_">data profile</th>
+                                </tr>
+                                <tr id="tr_editusername">
+                                    <th id="th_editusername">Username: </th>
+                                    <td id="td_editusername">
+                                        <input type="text" class="form-control form-control" style="float: left" id="input_editusername">
+                                    </td>
+                                </tr>
+                                <tr id="tr_editpassword">
+                                    <th id="th_editpassword">Password: </th>
+                                    <td id="td_editpassword">
+                                        <input type="text" class="form-control form-control" style="float: left" id="input_editpassword">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--  -->
+                        <div class="col-md-6 col-sm-12">
+                            <table id="table_email">
+                                <tr id="tr_email">
+                                    <th id="th_email"> </th>
+                                    <th style="float: left"> </th>
+                                </tr>
+                                <tr id="tr_editemail">
+                                    <th id="th_editemail">Email: </th>
+                                    <td id="td_editemail">
+                                        <input type="text" class="form-control form-control" style="float: left" id="inputtd_editemail">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="color_button1" id="saveword_editProfile" data-dismiss="modal" aria-label="Close">บันทึก</button>
+                <button type="button" class="color_button3" id="clearword_editProfile">ล้าง</button>
+                <button type="button" id="close_modal_editProfile" class="color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- end model -->
 
 
-    <br>
+<br>
 <!--    <div class = "col-md-4 col-lg-2">-->
 <!--        <button class = "btn btn-btn-primary btn-block"> ลงทะเบียน </button>-->
-        <button id="button_showrecomment" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
+<button id="button_showrecomment" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
 <!--    </div>-->
-    <br><br><br>
+<br><br><br>
 
 {% endblock %}
 {% block custom_js %}
-    <script src="{{url_for('static',filename='js/profile.js')}}"></script>
+<script src="{{url_for('static',filename='js/profile.js')}}"></script>
 {% endblock %}

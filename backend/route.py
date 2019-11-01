@@ -3,9 +3,13 @@ from backend import Grammar
 from backend.Database import Database
 import time
 from backend import Translate
-# from backend import upload_image
 import json
 
+import base64
+from io import BytesIO
+from PIL import Image
+import uuid
+import io
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='40PdS98eZy2mz5hqGIXIOg'
@@ -242,90 +246,111 @@ def getprofile():
     return jsonify({'getData':result})
 
 
-@app.route("/profile", methods=["POST"])
-def upload():
-    target = os.path.join(APP_ROOT, 'static/img/user_')
-    # target = os.path.join(APP_ROOT, 'static/')
-    print(target)
-    if not os.path.isdir(target):
-        os.mkdir(target)
-    else:
-        print("Couldn't create upload directory: {}".format(target))
-    print(request.files.getlist("file"))
-    # i = 1
-    for upload in request.files.getlist("file"):
+@app.route('/crop',methods=['POST'])
+def crop():
+    try:
+        image = request.form["image"]
+        # print("image:",image)
+        id_user = request.form["getUser_id"]
+        print("id_user:", id_user)
 
-        print(upload)
-        print("{} is the file name".format(upload.filename))
-        filename = upload.filename
+        file = image
+        starter = file.find(',')
+        # print("starter:", starter)
+        image_data = file[starter + 1:]
+        # print("image_data1:", image_data)
+        image_data = bytes(image_data, encoding="ascii")
+        # print("image_data2:", image_data)
+        im = Image.open(BytesIO(base64.b64decode(image_data)))
+        # print("im:",im)
+        image_path = "static/img/user_/"
+        # print("image_path:", image_path)
+        image_name = id_user + '.png'
+        print("image_name:", image_name)
+        path = image_path + image_name
+        print("path:", path)
 
-        # dst = str(i) + ".jpg"
-        # src = "static/img/user_/" + filename
-        # dst = "static/img/user_/" + dst
-        # # rename() function will
-        # # rename all the files
-        # os.rename(src, dst)
-        # i += 1
-
-        destination = "/".join([target, filename])
-        print ("Accept incoming file:", filename)
-        print ("Save it to:", destination)
-        upload.save(destination)
+        im.save(image_path + image_name)
 
 
-    # if "USER_ID" in session:
-    #     userid = session["USER_ID"]
-    #     print("userID:",userid)
-    # id = userid
-    # print("id:", id)
-    i = 1
-    for rename in os.listdir("static/img/user_/"):
-        print("rename:",rename)
-        print("i:",i)
-        # print("id:",id)
-        if (rename != i):
-            dst = str(i) + ".jpg"
-            src = "static/img/user_/" + rename
-            dst = "static/img/user_/" + dst
-            # rename() function will
-            # rename all the files
-            os.rename(src, dst)
-        # k = 1
-        # for j in os.listdir("static/img/user_/"):
-        #     print("j:",j)
-        #     print("k:", k)
-        #     num = str(k) + ".jpg"
-        #     print("num:",num)
-        #     print("rename:", rename)
-        #     if (rename != num):
-        #         dst = str(i) + ".jpg"
-        #         src = "static/img/user_/" + rename
-        #         dst = "static/img/user_/" + dst
-        #         # rename() function will
-        #         # rename all the files
-        #         os.rename(src, dst)
-        #     k += 1
-        i += 1
+        # checkk = 0
+        # if(image_ == image_):
+        #     checkk = 1
+        #     return checkk
+        # else:
+        #     checkk = 0
+        #     return checkk
 
-    image_names = os.listdir('static/img/user_/')
-    print("name image:",image_names)
+    except Exception as e:
+        print(e)
+        print("error in update funtion update Recommend")
+    return jsonify({'getData': path})
 
-    if "USERNAME" in session and "USER_ID" in session:
-        userName = session["USERNAME"]
-        userid = session["USER_ID"]
-        Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
-        return render_template('public/profile.html', send=send)
-        # return filename
-    else:
-        return render_template('public/index.html')
-    # return send_from_directory("images", filename, as_attachment=True)
 
-@app.route('/profile')
-def send_image():
-    image_names = os.listdir('static/img/user_/')
-    print("name image:",image_names)
-    return render_template("profile.html", image_names=image_names)
+# @app.route("/profile", methods=["POST"])
+# def upload():
+#     target = os.path.join(APP_ROOT, 'static/img/user_')
+#     # target = os.path.join(APP_ROOT, 'static/')
+#     print(target)
+#     if not os.path.isdir(target):
+#         os.mkdir(target)
+#     else:
+#         print("Couldn't create upload directory: {}".format(target))
+#     print(request.files.getlist("file"))
+#     # i = 1
+#     for upload in request.files.getlist("file"):
+#
+#         print(upload)
+#         print("{} is the file name".format(upload.filename))
+#         filename = upload.filename
+#
+#         # dst = str(i) + ".jpg"
+#         # src = "static/img/user_/" + filename
+#         # dst = "static/img/user_/" + dst
+#         # # rename() function will
+#         # # rename all the files
+#         # os.rename(src, dst)
+#         # i += 1
+#
+#         destination = "/".join([target, filename])
+#         print ("Accept incoming file:", filename)
+#         print ("Save it to:", destination)
+#         upload.save(destination)
+#
+#
+#
+#     i = 1
+#     for rename in os.listdir("static/img/user_/"):
+#         print("rename:",rename)
+#         print("i:",i)
+#         # print("id:",id)
+#         if (rename != i):
+#             dst = str(i) + ".jpg"
+#             src = "static/img/user_/" + rename
+#             dst = "static/img/user_/" + dst
+#             # rename() function will
+#             # rename all the files
+#             os.rename(src, dst)
+#
+#     image_names = os.listdir('static/img/user_/')
+#     print("name image:",image_names)
+#
+#     if "USERNAME" in session and "USER_ID" in session:
+#         userName = session["USERNAME"]
+#         userid = session["USER_ID"]
+#         Privilege_user = session["Privilege_user"]
+#         send = [userName, userid, Privilege_user]
+#         return render_template('public/profile.html', send=send)
+#         # return filename
+#     else:
+#         return render_template('public/index.html')
+#     # return send_from_directory("images", filename, as_attachment=True)
+#
+# @app.route('/profile')
+# def send_image():
+#     image_names = os.listdir('static/img/user_/')
+#     print("name image:",image_names)
+#     return render_template("profile.html", image_names=image_names)
 
 # @app.route('/send_imageProfile', methods=["POST"])
 # def send_imageProfile():

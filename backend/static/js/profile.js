@@ -181,67 +181,113 @@ $(document).ready(function () {
         $('#image').click();
     }
 
+    $image_crop = $('#image_demo').croppie({
+        enableExif: true,
+        viewport: {
+            width:200,
+            height:200,
+            type:'square' //circle
+        },
+        boundary:{
+            width:300,
+            height:300
+        }
+    });
+
     $('#image').change(function () {
-        // preview_image(event)
         var imgPath = this.value;
         var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-        // var ext = imgPath.substring(imgPath.lastIndexOf(':') + 11)
-        // console.log("Path img:",ext)
-        // console.log("Path img1:",xx)
+
         if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
             readURL(this);
         else
             alert("Please select image file (jpg, jpeg, png).")
     });
+
     function readURL(input) {
         if (input.files && input.files[0]) {
 
+            // var reader = new FileReader();
+            // reader.readAsDataURL(input.files[0]);
+            // reader.onload = function (e) {
+            //     $('#imag').attr('src', e.target.result);
+            //     // $("#remove").val(0);
+            //     // image on navbar
+            //     $('#icon_user').attr('src', e.target.result)
+            // };
+
             var reader = new FileReader();
+            reader.onload = function (event) {
+                $image_crop.croppie('bind', {
+                    url: event.target.result
+                }).then(function(){
+                    console.log('jQuery bind complete');
+                });
+            }
             reader.readAsDataURL(input.files[0]);
-            reader.onload = function (e) {
-                $('#imag').attr('src', e.target.result);
-                // $("#remove").val(0);
-                // image on navbar
-                $('#icon_user').attr('src', e.target.result)
-            };
-        }
-        else {
-            $('#imag').attr('src', '/static/img/user_/1.jpg');
+            // $('#uploadimageModal').modal('show');
+            $('#uploadimageModal').show()
         }
     }
 
-    // function preview_image(event)
-    // {
-    //     var reader = new FileReader();
-    //     reader.onload = function()
-    //     {
-    //         var output = document.getElementById('imag');
-    //         output.src = reader.result;
-    //     }
-    //     reader.readAsDataURL(event.target.files[0]);
-    // }
+    $('#close_model_crop').click(function () {
+        $('#uploadimageModal').hide()
+    })
+
+
+    $('.crop_image').click(function(event){
+
+        $image_crop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function(response){
+            $.ajax({
+                type : 'POST',
+                url : '/getdata-user',
+                success:(function(data) {
+                    var getUser_id = data.dataUser[1]
+                    console.log("getUser_id:",getUser_id)
+
+                    $.ajax({
+                        url:"/crop",
+                        type: "POST",
+                        data:{
+                            "image": response,
+                            "getUser_id": getUser_id
+                        },
+                        success:function(data)
+                        {
+                            data = data.getData
+                            console.log("data:",data)
+                            $('#uploadimageModal').hide();
+                            // $('#imag').html(data);
+                            $('img#imag').attr('src', data)
+                            refreshPage_profile(data)
+                        },
+                        error:function (error) {
+                            console.log(error)
+                        }
+                    });
+                }),
+                error:function (error) {
+                    console.log(error)
+                }
+            });
+        })
+    });
+
+    function refreshPage_profile(data){
+        window.location.href = window.location.href;
+        data = data
+        console.log("data re :",data)
+        $('img#imag').attr('src', data)
+    }
 
     function removeImage() {
         $('#imag').attr('src', "/static/img/default_user.png");
         // $("#imag").val(1);
+
     }
-    // $('form').ajaxForm(function() {
-    //     alert("Uploaded SuccessFully");
-    // });
-
-    // $('#image').change(function () {
-    //     var imgPath = this.value;
-    //     // console.log("imgPath:",imgPath)
-    //     // var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-    //     var ext = imgPath.substring(imgPath.lastIndexOf(':') + 11)
-    //     console.log("imgPath:",ext)
-    //     send_(ext)
-    // })
-    // function send_(a) {
-    //     var a = a
-    //     send_imageProfile(a)
-    // }
-
 
     // function send_imag() {
     //     // var a = a
@@ -286,12 +332,7 @@ $(document).ready(function () {
     //
     // } );
 
-    // =================================================================
-    function pathImage() {
-        var x = document.getElementById("imag").src;
-        console.log("pathimage:",x)
-        document.getElementById("demo").innerHTML = x;
-    }
+
 
 
     // $('#button_change_img').on('click', function () {
@@ -316,7 +357,7 @@ $(document).ready(function () {
     $(function () {
         $('#imag').each(function () {
             var maxWidth = 200; // Max width for the image
-            var maxHeight = 140;    // Max height for the image
+            var maxHeight = 200;    // Max height for the image
             var maxratio = maxHeight / maxWidth;
             var width = $(this).width();    // Current image width
             var height = $(this).height();  // Current image height
@@ -335,19 +376,6 @@ $(document).ready(function () {
         });
     });
 
-    // $(document).ready(function(){
-    //     $('#imag').each(function(){
-    //         var maxWidth = 660;
-    //         var ratio = 0;
-    //         var img = $(this);
-    //
-    //         if(img.width() > maxWidth){
-    //             ratio = img.height() / img.width();
-    //             img.attr('width', maxWidth);
-    //             img.attr('height', (maxWidth*ratio));
-    //         }
-    //     });
-    // });
 
 
 // ==================================================================================
@@ -374,49 +402,6 @@ $(document).ready(function () {
 //
 //
 //     } );
-    // =====================================================================
-    /*
-    We need to register the required plugins to do image manipulation and previewing.
-    // */
-    // FilePond.registerPlugin(
-    //     // encodes the file as base64 data
-    //   FilePondPluginFileEncode,
-    //
-    //     // validates files based on input type
-    //   FilePondPluginFileValidateType,
-    //
-    //     // corrects mobile image orientation
-    //   FilePondPluginImageExifOrientation,
-    //
-    //     // previews the image
-    //   FilePondPluginImagePreview,
-    //
-    //     // crops the image to a certain aspect ratio
-    //   FilePondPluginImageCrop,
-    //
-    //     // resizes the image to fit a certain size
-    //   FilePondPluginImageResize,
-    //
-    //     // applies crop and resize information on the client
-    //   FilePondPluginImageTransform
-    // );
-    // // Select the file input and use create() to turn it into a pond
-    // // in this example we pass properties along with the create method
-    // // we could have also put these on the file input element itself
-    // FilePond.create(
-    //     document.querySelector('input'),
-    //     {
-    //         labelIdle: `Drag & Drop your picture or <span class="filepond--label-action">Browse</span>`,
-    //         imagePreviewHeight: 170,
-    //         imageCropAspectRatio: '1:1',
-    //         imageResizeTargetWidth: 200,
-    //         imageResizeTargetHeight: 200,
-    //         stylePanelLayout: 'compact circle',
-    //         styleLoadIndicatorPosition: 'center bottom',
-    //         styleButtonRemoveItemPosition: 'center bottom'
-    //     }
-    // );
-    // ==================================================================================
 
 
     // ------------- jquery sidebar -------------------------------
@@ -427,7 +412,61 @@ $(document).ready(function () {
     //     });
     // });
 
+// });
+
+
+
+// ------------------- crop image -----------------------------------------------------
+// $(document).ready(function(){
+
+ // $image_crop = $('#image_demo').croppie({
+ //    enableExif: true,
+ //    viewport: {
+ //      width:200,
+ //      height:200,
+ //      type:'square' //circle
+ //    },
+ //    boundary:{
+ //      width:300,
+ //      height:300
+ //    }
+ //  });
+
+  // $('#upload_image').on('change', function(){
+  //   var reader = new FileReader();
+  //   reader.onload = function (event) {
+  //     $image_crop.croppie('bind', {
+  //       url: event.target.result
+  //     }).then(function(){
+  //       console.log('jQuery bind complete');
+  //     });
+  //   }
+  //   reader.readAsDataURL(this.files[0]);
+  //   $('#uploadimageModal').show();
+  // });
+  //
+  //   $('.crop_image').click(function(event){
+  //       $image_crop.croppie('result', {
+  //           type: 'canvas',
+  //           size: 'viewport'
+  //       }).then(function(response){
+  //       $.ajax({
+  //           url:"/crop",
+  //           type: "POST",
+  //           data:{"image": response},
+  //           success:function(data)
+  //           {
+  //               data = data
+  //               console.log("data:",data)
+  //               $('#uploadimageModal').hide();
+  //               $('#uploaded_image').html(data);
+  //           }
+  //       });
+  //   })
+  // });
+
 });
+
 
 function showPassword() {
     var x = document.getElementById("tdPassword");

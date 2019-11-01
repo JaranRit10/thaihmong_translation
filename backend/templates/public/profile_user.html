@@ -4,41 +4,95 @@
 
 {%block body%}
 
-    <div class="wrapper">
+<!--    <div class="wrapper">-->
 
-        <nav id="sidebar">
-            <!-- Sidebar Header -->
-            <div class="sidebar-header">
-                <h3>Collapsible Sidebar</h3>
-            </div>
+<!--        <nav id="sidebar">-->
+<!--            &lt;!&ndash; Sidebar Header &ndash;&gt;-->
+<!--            <div class="sidebar-header">-->
+<!--                <h3>Collapsible Sidebar</h3>-->
+<!--            </div>-->
 
-            <!-- Sidebar Links -->
-            <ul class="list-unstyled components">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-<!--                <li>&lt;!&ndash; Link with dropdown items &ndash;&gt;-->
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                    </ul>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+<!--            &lt;!&ndash; Sidebar Links &ndash;&gt;-->
+<!--            <ul class="list-unstyled components">-->
+<!--                <li class="active"><a href="#">Home</a></li>-->
+<!--                <li><a href="#">About</a></li>-->
+<!--&lt;!&ndash;                <li>&lt;!&ndash; Link with dropdown items &ndash;&gt;&ndash;&gt;-->
+<!--                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>-->
+<!--                    <ul class="collapse list-unstyled" id="homeSubmenu">-->
+<!--                        <li><a href="#">Page</a></li>-->
+<!--                        <li><a href="#">Page</a></li>-->
+<!--                        <li><a href="#">Page</a></li>-->
+<!--                    </ul>-->
+<!--                <li><a href="#">Portfolio</a></li>-->
+<!--                <li><a href="#">Contact</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
 
-        <div id="content">
-            <button type="button" id="sidebarCollapse" class="navbar-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<!--        <div id="content">-->
+<!--            <button type="button" id="sidebarCollapse" class="navbar-btn">-->
+<!--                <span></span>-->
+<!--                <span></span>-->
+<!--                <span></span>-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--<html>-->
+<!--    <head>-->
+<!--        <title>Make Price Range Slider using JQuery with PHP Ajax</title>-->
+
+
+
+<!--    </head>-->
+<!--    <body>-->
+<div class="container">
+    <br />
+    <h3 align="center">Image Crop & Upload using JQuery with PHP Ajax</h3>
+    <br />
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-heading">Select Profile Image</div>
+        <div class="panel-body" align="center">
+            <input type="file" name="upload_image" id="upload_image" accept="image/*" />
+            <br />
+            <div id="uploaded_image"></div>
         </div>
     </div>
+</div>
+<!--    </body>-->
+<!--</html>-->
+
+<div id="uploadimageModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload & Crop Image</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8 text-center">
+                        <div id="image_demo" style="width:350px; margin-top:30px"></div>
+                    </div>
+                    <div class="col-md-4" style="padding-top:30px;">
+                        <br />
+                        <br />
+                        <br/>
+                        <button class="btn btn-success crop_image">Crop & Upload Image</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock %}
 
 {% block custom_js %}
-    <script src="{{url_for('static',filename='js/profile.js')}}"></script>
+<script src="{{url_for('static',filename='js/profile.js')}}"></script>
 {% endblock %}

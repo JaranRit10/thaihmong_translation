@@ -18,6 +18,9 @@
     <!--include boostrap-->
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
 
+    <!--  include crop image  -->
+<!--    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='upload-and-crop-image/bootstrap.min.css')}}">-->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='upload-and-crop-image/croppie.css')}}">
 
 </head>
 
@@ -41,11 +44,55 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
 
+<!--            {% if 'USERNAME' in session %}-->
+<!--            <span class="nav-item nav-link">-->
+<!--&lt;!&ndash;                {% if check == 0 %}&ndash;&gt;-->
+<!--                    <img id="icon_user" class="user_image" src="static/img/user_/{{send[1]}}.png">-->
+<!--                    <span>{{send[0][0]}}</span>-->
+<!--&lt;!&ndash;                    <p>if</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                {% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img id="imag_else" src="{{url_for('static',filename='img/default_user.png')}}">&ndash;&gt;-->
+<!--&lt;!&ndash;                {% endif %}&ndash;&gt;-->
+<!--            </span>-->
+<!--            <li class="nav-item dropdown">-->
+<!--                <a class="nav-item nav-link dropdown-toggle"-->
+<!--                   id="navbarDropdown" data-toggle="dropdown"-->
+<!--                   aria-haspopup="true" aria-expanded="false">-->
+<!--                </a>-->
+<!--                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">-->
+<!--                    {% if send[2]==0%}-->
+<!--                        <a class="dropdown-item" href="/admin">admin page</a>-->
+<!--                        <a class="dropdown-item" href="/profile">โปรไฟล์</a>-->
+<!--                    {% else %}-->
+<!--                        <a class="dropdown-item" href="/profile">โปรไฟล์</a>-->
+<!--                    {% endif %}-->
+<!--                        <div class="dropdown-divider"></div>-->
+<!--                        <a class="dropdown-item" href="/logout">ลงชื่อออก</a>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            {% else %}-->
+
+<!--            <span class="nav-link">-->
+<!--                <button type="button" class="color_button1" data-toggle="modal" data-target="#exampleModal">-->
+<!--                    ลงชื่อเข้าใช้-->
+<!--                </button>-->
+<!--            </span>-->
+<!--            {% endif %}-->
+<!--            =======================================================================-->
             {% if 'USERNAME' in session %}
             <span class="nav-item nav-link">
-                <img id="icon_user" class="user_image" src="{{url_for('static',filename='img/flask_icon.png')}}">
+
+                <img id="icon_user" class="user_image" src="static/img/user_/{{send[1]}}.png">
                 <span>{{send[0][0]}}</span>
-                
+<!--                <P>{{checkk}}</P>-->
+<!--                {% if checkk == 0 %}-->
+<!--                    <p>0 checkk</p>-->
+<!--                {% else %}-->
+<!--                    <p>1 checkk</p>-->
+<!--                {% endif %}-->
+<!--&lt;!&ndash;                <img id="icon_user" class="user_image" src="{{url_for('static',filename='img/flask_icon.png')}}">&ndash;&gt;-->
+<!--                <span>{{send[0][0]}}</span>-->
+
             </span>
             <li class="nav-item dropdown">
                 <a class="nav-item nav-link dropdown-toggle"
@@ -142,7 +189,7 @@
 <!--include jquery-->
 <script src="{{url_for('static',filename='node_modules/jquery/dist/jquery.min.js')}}"></script>
 
-{<!--include boostrap js-->
+<!--include boostrap js-->
 <script src="{{url_for('static',filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <!--include popper-->
@@ -159,6 +206,11 @@
 
 <!--<script type="text/javascript" src="jquery.js"></script>-->
 <!--<script type="text/javascript" src="jquery.form.js"></script>-->
+
+<!--  include crop image  -->
+<script src="{{url_for('static',filename='upload-and-crop-image/jquery.min.js')}}"></script>
+<!--<script src="{{url_for('static',filename='upload-and-crop-image/bootstrap.min.js')}}"></script>-->
+<script src="{{url_for('static',filename='upload-and-crop-image/croppie.js')}}"></script>
 
 {% block custom_js %}
 <!--custom js-->
