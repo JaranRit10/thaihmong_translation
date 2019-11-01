@@ -195,18 +195,13 @@ $(document).ready(function () {
     });
 
     $('#image').change(function () {
-        // preview_image(event)
         var imgPath = this.value;
         var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-        // var ext = imgPath.substring(imgPath.lastIndexOf(':') + 11)
-        // console.log("Path img:",ext)
-        // console.log("Path img1:",xx)
+
         if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
             readURL(this);
         else
             alert("Please select image file (jpg, jpeg, png).")
-
-
     });
 
     function readURL(input) {
@@ -241,6 +236,7 @@ $(document).ready(function () {
 
 
     $('.crop_image').click(function(event){
+
         $image_crop.croppie('result', {
             type: 'canvas',
             size: 'viewport'
@@ -265,7 +261,8 @@ $(document).ready(function () {
                             console.log("data:",data)
                             $('#uploadimageModal').hide();
                             // $('#imag').html(data);
-                            $('#imag').attr('src', data)
+                            $('img#imag').attr('src', data)
+                            refreshPage_profile(data)
                         },
                         error:function (error) {
                             console.log(error)
@@ -279,10 +276,17 @@ $(document).ready(function () {
         })
     });
 
+    function refreshPage_profile(data){
+        window.location.href = window.location.href;
+        data = data
+        console.log("data re :",data)
+        $('img#imag').attr('src', data)
+    }
 
     function removeImage() {
         $('#imag').attr('src', "/static/img/default_user.png");
         // $("#imag").val(1);
+
     }
 
     // function send_imag() {

@@ -49,6 +49,7 @@ $(document).ready(function () {
                         console.log(word)
                         console.log(wordClass)
 
+                        sendCommend(word)
 
                         var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
                         box += '<table>'
@@ -83,11 +84,13 @@ $(document).ready(function () {
                         }
                         box += '</table>'
 
+
                         $('.translateword').empty()
                         $('.translateword').append(box)
                     } catch (err) {
 
                     }
+
                 }),
                 error: function (error) {
                     console.log(error)
@@ -96,6 +99,14 @@ $(document).ready(function () {
         }
     }
 
+
+    // function copy_textarea() {
+    //     var copyText = document.getElementById("result_translate");
+    //     copyText.select();
+    //     copyText.setSelectionRange(0, 99999)
+    //     document.execCommand("copy");
+    //     alert("Copied the text: " + copyText.value);
+    // }
 
 // for translate in weppage
 //     var first =true
@@ -144,22 +155,31 @@ $(document).ready(function () {
                 // console.log(data[1])
                 $("#result_translate").empty()
                 // console.log(data)
+                $('#input_hmongcommend').empty()
+                var hmongcommend = ""
                 for (i = 0; i < data.length; i++) {
                     result = ""
-
+                    hmongcommend = ""
                     for (j = 0; j < data[i].length; j++) {
                         // console.log(typeof data[i][0])
                         result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
+                        hmongcommend += data[i][j] + " "
                     }
                     $("#result_translate").append(result)
                     $("#result_translate").append("<br>")
+                    $('#input_hmongcommend').append(hmongcommend+",")
+                    $('#input_hmongcommend').append("<br>")
+
                 }
+
             }),
             error: function (error) {
                 $('#success').hide()
                 $('#error').text(error)
             }
+
         });
+
     }
 
     var x = 0
@@ -175,6 +195,7 @@ $(document).ready(function () {
 
             clearTimeout(setTime)
             wait_tran()
+
             setTime = setTimeout(function () {
                 // console.log("1")
                 tran()
@@ -198,6 +219,44 @@ $(document).ready(function () {
     });
 
 
+    $('#pencil_button').click(function () {
+        thaiCommend()
+    })
+    // var a ="my name is joe";
+
+    function thaiCommend() {
+        $('#input_textCommend').empty()
+        var thai = $('#thaiword').val()
+        // console.log("thai:",thai)
+        var thai_split = " "
+        var t = " "
+        t = thai.split("\n");  //ถ้าเจอวรรคแตกเก็บลง array t
+        console.log("plit_1:",t)
+        for(var i=0; i<t.length ; i++){
+            // thai_split += t[i]+"<br/>"
+            thai_split = t[i]+","
+            $('#input_textCommend').append(thai_split)
+            $('#input_textCommend').append("<br>")
+            // console.log("thai_split:",thai_split)
+        }
+
+    }
+    function sendCommend(word){
+        var thai = $('#input_textCommend').val(word)
+        console.log("thai :",thai)
+    }
+    function hmong_commend(result){
+        var hmong = $('#input_hmongcommend').append(result)
+        console.log("hmong :",hmong)
+    }
+
+    $('#clearword_eHmongcommend').click(function () {
+         $('#textarea_editHmongcommend').empty()
+        $('#textarea_editHmongcommend').val(" ")
+    })
+
+
+
     // from a NodeList
     autosize(document.querySelectorAll('textarea'));
 
@@ -210,6 +269,37 @@ $(document).ready(function () {
     $("textarea").resize(function () {
 
     });
+
+
+    //copy text
+    $('#copy_button').click(function () {
+        CopyToClipboard()
+    })
+
+    function CopyToClipboard() {
+        var elm = document.getElementById("result_translate");
+        // for Internet Explorer
+
+        if(document.body.createTextRange) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(elm);
+            range.select();
+            document.execCommand("Copy");
+            alert("Copied div content to clipboard");
+        }
+        else if(window.getSelection) {
+            // other browsers
+
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(elm);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand("Copy");
+            // alert("Copied div content to clipboard");
+        }
+    }
+
 
 
     // ====== หน้าต่าง sidebar ===================================================================

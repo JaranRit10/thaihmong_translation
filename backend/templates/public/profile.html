@@ -15,28 +15,21 @@
                         <div class="col-xs-12 col-sm-3 center">
                             <div class="text-center">
                                 {% if 'USERNAME' in session %}
-                                    <img id="imag_if" src="{{url_for('static',filename='img/4.png')}}" class="avatar img-circle img-thumbnail">
-                                    <p>else</p>
+                                    <img id="imag" src="static/img/user_/{{send[1]}}.png" class="avatar img-circle img-thumbnail">
+
                                 {% else %}
                                     <img id="imag_else" src="{{url_for('static',filename='img/default_user.png')}}" class="avatar img-circle img-thumbnail">
-                                    <p>else</p>
+
                                 {% endif %}
 
-<!--                                <img id="imag" src="{{url_for('static',filename='img/default_user.png')}}" class="avatar img-circle img-thumbnail">-->
-                                <!--                                    <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">-->
 <!--                                <form id="upload-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data" target="iframe_target">-->
 <!--                                    <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>-->
                                     <input id="image" type="file" name="file" accept="image/*" multiple style="display: none;"/>
                                     <button id="button_change_img" name="file" type="button" class="color_button1 file-upload">เลือกรูป</button>
                                     <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
                                     <br>
-<!--                                    <button type="submit" value="อัพโหลด!" id="upload-button" class="color_button3">อัพโหลด!</button>-->
-                                    <!--                                        <button id="show_image" type="button" class="color_button1" ></button>-->
+<!--                                    <a id="repage_profile" href="/profile" style="display: none"></a>-->
 <!--                                </form>-->
-                                <!--                                    <input type="file" id="image" style="display: none;"/>-->
-                                <!--                                    <button id="button_change_img" type="button" class="color_button1 file-upload">เลือกรูป</button>-->
-                                <!--                                    <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>-->
-                                <!--                                    <button id="path_image" type="button" class="btn btn-success" onclick="pathImage()">local</button>-->
                                 <br><br>
                             </div><br>
                         </div><!-- col-xs-12 -->
@@ -98,7 +91,7 @@
                     <div class="col-md-4" style="padding-top:30px;">
                         <br />
                         <br />
-                        <br/>
+                        <br />
                         <button id="enter_image" class="btn btn-success crop_image">อัพโหลดภาพ</button>
                     </div>
                 </div>

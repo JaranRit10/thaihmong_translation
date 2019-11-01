@@ -87,6 +87,18 @@
     /*box-shadow: 2px 1px 6px #9d6aed;*/
 }
 
+#span_result_commend{
+    background: rgba(153, 153, 153, 0.57);
+}
+
+/*.circle{ !* ชื่อคลาสต้องตรงกับ <img class="circle"... *!*/
+/*    height: auto;  !* ความสูงปรับให้เป็นออโต้ *!*/
+/*    width: auto;  !* ความสูงปรับให้เป็นออโต้ *!*/
+/*    border: 3px solid #fff; !* เส้นขอบขนาด 3px solid: เส้น #fff:โค้ดสีขาว *!*/
+/*    border-radius: 50%; !* ปรับเป็น 50% คือความโค้งของเส้นขอบ*!*/
+/*    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); !* เงาของรูป *!*/
+/*}*/
+
 /*------- sidebar a hover -------*/
 /*.sidebar a:hover:not(.active) {*/
 /*  background-color: #555;*/
