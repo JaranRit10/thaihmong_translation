@@ -6,26 +6,32 @@ import jsonify, json
 
 
 class Database():
-    mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="12345678",
-        database="thaihmong_translator"
-    )
+    mydb:any
 
-    def searchFortran(self, word, wordClass):
+    def __init__(self):
+        self.mydb = mysql.connector.connect(
+                host="localhost",
+                user="root",
+                passwd="12345678",
+                database="thaihmong_translator"
+            )
+
+
+
+    def searchFortran(self, word, wordClass,tage=True):
         mydb = mysql.connector.connect(
             host="localhost",
             user="root",
             passwd="12345678",
             database="thaihmong_translator"
         )
+
         try:
             word_notTag =['แก่']
 
             if (word.find('<Fail>') == -1):
                 mycursor = mydb.cursor()
-                if(word not in word_notTag):
+                if(tage):
                     sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s and Word_class= %s "
                     adr = (word, wordClass,)
                     mycursor.execute(sql, adr)
@@ -264,6 +270,7 @@ class Database():
             print("Eror in method click to searchword")
             return ""
 
+
     def searchWord(self, word):
         myresult =[]
         try:
@@ -348,7 +355,7 @@ class Database():
             except Exception as e:
                 print(e)
 
-            print("Record inserted successfully into python_users table")
+            # print("Record inserted successfully into python_users table")
         except mysql.connector.Error as error:
             connection.rollback()  # rollback if any exception occured
             print("Failed inserting record into python_users table {}".format(error))

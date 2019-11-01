@@ -1,9 +1,7 @@
 
 
 if __name__ == '__main__':
-    questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม']
-    senten_list = [('ขอ', 'VERB'), ('ฉัน', 'PRON'), ('ลอง', 'VERB'), ('ได้', 'ADV'), ('ไหม', 'PART'), ('<s/>', 'PUNCT')]
-    print(senten_list[len(senten_list) - 2][0] in questionword)
-    if (senten_list[len(senten_list) - 2][0] in questionword and
-            senten_list[len(senten_list) - 3][0] == "ได้"):
-        print("------------OK--------------------")
+    classifier_word = ['สัก']
+    senten_list = [('เขา', 'PRON'), ('ต้องการ', 'VERB'), ('เช่าบ้าน', 'NOUN'), ('สัก', 'ADV'), ('หลัง', 'NOUN'), ('<s/>', 'PUNCT')]
+    if(classifier_word in da for da in senten_list):
+        print("OK")
