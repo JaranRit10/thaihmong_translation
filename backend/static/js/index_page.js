@@ -1,6 +1,14 @@
 $(document).ready(function () {
-    showTime()
 
+    $('#clear_textarea').click(function () {
+        $('textarea#thaiword').val("")
+        translate2()
+    })
+
+
+    // $('[data-placement="top"]').top()
+
+    showTime()
     function showTime() {
         try {
             var clockElement = document.getElementById("clock");
@@ -49,10 +57,11 @@ $(document).ready(function () {
                         console.log(word)
                         console.log(wordClass)
 
-                        sendCommend(word)
+                        // sendCommend(word)
 
                         var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
                         box += '<table>'
+                        console.log("box:",box)
 
                         for (var i in wordClass) {
                             // console.log(i)
@@ -141,9 +150,19 @@ $(document).ready(function () {
     var result = ""
 
     function translate2() {
+        var value_textarea
+        $('#clear_textarea').click(function () {
+            value_textarea = $('textarea#thaiword').val("")
+        })
+        if ($('#clear_textarea') == onclick){
+            sentence = value_textarea
+        }else {
+            sentence = $('#thaiword').val()
+            // alert("else")
+        }
         $.ajax({
             data: {
-                sentence: $('#thaiword').val(),
+                sentence: sentence,
             },
             type: 'POST',
             url: '/transtate2',
@@ -157,6 +176,7 @@ $(document).ready(function () {
                 // console.log(data)
                 $('#input_hmongcommend').empty()
                 var hmongcommend = ""
+                var k = data.length
                 for (i = 0; i < data.length; i++) {
                     result = ""
                     hmongcommend = ""
@@ -167,9 +187,8 @@ $(document).ready(function () {
                     }
                     $("#result_translate").append(result)
                     $("#result_translate").append("<br>")
-                    $('#input_hmongcommend').append(hmongcommend+",")
-                    $('#input_hmongcommend').append("<br>")
 
+                    hmong_commend(hmongcommend,i,k)
                 }
 
             }),
@@ -221,39 +240,164 @@ $(document).ready(function () {
 
     $('#pencil_button').click(function () {
         thaiCommend()
+        // hmong_commend()
     })
-    // var a ="my name is joe";
-
     function thaiCommend() {
+
         $('#input_textCommend').empty()
         var thai = $('#thaiword').val()
         // console.log("thai:",thai)
         var thai_split = " "
         var t = " "
         t = thai.split("\n");  //ถ้าเจอวรรคแตกเก็บลง array t
-        console.log("plit_1:",t)
+        // console.log("plit_1:",t)
+
+        $('#table_editcommend').empty()
         for(var i=0; i<t.length ; i++){
             // thai_split += t[i]+"<br/>"
-            thai_split = t[i]+","
-            $('#input_textCommend').append(thai_split)
-            $('#input_textCommend').append("<br>")
-            // console.log("thai_split:",thai_split)
+            thai_split = t[i]
+            j = i + 1
+            $('#table_editcommend').append("" +
+                "<tr id='tr_editcommend_"+j+"'>"+
+                    "<th id='th_editcommend_"+j+"'>ประโยคภาษาไทย"+ j +" : </th>"+
+                    "<td id='td_editcommend_"+j+"'>" +
+                        "<div id='input_textCommend_"+j+"' style='width: 185px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + thai_split + "</div>" +
+                    "</td>" +
+                "</tr>" +
+                "<tr id='tr_select_"+j+"'>"+
+                    "<th id='th_select_"+j+"'>ผิดเรพาะ"+ j +" : </th>" +
+                    "<td style='float: left' id='th2_'>" +
+                        "<select class='form-control' name='select_commend_"+j+"' id='select_commend_"+j+"'>" +
+                            "<option value='grammar'>ไวยากรณ์(grammar)</option>" +
+                            "<option value='new'>มีคำใหม่(new)</option>" +
+                        "</select>" +
+                    "</td>"+
+                "</tr>" +
+                "<br>"+
+             "")
+        }
+    }
+    // function sendCommend(word){
+    //     var thai = $('#input_textCommend').val(word)
+    //     console.log("thai :",thai)
+    // }
+    function hmong_commend(result,i,k){
+        // var hmong = $("#result_translate").text().split("\n")
+        // t = hmong.split(" ");
+        // var hmong = $('#input_hmongcommend').append(result)
+        // console.log("hmong :",hmong)
+        result = result
+        j = i+1
+        // console.log("j :",j)
+        // console.log("result :",result)
+        var num = 0
+        if (result == ''){
+            num = num
+        }else {
+            num = num + 1
         }
 
+        for (var i=0; i<num; i++){
+            $('#table_editHmongcommend').append("" +
+                "<tr id='tr_hmongcommend_"+j+"'>" +
+                    "<th id='th_hmongcommend_"+j+"'>คำแปลภาษาม้ง"+j+" : </th>" +
+                    "<td id='td_hmongcommend_"+j+"'>" +
+                        "<div id='input_hmongcommend_"+j+"' style='border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>"+ result +"</div>" +
+                    "</td>" +
+                "</tr>" +
+                "<tr id='tr_editHmongcommend_"+j+"'>" +
+                    "<th id='th_editHmongcommend_"+j+"'>แก้ไขความหมายของคุณ"+j+" : </th>" +
+                    "<td id='td_editHmongcommend_"+j+"'>" +
+                        "<input type='text' class='form-control form-control' style='float: left' id='input_editHmongcommend_"+j+"'>" +
+                    "</td>" +
+                "</tr>" +
+             "")
+        }
     }
-    function sendCommend(word){
-        var thai = $('#input_textCommend').val(word)
-        console.log("thai :",thai)
-    }
-    function hmong_commend(result){
-        var hmong = $('#input_hmongcommend').append(result)
-        console.log("hmong :",hmong)
-    }
+    // function hmong_commend(){
+    //     var j = 0
+    //     var hmong = ""
+    //     var Hmong = ""
+    //     hmong = $("#result_translate").text()
+    //     Hmong = hmong.split("\n");
+    //     console.log("hmong :",hmong)
+    //     console.log("Hmong :",Hmong)
+    //     $('#table_editHmongcommend').empty()
+    //     var wordHmong = ""
+    //     for (var i=0; i<Hmong.length-1; i++){
+    //         wordHmong = Hmong[i]
+    //         j = i + 1
+    //         $('#table_editHmongcommend').append("" +
+    //             "<tr id='tr_hmongcommend_"+j+"'>" +
+    //                 "<th id='th_hmongcommend_"+j+"'>คำแปลภาษาม้ง"+j+" : </th>" +
+    //                 "<td id='td_hmongcommend_"+j+"'>" +
+    //                     "<div id='input_hmongcommend_"+j+"' style='border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>"+ wordHmong +"</div>" +
+    //                 "</td>" +
+    //             "</tr>" +
+    //             "<tr id='tr_editHmongcommend_"+j+"'>" +
+    //                 "<th id='th_editHmongcommend_"+j+"'>แก้ไขความหมายของคุณ"+j+" : </th>" +
+    //                 "<td id='td_editHmongcommend_"+j+"'>" +
+    //                     "<input type='text' class='form-control form-control' style='float: left' id='input_editHmongcommend_"+j+"'>" +
+    //                 "</td>" +
+    //             "</tr>" +
+    //          "")
+    //     }
+    // }
 
     $('#clearword_eHmongcommend').click(function () {
-         $('#textarea_editHmongcommend').empty()
+        // $('#textarea_editHmongcommend').empty()
         $('#textarea_editHmongcommend').val(" ")
     })
+    $('#saveword_Hmongcommend').click(function () {
+        var Hmongcommend = $('#textarea_editHmongcommend').val()
+        var Thaicommend = $('#input_textCommend').text()
+        var grammar = $('#select_commend').val()
+        console.log("Hmongcommend:",Hmongcommend)
+        console.log("Thaicommend:",Thaicommend)
+        console.log("grammar:",grammar)
+
+        insert_toRecommend()
+        function insert_toRecommend() {
+            $.ajax({
+                type : 'POST',
+                url : '/getdata-user',
+                success:(function(data) {
+                    var getUser_id = data.dataUser[1]
+                    console.log("getUser_id:",getUser_id)
+                    $.ajax({
+                        data : {
+                            getUser_id : getUser_id,
+                            Thaicommend : Thaicommend,
+                            Thaicommend : Thaicommend,
+                            grammar : grammar,
+                        },
+                        type : 'POST',
+                        url : '/insercommend_toRecommend',
+                        success:(function(data) {
+                            // alert("data:",data)
+                            if (data.state == true){
+                                $("td#tdUsername").empty()
+                                $("input#tdPassword").empty()
+                                $("td#tdEmail").empty()
+                                profile()
+                                alert("save success")
+                            }
+                            else{
+                                alert(data)
+                            }
+                        }),
+                        error:function(error) {
+                            console.log(error)
+                        }
+                    });
+                }),
+                error:function (error) {
+                    console.log(error)
+                }
+            });
+        }
+    })
+
 
 
 
@@ -293,7 +437,7 @@ $(document).ready(function () {
             var selection = window.getSelection();
             var range = document.createRange();
             range.selectNodeContents(elm);
-            selection.removeAllRanges();
+            selection.removeAllRanges(range);
             selection.addRange(range);
             document.execCommand("Copy");
             // alert("Copied div content to clipboard");

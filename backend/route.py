@@ -497,6 +497,33 @@ def delete_Newword():
             return jsonify({'state': False})
 
     return jsonify({'state':check})
+# ----------------------------------------------------------------
+# insert commend to Recommend
+@app.route('/insercommend_toRecommend', methods=["POST"])
+def insercommend_toRecommend():
+    check = False
+    if (request.method == 'POST'):
+        try:
+            getUser_id = request.form["getUser_id"]
+            Thaicommend = request.form["Thaicommend"]
+            Thaicommend = request.form["Thaicommend"]
+            Grammar_recommend = request.form["Grammar_recommend"]
+            # User_id = request.form["User_id"]
+            print("id_recommend ", id_recommend)
+            print("Thai_recommend ", Thai_recommend)
+            print("Hmong_recommend ", Hmong_recommend)
+            print("Grammar_recommend ", Grammar_recommend)
+            database = Database()
+            state = database.update_recommend(id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend)
+            print("state:",state)
+            check = True
+
+        except Exception as e:
+            print(e)
+            print("error in update funtion update Recommend")
+            return jsonify({'state': False})
+
+    return jsonify({'state': check})
 # ================= end run =============================================
 # admin route
 @app.route('/admin')

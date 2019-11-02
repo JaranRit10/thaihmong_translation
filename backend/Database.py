@@ -194,6 +194,7 @@ class Database():
         except Exception as e:
             print(e)
 
+
     def insertNewword_to_recommend(self):
         try:
             connection = self.mydb
@@ -254,7 +255,6 @@ class Database():
                     w_hmong = self.clickS(g_word[1],g_word[0]) # search hmong word
                     set_w ={g_word[1]:w_hmong} # create word to put in class name
                     data[g_word[0]] = [set_w] # put to class name
-
 
             # print("data :", data)
             data =[word,data]
@@ -555,6 +555,28 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
+    def insert_wordtoRecommend(self, id_recommend, Thai_recommend, Hmong_recommend, type_error):
+        mycursor = self.mydb.cursor()
+        sql = "select max(id_recommend) from recommend"
+        mycursor.execute(sql)
+        myresult = mycursor.fetchall()
+        try:
+            get_myresult = (myresult[0][0])
+            id_recommend = get_myresult + 1
+        except Exception as e:
+            id_recommend = 1
+
+        try:
+            sql = """ 
+                        INSERT INTO `recommend`
+                        (`id_recommend`,`Thai_recommend`, `Hmong_recommend`,`type_error`) 
+                        VALUES (%s,%s,%s,%s)
+                    """
+            adr = (id_recommend, Thai_recommend, Hmong_recommend, type_error)
+            mycursor.execute(sql, adr)
+            self.mydb.commit()
+        except Exception as e:
+            print(e)
 
 if __name__ == '__main__':
     import time
