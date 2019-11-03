@@ -115,18 +115,15 @@ $(document).ready(function () {
         var pass = u2
         var email = u3
         var id_user = u4
-        // document.getElementById('input_editusername').value = user;
-        // document.getElementById('input_editpassword').value = pass;
-        // document.getElementById('inputtd_editemail').value = email;
-        // edit input
+
         $('#saveword_editProfile').click(function () {
             var input_user = $('input#input_editusername').val()
             var input_pass = $('input#input_editpassword').val()
             var input_email = $('input#inputtd_editemail').val()
-            console.log("id_user:",id_user)
-            console.log("user:",input_user)
-            console.log("pass:",input_pass)
-            console.log("email:",input_email)
+            // console.log("id_user:",id_user)
+            // console.log("user:",input_user)
+            // console.log("pass:",input_pass)
+            // console.log("email:",input_email)
 
             saveProfile()
             function saveProfile() {
@@ -262,7 +259,7 @@ $(document).ready(function () {
                             $('#uploadimageModal').hide();
                             // $('#imag').html(data);
                             $('img#imag').attr('src', data)
-                            refreshPage_profile(data)
+                            // refreshPage_profile(data)
                         },
                         error:function (error) {
                             console.log(error)

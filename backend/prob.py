@@ -139,3 +139,5 @@ if __name__ == '__main__':
     # path = os.getcwd()
     # print(type(path))
 # G:\thaihmong_translation\backend\file\addOneSmoothing.txt
+
+

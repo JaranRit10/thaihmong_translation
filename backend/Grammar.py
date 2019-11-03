@@ -6,7 +6,6 @@ class Grammar () :
 
     notquestionword = ['ใช่']
     questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม','หรือไม่']
-
     def grammarHmong(self,Text):
         global senten_list
         Text = Text.strip()
@@ -58,6 +57,10 @@ class Grammar () :
             elif (check[3] == True and senten_list[x][1] == "NOUN" and (senten_list[x + 1][1]) == "NOUN" and x <= len(senten_list) - 2):
                 self.sentence3()
                 check[3] = 0
+            elif (check[3] == True and ((senten_list[x][1] == "NOUN" and (senten_list[x + 1][1]) == "NUM")or(senten_list[x][1] == "NUM" and (senten_list[x + 1][1]) == "NOUN"))):
+                self.sentence3()
+                check[3] = 0
+
         print("ผลลัพธ์สุดท้าย : " + str(senten_list))
         return  senten_list
 
@@ -164,23 +167,46 @@ class Grammar () :
             try:
                 if(not x in word_managed):
                     if(senten_list[x][1]== "NOUN" and senten_list[x + 1][1]== "NUM" and senten_list[x + 2][1]== "NOUN"):
+                        print("rule 1")
                         word = (senten_list[x + 2][0], "CLASS")
                         senten_list.pop(x + 2)
                         senten_list.insert(x + 2, word)
                         senten_list.insert(x + 3, senten_list[x])
                         senten_list.pop(x)
+                        del word
                         word_managed.add(x)
                         word_managed.add(x+1)
                         word_managed.add(x+2)
+                    elif(senten_list[x][1]== "NOUN" and senten_list[x + 1][1]== "NUM" and (senten_list[x][0] in self.classifier)):
+                        print("rule 2")
+                        word = (senten_list[x][0], "CLASS")
+                        senten_list.pop(x)
+                        senten_list.insert(x , word)
 
+                        senten_list[x],senten_list[x+1] = senten_list[x+1],senten_list[x]
+
+                        del word
+                        word_managed.add(x)
+                        word_managed.add(x + 1)
                     if(senten_list[x][1]== "NOUN" and senten_list[x + 1][1]== "NOUN" and
-                    (senten_list[x + 1][0] in self.classifier)):
+                    ((senten_list[x + 1][0] in self.classifier))):
+                        print("rule 3")
                         word = (senten_list[x + 1][0], "CLASS")
                         senten_list.pop(x + 1)
                         senten_list.insert(x + 1, word)
                         senten_list[x], senten_list[x + 1] = senten_list[x + 1], senten_list[x]
                         word_managed.add(x)
                         word_managed.add(x+1)
+                        del word
+                    elif (senten_list[x][1] == "NOUN" and senten_list[x + 1][1] == "NOUN" and
+                            ((senten_list[x][0] in self.classifier))):
+                        print("rule 4")
+                        word = (senten_list[x][0], "CLASS")
+                        senten_list.pop(x)
+                        senten_list.insert(x, word)
+                        word_managed.add(x)
+                        word_managed.add(x + 1)
+                        del word
             except Exception as e:
                 print(e )
 

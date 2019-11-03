@@ -267,11 +267,10 @@ def crop():
         # print("image_path:", image_path)
         image_name = id_user + '.png'
         print("image_name:", image_name)
-        path = image_path + image_name
-        print("path:", path)
 
         im.save(image_path + image_name)
-
+        path = image_path + image_name
+        print("path:", path)
 
         # checkk = 0
         # if(image_ == image_):

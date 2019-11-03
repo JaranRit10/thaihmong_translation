@@ -108,6 +108,7 @@ class Translate():
 
     continue_word =["ๆ"]
     buffer_sentence = {}
+    untage =['แก่','หลัง']
     def traslateThaiHmong(self,allSentence):
         usegrammar = Grammar()
         # getPlob = Translate()
@@ -134,6 +135,10 @@ class Translate():
                     s_word = []
                     newword =[]
                     for i in range(0, len(wordlist) - 1):
+                        if(wordlist[i][0] in self.untage):
+                            tager = False
+                        else:
+                            tager = True
                         # print(wordlist[i][0],wordlist[i][1])
                         if(wordlist[i][0] in self.continue_word):
                             continue
@@ -145,9 +150,9 @@ class Translate():
                                 get = [(0, wordlist[i][0], wordlist[i][0], 'NUM', 0, 0)]
                             except:
                                 print("sentence have a number.")
-                                get = data.searchFortran(wordlist[i][0], wordlist[i][1])
+                                get = data.searchFortran(wordlist[i][0], wordlist[i][1],tager)
                         else:
-                            get = data.searchFortran(wordlist[i][0],wordlist[i][1])
+                            get = data.searchFortran(wordlist[i][0],wordlist[i][1],tager)
                         # print(len(get))
                         # print(get)
                         if(len(get)>1):

@@ -89,21 +89,30 @@ $(document).ready(function () {
 
                         for (x of data.getData) {
 
-                            var tr = '<tr class="searchword">'
-                            tr += '<td class="searchword">' + (i + 1) + '</td>'
-                            tr += '<td class="searchword" id="' + "searchword_thaiword_" + x[0] + '">' + x[1] + '</td>'
-                            tr += '<td class="searchword" id="' + "searchword_classword_" + x[0] + '">' + x[3] + '</td>'
-                            tr += '<td class="searchword" id="' + "searchword_hmongword_" + x[0] + '">' + x[2] + '</td>'
+                            var tr = '<tr align="center" class="searchword">'
+                            tr += '<td align="center" class="searchword">' + (i + 1) + '</td>'
+                            tr += '<td align="center" class="searchword" id="' + "searchword_thaiword_" + x[0] + '">' + x[1] + '</td>'
+                            tr += '<td align="center" class="searchword" id="' + "searchword_classword_" + x[0] + '">' + x[3] + '</td>'
+                            tr += '<td align="center" class="searchword" id="' + "searchword_hmongword_" + x[0] + '">' + x[2] + '</td>'
+
+                            // tr += '<td align="center" class="contro_searchword">' +
+                            //     '<button type="button" class="btn color_button2 btn-xs" ' +
+                            //     'data-toggle="modal" data-target="#editwordAdmin" id="edit_searchword" ' +
+                            //     ' style="margin-right: 2px;" value="' + x[0] + '">Edit</button></td>'+
+                            //     '<td align="center" class="contro_searchword">' +
+                            //     '<button type="button" class="btn color_button2 btn-xs" data-toggle="modal" data-target="#deletewordModal" ' +
+                            //     'id="delte_searchword" value="' + x[0] + '">Delete</button></td>'
 
                             tr += '<td class="contro_searchword">' +
-                                '<button type="button" class="btn color_button2 btn-xs" ' +
-                                'data-toggle="modal" data-target="#editwordAdmin" id="edit_searchword" ' +
-                                ' style="margin-right: 2px;" value="' + x[0] + '">Edit</button>'
-                            tr += '<td class="contro_searchword">' +
-                                '<button type="button" class="btn color_button2 btn-xs" data-toggle="modal" data-target="#deletewordModal" ' +
-                                'id="delte_searchword" value="' + x[0] + '">Delete</button></td>'
+                                '<button type="button" class="color_button2" id="edit_searchword" data-toggle="modal" data-target="#editwordAdmin" value="'+ x[0] +'">Edit</button></td>'+
+                                '<td class="contro_searchword">'+
+                                '<button type="button" class="color_button2" id="delte_searchword" data-toggle="modal" data-target="#deletewordModal" value="' + x[0] + '">Delete</button></td>'
 
-                            tr += '</tr>'
+                            // tr += '<td class="contro_searchword">' +
+                            //     '<button type="button" class="btn color_button2 btn-xs" data-toggle="modal" data-target="#deletewordModal" ' +
+                            //     'id="delte_searchword" value="' + x[0] + '">Delete</button></td>'
+
+                            // tr += '</tr>'
 
                             $("tbody.tbody_searchword").append(tr)
 
