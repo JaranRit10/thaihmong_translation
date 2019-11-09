@@ -18,9 +18,17 @@
     </div>
     <div class="card-body">
         <div class="row">
+
             <div class="col-md-6 col-sm-12 ">
                 <div class="card">
                     <div class="card-body">
+                        <div class="tooltipe" style="float: right">
+                            <button type="button" id="clear_textarea" class="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <span class="tooltiptexte">ล้างข้อความ</span>
+                        </div>
+
                         <div id="side_thaiword">
                             <textarea placeholder="กรุณาป้อนประโยค" class="textareathai" id="thaiword"
                                       autofocus></textarea>
@@ -39,8 +47,23 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12 "></div>
+            <div class="col-md-6 col-sm-12 ">
+                <div class="tooltipe">
+                    <img id="copy_button"  type="button" src="static/img/copy.png" class="img-thumbnail tooltipe" style="height: 35px; width: 35px; ">
+                    <span class="tooltiptexte">คัดลอกคำแปล</span>
+                </div>
+                <div class="tooltipe">
+                    <img id="pencil_button" type="button" src="static/img/pencil.png" class="img-thumbnail tooltipe" data-toggle="modal" data-target="#model_send_commend" style="height: 35px; width: 35px; margin-left: 5px;">
+                    <span class="tooltiptexte">แนะนำให้แก้ไข</span>
+                </div>
+            </div>
+        </div>
+<<<<<<< HEAD
+=======
         <!--        <button id="copytext" class="btn btn-info btn-lg" style="margin-left:570px;">copy</button>-->
         <img id="copy_button" type="button" src="static/img/copy.png" class="avatar img-circle img-thumbnail"
              style="height: 35px; width: 35px; margin-left: 570px; ">
@@ -51,10 +74,11 @@
             Tooltip on top
         </button>
 
+>>>>>>> 2df62268e3f6c7758ee8427978da55565338e331
     </div>
 </div>
 
-<!--<textarea placeholder="Press ctrl+v to Paste the copied text" rows="5" cols="20"></textarea>-->
+<textarea id="get_textarea" placeholder="Press ctrl+v to Paste the copied text" rows="5" cols="20" ></textarea>
 
 <div class="row margin-top">
     <div class="col-md-6 col-sm-12">
@@ -63,6 +87,9 @@
     <div class="col-md-6 col-sm-12">
         <div class="card">
             <div class="translateword">
+<<<<<<< HEAD
+
+=======
                 <!--<div class="clickTran_first">คำที่แปล <span class="clickTran_word">ปลา</span></div>-->
                 <!--<table>-->
                 <!--<tr class="clickTran_trf">-->
@@ -82,6 +109,7 @@
 
                 <!--</tr>-->
                 <!--</table>-->
+>>>>>>> 2df62268e3f6c7758ee8427978da55565338e331
             </div>
         </div>
         <br>
@@ -95,7 +123,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">ช่วยแนะนำการแปลให้มีประสิทธิภาพมากขึ้น</h5>
-
                 <button type="button" id="close_modal" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -103,6 +130,10 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
+<<<<<<< HEAD
+                        <div class="col-md-5 col-sm-12" >
+                            <table id="table_editcommend">
+=======
                         <!--                        <h5>แก้ไขความหมาย</h5>-->
                         <div class="col-md-6 col-sm-12">
                             <table id="table_editcommend">
@@ -122,12 +153,16 @@
                                         <input type="text" class="form-control form-control" style="display: none">
                                     </td>
                                 </tr>
+>>>>>>> 2df62268e3f6c7758ee8427978da55565338e331
 
                             </table>
                         </div>
                         <!--  -->
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-7 col-sm-12">
                             <table id="table_editHmongcommend">
+<<<<<<< HEAD
+
+=======
                                 <tr id="tr_hmongcommend">
                                     <th id="th_hmongcommend">คำแปลภาษาม้ง :</th>
                                     <td id="td_hmongcommend">
@@ -145,12 +180,18 @@
                                                   id="textarea_editHmongcommend"></textarea>
                                     </td>
                                 </tr>
+>>>>>>> 2df62268e3f6c7758ee8427978da55565338e331
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
+<<<<<<< HEAD
+<!--                <button type="button" class="color_button1" id="saveword_Hmongcommend" data-dismiss="modal" aria-label="Close">บันทึก</button>-->
+<!--                <button type="button" class="color_button3" id="clearword_eHmongcommend">ล้าง</button>-->
+                <button type="button" id="close_modal_Hmongcommend" class="color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+=======
                 <button type="button" class="color_button1" id="saveword_Hmongcommend" data-dismiss="modal"
                         aria-label="Close">บันทึก
                 </button>
@@ -158,6 +199,7 @@
                 <button type="button" id="close_modal_Hmongcommend" class="color_button4" class="close"
                         data-dismiss="modal" aria-label="Close">ยกเลิก
                 </button>
+>>>>>>> 2df62268e3f6c7758ee8427978da55565338e331
             </div>
         </div>
     </div>
@@ -167,5 +209,4 @@
 
 {% block custom_js %}
 <script src="{{url_for('static',filename='js/index_page.js')}}"></script>
-
 {% endblock %}

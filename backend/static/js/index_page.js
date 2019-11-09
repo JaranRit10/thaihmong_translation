@@ -1,6 +1,23 @@
 $(document).ready(function () {
-    showTime()
 
+    $('#clear_textarea').click(function () {
+        $('textarea#thaiword').val("")
+        translate2()
+    })
+
+
+    $('#copy_button').click(function () {
+        copy()
+    })
+    function copy() {
+        let textarea = document.getElementById("get_textarea");
+        // console.log("tex:",textarea)
+        textarea.select();
+        document.execCommand("copy");
+    }
+
+
+    showTime()
     function showTime() {
         try {
             var clockElement = document.getElementById("clock");
@@ -49,10 +66,11 @@ $(document).ready(function () {
                         console.log(word)
                         console.log(wordClass)
 
-                        sendCommend(word)
+                        // sendCommend(word)
 
                         var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
                         box += '<table>'
+                        console.log("box:",box)
 
                         for (var i in wordClass) {
                             // console.log(i)
@@ -141,9 +159,19 @@ $(document).ready(function () {
     var result = ""
 
     function translate2() {
+        var value_textarea
+        $('#clear_textarea').click(function () {
+            value_textarea = $('textarea#thaiword').val("")
+        })
+        if ($('#clear_textarea') == onclick){
+            sentence = value_textarea
+        }else {
+            sentence = $('#thaiword').val()
+            // alert("else")
+        }
         $.ajax({
             data: {
-                sentence: $('#thaiword').val(),
+                sentence: sentence,
             },
             type: 'POST',
             url: '/transtate2',
@@ -157,6 +185,7 @@ $(document).ready(function () {
                 // console.log(data)
                 $('#input_hmongcommend').empty()
                 var hmongcommend = ""
+                var hmong = ""
                 for (i = 0; i < data.length; i++) {
                     result = ""
                     hmongcommend = ""
@@ -165,10 +194,10 @@ $(document).ready(function () {
                         result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
                         hmongcommend += data[i][j] + " "
                     }
+                    hmong += hmongcommend + "\n"
                     $("#result_translate").append(result)
                     $("#result_translate").append("<br>")
-                    $('#input_hmongcommend').append(hmongcommend+",")
-                    $('#input_hmongcommend').append("<br>")
+                    $("#get_textarea").val(hmong)
 
                 }
 
@@ -213,6 +242,7 @@ $(document).ready(function () {
 
         function tran() {
             var word = $("#thaiword").val();
+
             $("#show").html(word);
             translate2();
         }
@@ -221,39 +251,193 @@ $(document).ready(function () {
 
     $('#pencil_button').click(function () {
         thaiCommend()
+        hmong_commend()
     })
-    // var a ="my name is joe";
-
     function thaiCommend() {
-        $('#input_textCommend').empty()
+        // $('#input_textCommend').empty()
         var thai = $('#thaiword').val()
         // console.log("thai:",thai)
         var thai_split = " "
         var t = " "
         t = thai.split("\n");  //ถ้าเจอวรรคแตกเก็บลง array t
-        console.log("plit_1:",t)
+        // console.log("plit_1:",t)
+
+        $('#table_editcommend').empty()
         for(var i=0; i<t.length ; i++){
             // thai_split += t[i]+"<br/>"
-            thai_split = t[i]+","
-            $('#input_textCommend').append(thai_split)
-            $('#input_textCommend').append("<br>")
-            // console.log("thai_split:",thai_split)
-        }
+            j = i + 1
+            if (t[i] == ""){
 
+            }else{
+                thai_split = t[i]
+                $('#table_editcommend').append("" +
+                    "<tr class='tr_editcommend_"+j+"' id='tr_editcommend_"+j+"'>"+
+                        "<th id='th_editcommend_"+j+"'>"+j+". ประโยคภาษาไทย : </th>"+
+                        "<td id='td_editcommend_"+j+"'>" +
+                            "<div id='input_textCommend_"+j+"' style='width: 250px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + thai_split + "</div>" +
+                        "</td>" +
+                    "</tr>" +
+                    "<tr class='tr_editcommend_"+j+"' id='tr_select_"+j+"'>"+
+                        "<th id='th_select_"+j+"'>ผิดเรพาะ : </th>" +
+                        "<td style='float: left' id='th2_'>" +
+                            "<select class='form-control' name='select_commend_"+j+"' id='select_commend_"+j+"' style='width: 250px;'>" +
+                                "<option value=''>เลือกชนิดที่ผิด</option>" +
+                                "<option value='grammar'>ไวยากรณ์(grammar)</option>" +
+                                "<option value='new'>มีคำใหม่(new)</option>" +
+                            "</select>" +
+                        "</td>"+
+                    "</tr>" +
+                    "<tr class='tr_editcommend_"+j+"'>" +
+                        "<td>" +
+                            "<hr size='1' width='100%'>"+
+                        "</td>"+
+                        "<td>" +
+                            "<hr size='1' width='100%'>"+
+                        "</td>"+
+                    "</tr>"+
+                 "")
+            }
+        }
     }
-    function sendCommend(word){
-        var thai = $('#input_textCommend').val(word)
-        console.log("thai :",thai)
+    // function sendCommend(word){
+    //     var thai = $('#input_textCommend').val(word)
+    //     console.log("thai :",thai)
+    // }
+    function hmong_commend(){
+        var hmong = $("#get_textarea").val()
+        var hmongword = hmong.split("\n");
+        // console.log("hmongword :",hmongword)
+        $('#table_editHmongcommend').empty()
+        var j = 0
+        for (var i=0; i<hmongword.length-1; i++){
+            j++;
+            if (hmongword[i] == ""){
+
+            }else {
+                $('#table_editHmongcommend').append("" +
+                    "<tr class='tr_hmongcommend_"+j+"' id='tr_hmongcommend_"+j+"'>" +
+                        "<th id='th_hmongcommend_"+j+"'>"+j+". คำแปลภาษาม้ง : </th>" +
+                        "<td id='td_hmongcommend_"+j+"'>" +
+                            "<div id='input_hmongcommend_"+j+"' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>"+ hmongword[i] +"</div>" +
+                        "</td>" +
+                    "</tr>" +
+                    "<tr class='tr_hmongcommend_"+j+"' id='tr_editHmongcommend_"+j+"'>" +
+                        "<th id='th_editHmongcommend_"+j+"'>แก้ไขความหมายของคุณ : </th>" +
+                        "<td id='td_editHmongcommend_"+j+"'>" +
+                            "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_"+j+"'>" +
+                        "</td>" +
+                        "<td>" +
+                            "<button type='button' value='"+j+"' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +
+                            "<button type='button' value='"+j+"' class='color_button3' id='clearword_Hmongcommend'>ล้าง</button>" +
+                        "</td>"+
+                    "</tr>" +
+                    "<tr class='tr_hmongcommend_"+j+"'>" +
+                        "<td>" +
+                            "<hr size='1' width='100%'>"+
+                        "</td>"+
+                        "<td>" +
+                            "<hr size='1' width='100%'>"+
+                        "</td>"+
+                    "</tr>"+
+                 "")
+            }
+        }
     }
-    function hmong_commend(result){
-        var hmong = $('#input_hmongcommend').append(result)
-        console.log("hmong :",hmong)
-    }
+
 
     $('#clearword_eHmongcommend').click(function () {
-         $('#textarea_editHmongcommend').empty()
+        $('#textarea_editHmongcommend').empty()
         $('#textarea_editHmongcommend').val(" ")
     })
+
+    $(this).on('click', 'button#saveword_Hmongcommend', function() {
+        // $('button#saveword_Hmongcommend').click(function () {
+        var num = $(this).val()
+        var Hmongcommend = $('#input_editHmongcommend_' + num).val()
+        var Thaicommend = $('#input_textCommend_' + num).text()
+        var grammar = [];
+        $.each($("#select_commend_" + num + " option:selected"), function () {
+            grammar.push($(this).val());
+        });
+        grammar = grammar[0]
+        // alert("You have selected the country - " + grammar.join(", "));
+        console.log("Hmongcommend:", Hmongcommend)
+        console.log("Thaicommend:", Thaicommend)
+        console.log("grammar:", grammar)
+        if (Hmongcommend != "") {
+            if (confirm("ต้องการบันทึกหรือไม่")) {
+                // alert("ต้องการบันทึก")
+                insert_toRecommend()
+            } else {
+                alert("ไม่ต้องการบันทึก")
+            }
+        } else {
+            alert("กรุณาป้อนข้อมูล")
+        }
+
+        function insert_toRecommend() {
+            $.ajax({
+                type: 'POST',
+                url: '/getdata-user',
+                success: (function (data) {
+                    console.log("data garuser:",data)
+                    var getUser = data.dataUser[1]
+                    console.log("getUser_id:", getUser)
+                    if (getUser != "") {
+                        console.log("getUser:",getUser)
+                        console.log("Thaicommend:",Thaicommend)
+                        console.log("Hmongcommend:",Hmongcommend)
+                        console.log("grammar:",grammar)
+                        $.ajax({
+                            type: 'POST',
+                            url: '/insert_commendtoRecommend',
+                            data: {
+                                getUser_id: getUser,
+                                Thaicommend: Thaicommend,
+                                Hmongcommend: Hmongcommend,
+                                grammar: grammar
+                            },
+                            success: (function (data) {
+                                console.log("data state:",data.state)
+                                if (data.state == true) {
+                                    // alert("insert suscess")
+                                    $(".tr_editcommend_" + num).remove();
+                                    $(".tr_hmongcommend_" + num).remove();
+
+                                    // document.getElementById("table_editHmongcommend").deleteRow(num);
+                                    // document.getElementById("table_editcommend").deleteRow(num);
+                                    // $("tr.tr_hmongcommend_" + num).empty()
+                                    // $("tr.tr_editcommend_" + num).empty()
+                                    alert("บันทึกสำเร็จ")
+                                } else {
+                                    alert("บันทึกไม่สำเร็จ!", data)
+                                }
+                            }),
+                            error: function (error) {
+                                console.log(error)
+                            }
+                        });
+                    } else {
+                        console.log("in else")
+                        alert("ลงทะเบียนก่อน แนะนำแก้ไข")
+                    }
+                }),
+                error: function (error) {
+                    console.log(error)
+                }
+            });
+        }
+    })
+
+
+     $(this).on('click', 'button#clearword_Hmongcommend', function() {
+         var num = $(this).val()
+         $('#input_editHmongcommend_' + num).val("")
+     })
+
+    // function deleteRow(id){
+    //     $("#" + id).remove();
+    // }
 
 
 
@@ -272,33 +456,43 @@ $(document).ready(function () {
 
 
     //copy text
-    $('#copy_button').click(function () {
-        CopyToClipboard()
-    })
-
-    function CopyToClipboard() {
-        var elm = document.getElementById("result_translate");
-        // for Internet Explorer
-
-        if(document.body.createTextRange) {
-            var range = document.body.createTextRange();
-            range.moveToElementText(elm);
-            range.select();
-            document.execCommand("Copy");
-            alert("Copied div content to clipboard");
-        }
-        else if(window.getSelection) {
-            // other browsers
-
-            var selection = window.getSelection();
-            var range = document.createRange();
-            range.selectNodeContents(elm);
-            selection.removeAllRanges();
-            selection.addRange(range);
-            document.execCommand("Copy");
-            // alert("Copied div content to clipboard");
-        }
-    }
+    // $('#copy_button').click(function () {
+    //     // var elm = $('div#result_translate').text()
+    //     // console.log("elm:",elm)
+    //     // $('#get_copy_textarea').append(elm)
+    //     // var result = $('#get_copy_textarea').val()
+    //     // console.log("result:",result)
+    //     CopyToClipboard()
+    // })
+    //
+    // function CopyToClipboard() {
+    //     // var elm = document.getElementById("result_translate");
+    //     // console.log("elm:",elm)
+    //     var elm = $("#get_textarea").val()
+    //     console.log("elm:",elm)
+    //     // $('#get_copy_textarea').append(elm)
+    //     // var result = $('#get_copy_textarea').val()
+    //     // for Internet Explorer
+    //
+    //     if(document.body.createTextRange) {
+    //         var range = document.body.createTextRange();
+    //         range.moveToElementText(elm);
+    //         range.select();
+    //         document.execCommand("Copy");
+    //         alert("Copied div content to clipboard");
+    //     }
+    //     else if(window.getSelection) {
+    //         // other browsers
+    //
+    //         var selection = window.getSelection();
+    //         var range = document.createRange();
+    //         range.selectNodeContents(elm);
+    //         selection.removeAllRanges(range);
+    //         selection.addRange(range);
+    //         document.execCommand("Copy");
+    //         // alert("Copied div content to clipboard");
+    //     }
+    // }
 
 
 

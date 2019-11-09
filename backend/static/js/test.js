@@ -30,7 +30,7 @@ $(document).ready( function () {
                 for (x of data.getData) {
 
                     $("tbody#tbody_getrecommend").append(
-                        "<tr id='trRecommend_"+ x[0] +"'>" +
+                        "<tr align='center' id='trRecommend_"+ x[0] +"'>" +
                             "<td class='recommendRow' name='"+x[0]+"' id='tdRecommend_id_"+ x[0] +"'>" + count + "</td>" +
                             "<td class='recommendRow' id='tdRecommend_thaiword_"+ x[0] +"'>" + x[2] + "</td>" +
                             "<td class='recommendRow' id='tdRecommend_hmongword_"+ x[0] +"'>" + x[3] + "</td>" +
@@ -271,7 +271,7 @@ $(document).ready( function () {
                 var coute = 1;
                 for (x of data.getData) {
                     $("tbody#tbody_getnewword").append(
-                        "<tr id='trNewword' >" +
+                        "<tr align='center' id='trNewword' >" +
                             "<td class='trNewword' name='"+x[0]+"' id='trNewword_id_"+ x[0] +"'>" + coute + "</td>" +
                             "<td class='trNewword' id='trNewword_Sentence_id_"+ x[0] +"'>" + x[1] + "</td>" +
                             "<td class='trNewword' id='trNewword_thaiword_"+  x[0] +"'>" + x[2] + "</td>" +
