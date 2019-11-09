@@ -1,0 +1,5 @@
+Bigram				Count				Probability
+
+('I:/Shared', 'drives/project/thaihmong_translation/backend/bigram-probabilities-master/bigramProb.py')			0			1.0
+
+Probablility = 1.0

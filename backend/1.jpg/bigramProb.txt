@@ -1,0 +1,16 @@
+Bigram			Count	Probability
+('peb', 'li,') : 1 : 0.5
+('li,', 'peb') : 1 : 1.0
+('peb', 'li') : 1 : 0.5
+('li', 'khoom') : 1 : 0.5
+('khoom', 'tim') : 1 : 1.0
+('tim', 'tiv,') : 1 : 0.5
+('tiv,', 'hnub') : 1 : 1.0
+('hnub', 'tim') : 1 : 1.0
+('tim', '5') : 1 : 0.5
+('5', 'thawm') : 1 : 1.0
+('thawm', 'hli') : 1 : 1.0
+('hli', 'ib,') : 1 : 1.0
+('ib,', 'kuv') : 1 : 1.0
+('kuv', 'li') : 1 : 1.0
+('li', 'khoom,') : 1 : 0.5
