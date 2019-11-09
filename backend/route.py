@@ -25,7 +25,14 @@ def Hompage ():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         return render_template('public/index.html', send=send)
     else:
         return render_template('public/index.html')
@@ -36,7 +43,14 @@ def about():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         return render_template('public/about.html', send = send)
     return render_template('public/about.html')
 
@@ -46,7 +60,14 @@ def tst():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         return render_template('public/test.html', send = send)
     return redirect(url_for("Hompage"))
 
@@ -57,7 +78,14 @@ def help():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         return render_template('public/help.html',send = send)
     return render_template('public/help.html')
 
@@ -85,7 +113,14 @@ def checkLogin():
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
 
-        send = [userName, userid, Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         print("sesion :::" + str(send[0]) + "**" + str(send[1]))
         return render_template('admin/index.html',send = send,Privilege_user=0)
     # for user public
@@ -97,7 +132,14 @@ def checkLogin():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid,Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         # print("sesion :::"+str( send[0])+"**"+ str(send[1]))
         return render_template('public/index.html',send = send)
     else:
@@ -110,7 +152,14 @@ def getdatauser():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid,Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
     else:
         send = ""
     return jsonify({'dataUser':send})
@@ -127,7 +176,14 @@ def wellcomeRecommend():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         return render_template('public/recommend.html', send=send)
     else:
         return redirect(url_for("Hompage"))
@@ -182,13 +238,6 @@ def clickSearch():
 
 
 # from run ***************************************************************************
-@app.route('/Showsentence')
-def Showsentence():
-    # data = Database()
-    # getRecommend# result_recommend = data.getRecommend()
-    # result_newword = data.getNewword()
-    # return render_template("public/Showsentence.html", result_recommend=result_recommend ,result_newword=result_newword)
-    return render_template('public/Showsentence.html')
 
 # send recommend
 @app.route('/getRecommend',methods=['POST'])
@@ -212,7 +261,14 @@ def profile_user():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
+        for image_names in os.listdir('static/img/user_/'):
+            user_image = str(userid) + ".png"
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                break
+            else:
+                user_image = "default_user.png"
+        send = [userName, userid, Privilege_user, user_image]
         return render_template('public/profile_user.html', send=send)
     else:
         return render_template('public/index.html')
@@ -232,7 +288,22 @@ def profile():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        send = [userName, userid, Privilege_user]
+        # i = 0
+        # j = 0
+        for image_names in os.listdir('static/img/user_/'):
+            # i += 1
+            user_image = str(userid) + ".png"
+            print("name image p:", image_names)
+            print("user_image p:", user_image)
+            if image_names == user_image:
+                user_image = "user_/" + user_image
+                print("user_image p:",user_image)
+                break
+            else:
+                user_image = "default_user.png"
+                print("user_image p:", user_image)
+
+        send = [userName, userid, Privilege_user, user_image]
         return render_template('public/profile.html', send=send)
     else:
         return render_template('public/index.html')
@@ -250,17 +321,13 @@ def getprofile():
 def crop():
     try:
         image = request.form["image"]
-        # print("image:",image)
         id_user = request.form["getUser_id"]
         print("id_user:", id_user)
 
         file = image
         starter = file.find(',')
-        # print("starter:", starter)
         image_data = file[starter + 1:]
-        # print("image_data1:", image_data)
         image_data = bytes(image_data, encoding="ascii")
-        # print("image_data2:", image_data)
         im = Image.open(BytesIO(base64.b64decode(image_data)))
         # print("im:",im)
         image_path = "static/img/user_/"
@@ -272,13 +339,6 @@ def crop():
         path = image_path + image_name
         print("path:", path)
 
-        # checkk = 0
-        # if(image_ == image_):
-        #     checkk = 1
-        #     return checkk
-        # else:
-        #     checkk = 0
-        #     return checkk
 
     except Exception as e:
         print(e)
@@ -498,31 +558,63 @@ def delete_Newword():
     return jsonify({'state':check})
 # ----------------------------------------------------------------
 # insert commend to Recommend
-@app.route('/insercommend_toRecommend', methods=["POST"])
-def insercommend_toRecommend():
+@app.route('/insert_commendtoRecommend', methods=["POST"])
+def insert_commendtoRecommend():
     check = False
     if (request.method == 'POST'):
         try:
-            getUser_id = request.form["getUser_id"]
-            Thaicommend = request.form["Thaicommend"]
-            Thaicommend = request.form["Thaicommend"]
-            Grammar_recommend = request.form["Grammar_recommend"]
-            # User_id = request.form["User_id"]
-            print("id_recommend ", id_recommend)
-            print("Thai_recommend ", Thai_recommend)
-            print("Hmong_recommend ", Hmong_recommend)
-            print("Grammar_recommend ", Grammar_recommend)
+            getUser = request.form["getUser_id"]
+            thaicommend = request.form["Thaicommend"]
+            hmongcommend = request.form["Hmongcommend"]
+            grammar_recommend = request.form["grammar"]
+            print("id_recommend ", getUser)
+            print("Thai_recommend ", thaicommend)
+            print("Hmong_recommend ", hmongcommend)
+            print("Grammar_recommend ", grammar_recommend)
+
             database = Database()
-            state = database.update_recommend(id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend)
-            print("state:",state)
+            database.insert_wordtoRecommend(thaicommend,hmongcommend,grammar_recommend,getUser)
             check = True
 
         except Exception as e:
             print(e)
-            print("error in update funtion update Recommend")
+            print("error in funtion commend to Recommend")
             return jsonify({'state': False})
 
     return jsonify({'state': check})
+
+# insert commend to Recommend
+@app.route('/deleteImage', methods=["POST"])
+def deleteImage():
+    # check = False
+    send = []
+    if (request.method == 'POST'):
+        try:
+            if "USER_ID" in session:
+                userid = session["USER_ID"]
+                filename = "static/img/user_/"
+                st = 0
+                for image_names in os.listdir('static/img/user_/'):
+                    user_image = str(userid) + ".png"
+                    if image_names == user_image:
+                        image = filename + user_image
+                        os.remove(image)
+                        st = 1
+                        break
+                    else:
+                        user_image = "default_user.png"
+                        st = 0
+                send = [userid, user_image, st]
+                # return send
+
+            # check = True
+
+        except Exception as e:
+            print(e)
+            print("error in funtion delete image")
+
+    return jsonify({'send': send})
+
 # ================= end run =============================================
 # admin route
 @app.route('/admin')
@@ -530,7 +622,14 @@ def adminpage():
     userName = session["USERNAME"]
     userid = session["USER_ID"]
     Privilege_user = session["Privilege_user"]
-    send = [userName, userid, Privilege_user]
+    for image_names in os.listdir('static/img/user_/'):
+        user_image = str(userid) + ".png"
+        if image_names == user_image:
+            user_image = "user_/" + user_image
+            break
+        else:
+            user_image = "default_user.png"
+    send = [userName, userid, Privilege_user, user_image]
 
     if session["Privilege_user"]==0:
         return render_template('admin/index.html',send = send)

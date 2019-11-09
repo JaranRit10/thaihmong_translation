@@ -164,7 +164,6 @@ class Database():
         except Exception as e:
             id_sentence = 1
         try:
-
             sql = """ 
                         INSERT INTO `sentence`
                         (`id_sentence`,`Thai_sentence`, `Hmong_sentence`,`Datetime`) 
@@ -562,7 +561,7 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-    def insert_wordtoRecommend(self, id_recommend, Thai_recommend, Hmong_recommend, type_error):
+    def insert_wordtoRecommend(self, Thai_recommend, Hmong_recommend, type_error, User_id):
         mycursor = self.mydb.cursor()
         sql = "select max(id_recommend) from recommend"
         mycursor.execute(sql)
@@ -573,34 +572,37 @@ class Database():
         except Exception as e:
             id_recommend = 1
 
+        # connection = self.mydb
         try:
-            sql = """ 
-                        INSERT INTO `recommend`
-                        (`id_recommend`,`Thai_recommend`, `Hmong_recommend`,`type_error`) 
-                        VALUES (%s,%s,%s,%s)
-                    """
-            adr = (id_recommend, Thai_recommend, Hmong_recommend, type_error)
+            sql = """ INSERT INTO `recommend`
+                    (`id_recommend`, `Thai_recommend`, `Hmong_recommend`, `type_error`, `Datetime`, `User_id`) 
+                    VALUES (%s,%s,%s,%s,%s,%s)"""
+
+            adr = (id_recommend, Thai_recommend, Hmong_recommend, type_error, datetime.datetime.now(), User_id)
             mycursor.execute(sql, adr)
             self.mydb.commit()
         except Exception as e:
+            print("error from funtion insert commend to Recommend")
             print(e)
+
+
 
 if __name__ == '__main__':
     import time
 
     ss = time.time()
     dd = Database()
-    print(dd.searchWord("เป็น"))
 
-# <<<<<<< HEAD
-#     aa = dd.update_profile(3,"จรัญ",12345,"jaran@gmail.com123")
-    # get = dd.clickSearch("ให้")
-    # print(aa)
+    aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
+    print(aa)
+    # print(dd.searchWord("เป็น"))
+
+
 # =======
     # aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
     # get = dd.clickSearch("ให้")
     # print(get)
-# >>>>>>> f770979729287b11809bd325c9fbd8634cf4f676
+
     # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
     # print(hh)
 

@@ -98,16 +98,6 @@ $(document).ready(function () {
         }
     }
 
-    <!-- send password -->
-// function password1(x1, x2, x3) {
-//     var passwords = x1
-//     var name = x2
-//     var last = x3
-//     console.log("x:", x)
-//     document.getElementById('tdPassword').value = passwords;
-//     document.getElementById('headName').innerText = name;
-//     document.getElementById('headLastname').innerText = last;
-// }
 
     <!-- send edit profile -->
     function save_dataProfile(u1, u2, u3, u4) {
@@ -258,7 +248,10 @@ $(document).ready(function () {
                             console.log("data:",data)
                             $('#uploadimageModal').hide();
                             // $('#imag').html(data);
+                            $('img#imag').empty()
                             $('img#imag').attr('src', data)
+                            $('img#icon_user').empty()
+                            $('img#icon_user').attr('src', data)
                             // refreshPage_profile(data)
                         },
                         error:function (error) {
@@ -281,9 +274,27 @@ $(document).ready(function () {
     }
 
     function removeImage() {
-        $('#imag').attr('src', "/static/img/default_user.png");
+        // $('#imag').attr('src', "/static/img/default_user.png");
         // $("#imag").val(1);
-
+        $.ajax({
+            url:"/deleteImage",
+            type: "POST",
+            success:function(data)
+            {
+                data = data.send[2]
+                console.log("data:",data)
+                if (data == 1){
+                    $('#imag').attr('src', "/static/img/default_user.png");
+                    $('#icon_user').attr('src', "/static/img/default_user.png");
+                    alert("ลบรูปสำเร็จ")
+                }else {
+                    alert("ลบรูปไม่สำเร็จ")
+                }
+            },
+            error:function (error) {
+                console.log(error)
+            }
+        });
     }
 
     // function send_imag() {

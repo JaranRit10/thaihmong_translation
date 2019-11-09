@@ -64,8 +64,7 @@
     </div>
 </div>
 
-<textarea id="get_textarea" placeholder="Press ctrl+v to Paste the copied text" rows="5" cols="20" style="display: none"></textarea>
-
+<textarea id="get_textarea" placeholder="Press ctrl+v to Paste the copied text" rows="5" cols="20" ></textarea>
 
 <div class="row margin-top">
     <div class="col-md-6 col-sm-12">
@@ -74,25 +73,7 @@
     <div class="col-md-6 col-sm-12">
         <div class="card">
             <div class="translateword">
-                <!--<div class="clickTran_first">คำที่แปล <span class="clickTran_word">ปลา</span></div>-->
-                <!--<table>-->
-                    <!--<tr class="clickTran_trf">-->
-                        <!--<td><span class="clickTran_class">คำนาม</span></td>-->
-                    <!--</tr>-->
-                    <!--<tr class="clickTranclickTran_trs">-->
-                        <!--<td><span class="clickTran_wordtran">ntses</span></td>-->
-                        <!--<td><span class="clickTran_traned ">ปลา</span><span class="clickTran_comma">,</span> <span class="clickTran_traned ">ปลา</span></td>-->
 
-                    <!--</tr>-->
-                    <!--<tr style="margin-top: 20px">-->
-                        <!--<td><span class="clickTran_class">คำนาม2</span></td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td><span class="clickTran_wordtran">ntses</span></td>-->
-                        <!--<td><span class="clickTran_traned ">ปลา</span><span class="clickTran_comma">,</span> <span class="clickTran_traned ">ปลา</span></td>-->
-
-                    <!--</tr>-->
-                <!--</table>-->
             </div>
         </div>
         <br>
@@ -112,44 +93,15 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-<!--                        <h5>แก้ไขความหมาย</h5>-->
                         <div class="col-md-5 col-sm-12" >
                             <table id="table_editcommend">
-<!--                                <tr id="tr_editcommend">-->
-<!--                                    <th id="th_editcommend">ประโยคภาษาไทย : </th>-->
-<!--                                    <td id="td_editcommend">-->
-<!--&lt;!&ndash;                                        <input type="text" class="form-control form-control" style="float: left" id="input_textCommend">&ndash;&gt;-->
-<!--                                        <div id="input_textCommend" style="width: 185px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 4px;">-->
 
-<!--                                        </div>-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                                <tr id="tr_select">-->
-<!--                                    <th id="th_">ผิดเรพาะ : </th>-->
-<!--                                    <td style="float: left" id="th2_">-->
-<!--                                        <select class="form-control" name="select_commend" id="select_commend">-->
-<!--                                            <option value="grammar">ไวยากรณ์(grammar)</option>-->
-<!--                                            <option value="new">มีคำใหม่(new)</option>-->
-<!--                                        </select>-->
-<!--                                    </td>-->
-<!--                                </tr>-->
                             </table>
                         </div>
                         <!--  -->
                         <div class="col-md-7 col-sm-12">
                             <table id="table_editHmongcommend">
-<!--                                <tr id="tr_hmongcommend">-->
-<!--                                    <th id="th_hmongcommend">คำแปลภาษาม้ง : </th>-->
-<!--                                    <td id="td_hmongcommend">-->
-<!--                                        <div id="input_hmongcommend" class="card-body" style="border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 4px;"></div>-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                                <tr id="tr_editHmongcommend">-->
-<!--                                    <th id="th_editHmongcommend">แก้ไขความหมายของคุณ : </th>-->
-<!--                                    <td id="td_editHmongcommend">-->
-<!--                                        <input type="text" class="form-control form-control" style="float: left" id="textarea_editHmongcommend">-->
-<!--                                    </td>-->
-<!--                                </tr>-->
+
                             </table>
                         </div>
                     </div>
@@ -168,5 +120,4 @@
 
 {% block custom_js %}
 <script src="{{url_for('static',filename='js/index_page.js')}}"></script>
-
 {% endblock %}

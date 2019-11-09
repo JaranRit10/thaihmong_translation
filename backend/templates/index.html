@@ -24,6 +24,8 @@
     <!--  include tooltipster  -->
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules/tooltipster/dist/css/tooltipster.bundle.min.css')}}">
 
+
+
 </head>
 
 <body>
@@ -49,7 +51,15 @@
             {% if 'USERNAME' in session %}
             <span class="nav-item nav-link">
 
-                <img id="icon_user" class="user_image" src="static/img/user_/{{send[1]}}.png">
+                {% if 'USERNAME' in session %}
+                    <img id="icon_user" class="user_image" src="static/img/{{send[3]}}">
+
+                {% else %}
+                    <img id="icon_user" class="user_image" src="static/img/default_user.png">
+
+                {% endif %}
+
+<!--                <img id="icon_user" class="user_image" src="static/img/user_/{{send[3]}}">-->
                 <span>{{send[0][0]}}</span>
 <!--                <P>{{checkk}}</P>-->
 <!--                {% if checkk == 0 %}-->
@@ -178,6 +188,9 @@
 
 <!-- imclude tooltipster -->
 <script src="{{url_for('static',filename='node_modules/tooltipster/dist/js/tooltipster.bundle.min.js')}}"></script>
+
+<!-- include clipboard -->
+<script src="{{url_for('static',filename='node_modules/clipboard/dist/clipboard.min.js')}}"></script>
 
 {% block custom_js %}
 <!--custom js-->

@@ -15,10 +15,10 @@
                         <div class="col-xs-12 col-sm-3 center">
                             <div class="text-center">
                                 {% if 'USERNAME' in session %}
-                                    <img id="imag" src="static/img/user_/{{send[1]}}.png" class="avatar img-circle img-thumbnail">
+                                    <img id="imag" src="static/img/{{send[3]}}" class="avatar img-circle img-thumbnail">
 
                                 {% else %}
-                                    <img id="imag_else" src="{{url_for('static',filename='img/default_user.png')}}" class="avatar img-circle img-thumbnail">
+                                    <img id="imag_else" src="static/img/default_user.png" class="avatar img-circle img-thumbnail">
 
                                 {% endif %}
 
