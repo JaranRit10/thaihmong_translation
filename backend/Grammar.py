@@ -12,9 +12,8 @@ class Grammar () :
 
         commar = Text.find(" ")
         if (commar != -1):
-            Text = list(Text)
-            Text[commar] = ','
-            Text = "".join(Text)
+            Text = Text.split()
+            Text = ",".join(Text)
 
         tltk.nlp.pos_tag(Text)
         WordLst = tltk.nlp.word_segment(Text).split('|')
