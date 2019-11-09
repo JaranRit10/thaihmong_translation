@@ -53,11 +53,14 @@ class testing:
     def translate(self,sentence):
         tran = Translate()
         sentence_hmong = self.complete(tran.traslateThaiHmong(sentence)[0])
-        print(sentence_hmong)
+        # print(sentence_hmong)
+        return sentence_hmong
 
 if __name__ == '__main__':
     a= testing()
     # a.testing()
+    # sen ="ฉันหารถดีๆ คันหนึ่งให้คุณได้แล้ว"
+    # a.translate(sen)
 
-    sen ="ฉันหารถดีๆ คันหนึ่งให้คุณได้แล้ว"
-    a.translate(sen)
+
+
