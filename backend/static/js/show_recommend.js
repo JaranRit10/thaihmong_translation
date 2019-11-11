@@ -29,7 +29,7 @@ $(document).ready(function () {
                             $("#tbody_addnewWord_newword").empty()
 
                             for(i=0;i<data.length;i++){
-                                var tr = "<tr id=tr_addnewWord_newword_"+data[i][0]+">"
+                                var tr = "<tr align='center' id=tr_addnewWord_newword_"+data[i][0]+">"
                                 tr += "<td>"+(i+1)+"</td>"
                                 tr += "<td id=thaiword_addnewWord_newword_"+data[i][0]+">" + data[i][2] +"</td>"
                                 tr += "<td id=select_addnewWord_newword_"+data[i][0]+"'>"  +
@@ -69,9 +69,6 @@ $(document).ready(function () {
                     console.log(error)
                 }
         });
-
-
-
 
     }
 

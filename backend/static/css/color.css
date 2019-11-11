@@ -78,6 +78,15 @@
     border-color: #62fcfc;
     box-shadow: 2px 1px 4px #999;
 }
+
+.color_button {
+    border-color: #f857ff;
+    background: linear-gradient(to bottom, #ef81ec 10%, #ec9ce0 100%);
+    box-shadow: 1px 1px 4px #999;
+    border-radius: 5px;
+}
+
+
 .color_boder {
     border: 1px solid #9b6aeb;
 }

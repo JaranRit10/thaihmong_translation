@@ -138,7 +138,7 @@ class Database():
         mycursor = self.mydb.cursor()
         try:
             sql = """
-                SELECT newword.id_newword,newword.Sentence_id,newword.New_word,newword.New_word_wordclass FROM newword
+                SELECT newword.id_newword,newword.Sentence_id,newword.Thai_word,newword.New_word_wordclass FROM newword
                 LEFT JOIN recommend
                 ON newword.id_newword = recommend.id_newword
                 WHERE recommend.User_id !=%s OR recommend.User_id IS NULL
@@ -593,8 +593,11 @@ if __name__ == '__main__':
     ss = time.time()
     dd = Database()
 
-    aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
-    print(aa)
+    # aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
+    # print(aa)
+
+    bb = dd.getNewword_toAdd(3)
+    print(bb)
     # print(dd.searchWord("เป็น"))
 
 

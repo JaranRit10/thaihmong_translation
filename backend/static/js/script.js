@@ -1,18 +1,33 @@
 // จากรัน
 // ====== หน้าต่าง navbar ===================
-$('#wordBar').click(function () {
-    document.getElementById("mySidenav").style.width = "250px";
-})
-function menubar() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
+// $('#sidebar').click(function () {
+//     alert("ได้")
+//     openNav()
+// })
+// function openNav() {
+//     document.getElementById("mySidenav").style.width = "250px";
+// }
+// function closeNav() {
+//     document.getElementById("mySidenav").style.width = "0";
+// }
 
 
 $(document).ready(function () {
 
+    $('#cl').click(function () {
+        alert("ได้")
+        openNav()
+    })
+    $('#sidebar').click(function () {
+        alert("ได้")
+        openNav()
+    })
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
 
     $("#submitLogin").click(function () {
         console.log($("#username_login").text())

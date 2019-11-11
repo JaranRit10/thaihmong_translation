@@ -21,15 +21,11 @@
                                     <img id="imag_else" src="static/img/default_user.png" class="avatar img-circle img-thumbnail">
 
                                 {% endif %}
-
-<!--                                <form id="upload-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data" target="iframe_target">-->
-<!--                                    <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>-->
-                                    <input id="image" type="file" name="file" accept="image/*" multiple style="display: none;"/>
-                                    <button id="button_change_img" name="file" type="button" class="color_button1 file-upload">เลือกรูป</button>
-                                    <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
-                                    <br>
-<!--                                    <a id="repage_profile" href="/profile" style="display: none"></a>-->
-<!--                                </form>-->
+                                <p></p>
+                                <input id="image" type="file" name="file" accept="image/*" multiple style="display: none;"/>
+                                <button id="button_change_img" name="file" type="button" class="color_button1 file-upload">เลือกรูป</button>
+                                <button id="button_edit_img" type="button" class="color_button3">ลบรูป</button>
+                                <br>
                                 <br><br>
                             </div><br>
                         </div><!-- col-xs-12 -->
@@ -92,12 +88,13 @@
                         <br />
                         <br />
                         <br />
+                        <br />
                         <button id="enter_image" class="btn btn-success crop_image">อัพโหลดภาพ</button>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_model_crop" type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">ออก</button>
+                <button id="close_model_" type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">ออก</button>
             </div>
         </div>
     </div>
@@ -166,10 +163,12 @@
 
 
 <br>
-<!--    <div class = "col-md-4 col-lg-2">-->
-<!--        <button class = "btn btn-btn-primary btn-block"> ลงทะเบียน </button>-->
-<button id="button_showrecomment" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/test">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
-<!--    </div>-->
+{% if send[2]== 0 %}
+    <button id="button_showrecomment" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/recommend">ตรวจสอบประโยคจากการแนะนำ</a></button>
+{% else %}
+    <button id="show_userCommend" type="button" class="color_button1 btn-lg" style="margin-left: 280px; "><a href="/check_recommend">เข้าร่วมเป็นส่วนหนึ่งในการพัฒนา</a></button>
+{% endif %}
+
 <br><br><br>
 
 {% endblock %}
