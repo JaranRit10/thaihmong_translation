@@ -164,6 +164,32 @@ def getdatauser():
         send = ""
     return jsonify({'dataUser':send})
 
+
+@app.route('/checksignup', methods=['POST'])
+def chekcsignup():
+    username = request.form['name_signUp']
+    username = str(username).strip()
+    db = Database()
+    if (db.checkUsername_signUp(username)):
+        return "0"
+    else:
+        return "1"
+
+@app.route('/signup', methods=['POST'])
+def signup():
+    fname = request.form['fname']
+    lname = request.form['lname']
+    email = request.form['email']
+    username = request.form['username']
+    password = request.form['pass']
+    db = Database()
+    check = db.addNewUser(username,password,fname,lname,email)
+    if(check):
+        return "1"
+    else:
+        return "0"
+
+
 @app.route('/logout')
 def logout():
     session.pop("USERNAME", None)

@@ -23,6 +23,19 @@ class Grammar () :
         # print(list)
         # print(type(list))
 
+        #check error word segment
+        Error = [('ดเท้า', 'นวดเท้า')]
+        for word in senten_list:
+            for er in Error:
+                if (er[0] in word):
+                    index = senten_list.index(word)
+                    # print(index)
+                    senten_list.pop(index)
+                    senten_list.pop(index - 1)
+                    # print(senten_list)
+                    senten_list.insert(index - 1, (er[1], 'NOUN'))
+                    # print(senten_list)
+
         print("ผลลัพธ์เริ่มต้น : " + str(senten_list))
         # ใช้เเช็คให้เข้าเงื่อนไขได้เพียงครั้งเดียว
         check=[True,True,True,True]
