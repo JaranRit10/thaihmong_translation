@@ -64,6 +64,25 @@ class Database():
         # print(myresult)
         return myresult
 
+
+    def checkUsername_signUp(self,name):
+        mycursor = self.mydb.cursor()
+        name = (str(name).strip(),)
+        try:
+            sql = """
+            SELECT * FROM user_
+            WHERE Username = %s
+            """
+            mycursor.execute(sql,name)
+            myresult = mycursor.fetchall()
+            if(len(myresult)>0):
+                return True
+            else:
+                return  False
+        except Exception as e:
+            print(e)
+            print("Eror in method checkUsername_signUp")
+
     def login(self, username, password):
         mycursor = self.mydb.cursor()
         try:
@@ -131,7 +150,6 @@ class Database():
             print(e)
             print("Eror in method getNewword")
         return myresult
-
 
 
     def getNewword_toAdd(self, userID):
@@ -269,7 +287,23 @@ class Database():
             print("Eror in method click to searchword")
             return ""
 
+    def addNewUser(self,Username,User_password,First_name,Last_name,Email):
+        try:
+            connection = self.mydb
+            sql_insert_query = """ INSERT INTO `user_`
+                         (`Privilege_user`,`Datetime_register`, `Username`,`User_password`,`First_name`,`Last_name`,`Email`,`Status`) 
+                         VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"""
 
+            time = datetime.datetime.now()
+            value_insert = (1, time, Username, User_password,First_name,Last_name,Email,1)
+            cursor = connection.cursor()
+            cursor.execute(sql_insert_query, value_insert)
+            connection.commit()
+            return True
+
+        except Exception as e:
+            print(e)
+            return False
     def searchWord(self, word):
         myresult =[]
         try:
@@ -454,7 +488,7 @@ class Database():
             print("Failed inserting record into python_users table {}".format(error))
 
     # ==============================================================
-    # profile data
+# profile data
     def getprofile(self):
         mycursor = self.mydb.cursor()
         try:
@@ -468,7 +502,7 @@ class Database():
             print("Eror in method getProfile")
 
     # =======================================================
-    # update page recommend
+# update page recommend
     def update_recommend(self,id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend):
         try:
             connection = self.mydb
@@ -487,7 +521,7 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-    # delete page recommend
+# delete page recommend
     def delete_recommend(self,id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend):
         try:
             connection = self.mydb
@@ -505,7 +539,7 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-    # update page newword
+# update page newword
     def update_newword(self,id_newword,Thai_newword,Hmong_newword,Grammar_newword):
         try:
             connection = self.mydb
@@ -542,7 +576,7 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-    # update page profile
+# update page profile
     def update_profile(self,id_user, Username, User_password, Email):
         try:
             connection = self.mydb
@@ -593,11 +627,17 @@ if __name__ == '__main__':
     ss = time.time()
     dd = Database()
 
+<<<<<<< HEAD
     # aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
     # print(aa)
 
     bb = dd.getNewword_toAdd(3)
     print(bb)
+=======
+    aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
+    print(aa)
+    print(dd.addNewUser("sdfe","123456","tin","las","idkf@hot.com"))
+>>>>>>> 8394b3360032000feab761b71840ef49265ae7b8
     # print(dd.searchWord("เป็น"))
 
 

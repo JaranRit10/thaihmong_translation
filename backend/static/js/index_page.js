@@ -9,6 +9,7 @@ $(document).ready(function () {
     $('#copy_button').click(function () {
         copy()
     })
+
     function copy() {
         let textarea = document.getElementById("get_textarea");
         // console.log("tex:",textarea)
@@ -18,6 +19,7 @@ $(document).ready(function () {
 
 
     showTime()
+
     function showTime() {
         try {
             var clockElement = document.getElementById("clock");
@@ -70,7 +72,7 @@ $(document).ready(function () {
 
                         var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
                         box += '<table>'
-                        console.log("box:",box)
+                        console.log("box:", box)
 
                         for (var i in wordClass) {
                             // console.log(i)
@@ -79,22 +81,22 @@ $(document).ready(function () {
                             box += '<tr class="clickTran_trf">'
                                 + '<td>' + '<span class="clickTran_class">' + i + '</span></td>'
                                 + '</tr>'
-                            for (var word in wordClass[i] ){
+                            for (var word in wordClass[i]) {
                                 console.log(wordClass[i][word])
                                 for (var s_word in wordClass[i][word]) {
                                     // word translated
                                     console.log(s_word)
 
                                     box += '<tr class="clickTranclickTran_trs">'
-                                        +  '<td><span class="clickTran_wordtran">' + s_word + '</span></td>'
-                                    for ( var s_wordSlated in wordClass[i][word][s_word]) {
+                                        + '<td><span class="clickTran_wordtran">' + s_word + '</span></td>'
+                                    for (var s_wordSlated in wordClass[i][word][s_word]) {
                                         console.log(s_wordSlated)
                                         console.log(wordClass[i][word][s_word][s_wordSlated])
 
-                                        if(s_wordSlated>0){
+                                        if (s_wordSlated > 0) {
                                             box += '<span class="clickTran_comma">,</span> '
                                         }
-                                        box += '<td><span class="clickTran_traned ">'+wordClass[i][word][s_word][s_wordSlated]+'</span>'
+                                        box += '<td><span class="clickTran_traned ">' + wordClass[i][word][s_word][s_wordSlated] + '</span>'
                                     }
                                 }
                             }
@@ -163,9 +165,9 @@ $(document).ready(function () {
         $('#clear_textarea').click(function () {
             value_textarea = $('textarea#thaiword').val("")
         })
-        if ($('#clear_textarea') == onclick){
+        if ($('#clear_textarea') == onclick) {
             sentence = value_textarea
-        }else {
+        } else {
             sentence = $('#thaiword').val()
             // alert("else")
         }
@@ -253,6 +255,7 @@ $(document).ready(function () {
         thaiCommend()
         hmong_commend()
     })
+
     function thaiCommend() {
         // $('#input_textCommend').empty()
         var thai = $('#thaiword').val()
@@ -263,83 +266,84 @@ $(document).ready(function () {
         // console.log("plit_1:",t)
 
         $('#table_editcommend').empty()
-        for(var i=0; i<t.length ; i++){
+        for (var i = 0; i < t.length; i++) {
             // thai_split += t[i]+"<br/>"
             j = i + 1
-            if (t[i] == ""){
+            if (t[i] == "") {
 
-            }else{
+            } else {
                 thai_split = t[i]
                 $('#table_editcommend').append("" +
-                    "<tr class='tr_editcommend_"+j+"' id='tr_editcommend_"+j+"'>"+
-                        "<th id='th_editcommend_"+j+"'>"+j+". ประโยคภาษาไทย : </th>"+
-                        "<td id='td_editcommend_"+j+"'>" +
-                            "<div id='input_textCommend_"+j+"' style='width: 250px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + thai_split + "</div>" +
-                        "</td>" +
+                    "<tr class='tr_editcommend_" + j + "' id='tr_editcommend_" + j + "'>" +
+                    "<th id='th_editcommend_" + j + "'>" + j + ". ประโยคภาษาไทย : </th>" +
+                    "<td id='td_editcommend_" + j + "'>" +
+                    "<div id='input_textCommend_" + j + "' style='width: 250px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + thai_split + "</div>" +
+                    "</td>" +
                     "</tr>" +
-                    "<tr class='tr_editcommend_"+j+"' id='tr_select_"+j+"'>"+
-                        "<th id='th_select_"+j+"'>ผิดเรพาะ : </th>" +
-                        "<td style='float: left' id='th2_'>" +
-                            "<select class='form-control' name='select_commend_"+j+"' id='select_commend_"+j+"' style='width: 250px;'>" +
-                                "<option value=''>เลือกชนิดที่ผิด</option>" +
-                                "<option value='grammar'>ไวยากรณ์(grammar)</option>" +
-                                "<option value='new'>มีคำใหม่(new)</option>" +
-                            "</select>" +
-                        "</td>"+
+                    "<tr class='tr_editcommend_" + j + "' id='tr_select_" + j + "'>" +
+                    "<th id='th_select_" + j + "'>ผิดเรพาะ : </th>" +
+                    "<td style='float: left' id='th2_'>" +
+                    "<select class='form-control' name='select_commend_" + j + "' id='select_commend_" + j + "' style='width: 250px;'>" +
+                    "<option value=''>เลือกชนิดที่ผิด</option>" +
+                    "<option value='grammar'>ไวยากรณ์(grammar)</option>" +
+                    "<option value='new'>มีคำใหม่(new)</option>" +
+                    "</select>" +
+                    "</td>" +
                     "</tr>" +
-                    "<tr class='tr_editcommend_"+j+"'>" +
-                        "<td>" +
-                            "<hr size='1' width='100%'>"+
-                        "</td>"+
-                        "<td>" +
-                            "<hr size='1' width='100%'>"+
-                        "</td>"+
-                    "</tr>"+
-                 "")
+                    "<tr class='tr_editcommend_" + j + "'>" +
+                    "<td>" +
+                    "<hr size='1' width='100%'>" +
+                    "</td>" +
+                    "<td>" +
+                    "<hr size='1' width='100%'>" +
+                    "</td>" +
+                    "</tr>" +
+                    "")
             }
         }
     }
+
     // function sendCommend(word){
     //     var thai = $('#input_textCommend').val(word)
     //     console.log("thai :",thai)
     // }
-    function hmong_commend(){
+    function hmong_commend() {
         var hmong = $("#get_textarea").val()
         var hmongword = hmong.split("\n");
         // console.log("hmongword :",hmongword)
         $('#table_editHmongcommend').empty()
         var j = 0
-        for (var i=0; i<hmongword.length-1; i++){
+        for (var i = 0; i < hmongword.length - 1; i++) {
             j++;
-            if (hmongword[i] == ""){
+            if (hmongword[i] == "") {
 
-            }else {
+            } else {
                 $('#table_editHmongcommend').append("" +
-                    "<tr class='tr_hmongcommend_"+j+"' id='tr_hmongcommend_"+j+"'>" +
-                        "<th id='th_hmongcommend_"+j+"'>"+j+". คำแปลภาษาม้ง : </th>" +
-                        "<td id='td_hmongcommend_"+j+"'>" +
-                            "<div id='input_hmongcommend_"+j+"' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>"+ hmongword[i] +"</div>" +
-                        "</td>" +
+                    "<tr class='tr_hmongcommend_" + j + "' id='tr_hmongcommend_" + j + "'>" +
+                    "<th id='th_hmongcommend_" + j + "'>" + j + ". คำแปลภาษาม้ง : </th>" +
+                    "<td id='td_hmongcommend_" + j + "'>" +
+                    "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
+                    "</td>" +
                     "</tr>" +
-                    "<tr class='tr_hmongcommend_"+j+"' id='tr_editHmongcommend_"+j+"'>" +
-                        "<th id='th_editHmongcommend_"+j+"'>แก้ไขความหมายของคุณ : </th>" +
-                        "<td id='td_editHmongcommend_"+j+"'>" +
-                            "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_"+j+"'>" +
-                        "</td>" +
-                        "<td>" +
-                            "<button type='button' value='"+j+"' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +
-                            "<button type='button' value='"+j+"' class='color_button3' id='clearword_Hmongcommend'>ล้าง</button>" +
-                        "</td>"+
+                    "<tr class='tr_hmongcommend_" + j + "' id='tr_editHmongcommend_" + j + "'>" +
+                    "<th id='th_editHmongcommend_" + j + "'>แก้ไขความหมายของคุณ : </th>" +
+                    "<td id='td_editHmongcommend_" + j + "'>" +
+                    "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_" + j + "'>" +
+                    "</td>" +
+                    "<td>" +
+                    "<button type='button' value='" + j + "' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +
+                    "<button type='button' value='" + j + "' class='color_button3' id='clearword_Hmongcommend'>ล้าง</button>" +
+                    "</td>" +
                     "</tr>" +
-                    "<tr class='tr_hmongcommend_"+j+"'>" +
-                        "<td>" +
-                            "<hr size='1' width='100%'>"+
-                        "</td>"+
-                        "<td>" +
-                            "<hr size='1' width='100%'>"+
-                        "</td>"+
-                    "</tr>"+
-                 "")
+                    "<tr class='tr_hmongcommend_" + j + "'>" +
+                    "<td>" +
+                    "<hr size='1' width='100%'>" +
+                    "</td>" +
+                    "<td>" +
+                    "<hr size='1' width='100%'>" +
+                    "</td>" +
+                    "</tr>" +
+                    "")
             }
         }
     }
@@ -350,7 +354,7 @@ $(document).ready(function () {
         $('#textarea_editHmongcommend').val(" ")
     })
 
-    $(this).on('click', 'button#saveword_Hmongcommend', function() {
+    $(this).on('click', 'button#saveword_Hmongcommend', function () {
         // $('button#saveword_Hmongcommend').click(function () {
         var num = $(this).val()
         var Hmongcommend = $('#input_editHmongcommend_' + num).val()
@@ -380,14 +384,14 @@ $(document).ready(function () {
                 type: 'POST',
                 url: '/getdata-user',
                 success: (function (data) {
-                    console.log("data garuser:",data)
+                    console.log("data garuser:", data)
                     var getUser = data.dataUser[1]
                     console.log("getUser_id:", getUser)
                     if (getUser != "") {
-                        console.log("getUser:",getUser)
-                        console.log("Thaicommend:",Thaicommend)
-                        console.log("Hmongcommend:",Hmongcommend)
-                        console.log("grammar:",grammar)
+                        console.log("getUser:", getUser)
+                        console.log("Thaicommend:", Thaicommend)
+                        console.log("Hmongcommend:", Hmongcommend)
+                        console.log("grammar:", grammar)
                         $.ajax({
                             type: 'POST',
                             url: '/insert_commendtoRecommend',
@@ -398,7 +402,7 @@ $(document).ready(function () {
                                 grammar: grammar
                             },
                             success: (function (data) {
-                                console.log("data state:",data.state)
+                                console.log("data state:", data.state)
                                 if (data.state == true) {
                                     // alert("insert suscess")
                                     $(".tr_editcommend_" + num).remove();
@@ -430,15 +434,14 @@ $(document).ready(function () {
     })
 
 
-     $(this).on('click', 'button#clearword_Hmongcommend', function() {
-         var num = $(this).val()
-         $('#input_editHmongcommend_' + num).val("")
-     })
+    $(this).on('click', 'button#clearword_Hmongcommend', function () {
+        var num = $(this).val()
+        $('#input_editHmongcommend_' + num).val("")
+    })
 
     // function deleteRow(id){
     //     $("#" + id).remove();
     // }
-
 
 
     // from a NodeList
@@ -453,6 +456,90 @@ $(document).ready(function () {
     $("textarea").resize(function () {
 
     });
+    var xx = 1;
+    $(".input-user-signUp").keyup(function () {
+        var user = $(this).val()
+        console.log(user)
+        checkUser_signup(user)
+
+    })
+
+    $("span#checkusersignUpF").hide()
+    $("span#checkusersignUpT").hide()
+
+    function checkUser_signup(username) {
+        $.ajax({
+            data: {
+                name_signUp: username
+            },
+            type: 'POST',
+            url: '/checksignup',
+            success: (function (check) {
+                console.log(check)
+                if (check == 1) {
+                    $("span#checkusersignUpF").hide()
+                    $("span#checkusersignUpT").show()
+                } else {
+                    $("span#checkusersignUpT").hide()
+                    $("span#checkusersignUpF").show()
+                }
+
+            }),
+            error: function (error) {
+                console.log(error)
+            }
+        });
+
+    }
+
+    $("#form-signUp").submit(function (event) {
+        function strip(str) {
+            return str.replace(/^\s+|\s+$/g, '');
+        }
+
+        var fname = strip($("#fname_signup").val())
+        var lname = strip($('#lname_signup').val())
+        var email = $("#email_signup").val()
+        var username = strip($('#username_signup').val())
+        var pass = strip($("#password_signup").val())
+        var cpass = strip($("#cpassword_signup").val())
+
+        if (fname != "" && lname != "" && email != "" && username != "" && (cpass == pass) &&
+            (pass.length > 5)) {
+            createnewUser(fname, lname, email, username, pass)
+            // alert("OK")
+            // alert(fname + lname + email + username + pass)
+
+        } else {
+            alert("ไม่สามารถสมัครได้โปรดลองอีกครั้ง")
+        }
+    });
+
+    function createnewUser(fname, lname, email, username, pass) {
+        $.ajax({
+            type: 'POST',
+            url: '/signup',
+            data: {
+                fname: fname,
+                lname: lname,
+                email: email,
+                username: username,
+                pass: pass,
+
+            },
+            success: (function (ckeck) {
+                if (ckeck == 1) {
+                    alert("สมัครสมาชิกเรียบร้อย")
+
+                } else {
+                    alert("ไม่สามารถทำการสมัครสมาชิกได้")
+                }
+            }),
+            error: function (error) {
+                console.log(error)
+            }
+        });
+    }
 
 
     //copy text
@@ -493,7 +580,6 @@ $(document).ready(function () {
     //         // alert("Copied div content to clipboard");
     //     }
     // }
-
 
 
     // ====== หน้าต่าง sidebar ===================================================================

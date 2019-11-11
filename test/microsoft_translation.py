@@ -3,180 +3,241 @@
 # print (translator.translate("Hello", "pt"))
 
 tex = '''
-Nyiam heev 
+Kuv tuaj ntawm no 
 
-Nyob zoo 
+Nyob zoo sawv ntxov 
 
-kuv nyob zoo 
+Nyob zoo tav su 
 
-Zoo siab 
+Nyob zoo hmo 
 
-Zoo 
+pw zoo os 
 
-Ngan 
+sib ntsib dua 
 
-zoo heev 
+. 
 
-Dog dig ntxiv 
+Sawasdee thaum sawv ntxov  
 
-tsis zoo 
+Yuav koj tsiaj kuv tus haum? 
 
-sib ntsib dua os 
+Koj yuav tau txais lub ceeb toom los ntawm koj qhov chaw nyob? 
 
-Sib ntsib dua. 
+Thov qhia txog koj qhov chaw nyob? 
 
-Raws li qhov tshiab hnub tag kis. 
+Koj yuav hais kom koj qhov chaw nyob? 
 
-Raws li qhov tshiab xya hnub ntxiv 
+Tsaug rau lub sijhawm ntawd, kuv tau ntsib. 
 
-Koj yeej zoo thaum sawv ntxov? 
+Thiab raws li goodbye. 
 
-Nyob zoo ua tsaug 
+Thov koj qhia kuv yog vim li cas kuv thiaj muaj? 
 
-Kuv thov txim uas kuv teev kawm rov hauv tsib feeb. 
+Thov qhia rau kuv qhov uas muaj rau kuv. 
 
-Nyob zoo ua tsaug 
+Thov koj qhia kuv muaj. 
 
-Hnub no yog hnub zoo tiag tiag. 
+Koj thiaj paub kuv lawv nyob qhov twg? 
 
-tau kawg. 
+Koj thiaj paub kuv txoj kev uas muaj rau kuv? 
 
-Ib tug me nyuam tub noj txiv nkhaus taw 
+Qhia kuv, thov koj, uas yog qhov chaw nyob? 
 
-Nws yog ib tug ntxhais siab tawv. 
+Pab nrog Kuv txoj kev poob kuv 
 
-Nws hais ib zaj kwv txhiaj zoo nkauj heev. 
+Mus xa kuv tuaj ua haujlwm 
 
-Kuv nrhiav tau phau ntawv rau lub rooj zaum. 
+Koj tau ua suab paj nruag? 
 
-Nws thiab nws cov chaw ua hauj lwm hais mav 
+Thov koj pab kuv nres ntawm no? 
 
-Peb twb yeej lawm 
+Koj yuav tuaj nrog kuv? 
 
-Kuv ua kom paub kuv tus kheej. 
+Kuv nrog koj tham me ntsis. 
 
-Kuv xav paub 
+Koj yuav muab ib Diam duab rau kuv? 
 
-Kuv xav ua kom paub kuv cov phooj ywg. 
+Kuv yuav mus yees duab ntawv tso cai? 
 
-Kuv xav kom koj ntsib kuv tej phooj ywg. 
+Kuv xav kom nej xa kuv ncig saib rau kuv. 
 
-Kuv xav tias koj paub xav 
+Kuv xav tau ib ncig xyuas hais lus thaib 
 
-Kev tus 
+Thov txim, thov koj hais dua. 
 
-Yog, kuv xav tias peb twb pom nws. 
+Yuav thov hais tej yam tshiab? 
 
-Kuv xav tias peb tuaj. 
+Thov hais ib yam nkaus thiab maj mam. 
 
-zoo siab tau ntsib koj 
+Kuv xav tam ib rooj 
 
-Sib ntsib 
+Kuv xav tam saum ib lub rooj ua ntej 
 
-Txais tos paub thiab. 
+thov txim os Kuv yuav rho tawm qhov rooj cheese? 
 
-tsis ua li cas  
+Koj yuav excuse kuv lov ib phaj? 
 
-Nyob zoo, peb pom zoo nws. 
+Kuv yuav thov txim rau daim ntawv? 
 
-zoo siab tau ntsib koj Kuv lub npe 
+Kuv xav kom muaj tagkis book ib lub rooj noj mov. 
 
-Txais tos paub thiab. 
+Kuv xav tau ib lub rooj nyob ze ntawm lub qhov rais. 
 
-Nws nyob hauv ib lub tsev rau tus dej. 
+Kuv xav tau ib lub tsev so 5-hnub qub 
 
-Kuv muaj ib xyoos 
+Koj yuav tau pab tsiaj koj lub npe. 
 
-Peb yog cov muaj hnub nyoog tib yam. 
+Peb xav tau ib chav dej kub. 
 
-Kuv yug 
+Koj puas kam luv nqi? 
 
-Kuv siab 
+Koj yuav tau txais ib chav tsev? 
 
-Kuv hnov 
+Koj thiaj paub kuv me ntsis lig? 
 
-Kuv tuaj 
+Kuv xav mus ncua hnub kuv booking 
 
-Kuv yog ib tug neeg Thaib. 
+Kom ib chav tsev 
 
-Yog, kuv yuav tau sib yuav. 
+Kuv xav book ib yig neeg 2. 
 
-Kuv sibnrauj lawm 
+Kuv xav mus kawm ntawv. 
 
-Kuv yog ib tug poj ntsuam 
+Nyob zoo Kuv xav ntxuav kuv cov plaub hau. 
 
-Kuv muaj ib tug menyuam 4. 
+Kuv thov txim. Kuv yuav txiav kuv cov plaub hau thiab. 
 
-Kuv yog tus nyob 
+Thov xa kuv ib lub hnab nyob qhov qub chaw. 
 
-Yog kuv qhov chaw nyob 
+Pab kuv ua tau ib tus kws kho mob me. 
 
-Kuv tsev neeg muaj 5 tus neeg. 
+Thov koj pab kuv. 
 
-Kuv muaj 3 kwv tij. 
+Kuv yuav tau dej ntau me ntsis? 
 
-Kuv txiv yog ib tug tub rog siv, tab sis nws retired. 
+Koj thov pab tau kuv? 
 
-Kuv nrog niam 
+Tab sis koj thov pab tau kuv? 
 
-Kuv txiv tau tuag mus ntau xyoo. 
+Koj yuav ua li ntawd. Yog hais tias koj xav 
 
-kuv yog ib tug tub kawm ntawv 
+Tab sis kuv yuav tsum mus tag kis. 
 
-Kuv nyob rau lub nroog 
+Kuv xav kom muaj hairstyle tshiab. 
 
-Kuv nyob hauv lub xeev. 
+Kuv xav tau tej yam tshiab. 
 
-Kuv lub tsev no ntawm txoj kev. 
+Qhov ntuag yog luv. 
 
-Kuv ua hauj lwm rau 
+Peb saib me ntsis ntxiv. 
 
-Kuv yog ib tug me nyuam kawm ntawv hauv tsev kawm ntawv. 
+Kuv xav tej yam sib zog. 
 
-Kuv xav kom muaj 
+Tau ib tug nqi 
 
-Kuv yuav ua hauj lwm puv sij hawm. 
+Kuv xav tam ib rooj 
 
-zoo heev Kuv cia li xyuas ntawm hometown. 
+Kuv xav tau ib lub tsev so 2 hnub qub 
 
-Kuv niam nws zoo. Kuv txiv tuag tau 10 xyoo dhau los. 
+Kuv xav book ib chav tsev 
 
-Zoo, vam tias kuv yuav nrhiav tau cov muaj ib hnub twg. 
+Kuv xav nyob hauv lub nroog 
 
-. Yog hais tias lawv tuaj thaum uas kuv yuav qhia rau koj. 
+Kuv xav book ib chav tsev 
 
-Great Hotel Muaj kev lom zem nrog cov hauj lwm! 
+Kuv yuav tau nyiaj ntxiv rov los. 
 
-Ua tsaug thiab! 
+Ua koj qhia qhov uas muaj? 
 
-Koj tseem nyob ntawm no. 
+Tau kuv kom nws? 
 
-Thaum twg koj tawm muaj 
+Pab kuv xaiv me ntsis? 
 
-Ncaj nraim 
+. thov tos ib pliag 
 
-Taug kev los ntawm 
+Kuv tsis tau nug rau ib chav tsev haus luam yeeb. 
 
-Taug kev rov qab mus rau txoj kev no. 
+Kuv thov txim tias, thov koj qhia kuv yog vim kuv txoj kev. 
 
-Mus raws txoj kev 
+Kuv xav pom vaub kib 
 
-Taug kev ncaj raws li txoj kev 
+Peb yuav tau mus kawm ntawv. 
 
-Hla txoj kev mus 
+kuv yuav tau mus tam sim no 
 
-Hla tus choj mus 
+Kuv xav ua koj tus phooj ywg 
 
-Lem tig zoo. 
+Kuv xav haus npias. 
 
-Nws yog ntawm kev. 
+Nws yuav tsum tau kev pab tam sid. 
 
-Nws yog qhov kawg ntawm txoj kev no. 
+Thov kos npe no slurry tau. 
 
-Nws muaj nyob rau sab laug. 
+Kuv siv kuv cov xov tooj? 
 
-Nws yuav tsis far from os. 
+Koj yuav paub koj lub npe? 
 
+Pab kuv khaws daim ntawv no. 
+
+Kuv yuav tau mus. 
+
+Kuv xav txog tam sim no ua li cas pab. 
+
+Nws yog ib yam nkaus thiab kim heev. 
+
+Thov qhia rau kuv li. 
+
+Kuv xav tau ib tug ko taw zaws 
+
+Kuv tau los so koj ob txhais ua ntej. 
+
+Thov hais me ntsis.  
+
+Cia kuv saib rau phau passport. 
+
+Kuv xav nug txog ib qhov suggestion thawj zaug. 
+
+Qhov zoo, yog cov nqi pheej yig Thov koj ua ib nras. 
+
+Kuv xav yuav ua kasfes haus thiab dej 
+
+Kuv xav kom cov khoom qab zib. 
+
+Tsis txhob tsav 1 xyoo 
+
+Peb tsis hais nyob rau hauv chav kawm ntawv. 
+
+Tsis tau hla kev thaum lub teeb liab. 
+
+Nws yuav tsum hnav khaub ncaws rau tsev kawm ntawv. 
+
+Peb yuav tsum tau them rau tus kws kho mob tshuaj. 
+
+Peb yuav tsis txhob nce tsheb. 
+
+Kuv xav saib tus yeeb yam ntawm nws. 
+
+Kuv xav hu nkauj 
+
+Kuv xav nrog koj tham. 
+
+Nyob tsheej, tsis mus kawm ntawv kab. 
+
+Peb yuav tsum yuav cov pib ua ntej. 
+
+Kuv xav nrog koj tham. 
+
+Qhov zoo, yog cov nqi pheej yig Thov koj ua ib nras. 
+
+Kuv xav mus ntsib tus kws kho mob 
+
+Cia kuv pom kuv.  
+
+Kuv xav tau ib tug neeg txhais lus 
+
+Tag kis, koj yuav tsum mus sawv ntxov! 
+
+Koj yuav tsum mus pw tamsim no. 
 '''
 tex = tex.splitlines()
 print(tex, "\n-------------------------------\n")
@@ -188,93 +249,6 @@ for i in tex:
 print("\n----------------------------------\n")
 
 text2 ="""
-สบายมาก
-สบายดี
-ฉันสบายดี
-มีความสุขดี
-ก็ดี
-งั้นๆ เรื่อยๆ
-พอใช้ได้
-ค่อนข้างแย่
-แย่มาก
-แล้วพบกันใหม่
-เดี๋ยวพบกันใหม่
-เดี๋ยวพบกันใหม่วันพรุ่งนี้
-เดี๋ยวพบกันใหม่สัปดาห์หน้า
-สวัสดีตอนเช้า สบายดีไหม
-สบายดี ขอบคุณ
-ขอโทษด้วย ชั่วโมงเรียนของผมจะเริ่มในห้านาที
-สบายดีมากเลย ขอบคุณ
-วันนี้เป็นวันที่ดีจริงๆ เลยนะ
-ใช่ แน่นอน
-เด็กผู้ชายกินมะม่วง
-เธอเป็นเด็กผู้หญิงที่กล้าหาญ
-เธอร้องเพลงได้ไพเราะมาก
-ผมเจอหนังสือบนเก้าอี้
-เธอกับเขาเป็นคนทำงาน
-เราชนะแล้ว
-ฉันขอแนะนำตัวเอง
-ฉันขอแนะนำให้รู้จัก
-ฉันอยากแนะนำเพื่อนของฉัน
-ฉันอยากให้คุณเจอเพื่อนของฉัน
-ฉันอยากแนะนำให้คุณรู้จักกับ
-เชิญพบกับ
-ใช่ ฉันคิดว่าเราเคยเจอกันแล้วนะ
-ฉันคิดว่าเราเคยเจอกันแล้ว
-ยินดีที่ได้รู้จัก
-ดีใจที่ได้พบ
-ยินดีที่ได้รู้จักเช่นกัน
-ด้วยความยินดี 
-สวัสดี ขอแนะนำตัวก่อนนะ
-ยินดีที่ได้รู้จัก ผมชื่อ
-ยินดีที่ได้รู้จักเช่นกัน
-เธออาศัยอยู่ในบ้านที่ไกล้กับแม่น้ำ
-วันเกิดของฉันคือ
-พวกเราอายุเท่ากัน
-ฉันเกิดวันที่
-ฉันสูง
-ฉันหนัก
-ฉันมาจาก
-ฉันเป็นคนไทย
-ใช่ ฉันแต่งงานแล้ว
-ฉันหย่าแล้ว
-ฉันเป็นม่าย
-ผมมีลูก4คน
-ฉันอยู่ที่
-ที่อยู่ของฉันคือ
-ครอบครัวฉันมี5คน
-ฉันมีพี่น้อง3คน
-พ่อของฉันเคยเป็นทหาร แต่เขาเกษียณแล้ว
-ฉันอยู่กับแม่
-พ่อของฉันเสียชีวิตไปหลายปีแล้ว
-ฉันเป็นนักเรียน
-ฉันอยู่ในเมือง
-ฉันอยู่ในจังหวัด
-บ้านของฉันอยู่บนถนน
-ฉันทำงานที่
-ฉันเป็นนักเรียน อยู่ที่โรงเรียน
-ฉันอยากเป็น
-ฉันทำงานเต็มเวลา
-ก็ดีนะ ผมเพิ่งไปเยี่ยมบ้านเกิดมา
-แม่ผมสบายดี ส่วนพ่อผมเสียชีวิตไป 10 ปีแล้ว
-ดีเลย หวังว่าผมจะได้พบพวกเขาสักวัน
-ได้เลย ถ้าพวกเขามาเมื่อไหร่ผมจะบอกคุณนะ
-ดีจังเลย ขอให้สนุกกับงานนะ
-ขอบคุณ เช่นกันนะ
-ได้สิ คุณอยู่ตรงนี้
-เมื่อคุณออกจากที่นั่น
-ตรงไปข้างหน้า
-เดินผ่านไป
-เดินย้อนถนนเส้นนี้ขึ้นไป
-เดินตามถนนเส้นนี้ไป
-เดินตรงไปตามถนน
-ข้ามถนนไป
-ข้ามสะพานไป
-เลี้ยวซ้าย เลี้ยวขวา
-มันอยู่ตรงถนน
-มันอยู่ตรงสุดถนนเส้นนี้
-มันอยู่ทางซ้าย
-มันอยู่ไม่ไกลจากที่นี่
 
 
 """
@@ -282,8 +256,8 @@ text2 ="""
 # text2 = text2.splitlines()
 # for i in text2:
 #     print(i,"\n")
-#
-#
+
+
 
 
 
