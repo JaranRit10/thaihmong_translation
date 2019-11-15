@@ -170,7 +170,7 @@ class Translate():
                             except Exception as e:
                                 print(e)
                                 # print("Error in sub method traslateThaiHmong")
-
+                    print(s_word)
                     # s_word = getPlob.bigramprob(s_word)
                     s_word = self.bigramprob(s_word)
                     self.buffer_sentence[sentence] = s_word

@@ -619,17 +619,62 @@ class Database():
             print("error from funtion insert commend to Recommend")
             print(e)
 
+    #select all and limit select
+    def searchAll(self,num):
+        mycursor = self.mydb.cursor()
+        try:
+            # id = id_user
+            sql = """
+            SELECT * FROM thaihmongword 
+            WHERE hmong_word IS NULL
+            LIMIT %s
+            """
+            adr =(num,)
+            mycursor.execute(sql,adr)
+            myresult = mycursor.fetchall()
+        except Exception as e:
+            print(e)
+            print("Eror in method searchall")
+        return myresult
 
+    # find num of word
+    def search__(self,word):
+        mycursor = self.mydb.cursor()
+        try:
+            # id = id_user
+            sql = "SELECT COUNT(*) FROM thaihmongword where thai_word = %s"
+            adr =(word,)
+            mycursor.execute(sql,adr)
+            myresult = mycursor.fetchall()
+            myresult = myresult[0][0]
+        except Exception as e:
+            print(e)
+            print("Eror in method searchall")
+        return myresult
 
 if __name__ == '__main__':
     import time
 
     ss = time.time()
     dd = Database()
+    # print(dd.search__("เป็น"))
+    data = dd.searchAll(20000)
+    # print(data)
 
-    aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
-    print(aa)
-    print(dd.addNewUser("sdfe","123456","tin","las","idkf@hot.com"))
+    for data in data:
+        data = list(data)
+        # if(data[3] is None):
+
+        # print(data)
+        print(data[0],'\t',data[1],'\t')
+
+
+
+
+
+    # aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
+    # print(aa)
+    # print(dd.addNewUser("sdfe","123456","tin","las","idkf@hot.com"))
     # print(dd.searchWord("เป็น"))
 
 

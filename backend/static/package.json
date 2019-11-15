@@ -13,11 +13,7 @@
     "bootstrap": "^4.3.1",
     "clipboard": "^2.0.4",
     "jquery": "^3.4.1",
-    "popper.js": "^1.15.0",
-<<<<<<< HEAD
-    "semantic": "0.0.1",
-=======
->>>>>>> 2df62268e3f6c7758ee8427978da55565338e331
-    "tooltipster": "^4.2.7"
+    "popper.js": "^1.15.0"
+
   }
 }

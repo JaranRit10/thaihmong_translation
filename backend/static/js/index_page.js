@@ -120,41 +120,6 @@ $(document).ready(function () {
     }
 
 
-    // function copy_textarea() {
-    //     var copyText = document.getElementById("result_translate");
-    //     copyText.select();
-    //     copyText.setSelectionRange(0, 99999)
-    //     document.execCommand("copy");
-    //     alert("Copied the text: " + copyText.value);
-    // }
-
-// for translate in weppage
-//     var first =true
-// 	$('#translate').click(function () {
-//         $.ajax({
-// 			data : {
-// 				sentence : $('#thaiword').val(),
-// 			},
-// 			type : 'POST',
-// 			url : '/transtate',
-//             success:(function(data) {
-//                 $('#success').text(data.sentence).show();
-//                 $('#error').hide()
-//                 var sentence = data.sentence
-//                 var tagesentence = document.createElement("P");
-//                 for(i=0;i<sentence.length;i++){
-//                      tagesentence.innerText = sentence[i];
-//                      document.getElementById("showtran").appendChild(tagesentence);
-//                      first = false;
-//                 }
-//             }),
-//             error:function (error) {
-//                 $('#success').hide()
-//                 $('#error').text(error)
-//             }
-// 		});
-//     })
-
     $('#translate2').click(function () {
         translate2()
     })
@@ -303,10 +268,6 @@ $(document).ready(function () {
         }
     }
 
-    // function sendCommend(word){
-    //     var thai = $('#input_textCommend').val(word)
-    //     console.log("thai :",thai)
-    // }
     function hmong_commend() {
         var hmong = $("#get_textarea").val()
         var hmongword = hmong.split("\n");
@@ -540,54 +501,5 @@ $(document).ready(function () {
             }
         });
     }
-
-
-    //copy text
-    // $('#copy_button').click(function () {
-    //     // var elm = $('div#result_translate').text()
-    //     // console.log("elm:",elm)
-    //     // $('#get_copy_textarea').append(elm)
-    //     // var result = $('#get_copy_textarea').val()
-    //     // console.log("result:",result)
-    //     CopyToClipboard()
-    // })
-    //
-    // function CopyToClipboard() {
-    //     // var elm = document.getElementById("result_translate");
-    //     // console.log("elm:",elm)
-    //     var elm = $("#get_textarea").val()
-    //     console.log("elm:",elm)
-    //     // $('#get_copy_textarea').append(elm)
-    //     // var result = $('#get_copy_textarea').val()
-    //     // for Internet Explorer
-    //
-    //     if(document.body.createTextRange) {
-    //         var range = document.body.createTextRange();
-    //         range.moveToElementText(elm);
-    //         range.select();
-    //         document.execCommand("Copy");
-    //         alert("Copied div content to clipboard");
-    //     }
-    //     else if(window.getSelection) {
-    //         // other browsers
-    //
-    //         var selection = window.getSelection();
-    //         var range = document.createRange();
-    //         range.selectNodeContents(elm);
-    //         selection.removeAllRanges(range);
-    //         selection.addRange(range);
-    //         document.execCommand("Copy");
-    //         // alert("Copied div content to clipboard");
-    //     }
-    // }
-
-
-    // ====== หน้าต่าง sidebar ===================================================================
-    // function menubar() {
-    //     document.getElementById("mySidenav").style.width = "250px";
-    // }
-    // function closeNav() {
-    //     document.getElementById("mySidenav").style.width = "0";
-    // }
 
 })
