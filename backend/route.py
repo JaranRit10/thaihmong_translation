@@ -1,4 +1,4 @@
-from flask import render_template,Flask, redirect, url_for, request,jsonify,session
+from flask import render_template, Flask, redirect, url_for, request,jsonify,session
 from backend import Grammar
 from backend.Database import Database
 import time

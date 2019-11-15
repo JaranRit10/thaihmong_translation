@@ -189,10 +189,18 @@ $(document).ready(function () {
                 var hmongcommend = ""
                 var hmong = ""
                 for (i = 0; i < data.length; i++) {
+                    console.log("data",data)
                     result = ""
                     hmongcommend = ""
+                    var list, show
                     for (j = 0; j < data[i].length; j++) {
-                        // console.log(typeof data[i][0])
+                        console.log("data",data[i][j])
+                        console.log(typeof data[i][0])
+                        // if (data[i][j] == []){
+                        //     list = data[i][j]
+                        //     show = data[i][j]
+                        // }
+
                         result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
                         hmongcommend += data[i][j] + " "
                     }

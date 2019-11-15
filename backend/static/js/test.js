@@ -38,13 +38,13 @@ $(document).ready( function () {
                             "<td class='recommendRow' id='tdRecommend_type_"+ x[0] +"'>" + x[4] + "</td>" +
 
                             "<td class='contro_recommendRow' id='edit_recommendRow_"+ x[0] +"'>" +
-                            "<button type='button' class='btn color_button2 btn-xs' " +
-                            "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
-                            " style='margin-right: ;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
+                                "<button type='button' class='btn color_button2 btn-xs' " +
+                                "data-toggle='modal' data-target='#add_recommend' id='edit_tdRecommend' " +
+                                " style='margin-right: ;' value='"+x[0]+"'><i class=\"pencil alternate icon\"></i>Edit</button></td>" +
 
                             "<td class='contro_recommendRow' id='delete_recommendRow_"+ x[0] +"'>" +
-                            "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
-                            "id='delete_tdRecommend' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
+                                "<button type='button' class='btn color_button2 btn-xs' data-toggle='modal' data-target='#deleteRow_recommend' " +
+                                "id='delete_tdRecommend' value='"+x[0]+"'><i class=\"eraser icon\"></i>Delete</button></td>" +
                         "</tr>"
                     );
                     "<br>"
@@ -137,6 +137,7 @@ $(document).ready( function () {
         console.log("thaisentence:",thaisentence)
         console.log("hmongsentence:",hmongsentence)
         console.log("grammarsentence:",grammarsentence)
+
         deleterow()
         function deleterow() {
             $('button#delet_row').on('click',function () {

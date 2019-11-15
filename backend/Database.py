@@ -627,17 +627,13 @@ if __name__ == '__main__':
     ss = time.time()
     dd = Database()
 
-<<<<<<< HEAD
-    # aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
-    # print(aa)
 
     bb = dd.getNewword_toAdd(3)
     print(bb)
-=======
+
     aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
     print(aa)
-    print(dd.addNewUser("sdfe","123456","tin","las","idkf@hot.com"))
->>>>>>> 8394b3360032000feab761b71840ef49265ae7b8
+
     # print(dd.searchWord("เป็น"))
 
 
