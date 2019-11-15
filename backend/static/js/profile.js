@@ -161,7 +161,13 @@ $(document).ready(function () {
         changeProfile()
     })
     $('#button_edit_img').click(function () {
-        removeImage()
+        if (confirm("ต้องการลบหรือไม่")) {
+            // alert("ต้องการบันทึก")
+            removeImage()
+        } else {
+            alert("ไม่ต้องการบลบ")
+        }
+
     })
 
     function changeProfile() {
@@ -220,7 +226,9 @@ $(document).ready(function () {
     $('#close_model_crop').click(function () {
         $('#uploadimageModal').hide()
     })
-
+    $('#close_model_').click(function () {
+        $('#uploadimageModal').hide()
+    })
 
     $('.crop_image').click(function(event){
 
@@ -276,6 +284,7 @@ $(document).ready(function () {
     function removeImage() {
         // $('#imag').attr('src', "/static/img/default_user.png");
         // $("#imag").val(1);
+
         $.ajax({
             url:"/deleteImage",
             type: "POST",

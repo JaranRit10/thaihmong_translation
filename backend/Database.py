@@ -6,7 +6,7 @@ import jsonify, json
 
 
 class Database():
-    mydb:any
+    mydb : any
 
     def __init__(self):
         self.mydb = mysql.connector.connect(
@@ -156,7 +156,7 @@ class Database():
         mycursor = self.mydb.cursor()
         try:
             sql = """
-                SELECT newword.id_newword,newword.Sentence_id,newword.New_word,newword.New_word_wordclass FROM newword
+                SELECT newword.id_newword,newword.Sentence_id,newword.Thai_word,newword.New_word_wordclass FROM newword
                 LEFT JOIN recommend
                 ON newword.id_newword = recommend.id_newword
                 WHERE recommend.User_id !=%s OR recommend.User_id IS NULL
@@ -667,22 +667,3 @@ if __name__ == '__main__':
 
         # print(data)
         print(data[0],'\t',data[1],'\t')
-
-
-
-
-
-    # aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
-    # print(aa)
-    # print(dd.addNewUser("sdfe","123456","tin","las","idkf@hot.com"))
-    # print(dd.searchWord("เป็น"))
-
-
-# =======
-    # aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
-    # get = dd.clickSearch("ให้")
-    # print(get)
-
-    # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
-    # print(hh)
-

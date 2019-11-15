@@ -54,8 +54,8 @@ def about():
         return render_template('public/about.html', send = send)
     return render_template('public/about.html')
 
-@app.route('/test')
-def tst():
+@app.route('/recommend')
+def recommend():
     if "USERNAME" in session and "USER_ID" in session:
         userName = session["USERNAME"]
         userid = session["USER_ID"]
@@ -196,8 +196,8 @@ def logout():
     session.pop("USER_ID", None)
     return redirect(url_for("Hompage"))
 
-@app.route('/wellcome-to-recommend')
-def wellcomeRecommend():
+@app.route('/check_recommend')
+def check_recommend():
     if "USERNAME" in session and "USER_ID" in session:
         userName = session["USERNAME"]
         userid = session["USER_ID"]
@@ -314,10 +314,8 @@ def profile():
         userName = session["USERNAME"]
         userid = session["USER_ID"]
         Privilege_user = session["Privilege_user"]
-        # i = 0
-        # j = 0
+        # print("username:",userName)
         for image_names in os.listdir('static/img/user_/'):
-            # i += 1
             user_image = str(userid) + ".png"
             print("name image p:", image_names)
             print("user_image p:", user_image)
