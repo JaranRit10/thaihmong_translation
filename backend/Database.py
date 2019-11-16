@@ -653,17 +653,4 @@ class Database():
         return myresult
 
 if __name__ == '__main__':
-    import time
-
-    ss = time.time()
-    dd = Database()
-    # print(dd.search__("เป็น"))
-    data = dd.searchAll(20000)
-    # print(data)
-
-    for data in data:
-        data = list(data)
-        # if(data[3] is None):
-
-        # print(data)
-        print(data[0],'\t',data[1],'\t')
+    pass

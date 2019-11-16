@@ -1,4 +1,4 @@
-import  tltk.nlp
+import tltk.nlp
 from multiprocessing import Pool
 import time
 
@@ -228,21 +228,4 @@ class Grammar () :
 
 if __name__ == '__main__':
 
-
-        tran = Grammar()
-        ss = time.time()
-        for i in range(1):
-            word = "เราไปไหนท"
-            t = tran.grammarHmong(word)
-            print("return : "+str(t))
-        print(time.time()-ss)
-
-
-
-        # tran = Grammar()
-        # ss = time.time()
-        # word = ["เราไปไหน","เราไปไหน","เราไปไหน","เราไปไหน"]
-        # t = tran.theadRun(word)
-        # print("return : " + str(t))
-        # print(time.time()-ss)
-        #
+    pass

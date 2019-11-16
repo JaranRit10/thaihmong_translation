@@ -51,12 +51,12 @@ $(document).ready(function () {
                                 //     "<p class='passwordRow' id='passwordRow"+ x[0] +"'>" + x[5] + "</p>"
                                 // );
                                 $("td#tdEmail").append(
-                                    "<h5 class='emailRow' id='emailRow" + x[0] + "'>" + x[10] + "</h5>"
+                                    "<h5 class='emailRow' id='emailRow" + x[0] + "'>" + x[7] + "</h5>"
                                 );
                                 id_user = x[0]
                                 username = x[3]
                                 passwordd = x[4]
-                                email = x[10]
+                                email = x[7]
                                 // console.log("d ",passwordd)
                                 firstname = x[5]
                                 lastname = x[6]
