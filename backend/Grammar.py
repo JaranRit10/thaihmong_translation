@@ -1,6 +1,4 @@
 import tltk.nlp
-from multiprocessing import Pool
-import time
 
 class Grammar () :
 
@@ -228,4 +226,5 @@ class Grammar () :
 
 if __name__ == '__main__':
 
-    pass
+    gm = Grammar()
+    gm.grammarHmong("เราไป")

@@ -71,8 +71,9 @@ $(document).ready(function () {
                         // sendCommend(word)
 
                         var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
+
+
                         box += '<table>'
-                        console.log("box:", box)
 
                         for (var i in wordClass) {
                             // console.log(i)

@@ -2,9 +2,6 @@ import mysql.connector
 from langdetect import detect
 import datetime
 
-import jsonify, json
-
-
 class Database():
     mydb : any
 
@@ -19,18 +16,9 @@ class Database():
 
 
     def searchFortran(self, word, wordClass,tage=True):
-        mydb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            passwd="12345678",
-            database="thaihmong_translator"
-        )
-
         try:
-            word_notTag =['แก่']
-
             if (word.find('<Fail>') == -1):
-                mycursor = mydb.cursor()
+                mycursor = self.mydb.cursor()
                 if(tage):
                     sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s and Word_class= %s "
                     adr = (word, wordClass,)

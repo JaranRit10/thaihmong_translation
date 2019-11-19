@@ -1,15 +1,10 @@
 from flask import render_template, Flask, redirect, url_for, request,jsonify,session
-from backend import Grammar
 from backend.Database import Database
-import time
 from backend import Translate
-import json
-
 import base64
 from io import BytesIO
 from PIL import Image
-import uuid
-import io
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='40PdS98eZy2mz5hqGIXIOg'

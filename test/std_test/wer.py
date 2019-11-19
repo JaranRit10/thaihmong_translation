@@ -1,14 +1,12 @@
 from jiwer import wer
 
-ground_truth = ["hello world", "i like python"]
-hypothesis = ["hello duck", "i like python"]
+"""
+    wer = (การแทนที่ + การแทรก + การลบ)/ จำนวนประโยคอ้างอิง
+"""
 
-error = wer(ground_truth, hypothesis)
-print(error)
+ground_truth = ["i an run"]
+hypothesis = ["i tin run"]
 
-
-ground_truth = ["hello world"]
-hypothesis = ["hello duck"]
-
-error = wer(ground_truth, hypothesis)
-print(error)
+wer = wer(ground_truth, hypothesis)
+print("wer : ",wer)
+print("WAcc : ",1-wer)
