@@ -2,7 +2,7 @@ import tltk.nlp
 
 class Grammar () :
 
-    notquestionword = ['ใช่']
+    notquestionword = ['ใช่','ได้']
     questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม','หรือไม่']
     def grammarHmong(self,Text):
         global senten_list
@@ -142,13 +142,16 @@ class Grammar () :
     # ประโยคคำถาม
     def sentence2(self):
         print("ประโยคคำถาม")
+        print(senten_list[len(senten_list)-2][0])
         check = False
         if(senten_list[len(senten_list)-2][0] in self.questionword and
-                senten_list[len(senten_list)-3][0] =="ได้"):
+                senten_list[len(senten_list)-3][0] in self.notquestionword):
             # สลับสองตำแหน่งหลัง
             senten_list[len(senten_list) - 2], senten_list[len(senten_list) - 3] = senten_list[len(senten_list) - 3],senten_list[len(senten_list) - 2]
             check = True
+            print("l1")
         else:
+            print("l2")
             for x in range(0, len(senten_list) - 2):
                 if (senten_list[x][1] == "VERB" or senten_list[x][1] == "AUX"):
                     first = x

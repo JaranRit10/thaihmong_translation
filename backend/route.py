@@ -116,7 +116,7 @@ def checkLogin():
             else:
                 user_image = "default_user.png"
         send = [userName, userid, Privilege_user, user_image]
-        print("sesion :::" + str(send[0]) + "**" + str(send[1]))
+        print("sesion : " + str(send[0]) + " : " + str(send[1]))
         return render_template('admin/index.html',send = send,Privilege_user=0)
     # for user public
     elif (get[0][1] == 1):
@@ -758,3 +758,4 @@ def checkWord_Recommend ():
 
 if __name__ == "__main__" :
     app.run(debug=True)
+
