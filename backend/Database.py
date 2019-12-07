@@ -699,5 +699,6 @@ class Database():
 
 
 if __name__ == '__main__':
+
     a = Database()
     a.mangeUser()

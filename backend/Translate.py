@@ -177,8 +177,8 @@ class Translate():
                     s_word = self.buffer_sentence[sentence]
                 print("s_word : ",s_word)
                 s_sentence.append(s_word)
-                # print(newword)
 
+                # print(newword)
                 # for add newword to database
                 # if(newword !=[]):
                 #     print(sentence)

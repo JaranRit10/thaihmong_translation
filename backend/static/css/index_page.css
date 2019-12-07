@@ -50,49 +50,52 @@ textarea {
 
 
 /*click to trnslate*/
-.translateword{
+.translateword {
     text-align: left;
     margin: 15px;
 }
 
-.clickTran_word{
+.clickTran_word {
     margin-top: 14px;
     color: black;
 }
 
-.clickTran_first{
+.clickTran_first {
     text-align: left;
     font-size: 16px;
-    color:#777777;
+    color: #777777;
 }
 
-.clickTran_class{
+.clickTran_class {
     font-size: 14px;
     color: blue;
 }
-.clickTran_traned{
+
+.clickTran_traned {
     color: #777777;
     font-size: 14px;
 }
-.clickTran_traned:hover{
-    color:black;
+
+.clickTran_traned:hover {
+    color: black;
 }
 
-span.clickTran_traned{
+span.clickTran_traned {
     padding-left: 3px;
 }
 
-.clickTran_wordtran{
+.clickTran_wordtran {
     padding-left: 20px;
     padding-right: 20px;
     font-size: 16px;
-    color:black;
-}
-.clickTran_comma{
-    color:#777777;
+    color: black;
 }
 
-.clickTran_trs{
+.clickTran_comma {
+    color: #777777;
+}
+
+.clickTran_trs {
     width: 10px;
     height: 2px;
 }
@@ -125,38 +128,72 @@ span.clickTran_traned{
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-  transition: 0.1s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.1s;
 }
 
 .sidenav a:hover {
-  color: black;
+    color: black;
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 20px;
-  font-size: 30px;
-  margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 30px;
+    margin-left: 50px;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 
-.body-signUp{
+.body-signUp {
 
     padding-left: 10px;
     padding-right: 10px;
 }
-.element-signUp{
+
+.element-signUp {
     padding: 5px;
 }
+
+
+.span_result_translate {
+    position: relative;
+    /*text-align: center;*/
+}
+
+.span_result_translate:hover {
+    background-color: rgba(0, 158, 199, 0.22);
+}
+
+/*.rowWord:hover {*/
+    /*background-color: rgba(0, 205, 255, 0.18);*/
+    /*position: static;*/
+    /*z-index: 2;*/
+/*}*/
+
+.rowWord {
+    background-color: #e7e7e7;
+}
+
+.box_results {
+    border-color: blue;
+}
+
+
+
+
 

@@ -125,6 +125,7 @@ $(document).ready(function () {
         translate2()
     })
     var result = ""
+    var DATARESPONSe
 
     function translate2() {
         var value_textarea
@@ -155,19 +156,23 @@ $(document).ready(function () {
                 var hmongcommend = ""
                 var hmong = ""
                 for (i = 0; i < data.length; i++) {
-                    console.log("data",data)
+                    DATARESPONSe = data
+                    console.log("data", data)
                     result = ""
                     hmongcommend = ""
                     var list, show
                     for (j = 0; j < data[i].length; j++) {
-                        console.log("data",data[i][j])
-                        console.log(typeof data[i][0])
-                        // if (data[i][j] == []){
-                        //     list = data[i][j]
-                        //     show = data[i][j]
-                        // }
 
-                        result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
+                        // console.log(typeof (data[i][j]))
+                        if (typeof (data[i][j]) == "object") {
+                            // <span class="span_result_translate '+"getHmongword"+(i+""+j)+'" style="float: left">'
+                            result += '<span class="span_result_translate" name="' + "" + (i + "-" + j) + '" id="' + "" + (i + "-" + j) + '" style="float: left">' + data[i][j][0] + "&nbsp;" + '<span class="subResultSentence" id="subResult_' + "" + (i + "-" + j) + '"></span>' + '</span>'
+                        } else {
+                            result += '<span class="span_result_translate" name="' + "" + (i + "-" + j) + '" style="float: left">' + data[i][j] + "&nbsp;" + '</span>'
+
+                        }
+
+
                         hmongcommend += data[i][j] + " "
                     }
                     hmong += hmongcommend + "\n"
@@ -186,6 +191,44 @@ $(document).ready(function () {
         });
 
     }
+
+    $(this).on("click", ".span_result_translate", function (e) {
+        var names = $(this).attr("name")
+        var name = names.split('-')
+        var data = DATARESPONSe[name[0]][name[1]]
+        // alert(typeof (data))
+        if (typeof (data) == 'object') {
+            if ($('#subResult_' + names).is(':empty') ) {
+                // console.log("if 1")
+                var box = '<div class="box_results">'
+                // alert(data.length)
+                for (var i = 0; i < data.length; i++) {
+                    box += '<div class="row rowWord" name="' + "" +names + '">' + data[i] + '</div>'
+                }
+                box += '</div>'
+                $('#subResult_' + names).append(box)
+            } else {
+                // console.log("if 2")
+                $('#subResult_' + names).empty()
+            }
+        }
+        var css = {
+            "position": "absolute",
+            "width": "100%",
+            "left": "15px",
+            "top": "25px",
+            "z-index": "1"
+
+        }
+        $('#subResult_' + names).css(css);
+    });
+
+    $(this).on("click", ".rowWord", function (e) {
+        var names = $(this).attr("name")
+        // alert(names)
+        $('#'+names).text($(this).text())
+    });
+
 
     var x = 0
     $("#thaiword").keydown(function () {
@@ -510,5 +553,17 @@ $(document).ready(function () {
             }
         });
     }
+
+    function resizeTageselect() {
+        $("#widthTempOption").html($('#resizingSelectTag option:selected').text());
+        $('#resizingSelectTag').width($("#selectTagWidth").width());
+    }
+
+    resizeTageselect()
+    // resize tage select on index page
+    $('#resizingSelectTag').change(function () {
+        resizeTageselect()
+    });
+
 
 })
