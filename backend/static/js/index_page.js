@@ -1,21 +1,10 @@
+
 $(document).ready(function () {
 
     $('#clear_textarea').click(function () {
         $('textarea#thaiword').val("")
         translate2()
     })
-
-
-    $('#copy_button').click(function () {
-        copy()
-    })
-
-    function copy() {
-        let textarea = document.getElementById("get_textarea");
-        // console.log("tex:",textarea)
-        textarea.select();
-        document.execCommand("copy");
-    }
 
 
     showTime()
@@ -65,8 +54,9 @@ $(document).ready(function () {
                     try {
                         var word = data.getData[0]
                         var wordClass = data.getData[1]
-                        console.log(word)
-                        console.log(wordClass)
+                        console.log("data select:",data)
+                        console.log("word:",word)
+                        console.log("wordClass:",wordClass)
 
                         // sendCommend(word)
 
@@ -159,6 +149,8 @@ $(document).ready(function () {
         translate2()
     })
     var result = ""
+    var centent = []
+    var j_num = 0
 
     function translate2() {
         var value_textarea
@@ -188,29 +180,57 @@ $(document).ready(function () {
                 $('#input_hmongcommend').empty()
                 var hmongcommend = ""
                 var hmong = ""
+                var selectWord = ""
                 for (i = 0; i < data.length; i++) {
                     console.log("data",data)
                     result = ""
                     hmongcommend = ""
                     var list, show
                     for (j = 0; j < data[i].length; j++) {
-                        console.log("data",data[i][j])
-                        console.log(typeof data[i][0])
+                        // console.log("data for j:",data[i][j])
+                        // console.log("typeof :",typeof data[i][0])
                         // if (data[i][j] == []){
                         //     list = data[i][j]
                         //     show = data[i][j]
                         // }
 
-                        result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
+                        // result += '<span class="span_result_translate" style="float: left">' + data[i][j] + "&nbsp; " + '</span>'
                         hmongcommend += data[i][j] + " "
+                        if (data[i][j] == []) {
+                            for (k = 0; k < data[j].length; k++) {
+                                centent += data[i][j][k]
+                                console.log("k:",centent[k])
+                            }
+                        }
+
                     }
+                    console.log("i:",i)
+                    // centent['<span class="span_result_translate_'+ i +'" value="'+ i +'" style="float: left">' + hmongcommend + "<br>" + '</span>']
+                    result += '<span class="span_result_translate"  style="float: left">' + hmongcommend + '</span><br>'
                     hmong += hmongcommend + "\n"
+
                     $("#result_translate").append(result)
-                    $("#result_translate").append("<br>")
+                    // $("#result_translate").append("<br>")
                     $("#get_textarea").val(hmong)
+                    j_num++
 
+                    var q = 1
+                    '<button class="test" value="'+ q +'"></button>'
+                    var tes = $('.test').val()
+                    console.log("test:",tes)
                 }
-
+                // console.log("centent:",centent)
+                // $(this).on('click', 'span.span_result_translate', function() {
+                //     var num = $(this).val()
+                //     console.log("span val:",num)
+                //
+                //     // for (i = 0; i < centent[num].length; i++) {
+                //     //     "<div id='dropdown-select-centent' class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+                //     //     "   <a class=\"dropdown-item\" href=\"#\">centent[num]</a>" +
+                //     //     "</div>"
+                //     // }
+                //
+                // })
             }),
             error: function (error) {
                 $('#success').hide()
@@ -220,6 +240,32 @@ $(document).ready(function () {
         });
 
     }
+
+
+    $(this).on('click', '.span_result_translate_'+j_num, function() {
+        // var num = $(this).val()
+        // console.log("span val:",num)
+
+        // for (i = 0; i < centent[num].length; i++) {
+        //     "<div id='dropdown-select-centent' class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+        //     "   <a class=\"dropdown-item\" href=\"#\">centent[num]</a>" +
+        //     "</div>"
+        // }
+
+    })
+
+    // $('span.span_result_translate').click(function () {
+    //     "<div class=\"dropdown\">\n" +
+    //     "            <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n" +
+    //     "            Dropdown button\n" +
+    //     "        </button>\n" +
+    //     "        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n" +
+    //     "            <a class=\"dropdown-item\" href=\"#\">Action</a>\n" +
+    //     "            <a class=\"dropdown-item\" href=\"#\">Another action</a>\n" +
+    //     "        <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n" +
+    //     "        </div>\n" +
+    //     "</div>"
+    // })
 
     var x = 0
     $("#thaiword").keydown(function () {
@@ -551,43 +597,43 @@ $(document).ready(function () {
 
 
     //copy text
-    // $('#copy_button').click(function () {
-    //     // var elm = $('div#result_translate').text()
-    //     // console.log("elm:",elm)
-    //     // $('#get_copy_textarea').append(elm)
-    //     // var result = $('#get_copy_textarea').val()
-    //     // console.log("result:",result)
-    //     CopyToClipboard()
-    // })
-    //
-    // function CopyToClipboard() {
-    //     // var elm = document.getElementById("result_translate");
-    //     // console.log("elm:",elm)
-    //     var elm = $("#get_textarea").val()
-    //     console.log("elm:",elm)
-    //     // $('#get_copy_textarea').append(elm)
-    //     // var result = $('#get_copy_textarea').val()
-    //     // for Internet Explorer
-    //
-    //     if(document.body.createTextRange) {
-    //         var range = document.body.createTextRange();
-    //         range.moveToElementText(elm);
-    //         range.select();
-    //         document.execCommand("Copy");
-    //         alert("Copied div content to clipboard");
-    //     }
-    //     else if(window.getSelection) {
-    //         // other browsers
-    //
-    //         var selection = window.getSelection();
-    //         var range = document.createRange();
-    //         range.selectNodeContents(elm);
-    //         selection.removeAllRanges(range);
-    //         selection.addRange(range);
-    //         document.execCommand("Copy");
-    //         // alert("Copied div content to clipboard");
-    //     }
-    // }
+    $('#copy_button').click(function () {
+        // var elm = $('div#result_translate').text()
+        // console.log("elm:",elm)
+        // $('#get_copy_textarea').append(elm)
+        // var result = $('#get_copy_textarea').val()
+        // console.log("result:",result)
+        CopyToClipboard()
+    })
+
+    function CopyToClipboard() {
+        // var elm = document.getElementById("result_translate");
+        // console.log("elm:",elm)
+        // var elm = $("#get_textarea").val()
+        // console.log("elm:",elm)
+        // $('#get_copy_textarea').append(elm)
+        // var result = $('#get_copy_textarea').val()
+        // for Internet Explorer
+
+        if(document.body.createTextRange) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(result_translate);
+            range.select();
+            document.execCommand("Copy");
+            alert("Copied div content to clipboard");
+        }
+        else if(window.getSelection) {
+            // other browsers
+
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(result_translate);
+            selection.removeAllRanges(range);
+            selection.addRange(range);
+            document.execCommand("Copy");
+            // alert("Copied div content to clipboard");
+        }
+    }
 
 
     // ====== หน้าต่าง sidebar ===================================================================
