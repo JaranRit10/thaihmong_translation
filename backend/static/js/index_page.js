@@ -61,8 +61,9 @@ $(document).ready(function () {
                         // sendCommend(word)
 
                         var box = '<div class="clickTran_first">' + 'คำที่แปล ' + '<span class="clickTran_word">' + word + '</span></div>'
+
+
                         box += '<table>'
-                        console.log("box:", box)
 
                         for (var i in wordClass) {
                             // console.log(i)
@@ -109,41 +110,6 @@ $(document).ready(function () {
         }
     }
 
-
-    // function copy_textarea() {
-    //     var copyText = document.getElementById("result_translate");
-    //     copyText.select();
-    //     copyText.setSelectionRange(0, 99999)
-    //     document.execCommand("copy");
-    //     alert("Copied the text: " + copyText.value);
-    // }
-
-// for translate in weppage
-//     var first =true
-// 	$('#translate').click(function () {
-//         $.ajax({
-// 			data : {
-// 				sentence : $('#thaiword').val(),
-// 			},
-// 			type : 'POST',
-// 			url : '/transtate',
-//             success:(function(data) {
-//                 $('#success').text(data.sentence).show();
-//                 $('#error').hide()
-//                 var sentence = data.sentence
-//                 var tagesentence = document.createElement("P");
-//                 for(i=0;i<sentence.length;i++){
-//                      tagesentence.innerText = sentence[i];
-//                      document.getElementById("showtran").appendChild(tagesentence);
-//                      first = false;
-//                 }
-//             }),
-//             error:function (error) {
-//                 $('#success').hide()
-//                 $('#error').text(error)
-//             }
-// 		});
-//     })
 
     $('#translate2').click(function () {
         translate2()
@@ -357,10 +323,6 @@ $(document).ready(function () {
         }
     }
 
-    // function sendCommend(word){
-    //     var thai = $('#input_textCommend').val(word)
-    //     console.log("thai :",thai)
-    // }
     function hmong_commend() {
         var hmong = $("#get_textarea").val()
         var hmongword = hmong.split("\n");
@@ -595,6 +557,7 @@ $(document).ready(function () {
         });
     }
 
+<<<<<<< HEAD
 
     //copy text
     $('#copy_button').click(function () {
@@ -644,4 +607,6 @@ $(document).ready(function () {
     //     document.getElementById("mySidenav").style.width = "0";
     // }
 
+=======
+>>>>>>> bec05bc067bd70168cd0d5726e3eefbd7685db7c
 })

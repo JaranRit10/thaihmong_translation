@@ -3,241 +3,366 @@
 # print (translator.translate("Hello", "pt"))
 
 tex = '''
-Kuv tuaj ntawm no 
+yog dab tsi? 
 
-Nyob zoo sawv ntxov 
+koj nyob li cas lawm 
 
-Nyob zoo tav su 
+es koj ne 
 
-Nyob zoo hmo 
+Kuv nyiam heev, thank you. 
 
-pw zoo os 
+Nyob zoo, yog dab tsi koj? 
 
-sib ntsib dua 
+Nyob zoo, kuv zoo, thank you ces. 
 
-. 
+Kuv nyiam heev, thank you. 
 
-Sawasdee thaum sawv ntxov  
+Koj mus rau lub tsev qiv ntawv? 
 
-Yuav koj tsiaj kuv tus haum? 
+Nyob zoo ua tsaug. 
 
-Koj yuav tau txais lub ceeb toom los ntawm koj qhov chaw nyob? 
+Nws tawm tuaj nyob qhov twg puas tau? 
 
-Thov qhia txog koj qhov chaw nyob? 
+Qhov no yog 
 
-Koj yuav hais kom koj qhov chaw nyob? 
+Qhov no yog, thiab that's 
 
-Tsaug rau lub sijhawm ntawd, kuv tau ntsib. 
+Ntawd yog leej twg? 
 
-Thiab raws li goodbye. 
+Muaj peb puas ntsib? 
 
-Thov koj qhia kuv yog vim li cas kuv thiaj muaj? 
+Nyob zoo, leej twg yog tus pojniam no?  
 
-Thov qhia rau kuv qhov uas muaj rau kuv. 
+Koj yuav kom kuv yuav tsum paub kuv? 
 
-Thov koj qhia kuv muaj. 
+Nws tawm tuaj nyob qhov twg puas tau? 
 
-Koj thiaj paub kuv lawv nyob qhov twg? 
+Koj lub hnub yug yog li cas? 
 
-Koj thiaj paub kuv txoj kev uas muaj rau kuv? 
+Koj tshwm sim thaum twg? 
 
-Qhia kuv, thov koj, uas yog qhov chaw nyob? 
+Kuv yug 
 
-Pab nrog Kuv txoj kev poob kuv 
+koj lub hnub yug yog thaum twg? 
 
-Mus xa kuv tuaj ua haujlwm 
+Nws yug thaum twg? 
 
-Koj tau ua suab paj nruag? 
+koj lub npe hu li cas 
 
-Thov koj pab kuv nres ntawm no? 
+koj npe yog li cas 
 
-Koj yuav tuaj nrog kuv? 
+Yog koj lub npe menyuam yaus 
 
-Kuv nrog koj tham me ntsis. 
+koj yog leej twg 
 
-Koj yuav muab ib Diam duab rau kuv? 
+Koj lub xeem yog 
 
-Kuv yuav mus yees duab ntawv tso cai? 
+Koj yuav tsiaj ua nws li cas? 
 
-Kuv xav kom nej xa kuv ncig saib rau kuv. 
+koj muaj pes tsawg xyoo? 
 
-Kuv xav tau ib ncig xyuas hais lus thaib 
+Koj lub hnub yug yog li cas? 
 
-Thov txim, thov koj hais dua. 
+Cas hnub no muaj koj tshwm sim? 
 
-Yuav thov hais tej yam tshiab? 
+Koj tshwm sim thaum twg? 
 
-Thov hais ib yam nkaus thiab maj mam. 
+Koj yog yug nyob qhov twg? 
 
-Kuv xav tam ib rooj 
+Koj muaj siab npaum li cas? 
 
-Kuv xav tam saum ib lub rooj ua ntej 
+Koj puas hnov li cas? 
 
-thov txim os Kuv yuav rho tawm qhov rooj cheese? 
+koj nyob qhov twg tuaj 
 
-Koj yuav excuse kuv lov ib phaj? 
+Koj muaj haiv neeg dab tsi? 
 
-Kuv yuav thov txim rau daim ntawv? 
+koj puas tau yuav txiv 
 
-Kuv xav kom muaj tagkis book ib lub rooj noj mov. 
+Koj puas muaj cov me nyuam? 
 
-Kuv xav tau ib lub rooj nyob ze ntawm lub qhov rais. 
+Koj muaj me nyuam coob npaum li cas? 
 
-Kuv xav tau ib lub tsev so 5-hnub qub 
+Lawv tsis paub qhov twg? 
 
-Koj yuav tau pab tsiaj koj lub npe. 
+Ua li cas ua yus tus txiv? 
 
-Peb xav tau ib chav dej kub. 
+Koj hometown nyob qhov twg? 
 
-Koj puas kam luv nqi? 
+Koj nyob qhov twg? 
 
-Koj yuav tau txais ib chav tsev? 
+Koj lub tsev nyob qhov twg? 
 
-Koj thiaj paub kuv me ntsis lig? 
+Koj nyob qhov twg? 
 
-Kuv xav mus ncua hnub kuv booking 
+Koj muaj pes tsawg leej? 
 
-Kom ib chav tsev 
+Koj muaj kwv tij coob npaum li cas? 
 
-Kuv xav book ib yig neeg 2. 
+Koj puas muaj tej kwvtij? 
 
-Kuv xav mus kawm ntawv. 
+Cas koj niam thiab txiv ua hauj lwm? 
 
-Nyob zoo Kuv xav ntxuav kuv cov plaub hau. 
+Peb ua num rau dab tsi? 
 
-Kuv thov txim. Kuv yuav txiav kuv cov plaub hau thiab. 
+Koj nyob tam sim no nrog koj txiv? 
 
-Thov xa kuv ib lub hnab nyob qhov qub chaw. 
+koj puas nyob ib leeg? 
 
-Pab kuv ua tau ib tus kws kho mob me. 
+Cas koj niam txiv nyob twj ywm ciaj sia? 
 
-Thov koj pab kuv. 
+Kuv niam tau zoo nyob heev. 
 
-Kuv yuav tau dej ntau me ntsis? 
+Koj nyob qhov twg? 
 
-Koj thov pab tau kuv? 
+Cas lub zos koj nyob rau hauv? 
 
-Tab sis koj thov pab tau kuv? 
+Cas atherosclerosis koj nyob rau hauv? 
 
-Koj yuav ua li ntawd. Yog hais tias koj xav 
+Nws lub tsev nyob qhov twg? 
 
-Tab sis kuv yuav tsum mus tag kis. 
+koj ua hauj lwm dab tsi 
 
-Kuv xav kom muaj hairstyle tshiab. 
+Koj ua dab tsi profession puas tau? 
 
-Kuv xav tau tej yam tshiab. 
+koj tab tom ua dab tsi? 
 
-Qhov ntuag yog luv. 
+Koj hauj lwm yog dab tsi? 
 
-Peb saib me ntsis ntxiv. 
+Koj puas yog? 
 
-Kuv xav tej yam sib zog. 
+Koj ua haujlwm qhovtwg? 
 
-Tau ib tug nqi 
+Koj lub nyiaj hli yog dab tsi? 
 
-Kuv xav tam ib rooj 
+Koj lub nyiaj hli yog dab tsi? 
 
-Kuv xav tau ib lub tsev so 2 hnub qub 
+Yog koj cov nyiaj hli tau li cas? 
 
-Kuv xav book ib chav tsev 
+Koj tsis them ib hnub ntau npaum li cas? 
 
-Kuv xav nyob hauv lub nroog 
+Koj puas nyiam txog cov hauj lwm zoo li cas? 
 
-Kuv xav book ib chav tsev 
+Thiab yog hais tias koj tau ib txoj hauj lwm nyob deb deb, 
 
-Kuv yuav tau nyiaj ntxiv rov los. 
+Cov nyiaj so koobtsheej yog dab tsi? 
 
-Ua koj qhia qhov uas muaj? 
+Zoo, qhov twg koj hometown? 
 
-Tau kuv kom nws? 
+Nws yog qhov twg? 
 
-Pab kuv xaiv me ntsis? 
+Koj txiv yog dab tsi? 
 
-. thov tos ib pliag 
+Thov txim. Koj niam yog tam sim no nyob rau tom tsev. 
 
-Kuv tsis tau nug rau ib chav tsev haus luam yeeb. 
+tau ntev lawm tsis tau sib ntsib Dab tsi ua hauj lwm tam sim no? 
 
-Kuv thov txim tias, thov koj qhia kuv yog vim kuv txoj kev. 
+Koj tsis xa li cas? 
 
-Kuv xav pom vaub kib 
+Nws xav ua ib yam dab tsi thaum nws loj los. 
 
-Peb yuav tau mus kawm ntawv. 
+Thov txim, koj paub tias qhov twg? 
 
-kuv yuav tau mus tam sim no 
+Koj puas paub koj txoj kev? 
 
-Kuv xav ua koj tus phooj ywg 
+Yog no txoj kev txog? 
 
-Kuv xav haus npias. 
+Li cas es kuv thiaj muaj? 
 
-Nws yuav tsum tau kev pab tam sid. 
+Qhov no puas yog qhov uas yuav muaj mus? 
 
-Thov kos npe no slurry tau. 
+Nws yog qhov twg? 
 
-Kuv siv kuv cov xov tooj? 
+Qhov uas yuav yog dab tsi 
 
-Koj yuav paub koj lub npe? 
+Kuv yuav coj tau koj nyob qhov twg? 
 
-Pab kuv khaws daim ntawv no. 
+koj mus qhov twg? 
 
-Kuv yuav tau mus. 
+Puas muaj ib lub tsheb raug nqi ntau npaum li cas? 
 
-Kuv xav txog tam sim no ua li cas pab. 
+Excuse li no, muaj cai? 
 
-Nws yog ib yam nkaus thiab kim heev. 
+Yog hmo ntuj no mus noj mov ua ke? 
 
-Thov qhia rau kuv li. 
+Qhov twg noj thaum sawv ntxov? 
 
-Kuv xav tau ib tug ko taw zaws 
+Koj puas xav noj mov nrog kuv? 
 
-Kuv tau los so koj ob txhais ua ntej. 
+Peb mus qhov twg? 
 
-Thov hais me ntsis.  
+Nws yuav tuaj ntsib peb? 
 
-Cia kuv saib rau phau passport. 
+Peb tsis nrhiav kev haus zoo li cas? 
 
-Kuv xav nug txog ib qhov suggestion thawj zaug. 
+Ua koj cov dej haus tau li? 
 
-Qhov zoo, yog cov nqi pheej yig Thov koj ua ib nras. 
+Nyob zoo ua tsaug. 
 
-Kuv xav yuav ua kasfes haus thiab dej 
+Nyob zoo Koj puas xav noj mov nrog kuv? 
 
-Kuv xav kom cov khoom qab zib. 
+Nws siv sij hawm ntau npaum li cas yuav? 
 
-Tsis txhob tsav 1 xyoo 
+Koj puas xav nyob? 
 
-Peb tsis hais nyob rau hauv chav kawm ntawv. 
+Peb mus? 
 
-Tsis tau hla kev thaum lub teeb liab. 
+koj puas tau txog? 
 
-Nws yuav tsum hnav khaub ncaws rau tsev kawm ntawv. 
+Koj puas tau kawm nyob qhov twg? 
 
-Peb yuav tsum tau them rau tus kws kho mob tshuaj. 
+Leej twg yog koj xib fwb? 
 
-Peb yuav tsis txhob nce tsheb. 
+Lub npe ntawm koj cov xib fwb yog dab tsi? 
 
-Kuv xav saib tus yeeb yam ntawm nws. 
+Koj thiaj paub yuav ua li cas? 
 
-Kuv xav hu nkauj 
+Koj nyiam dab tsi qhia? 
 
-Kuv xav nrog koj tham. 
+Hais koj nyiam tshaj plaws yog dab tsi? 
 
-Nyob tsheej, tsis mus kawm ntawv kab. 
+Koj puas nyiam ua tau nyob rau lub sij hawm pub dawb zoo li cas? 
 
-Peb yuav tsum yuav cov pib ua ntej. 
+Tej yam koj xav nyob rau nraum no zoo li cas? 
 
-Kuv xav nrog koj tham. 
+Koj kawm heev npaum li cas? 
 
-Qhov zoo, yog cov nqi pheej yig Thov koj ua ib nras. 
+Koj pib li cas lub sij hawm twg? 
 
-Kuv xav mus ntsib tus kws kho mob 
+Koj rho cov teev dab tsi? 
 
-Cia kuv pom kuv.  
+Koj puas muaj ib tav su tsev kawm ntawv? 
 
-Kuv xav tau ib tug neeg txhais lus 
+Ua koj mus kawm ntawv txhua hnub? 
 
-Tag kis, koj yuav tsum mus sawv ntxov! 
+Koj puas mus kawm ntawv li cas? 
 
-Koj yuav tsum mus pw tamsim no. 
+Koj puas tau tag tus? 
+
+Koj kev kawm ntawv saum toj kawg nkaus yog dab tsi? 
+
+Koj kawm thaum kawg li cas? 
+
+Koj mus kawm ntawv zoo li cas? 
+
+Kuv kawm tiav nyob 
+
+Koj puas tau tag qhov twg? 
+
+Koj kawm cov xyoo zoo li cas? 
+
+Nws puas muaj tej teeb meem no? 
+
+yog dab tsi? 
+
+Nws nyob qhov twg? 
+
+Koj twb mus kawm ntawv? 
+
+Koj puas tau mus kawm ntawv? 
+
+Koj yuav mus kawm ntawv? 
+
+Peb mus qhov twg? 
+
+koj mus qhov twg? 
+
+Koj muaj travelling los automotive? 
+
+Koj puas nyiam sightseeing? 
+
+Ua koj taug kev ncua? 
+
+Koj ua mus kawm heev npaum li cas? 
+
+Koj rau qhov nyiaj so koobtsheej kawg mus nyob qhov twg puas tau? 
+
+Koj xyuas seb ntau lub teb chaws muaj? 
+
+ koj mus qhov twg lawm? 
+
+Koj puas nyiam mus kawm ntawv? 
+
+Cas yuav ntev? 
+
+Koj puas nyiam rau yoov? 
+
+Koj yeej yuav tau los ntawm huab cua los yog tsheb 
+
+Koj yuav mus taug kev tag kis? 
+
+Pes tsawg teev yuav koj tawm hauv lub tsev? 
+
+Koj puas zoo? 
+
+Kuv yuav tsum mus ib qho chaw twg thaum twg? 
+
+Koj puas muaj tej lub sij hawm spare? 
+
+Koj yog tibneeg hu tauj coob tag kis? 
+
+Yog nws nthuav? 
+
+Hauv lub hiav txwv, yog dab tsi thiaj nthuav? 
+
+Dab tsi impresses koj tom hiav txwv? 
+
+Tam sim no uas muaj peb? 
+
+Ntawm no yog 
+
+Peb muaj tam sim no 
+
+Peb yuav tau coj neeg? 
+
+Nws yuav kim npaum li cas? 
+
+Koj txawj hais Thaib? 
+
+Koj puas totaub lus thaib? 
+
+thov txim os Tsis paub koj hais dab tsi. 
+
+Koj puas tau pronounce lo lus no li cas? 
+
+Dab tsi yog lo lus no txhais tias? 
+
+Koj ua tsiaj lo lus no li cas? 
+
+Koj puas tau pronounce npaum li cas 
+
+koj ua dab tsi? 
+
+Tseeb, los yog koj mus qhov twg. 
+
+Qhov no sawv ntxov nyob zoo? 
+
+Lub ntuj tsaug zog thaum twg? 
+
+Koj puas npaj ib qho chaw twg? 
+
+Peb mus qhov twg? 
+
+Qhov twg yuav tsum mus thawj? 
+
+Hais tias koj xav mus ntsib 
+
+Koj puas muaj tej yam uas nthuav? 
+
+Muaj, yuav ua li cas kuv? 
+
+koj mus qhov twg? 
+
+Cov huab cua yog dab tsi? 
+
+Nws yuav los nag? 
+
+Cov huab cua nyob rau tom tsev yog dab tsi? 
+
+Koj puas xav li cas cov cua hauv tsev? 
+
+Qhov twg muaj huab cua kub? 
+
 '''
 tex = tex.splitlines()
 print(tex, "\n-------------------------------\n")
@@ -252,10 +377,10 @@ text2 ="""
 
 
 """
-# text2 = text2.strip()
-# text2 = text2.splitlines()
-# for i in text2:
-#     print(i,"\n")
+text2 = text2.strip()
+text2 = text2.splitlines()
+for i in text2:
+    print(i,"\n")
 
 
 

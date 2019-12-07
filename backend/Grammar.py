@@ -1,10 +1,8 @@
-import  tltk.nlp
-from multiprocessing import Pool
-import time
+import tltk.nlp
 
 class Grammar () :
 
-    notquestionword = ['ใช่']
+    notquestionword = ['ใช่','ได้']
     questionword = ['หรือเปล่า', 'หรือยัง', 'เปล่า', 'ไหม','หรือไม่']
     def grammarHmong(self,Text):
         global senten_list
@@ -144,13 +142,16 @@ class Grammar () :
     # ประโยคคำถาม
     def sentence2(self):
         print("ประโยคคำถาม")
+        print(senten_list[len(senten_list)-2][0])
         check = False
         if(senten_list[len(senten_list)-2][0] in self.questionword and
-                senten_list[len(senten_list)-3][0] =="ได้"):
+                senten_list[len(senten_list)-3][0] in self.notquestionword):
             # สลับสองตำแหน่งหลัง
             senten_list[len(senten_list) - 2], senten_list[len(senten_list) - 3] = senten_list[len(senten_list) - 3],senten_list[len(senten_list) - 2]
             check = True
+            print("l1")
         else:
+            print("l2")
             for x in range(0, len(senten_list) - 2):
                 if (senten_list[x][1] == "VERB" or senten_list[x][1] == "AUX"):
                     first = x
@@ -170,6 +171,7 @@ class Grammar () :
                   'ฝูง', 'นิกาย', 'สำรับ', 'โรง', 'วง', 'กลัก', 'กลุ่ม', 'ไขลง', 'คู่', 'เครือ', 'จั่น',
                   'ช่อ', 'แถว', 'แพ', 'แผ่น', 'ผืน', 'แถบ', 'บาน', 'ลูก', 'คัน', 'ลำ', 'ดวง',
                   'กระบอก', 'เส้น', 'สาย', 'ซี่', 'ตน']
+
     # ประโยคลักษณะนาม
     def sentence3(self):
         print("ประโยคที่มีลักษณะนาม")
@@ -227,21 +229,5 @@ class Grammar () :
 
 if __name__ == '__main__':
 
-
-        tran = Grammar()
-        ss = time.time()
-        for i in range(1):
-            word = "เราไปไหนท"
-            t = tran.grammarHmong(word)
-            print("return : "+str(t))
-        print(time.time()-ss)
-
-
-
-        # tran = Grammar()
-        # ss = time.time()
-        # word = ["เราไปไหน","เราไปไหน","เราไปไหน","เราไปไหน"]
-        # t = tran.theadRun(word)
-        # print("return : " + str(t))
-        # print(time.time()-ss)
-        #
+    gm = Grammar()
+    gm.grammarHmong("เราไป")

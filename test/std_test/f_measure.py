@@ -73,284 +73,375 @@ if __name__ == '__main__':
     # print(tt.dff(t,test))
 
     text_true = """
-tsis zoo li	tsis zoo	Tsis zoo hlo li
-tsis yog kuv hais wb tsis tau sib ntsib dua nawb	tsis yog kuv hais wb tsis tau sib ntsib dua	
-kuv tsis xav hais tias  wb tsis tau sib ntsib dua los nawb	kuv tsis xav hais tias  wb tsis tau sib ntsib dua los 	
-tsis kuv tseem tsis tau muaj tus hlub		
-kuv tsis muaj kwv tij li	kuv tsis muaj kwv tij	
-tsis niam nyob tim kuv lub tsev	tsis niam nyob tim kuv tsev	
-tu siab kuv tsis paub	tu siab kuv tsis paub dua	
-ntshe kuv yuav pab tsis tau	xav tias kuv yuav pab tsis tau	
-tsis thas rho		
-tsis ua cas	tsis ua li cas	
-kuv thov txim ntshe kuv mus tsis tau	kuv thov txim kuv mus tsis tau	
-tsis ua cas kuv tsis khoom		
-qhov ntawv  tsis yog teeb meem	ntawv tsis yog teeb meem	
-tsis ua cas	tsis ua li cas	
-tsis nawb ntawm no huab cua no	tsis tim no huab cua no	
-ntuj tsis muaj huab	lub ntuj tsis muj huab	
-kuv tsis nyiam ntuj no		
-tseem tsis tau zaub mov na	tseem tsis tau zaub mov nawb	tsis tau zaub mov li
-cov zaub mov uas kuv xaiv tseg tseem tsis tau nawb	cov khoom noj kuv tau hais tseg tseem tsis tau 	
-no tsis yog yam kuv tau hais tseg na	qhov no tsis yog  yam uas kuv xaiv 	no tsis yog qhov xaiv tseg nawb
-thov txim vim peb tsis tau muaj chaw khoom tam sim no li	thov txim peb tsis muaj chaw khoom tam sim no	
-kuv tsis paub tseeb		
-tsis hais txog noj tshais	tsis hais koom txog mov sawv ntxov	tsis koom zaub mov sawv ntxov
-naws tsis yog koj li		
-nws tsis to taub lawv	nws tsis nkag siab lawv	
-kuv noj mov tsis tshua kab li	kuv noj mov tsis kab li	
-koj yuav tsum tsis ua li ntawv		
-tsis ua cas li	tsis ua cas	
-kuv tsis muaj dab tsi yuav pom zoo thiab	kuv tsis muaj dab tsi yuav pom zoo 	
-thov txim kuv tsis pom zoo nro koj thaib	thov txim kuv tsis pom zoo nro koj 	
-tsis paub ua	tsis txawj ua	
-kuv tsis paub tsav tsheb		
-tseem tsis tau noj kuv tab tom xav tib yam		
-ntshe yuav tsis tau		
-kuv tsis muaj kwv tij li		
-tseem tsis tau txiav txim siab		
-kuv tsis muaj me nyuam		
-tsis ua cas		
-tsis ua cas		
-tsis ua cas nrhiav tau nawb	tsis ua cas nrhiav tau	
-kuv tu siab ntshe kuv yuav ua yam ntawv tsis tau rau koj		
-thov txim tam sis qhov ntawv ua mus tsis tau 		
-ntshe kuv xav tias kuv tsis hnov yam ntawv		
-tiam sis kuv tsis tau txhob txwm ua li ntawv		
-tsis ua cas		
-tsis ua cas kuv yuam qhuav nkag los		
-kuv tsis tshuam nyiam xim no npaum cas		
-tsis aum dab tsi lawm ua tsaug		
-tsis thas rov		
-thov tsim pab tsis muag nqaij nyuj		
-tsis deb ntawm no		
-tsis muaj kuv yog me nyuam ib leeg 	tsis muaj kuv yog ib leej me nyuam 	
-kuv xav tsis tawm li		
-dej tsis muaj xim li		
-luav tsis noj nqaij tsiaj		
-nab tsis muaj kaw taw		
-tsis muaj		
-tsis kuv tsis tau  teem sib hawm	tsis yog kuv tsis tau teem sib hawm	
-kuv ntshai hais tias yuav tsis txog	kuv ntshai hais tias yuav tsis hauv lub sijhawm	
-tsis lawm ua tsaug		
-tam sim no lawv tsis nyob		
-ua tsaug tsis yog tam sim no		
-tsis yog kuv tsav tsheb mus kuv xwb	tsis yog kuv tsav tsheb mus xeb	
-kuv tsis paub tseeb		
-ua tsaug tsis ua cas	ua tsaug tsis us li cas	
-tsis ntev ntshe 10 feeb	tsis txog 10 feeb	
-tsis ua cas		
-kuv tsis paub lawv tiam sis kuv xav tias kuv tus muam paub		
-tsis ua cas thov kom muaj kev xyiv fab nrog kev taug kev		
-kuv tseem txiav txim siab tsis tau 	kuv tseem txiav txim siab tsis tau  lib	
-tsis muaj li pib mob thaum twg		
-tam sis kuv tsis nyiam xim no		
-kuv tsis nyiam caij ntuj no		
-tsis tau dua	tsis tau ua dua	
-tiam sis kuv xav tias kuv yuav mus tsis tau	tiam sis ntshe kuv xav tias kuv yuav mus tsis tau	
-kuv tsis tau pom koj los 2-3 hlis lawm		
-kuv yuav tsis peem paiv lawm		
-kuv tsis nyiam nab		
-kuv tsis tshuam muaj sib hawm khoom		
-kuv tsis muaj sib hawm nyeem ntawv li		
-kuv tsis tau noj nws los dua li		
-nws tsis khoom li nws tuaj tsis tau		
-koj tsis nyob tsev kawm ntawv nag hmo	koj tsis nyob tim tsev kawm ntawv nag hmo	
-tsis thas ntshai miv		
-txiv thiab niam tsis pov tseg me nyaum cia ib leeg tim tsev	niam txiv tsis pov tseg me nyaum cia ib leeg tim tsev	
-lus noog nyuaj tshaj kuv teb tsis tau		
-tus ris no tsis ntxim nro kuv		
-koj tsis tau pw tsaug zog tam sim no koj sawv	koj tsis tau pw tsaug zog tam sim no koj pw sawv	
-qhov no yog txiv chais tsis zoo	no yog txiv fhais tsis zoo	
-peb  npo pa siav tsis tau ntev		
-dej tsis ntshiab		
-peb ntsia tsis pom dab tsi		
-xib hwb hais zaj tseem tsis xaus 		
-kuv yuav tsis nco hnub ntawd 		
-kuv tsis paub lo lus txhais lo lus no 		
-tsis muaj leej twg paub koj txoj hmoov 		
-koj tsis tau muaj nplhaib 		
-tsiaj nyob tsis tau yog tsis muaj zaub mov 		
-koj tsis muaj dab tsi yuav ua 		
-Nws mob siab thaum nws cov phooj ywg nyob deb.		
-nws tsis zoo nyob		
-hnub no nws tsis mus kawm ntawv.		
-tus kws kho mob nriav nws li kab mob tsis tau.		
-tiab no tsis phim rau kuv 		
-nws mus tsev kawm ntawv tsis tau vim nws mob 	koj mus tsev kawm ntawv tsis tau vim koj mob	
-nws yog mus tsis tau uas ntse yuav ya	nes yog tsis tau uas ntse yuav ya	
-tsis muaj leej twg nyob haum ntawd 	tsis muaj leej twg nyob haum hauv	
-zaj no tsis yog qhov ntxim siab 	zaj no tsis yog yam uas ntxim siab	
-no tsis yog tsev viv poj niam 		
-peb tsis nyiam mloog nkauj 		
-nyiaj tsis yog yam uas tseem ceeb 		
-koj tsis tau mus qhov twg li	nws tsis tau mus qhov twg li	
-nws tsis nyiam kev tsav tsheb hauv sij hawm hmo ntuj 	nws tsis nyiam kev tsav tsheb haum sij hawm hmo ntuj	
-kuv tsis ntseeg txiv thiab niam	kuv tsis moog niam txiv lus	kuv tsis moog niam txiv 
-kuv tsis muaj kev xav	kuv tsis tawm kev xav	
-tsis tau hais tias nws zoo	tsis tau hais tias nws zoo tshaj	
-tsis muaj lus nug ntawm tub kawm 	tsis muaj lo lus nug ntawm tub kawm 	
-kuv tsis tau yog tub kawm 	kuv tsis yog tub kawm ntawv	
-nws tseem tsis txhij rau kev xeem 	nws tseem tsis txhij rau kev xeem ntawv	
-no tsis yog khoom tiag	nov tsis yog yam tiag	
-kuv tseem tsis tau txais tsab ntawv ntawm koj 		
-koj li lus teb tsis ncaj raws lus teb 	koj lo lus teb tsis ncaj nro lo lus teb	
-koj cim tsis tau koj li xov tooj 	new cim tsis tau nws tus xov tooj	
-tsis muaj leej twg yuav hais li ntawv tau		
-ntshe kuv yuav ntsia tsis pom koj tau	ntshe kuv yuav ntsia tsis pom koj 	
-nws tsis tau txaj muag dua ntawm yam nws ua		
-kuv tsis tau txob txwm uas yuav tab kaum koj		
-ntshe kuv yuav ua luam dej hla tus dej tsis tau		
-phooj ywg lwm teb chaws feem ntau tsis nkag siab lus thaib		
-tsis pub kom cheb loj nres haum tsev kawm ntawv		
-nws tsis tau mus xyuas nws txiv thiab niam los 3 xyoo	nws tsis tau mus xyuas nws txiv thiab nws niam yog 3 xyoo	
-ntshe kuv tsis them nyiaj 		
-nws tsis tau ntxuav tais	lawv tsis tau ntxuav tais kiag li	
-kuv ntseeg tias tsis muaj dab		
-nws pw khaws zog tsis txaus haum hmo uas daug los	nws pw tsis tsaus haum hmo uas daug los	
-
+zoo li cas lawm os	nyob li cas law os	zoo li cas
+paus nyob zoo		
+es koj ne	koj ne	
+kuv nyob zoo ua tsaug es koj ne		
+nyob zoo koj zoo li cas lawm os	nyob zoo koj nyob li cas lawm os	
+nyob zoo kuv nyob zoo ua tsaub es koj ne		
+kuv nyob zoo ua tsaug koj yuav mus qhov twg	kuv nyob zoo ua tsaug koj yuav mus twg	
+kuv tab tom mus tom tsav ntawv koj paus mus		
+nyob zoo ua taaug es koj ne		
+koj tuaj qhov twg tuaj		
+nov yog		
+nov yog thiam ntawd yog		
+ntawd yog leej twg		
+pev paus tau sib ntsib dua		
+nyob zoo tus poj nyiam no yog leej twg		
+peb qhai rau kuv paub me ntsis puas tau		
+koj tuaj qhov twg tuaj		
+koj li hnub yug yog hnub twg		
+koj yug thaum twg		
+kuv yug nyoo		
+hnub koj yug yog thaum twg		
+nws yug thaum twg		
+koj npe hu li cas		
+koj lub npe yog		
+koj lub npe ua si hu yog		
+koj yog leej twg		
+koj lub xeem yog		
+koj hais nws li cas		
+koj hnub yug puas tsawg		
+koj yug hnub twg		
+koj yug hnub dab tsi		
+koj yug thaum twg		
+Koj yug qhov twg		
+Koj siab puas tsawg		
+Koj nyav puas tsawg		
+Koj tuaj qhov twg tuaj		
+koj muaj neeg dab tsi		
+koj puas tau sib nyuav		
+koj puas muaj me nyuam thiab		
+koj muaj me nyuam puas tsawg leeg	koj muaj me nyuam puas tsawg leej	
+lawv kawm ntawv qhov twg		
+koj tus txiv ua hauj lwm dab tsi		
+lub tsev yug nyog qhov twg		
+tam sim no koj so qhov twg		
+Koj lub tsev nyob qhov twg		
+koj qhov tsaw nyob yog qhov twg		
+koj tsev neeg muaj pes tsawg leeg		
+koj muaj kwv tig puas tsawg leeg		
+koj puas muaj kwv tig		
+koj nyiam koj tsiv puas ua hauj lwm 		
+peb ua hauj lwm dab tsi		
+tam sim no koj puas nyob nrog koj nyiam thiab koj tsiv		
+koj ib leeg los		
+ koj nyiam thiab koj tsiv puas tseem muaj txoj sia		
+kuv nyiam nyob zoo		
+koj nyob qhov twg		
+koj nyob lub nroog dab tsi		
+koj nyob hauv lub ntsoog dab tsi		
+Koj lub tsev nyob qhov twg		
+Koj ua hauj lwm dab tsi		
+Koj ua hauj lwm dab tsi		
+Tam sim no Koj ua dab tsi		
+Koj txoj hauj lwm yog dab tsi		
+Koj yog , puas yog		
+Koj ua hauj lwm qhov twg		
+koj li nyiaj hli npaum cas		
+Koj tau nyiaj hli npaum cas		
+Koj muaj nyiaj hli npaum cas		
+Koj tau nqe ntiav ib hnub npaum cas	Koj tau nqe ntiav ib hnub li cas	
+Koj nyiam dab tsi hauv lub hauj lwm uas tab tom ua		
+es yog Koj tau hauj lwm uas nyob deb tsev		
+nyob zoo , hnub so zoo li cas thiab		
+Zoo tshaj li , es koj lub tsev yug koj nyob twg		
+nyob qhov twg		
+es koj naim thiab koj txiv ne zoo li cas thiab 		
+tu siab thiab nawb , Tam sim no koj nyiam kuj nyob tim tsev		
+tsis tau ntsib ua ke los ntev  , Tam sim no ua hauj lwm dab tsi		
+Koj ua hauj lwm dab tsi swb		
+koj xav yog dab tsi thaum koj loj hlob		
+thov txim , Koj paub paus tias nyob qhov twg		
+Koj paus paub txoj kev mus		
+txoj kev no puas mus txog		
+Kuv Yuav mus qhov ntawd tau li cas		
+ntawm no paus yog txoj kev mus tim tnawv		
+qhov ntawd nyob qhov twg		
+txoj kev twg yog txoj kev mus		
+kom kuv coj koj mus qhov twg		
+Koj tab tom Yuav mus qhov twg		
+nqe tsheb npaum cas		
+thov txim txoj kev no paus yog mus qhov ntawv		
+Hmo no paus mus noj mov ua ke 		
+tag kis mus noj mov qhov twg 		
+Hmo no Koj paus xav mus noj mov nrog kuv 		
+tau maj , peb Yuav mus qhov twg Zoo 		
+koj paus mus koom nrog peb 		
+peb paus mus nrhiav dab tsi haus 		
+paus Haus dej 		
+nyob zoo , ua tsaug ,es Koj ne		
+nyob zoo , Koj xav noj mov nrog kuv 		
+Yuav kom mus tos tsawg teev 		
+Koj paus xav  so 		
+peb mus puas tau tau		
+Koj paus nyob ntawv		
+Koj kawm qhov twg		
+Koj tus xib hwb yog leej twg		
+Koj tus xib hwb Lub npe hu li cas		
+Koj kawm xyuam tim dab tsi		
+xuj dab tsi uas Koj nyiam		
+xuj uas Koj nyiam thaum kawg yog xuj dab tsi		
+Koj nyiam ua dab tsi hauv sib hawm vaaj		
+hauj lwm uas Koj txaus siab yog dab tsi	hauj lwm uas Koj nyiam yog dab tsi	
+Koj muaj kawm ntau npaum li cas		
+koj tsav kawm pib tsawg teev		
+Koj lawb ntawv thaum tsawg teev		
+tav su no koj puas muaj kawm		
+Koj paus mus tsev kawm ntawv txhua hnub		
+Koj sawv kev mus tsev kawm ntawv li cas		
+Koj kawm tiav lawm los tsis tau tiav		
+kev kawm siab kawg nkaus ntawm koj yog dab tsi		
+Koj kawm kev kawm dab tsi		
+Koj mus tsev kawm ntawv hom twg		
+Kuv kawm tiav qhov	Kuv kawm xaus qhov	
+Koj kawm tiav qhov twg los		
+Koj kawm Xyoo twg		
+koj paus muaj teeb meem dab tsi		
+nws yog dab tsi		
+koj nyob chav twg		
+Koj puas tau mus tim tsev kawm ntawv los		
+Koj paus tau mus tim tsev kawm ntawv		
+Koj tab tom yuav mus tim tsev kawm ntawv  paus yog		
+peb yuav mus twg		
+Koj tab tom Yuav mus qhov twg		
+Koj taug kev rog lub tseb puas yog		
+koj puas nyiam ncig teb chaws ma		
+koj ncig teb chaws puas heev		
+koj mus tim tsev kawm ntawv heev npaum cas		
+Koj mus ncig teb chaws qhov twg hauv hnub nyob qhov uas dhaug los		
+Koj tau  mus pes tsawg lub teb chaws lawm		
+Koj mus qhov twg los		
+Koj paus nyiam mus tsev kawm ntawv		
+nws Yuav siv sij hawm ntev npaum li cas		
+Koj paus nyiam nce dav hlau	Koj paus nyiam caij dav hlau	
+Koj Yuav mus nrog dav hlau los yog tsheb loj		
+Tag kis Koj Yuav mus ncig teb chaws paus yog		
+Koj Yuav tawm ntawm tsev thaum tsawg teev	Koj Yuav tawm ntawm tsev thaum puas tsawg teev	
+Koj hais puas Zoo		
+Koj hais Kuv ntxim mus ncig teb chaws thaum twg Zoo		
+Koj puas yuav muaj sij hawm khoom thiab		
+Tag kis Koj paus khoob		
+nws txhim raug siab qhov twg os		
+ntawm hiav txwv muaj dab tsi ntxim raug siab		
+Koj xav tias txaus siab dab tsi ntawm hiav txwv		
+Tam sim no peb nyob qhov twg		
+qhov ntawm no yog	ntawm no yog	
+tam sim no peb nyob qhov		
+peb paus yuav  tsum muaj leeg coj kev		
+Xav nqi ib teev li cas		
+Koj hais lus thaib paus tau		
+Koj puas nkag siab lus thaib		
+thov txim , tsis paub tias Koj hais dab tsi		
+Koj tawm suab lo no li cas		
+lo no ntsiab lub yog li cas	lo no txhais tias li cas	
+Koj hais lo no li cas		
+lo no Koj tawm suab li cas		
+lub caij no , Koj ua dab tsi xwb		
+tiag los , Koj mus qhov twg los		
+tag kis no Koj paus nyob zoo		
+nag hmo pw puas zoo		
+Koj puas tau txhij Yuav mus ncig teb chaws	Koj puas tau txhij Yuav mus ua si	
+peb Yuav mus qhov twg Zoo		
+peb ntxim Yuav mus qhov twg ua ntej		
+qhov Koj sav mus		
+puas muaj yam txhim saib	puas muaj yam raug saib	
+yog ,puas muaj dab tsi kom Kuv Pab		
+Koj tab tom mus qhov twg		
+huab cua zoo li cas xwb		
+thooj li nag Yuav los puas yog		
+huab cua tim tsev zoo li cas xwb		
+Koj Xav li cas rua huab cua tim tsev		
+ntawam ko huab cua puas kub		
 
     """
 
     text_test = """
-Tsis zoo kiag li. 
-Tsis li kuv, peb muaj yeej tsis ntsib. 
-Kuv tsis xav tias peb tuaj ua ntej. 
-Tsis yog, kuv kuj nkaus xwb. 
-Kuv muaj cov kwv tij tsis txhua. 
-Tsis niam ntawm kuv tsev 
-Thov txim kuv tsis paub. 
-Tsam kuv tej zaum yuav pab koj. 
-Ntsoos ntsoos tsis tau 
-tsis ua li cas 
-Kuv thov txim, kuv tsis tau mus. 
-tsis ua li cas Kuv yog tibneeg hu tauj coob 
-Tsis uas yog ib qho teeb meem. 
-tsis ua li cas 
-Tsis dhau Ntawm no yog tus mob khaub thuas. 
-Ntuj pos huab 
-Kuv tsis nyiam caij ntuj no. 
-Tsis muaj mov noj. 
-Khoom noj khoom haus kuv yuam mus tsis txhua. 
-Qhov no yog ib qho chaw rau txim tsis. 
-Thov txim, tab sis peb tsis muaj chaw seem twg tamsim. 
-kuv tsis paub tseeb thiab  
-Noj tshais yog tsis tso cai muaj. 
-Nws tsi muaj koj li. 
-Nws yeej tsis to taub txog nws. 
-Kuv tsis tau noj mov qab. 
-Koj yuav tsum tsis tau ua li ntawd. 
-Tau lawm os. 
-Kuv tsis muaj dabtsi rau koj saib. 
-Kuv thov txim. Kuv tsis pom zoo nrog koj. 
-Tsis tau. 
-Kuv tsis tsav lub tsheb mus. 
-Nws tseem tsis tau noj Kuv xav txog nws. 
-Tsam tsis 
-Kuv muaj cov kwv tij tsis txhua. 
-Kuv tseem tsis tau txiav txim siab 
-Kuv tsis muaj me nyuam. 
-tsis ua li cas 
-Tau lawm os. 
-Tau lawm os. Tau txais tam sim no nws 
-Kuv thov txim, kuv ntshai koj yuav tsis tau ua uas rau koj tau. 
-Thov txim, tab sis nws tseem tsis tau. 
-Kuv txawm ntshai tias kuv yeej tsis hnov ntawd. 
-Tab sis kuv tsis npaj siab yuav ua ntawd. 
-Tau lawm os.  
-Tau lawm os. Kuv nyuam qhuav tuaj nyob rau hauv. 
-Kuv kuj tsis ntau pes tsawg li no lub twg. 
-Tsis txhob noj txhua yam thiab ua koj tsaug 
-Tsis ntab 
-Thov txim, peb tsis pub muag nqaij nyug. 
-Tsis far from qhov no 
-Tsis yog, kuv tus me nyuam xwb. 
-Kuv tsis tau xav txog nws. 
-Dej yog tsis dawb txhua. 
-Luav tsis noj nqaij. 
-Nab tsis muaj ko taw 
-Tsis tag ntiav. 
-Tsis tag ntiav. Kuv tsis paub lub sij hawm teem tseg. 
-Kuv ntshai tsis tau tuaj. 
-Tsis yog, lawm tsaug 
-Nws tsi muaj tam sim no. 
-Tsaug, tsis yog tam sim no.  
-Tsis muaj. Kuv tsav kuv tus kheej. 
-kuv tsis paub tseeb thiab  
-Ua tsaug, xyua. 
-Tsis tau li 10 feeb. 
-Tau lawm os. 
-Kuv tsis paub nws, tab sis kuv xav hais tias kuv tus muam paub lawm. 
-Tias kev txaus siab rau koj mus txawv tebchaws. 
-Kuv tseem tsis tau txiav txim. 
-Tsis paub, tsis tau. Thaum pib mob ua? 
-Tab sis kuv tsis nyiam no cov xim. 
-Kuv tsis nyiam caij ntuj no. 
-Tsis tau!  
-Tab sis kuv ntshai tias kuv mus tsis tau. 
-Kuv tsis pom koj mus li 2-3 lub hlis.  
-Kuv yuav tsis ua tiag piav txog nws. 
-Kuv tsis nyiam cov nab. 
-Kuv tsis muaj sij hawm dawb npaum li cas. 
-Kuv yuav tsum tsis muaj sij hawm nyeem cov phau ntawv. 
-Kuv puas tas ua ntej nws. 
-Nws yog tibneeg hu tauj coob heev. Nws tuaj tsis tau. 
-Nws yuav tsis nyob lub tsev kawm ntawv nag hmo. 
-Tsis txhob ntshai miv. 
-Niam txiv yeej tsis ncaim lawv cov me nyuam nyob tom tsev. 
-Cov lus nug no nyuaj heev. Kuv teb tsis tau. 
-Ceg ris no yog tsis rau kuv. 
-Nws yeej tsis pw tamsim. Nws tsim kom tsaug taus zog. 
-Qhov no nws yog ib tug txiv nkhaus taw phem.  
-Peb tsis tau tuav ib pa ntev. 
-Dej yuav tsis ntshiab. 
-Peb yuav tsis pom dab tsi. 
-Tus xib fwb hais zaj dabneeg tsis dhau. 
-Kuv yuav tsis nco qab txog cov hnub ntawd. 
-Kuv tsis paub lub ntsiab txhais lo lus no. 
-Tsis muaj leej twg paub nws hmoo. 
-Nws tsis muaj ib lub nplhaib. 
-Cov tsiaj no tsis tsis muaj zaub mov. 
-Nws twb tsis muaj dab tsi ua. 
-Nws muaj kev tsis zoo thaum ib tug phooj ywg nyob deb. 
-Nws seeb.  
-Hnub no nws yuav tsis mus kawm ntawv. 
-Tus kws kho mob yuav tsis paub ua kom muaj tus mob no. 
-Dab no tsis haum rau kuv. 
-Nws tsis tau mus kawm ntawv vim hais tias nws muaj mob. 
-Tseem tsis tau tias tus ntses yuav ya. 
-Tsis muaj leej twg puas muaj. 
-Nws yuav tsis nthuav. 
-Qhov no yog ib tug poj niam viv tsis. 
-Peb tsis nyiam mloog nkauj. 
-Nyiaj yog tsis tsim nyog. 
-Nws yeej tsis mus nowhere. 
-Nws tsis nyiam tsav thaum hmo ntuj. 
-Kuv tsis mloog lus kuv niam thiab txiv. 
-Kuv tsis muaj ib tug saib. 
-Qhov zoo tshaj yog tsis sau tseg qhia. 
-Tsis muaj me nyuam kawm ntawv cov lus nug 
-Kuv kuj tsis yog ib tug me nyuam kawm ntawv 
-Nws tsis yog npaj rau cov tub ntxhais. 
-Qhov no yuav tsis tau ib tug ntawm 
-Kuv tsis tau txais ntawv ntawm nws. 
-Koj cov lus teb tsis tau raws li cov lus teb. 
-Nws yuav tsis nco qab nws tus xov tooj. 
-Tsis muaj leej twg yuav hais tau tias. 
-Kuv tsis pom nws. 
-Nws yeej tsis muaj kev paub txaj muag rau nws ua dab tsi. 
-Kuv yeej tsis npaj siab yuav mus thab koj. 
-Kuv tsis tau da dej hla tus dej. 
-Phooj ywg tseev tsim ntiaj teb feem coob tsis to taub cov lus thaib. 
-Lawv yuav tsis pub nyob rau hauv lub tsev kawm ntawv. 
-Nws puas tau tsis mus ntsib niam leej txiv rau peb xyoos. 
-Kuv tsis tau them nyiaj ntsuab 
-Nws yeej tsis ntxuav phaj. 
-Kuv ntseeg hais tias yog tsis muaj dab. 
-Nws muaj tsis txaus los pw hauv cov nag hmo. 
+yog dab tsi? 
+koj nyob li cas lawm 
+es koj ne 
+Kuv nyiam heev, thank you. 
+Nyob zoo, yog dab tsi koj? 
+Nyob zoo, kuv zoo, thank you ces. 
+Kuv nyiam heev, thank you. 
+Koj mus rau lub tsev qiv ntawv? 
+Nyob zoo ua tsaug. 
+Nws tawm tuaj nyob qhov twg puas tau? 
+Qhov no yog 
+Qhov no yog, thiab that's 
+Ntawd yog leej twg? 
+Muaj peb puas ntsib? 
+Nyob zoo, leej twg yog tus pojniam no?  
+Koj yuav kom kuv yuav tsum paub kuv? 
+Nws tawm tuaj nyob qhov twg puas tau? 
+Koj lub hnub yug yog li cas? 
+Koj tshwm sim thaum twg? 
+Kuv yug 
+koj lub hnub yug yog thaum twg? 
+Nws yug thaum twg? 
+koj lub npe hu li cas 
+koj npe yog li cas 
+Yog koj lub npe menyuam yaus 
+koj yog leej twg 
+Koj lub xeem yog 
+Koj yuav tsiaj ua nws li cas? 
+koj muaj pes tsawg xyoo? 
+Koj lub hnub yug yog li cas? 
+Cas hnub no muaj koj tshwm sim? 
+Koj tshwm sim thaum twg? 
+Koj yog yug nyob qhov twg? 
+Koj muaj siab npaum li cas? 
+Koj puas hnov li cas? 
+koj nyob qhov twg tuaj 
+Koj muaj haiv neeg dab tsi? 
+koj puas tau yuav txiv 
+Koj puas muaj cov me nyuam? 
+Koj muaj me nyuam coob npaum li cas? 
+Lawv tsis paub qhov twg? 
+Ua li cas ua yus tus txiv? 
+Koj hometown nyob qhov twg? 
+Koj nyob qhov twg? 
+Koj lub tsev nyob qhov twg? 
+Koj nyob qhov twg? 
+Koj muaj pes tsawg leej? 
+Koj muaj kwv tij coob npaum li cas? 
+Koj puas muaj tej kwvtij? 
+Cas koj niam thiab txiv ua hauj lwm? 
+Peb ua num rau dab tsi? 
+Koj nyob tam sim no nrog koj txiv? 
+koj puas nyob ib leeg? 
+Cas koj niam txiv nyob twj ywm ciaj sia? 
+Kuv niam tau zoo nyob heev. 
+Koj nyob qhov twg? 
+Cas lub zos koj nyob rau hauv? 
+Cas atherosclerosis koj nyob rau hauv? 
+Nws lub tsev nyob qhov twg? 
+koj ua hauj lwm dab tsi 
+Koj ua dab tsi profession puas tau? 
+koj tab tom ua dab tsi? 
+Koj hauj lwm yog dab tsi? 
+Koj puas yog? 
+Koj ua haujlwm qhovtwg? 
+Koj lub nyiaj hli yog dab tsi? 
+Koj lub nyiaj hli yog dab tsi? 
+Yog koj cov nyiaj hli tau li cas? 
+Koj tsis them ib hnub ntau npaum li cas? 
+Koj puas nyiam txog cov hauj lwm zoo li cas? 
+Thiab yog hais tias koj tau ib txoj hauj lwm nyob deb deb, 
+Cov nyiaj so koobtsheej yog dab tsi? 
+Zoo, qhov twg koj hometown? 
+Nws yog qhov twg? 
+Koj txiv yog dab tsi? 
+Thov txim. Koj niam yog tam sim no nyob rau tom tsev. 
+tau ntev lawm tsis tau sib ntsib Dab tsi ua hauj lwm tam sim no? 
+Koj tsis xa li cas? 
+Nws xav ua ib yam dab tsi thaum nws loj los. 
+Thov txim, koj paub tias qhov twg? 
+Koj puas paub koj txoj kev? 
+Yog no txoj kev txog? 
+Li cas es kuv thiaj muaj? 
+Qhov no puas yog qhov uas yuav muaj mus? 
+Nws yog qhov twg? 
+Qhov uas yuav yog dab tsi 
+Kuv yuav coj tau koj nyob qhov twg? 
+koj mus qhov twg? 
+Puas muaj ib lub tsheb raug nqi ntau npaum li cas? 
+Excuse li no, muaj cai? 
+Yog hmo ntuj no mus noj mov ua ke? 
+Qhov twg noj thaum sawv ntxov? 
+Koj puas xav noj mov nrog kuv? 
+Peb mus qhov twg? 
+Nws yuav tuaj ntsib peb? 
+Peb tsis nrhiav kev haus zoo li cas? 
+Ua koj cov dej haus tau li? 
+Nyob zoo ua tsaug. 
+Nyob zoo Koj puas xav noj mov nrog kuv? 
+Nws siv sij hawm ntau npaum li cas yuav? 
+Koj puas xav nyob? 
+Peb mus? 
+koj puas tau txog? 
+Koj puas tau kawm nyob qhov twg? 
+Leej twg yog koj xib fwb? 
+Lub npe ntawm koj cov xib fwb yog dab tsi? 
+Koj thiaj paub yuav ua li cas? 
+Koj nyiam dab tsi qhia? 
+Hais koj nyiam tshaj plaws yog dab tsi? 
+Koj puas nyiam ua tau nyob rau lub sij hawm pub dawb zoo li cas? 
+Tej yam koj xav nyob rau nraum no zoo li cas? 
+Koj kawm heev npaum li cas? 
+Koj pib li cas lub sij hawm twg? 
+Koj rho cov teev dab tsi? 
+Koj puas muaj ib tav su tsev kawm ntawv? 
+Ua koj mus kawm ntawv txhua hnub? 
+Koj puas mus kawm ntawv li cas? 
+Koj puas tau tag tus? 
+Koj kev kawm ntawv saum toj kawg nkaus yog dab tsi? 
+Koj kawm thaum kawg li cas? 
+Koj mus kawm ntawv zoo li cas? 
+Kuv kawm tiav nyob 
+Koj puas tau tag qhov twg? 
+Koj kawm cov xyoo zoo li cas? 
+Nws puas muaj tej teeb meem no? 
+yog dab tsi? 
+Nws nyob qhov twg? 
+Koj twb mus kawm ntawv? 
+Koj puas tau mus kawm ntawv? 
+Koj yuav mus kawm ntawv? 
+Peb mus qhov twg? 
+koj mus qhov twg? 
+Koj muaj travelling los automotive? 
+Koj puas nyiam sightseeing? 
+Ua koj taug kev ncua? 
+Koj ua mus kawm heev npaum li cas? 
+Koj rau qhov nyiaj so koobtsheej kawg mus nyob qhov twg puas tau? 
+Koj xyuas seb ntau lub teb chaws muaj? 
+ koj mus qhov twg lawm? 
+Koj puas nyiam mus kawm ntawv? 
+Cas yuav ntev? 
+Koj puas nyiam rau yoov? 
+Koj yeej yuav tau los ntawm huab cua los yog tsheb 
+Koj yuav mus taug kev tag kis? 
+Pes tsawg teev yuav koj tawm hauv lub tsev? 
+Koj puas zoo? 
+Kuv yuav tsum mus ib qho chaw twg thaum twg? 
+Koj puas muaj tej lub sij hawm spare? 
+Koj yog tibneeg hu tauj coob tag kis? 
+Yog nws nthuav? 
+Hauv lub hiav txwv, yog dab tsi thiaj nthuav? 
+Dab tsi impresses koj tom hiav txwv? 
+Tam sim no uas muaj peb? 
+Ntawm no yog 
+Peb muaj tam sim no 
+Peb yuav tau coj neeg? 
+Nws yuav kim npaum li cas? 
+Koj txawj hais Thaib? 
+Koj puas totaub lus thaib? 
+thov txim os Tsis paub koj hais dab tsi. 
+Koj puas tau pronounce lo lus no li cas? 
+Dab tsi yog lo lus no txhais tias? 
+Koj ua tsiaj lo lus no li cas? 
+Koj puas tau pronounce npaum li cas 
+koj ua dab tsi? 
+Tseeb, los yog koj mus qhov twg. 
+Qhov no sawv ntxov nyob zoo? 
+Lub ntuj tsaug zog thaum twg? 
+Koj puas npaj ib qho chaw twg? 
+Peb mus qhov twg? 
+Qhov twg yuav tsum mus thawj? 
+Hais tias koj xav mus ntsib 
+Koj puas muaj tej yam uas nthuav? 
+Muaj, yuav ua li cas kuv? 
+koj mus qhov twg? 
+Cov huab cua yog dab tsi? 
+Nws yuav los nag? 
+Cov huab cua nyob rau tom tsev yog dab tsi? 
+Koj puas xav li cas cov cua hauv tsev? 
+Qhov twg muaj huab cua kub? 
 
 
     """
+
+
 
     text_test = text_test.strip()
     sentence_test = text_test.splitlines()

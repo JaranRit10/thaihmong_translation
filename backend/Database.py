@@ -1,37 +1,27 @@
 import mysql.connector
 from langdetect import detect
 import datetime
-
-import jsonify, json
+import schedule
+from datetime import date
+import time
 
 
 class Database():
-    mydb:any
+    mydb: any
 
     def __init__(self):
         self.mydb = mysql.connector.connect(
-                host="localhost",
-                user="root",
-                passwd="12345678",
-                database="thaihmong_translator"
-            )
-
-
-
-    def searchFortran(self, word, wordClass,tage=True):
-        mydb = mysql.connector.connect(
             host="localhost",
             user="root",
             passwd="12345678",
             database="thaihmong_translator"
         )
 
+    def searchFortran(self, word, wordClass, tage=True):
         try:
-            word_notTag =['แก่']
-
             if (word.find('<Fail>') == -1):
-                mycursor = mydb.cursor()
-                if(tage):
+                mycursor = self.mydb.cursor()
+                if (tage):
                     sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s and Word_class= %s "
                     adr = (word, wordClass,)
                     mycursor.execute(sql, adr)
@@ -64,8 +54,7 @@ class Database():
         # print(myresult)
         return myresult
 
-
-    def checkUsername_signUp(self,name):
+    def checkUsername_signUp(self, name):
         mycursor = self.mydb.cursor()
         name = (str(name).strip(),)
         try:
@@ -73,26 +62,43 @@ class Database():
             SELECT * FROM user_
             WHERE Username = %s
             """
-            mycursor.execute(sql,name)
+            mycursor.execute(sql, name)
             myresult = mycursor.fetchall()
-            if(len(myresult)>0):
+            if (len(myresult) > 0):
                 return True
             else:
-                return  False
+                return False
         except Exception as e:
             print(e)
             print("Eror in method checkUsername_signUp")
 
     def login(self, username, password):
+        self.mangeUser()
         mycursor = self.mydb.cursor()
         try:
             try:
-                sql = "SELECT * FROM user_ WHERE Username = %s and User_password = %s "
+                sql = """SELECT id_user,Privilege_user,Datetime_register,Username,User_password,First_name,
+                Last_name,Email
+                FROM user_ 
+                WHERE Username = %s and User_password = %s and status_ != 0"""
                 adr = (username, password,)
                 mycursor.execute(sql, adr)
                 myresult = mycursor.fetchall()
             except Exception as e:
                 print(e)
+            # [(2, 0, datetime.datetime(2019, 7, 9, 17, 30, 32), 'admin', '1234', 'ทินวงศ์(admin)', 'แซ่เล้า',
+            #   'tin@tin.co.th', 1)]
+
+            if (myresult != []):
+                mycursor2 = self.mydb.cursor()
+                user = myresult[0][0]
+                sql = """UPDATE user_ SET Last_login_time = %s
+                        WHERE id_user = %s """
+                time = datetime.datetime.now()
+                val = (time, user)
+                mycursor2.execute(sql, val)
+                self.mydb.commit()
+
             if (myresult == []):
                 sql = "SELECT * FROM user_ WHERE Username = %s "
                 adr = (username,)
@@ -107,7 +113,8 @@ class Database():
             print(e)
             print("Eror in method login")
         return myresult
-# ===========================================================
+
+    # ===========================================================
     def getRecommend(self):
         mycursor = self.mydb.cursor()
         try:
@@ -150,7 +157,6 @@ class Database():
             print(e)
             print("Eror in method getNewword")
         return myresult
-
 
     def getNewword_toAdd(self, userID):
         mycursor = self.mydb.cursor()
@@ -217,7 +223,6 @@ class Database():
         except Exception as e:
             print(e)
 
-
     def insertNewword_to_recommend(self):
         try:
             connection = self.mydb
@@ -235,18 +240,18 @@ class Database():
         except Exception as e:
             print(e)
 
-    def clickS(self,word,word_class="*"):
+    def clickS(self, word, word_class="*"):
         try:
             mycursor = self.mydb.cursor()
             word = str(word)
             word = word.strip()
             lang = detect(word)
-            if (lang =='th'):
+            if (lang == 'th'):
                 sql = "SELECT Word_class,Hmong_word FROM thaihmongword WHERE Thai_word = %s LIMIT 20"
                 adr = (word,)
             else:
                 sql = "SELECT Thai_word FROM thaihmongword WHERE Hmong_word = %s and Word_class =%s LIMIT 20"
-                adr = (word,word_class)
+                adr = (word, word_class)
             mycursor.execute(sql, adr)
             get = mycursor.fetchall()
             return get
@@ -267,27 +272,27 @@ class Database():
                     # w = data[g_word[0]]
                     # w.append(g_word[1])
                     # data[g_word[0]] = w
-                    w_hmong = self.clickS(g_word[1],g_word[0])  # search hmong word
+                    w_hmong = self.clickS(g_word[1], g_word[0])  # search hmong word
                     set_w = {g_word[1]: w_hmong}  # create word to put in class name
-                    data[g_word[0]].append(set_w)   # put to class name
+                    data[g_word[0]].append(set_w)  # put to class name
 
                     pass
 
                 else:
-                    word_class[g_word[0]] = 1 #create name in set format
-                    w_hmong = self.clickS(g_word[1],g_word[0]) # search hmong word
-                    set_w ={g_word[1]:w_hmong} # create word to put in class name
-                    data[g_word[0]] = [set_w] # put to class name
+                    word_class[g_word[0]] = 1  # create name in set format
+                    w_hmong = self.clickS(g_word[1], g_word[0])  # search hmong word
+                    set_w = {g_word[1]: w_hmong}  # create word to put in class name
+                    data[g_word[0]] = [set_w]  # put to class name
 
             # print("data :", data)
-            data =[word,data]
+            data = [word, data]
             return data
         except Exception as e:
             print(e)
             print("Eror in method click to searchword")
             return ""
 
-    def addNewUser(self,Username,User_password,First_name,Last_name,Email):
+    def addNewUser(self, Username, User_password, First_name, Last_name, Email):
         try:
             connection = self.mydb
             sql_insert_query = """ INSERT INTO `user_`
@@ -295,7 +300,7 @@ class Database():
                          VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"""
 
             time = datetime.datetime.now()
-            value_insert = (1, time, Username, User_password,First_name,Last_name,Email,1)
+            value_insert = (1, time, Username, User_password, First_name, Last_name, Email, 1)
             cursor = connection.cursor()
             cursor.execute(sql_insert_query, value_insert)
             connection.commit()
@@ -304,8 +309,9 @@ class Database():
         except Exception as e:
             print(e)
             return False
+
     def searchWord(self, word):
-        myresult =[]
+        myresult = []
         try:
             mycursor = self.mydb.cursor()
             word = str(word)
@@ -314,22 +320,22 @@ class Database():
             for i in range(2):
                 if (lang == 'th'):
                     # print(type(lang))
-                    if(i==0):
+                    if (i == 0):
                         sql = "SELECT * FROM thaihmongword WHERE Thai_word = %s "
                     else:
                         sql = "SELECT * FROM thaihmongword WHERE Thai_word like %s AND Thai_word != %s LIMIT 101"
                 else:
-                    if(i==0):
+                    if (i == 0):
                         sql = "SELECT * FROM thaihmongword WHERE Hmong_word = %s "
                     else:
                         sql = "SELECT * FROM thaihmongword WHERE Hmong_word like %s AND Hmong_word != %s LIMIT 101"
 
-                if(i==0):
+                if (i == 0):
                     word_used = word
                     adr = (word_used,)
                 else:
-                    word_used = word+ '%'
-                    adr = (word_used,word)
+                    word_used = word + '%'
+                    adr = (word_used, word)
                 # print(sql,adr)
                 mycursor.execute(sql, adr)
                 myresult.extend(mycursor.fetchall())
@@ -488,7 +494,7 @@ class Database():
             print("Failed inserting record into python_users table {}".format(error))
 
     # ==============================================================
-# profile data
+    # profile data
     def getprofile(self):
         mycursor = self.mydb.cursor()
         try:
@@ -502,8 +508,8 @@ class Database():
             print("Eror in method getProfile")
 
     # =======================================================
-# update page recommend
-    def update_recommend(self,id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend):
+    # update page recommend
+    def update_recommend(self, id_recommend, Thai_recommend, Hmong_recommend, Grammar_recommend):
         try:
             connection = self.mydb
             cursor = connection.cursor()
@@ -521,8 +527,8 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-# delete page recommend
-    def delete_recommend(self,id_recommend,Thai_recommend,Hmong_recommend,Grammar_recommend):
+    # delete page recommend
+    def delete_recommend(self, id_recommend, Thai_recommend, Hmong_recommend, Grammar_recommend):
         try:
             connection = self.mydb
             cursor = connection.cursor()
@@ -539,8 +545,8 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-# update page newword
-    def update_newword(self,id_newword,Thai_newword,Hmong_newword,Grammar_newword):
+    # update page newword
+    def update_newword(self, id_newword, Thai_newword, Hmong_newword, Grammar_newword):
         try:
             connection = self.mydb
             cursor = connection.cursor()
@@ -548,7 +554,7 @@ class Database():
             update_query = """ UPDATE newword 
             SET Thai_word=%s, Hmong_word=%s,New_word_wordclass=%s 
             WHERE id_newword=%s"""
-            value_update = (Thai_newword,Hmong_newword,Grammar_newword, id_newword)
+            value_update = (Thai_newword, Hmong_newword, Grammar_newword, id_newword)
 
             cursor.execute(update_query, value_update)
             connection.commit()
@@ -558,15 +564,15 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-# delete page newword
-    def delete_newword(self,id_newword,Thai_newword,Hmong_newword,Grammar_newword):
+    # delete page newword
+    def delete_newword(self, id_newword, Thai_newword, Hmong_newword, Grammar_newword):
         try:
             connection = self.mydb
             cursor = connection.cursor()
 
             delete_query = """DELETE FROM newword 
             WHERE id_newword=%s and Thai_word=%s and Hmong_word=%s and New_word_wordclass=%s"""
-            id_delete = (id_newword,Thai_newword,Hmong_newword,Grammar_newword)
+            id_delete = (id_newword, Thai_newword, Hmong_newword, Grammar_newword)
 
             cursor.execute(delete_query, id_delete)
             connection.commit()
@@ -576,8 +582,8 @@ class Database():
             print("Failed inserting record into python_users table {}".format(e))
             return e
 
-# update page profile
-    def update_profile(self,id_user, Username, User_password, Email):
+    # update page profile
+    def update_profile(self, id_user, Username, User_password, Email):
         try:
             connection = self.mydb
             cursor = connection.cursor()
@@ -585,7 +591,7 @@ class Database():
             update_query = """ UPDATE user_ 
             SET Username=%s, User_password=%s, Email=%s 
             WHERE id_user=%s"""
-            value_update = (Username,User_password,Email,id_user)
+            value_update = (Username, User_password, Email, id_user)
 
             cursor.execute(update_query, value_update)
             connection.commit()
@@ -619,29 +625,79 @@ class Database():
             print("error from funtion insert commend to Recommend")
             print(e)
 
+    # select all and limit select
+    def searchAll(self, num):
+        mycursor = self.mydb.cursor()
+        try:
+            # id = id_user
+            sql = """
+            SELECT * FROM thaihmongword 
+            WHERE hmong_word IS NULL
+            LIMIT %s
+            """
+            adr = (num,)
+            mycursor.execute(sql, adr)
+            myresult = mycursor.fetchall()
+        except Exception as e:
+            print(e)
+            print("Eror in method searchall")
+        return myresult
+
+    # find num of word
+    def search__(self, word):
+        mycursor = self.mydb.cursor()
+        try:
+            # id = id_user
+            sql = "SELECT COUNT(*) FROM thaihmongword where thai_word = %s"
+            adr = (word,)
+            mycursor.execute(sql, adr)
+            myresult = mycursor.fetchall()
+            myresult = myresult[0][0]
+        except Exception as e:
+            print(e)
+            print("Eror in method searchall")
+        return myresult
+
+    def mangeUser(self, inTime="02:00", dateCheck=1):
+        def setUser():
+            mycursor = self.mydb.cursor()
+            try:
+                # id = id_user
+                sql = """
+                    SELECT id_user,Last_login_time FROM user_ 
+                    WHERE Status_ = 1 AND Privilege_user != 0
+                """
+                mycursor.execute(sql, )
+                allUser = mycursor.fetchall()
+                for user in allUser:
+                    lastLockin = user[1]
+                    now = datetime.datetime.now()
+                    day = (now-lastLockin).days
+                    # print(day)
+                    if(day>=365):
+                        mycursor = self.mydb.cursor()
+                        sql = """UPDATE user_ SET Status_ = %s
+                                                WHERE id_user = %s """
+                        val = (0, user[0])
+                        mycursor.execute(sql, val)
+                        self.mydb.commit()
+
+            except Exception as e:
+                print(e, " in method mangeUser")
+        setUser()
+        # def checkUser():
+        #     dateNow = date.today().day
+        #     if(int(dateNow) == int(dateCheck)):
+        #         print("set status user", dateNow)
+        #         setUser()
+        #
+        # schedule.every().day.at(inTime).do(checkUser)
+        # while True:
+        #     schedule.run_pending()
+        #     print(datetime.datetime.now())
+        #     time.sleep(1)
 
 
 if __name__ == '__main__':
-    import time
-
-    ss = time.time()
-    dd = Database()
-
-
-    bb = dd.getNewword_toAdd(3)
-    print(bb)
-
-    aa = dd.insert_wordtoRecommend("เข้าใจ","nkag siab","gammar",4)
-    print(aa)
-
-    # print(dd.searchWord("เป็น"))
-
-
-# =======
-    # aa = dd.update_recommend(7,"สระน้ำ","pas dej","word")
-    # get = dd.clickSearch("ให้")
-    # print(get)
-
-    # hh = ['ให้', {'VERB': [{"pub":["ให้"]},{"muab":["ให้","กอบโกย","ควัก","หยิบ"]}], 'SCONJ': {"kom":"ให้"}}]
-    # print(hh)
-
+    a = Database()
+    a.mangeUser()
