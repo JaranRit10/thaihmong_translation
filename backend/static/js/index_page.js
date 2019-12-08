@@ -312,12 +312,12 @@ $(document).ready(function () {
             } else {
                 $('#table_editHmongcommend').append("" +
                     "<tr class='tr_hmongcommend_" + j + "' id='tr_hmongcommend_" + j + "'>" +
-                        "<th id='th_hmongcommend_" + j + "'>คำแปลภาษาม้ง : </th>" +
-                        "<td id='td_hmongcommend_" + j + "'>" +
-                            "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
-                        "</td>" +
+                        "<th id='th_hmongcommend_" + j + "'>คำแปลเดิม : </th>" +
+                            "<td id='td_hmongcommend_" + j + "'>" +
+                                "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
+                            "</td>" +
                         "</tr>" +
-                        "<tr class='tr_hmongcommend_" + j + "' id='tr_editHmongcommend_" + j + "'>" +
+                    "<tr class='tr_hmongcommend_" + j + "' id='tr_editHmongcommend_" + j + "'>" +
                         "<th id='th_editHmongcommend_" + j + "'>"+ centend_select +"</th>" +
                         "<td id='td_editHmongcommend_" + j + "'>" +
                             "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_" + j + "'>" +
