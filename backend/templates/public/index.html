@@ -8,6 +8,7 @@
 <h3><span id="clock" style="float: right"></span></h3>
 
 
+
 <div class="card tran margin-top ">
     <div class="card-header">
         <div class="row">
@@ -53,11 +54,14 @@
             <div class="col-md-6 col-sm-12 "></div>
             <div class="col-md-6 col-sm-12 ">
                 <div class="tooltipe">
-                    <img id="copy_button"  type="button" src="static/img/copy.png" class="img-thumbnail tooltipe" style="height: 35px; width: 35px; ">
+                    <img id="copy_button" type="button" src="static/img/copy.png" class="img-thumbnail tooltipe"
+                         style="height: 35px; width: 35px; ">
                     <span class="tooltiptexte">คัดลอกคำแปล</span>
                 </div>
                 <div class="tooltipe">
-                    <img id="pencil_button" type="button" src="static/img/pencil.png" class="img-thumbnail tooltipe" data-toggle="modal" data-target="#model_send_commend" style="height: 35px; width: 35px; margin-left: 5px;">
+                    <img id="pencil_button" type="button" src="static/img/pencil.png" class="img-thumbnail tooltipe"
+                         data-toggle="modal" data-target="#model_send_commend"
+                         style="height: 35px; width: 35px; margin-left: 5px;">
                     <span class="tooltiptexte">แนะนำให้แก้ไข</span>
                 </div>
             </div>
@@ -66,7 +70,7 @@
 </div>
 
 
-<textarea id="get_textarea" placeholder="Press ctrl+v to Paste the copied text" rows="5" cols="20" style="display: none"></textarea>
+<textarea id="get_textarea" placeholder="Press ctrl+v to Paste the copied text" rows="5" cols="20" ></textarea>
 
 <!-- Trigger the modal with a button -->
 <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
@@ -106,6 +110,7 @@
     </div>
 </div>
 
+
 <!-- model send commend -->
 <div id="model_send_commend" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -120,7 +125,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-5 col-sm-12" >
+                        <div class="col-md-5 col-sm-12">
                             <table id="table_editcommend">
 
                             </table>
@@ -135,9 +140,11 @@
                 </div>
             </div>
             <div class="modal-footer">
-<!--                <button type="button" class="color_button1" id="saveword_Hmongcommend" data-dismiss="modal" aria-label="Close">บันทึก</button>-->
-<!--                <button type="button" class="color_button3" id="clearword_eHmongcommend">ล้าง</button>-->
-                <button type="button" id="close_modal_Hmongcommend" class="color_button4" class="close" data-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                <!--                <button type="button" class="color_button1" id="saveword_Hmongcommend" data-dismiss="modal" aria-label="Close">บันทึก</button>-->
+                <!--                <button type="button" class="color_button3" id="clearword_eHmongcommend">ล้าง</button>-->
+                <button type="button" id="close_modal_Hmongcommend" class="color_button4" class="close"
+                        data-dismiss="modal" aria-label="Close">ยกเลิก
+                </button>
             </div>
         </div>
     </div>

@@ -1,17 +1,32 @@
 
 
-import threading
 
-def a ():
-    for i in range(50):
-        print("A")
 
-def b():
-    for i in range(50):
-        print("B")
 
-cc = threading.Thread(target=a)
-cc.start()
+reference = """
+The cat is on the mat
+There is a cat on the mat
+"""
 
-dd = threading.Thread(target=b)
-dd.start()
+candidate ="""
+the cat the cat on the mat
+"""
+
+# Thov pab qhia sau lub npe
+# Koj yuav tau pab tsiaj koj lub npe
+
+reference = reference.strip().split("\n")
+candidate = candidate.strip().split("\n")
+t = []
+for i in reference:
+    t.append(i.split())
+for j in candidate
+
+reference = [reference.split()]
+candidate = candidate.split()
+print(reference,'\n',candidate)
+from nltk.translate.bleu_score import sentence_bleu
+# reference = [['the',  'brown', 'fox', 'jumped', 'over', 'the']]
+# candidate = ['the',  'brown', 'fox', 'jumped', 'over', 'the']
+score = sentence_bleu(reference, candidate)
+print(score)
