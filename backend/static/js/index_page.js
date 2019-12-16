@@ -115,8 +115,6 @@ $(document).ready(function () {
     })
     var result = ""
     var DATARESPONSe
-    var centent = []
-    var j_num = 0
 
     function translate2() {
         var value_textarea
@@ -159,24 +157,20 @@ $(document).ready(function () {
                         if (typeof (data[i][j]) == "object") {
                             // <span class="span_result_translate '+"getHmongword"+(i+""+j)+'" style="float: left">'
                             result += '<span class="span_result_translate" name="' + "" + (i + "-" + j) + '" id="' + "" + (i + "-" + j) + '" style="float: left">' + data[i][j][0] + "&nbsp;" + '<span class="subResultSentence" id="subResult_' + "" + (i + "-" + j) + '"></span>' + '</span>'
+                            hmongcommend += data[i][j][0] + " "
                         } else {
                             result += '<span class="span_result_translate" name="' + "" + (i + "-" + j) + '" style="float: left">' + data[i][j] + "&nbsp;" + '</span>'
-
+                            hmongcommend += data[i][j] + " "
                         }
                     }
 
-                    result += '<span class="span_result_translate"  style="float: left">' + hmongcommend + '</span><br>'
+                    // result += '<span class="span_result_translate"  style="float: left">' + hmongcommend + '</span><br>'
                     hmong += hmongcommend + "\n"
 
                     $("#result_translate").append(result)
-                    // $("#result_translate").append("<br>")
-                    $("#get_textarea").val(hmong)
-                    j_num++
+                    $("#result_translate").append("<br>")
+                    $("#get_textarea").html(hmong)
 
-                    var q = 1
-                    '<button class="test" value="' + q + '"></button>'
-                    var tes = $('.test').val()
-                    console.log("test:", tes)
                 }
             }),
             error: function (error) {
@@ -290,28 +284,28 @@ $(document).ready(function () {
                 thai_split = t[i]
                 $('#table_editcommend').append("" +
                     "<tr class='tr_editcommend_" + j + "' id='tr_editcommend_" + j + "'>" +
-                    "<th id='th_editcommend_" + j + "'>" + j + ". ประโยคภาษาไทย : </th>" +
-                    "<td id='td_editcommend_" + j + "'>" +
-                    "<div id='input_textCommend_" + j + "' style='width: 250px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + thai_split + "</div>" +
-                    "</td>" +
+                        "<th id='th_editcommend_" + j + "'>" + j + ". ประโยคภาษาไทย : </th>" +
+                        "<td id='td_editcommend_" + j + "'>" +
+                            "<div id='input_textCommend_" + j + "' style='width: 250px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + thai_split + "</div>" +
+                        "</td>" +
                     "</tr>" +
                     "<tr class='tr_editcommend_" + j + "' id='tr_select_" + j + "'>" +
-                    "<th id='th_select_" + j + "'>ผิดเพราะ : </th>" +
-                    "<td style='float: left' id='th2_'>" +
-                    "<select class='form-control selectOption' name='" + j + "' id='select_commend_" + j + "' style='width: 250px;'>" +
-                    "<option value=''>เลือกชนิดที่ผิด</option>" +
-                    "<option value='grammar'>ไวยากรณ์(grammar)</option>" +
-                    "<option value='new'>มีคำใหม่(new)</option>" +
-                    "</select>" +
-                    "</td>" +
+                        "<th id='th_select_" + j + "'>ผิดเพราะ : </th>" +
+                        "<td style='float: left' id='th2_'>" +
+                            "<select class='form-control selectOption' name='" + j + "' id='select_commend_" + j + "' style='width: 250px;'>" +
+                                "<option value=''>เลือกชนิดที่ผิด</option>" +
+                                "<option value='grammar'>ไวยากรณ์(grammar)</option>" +
+                                "<option value='new'>มีคำใหม่(new)</option>" +
+                            "</select>" +
+                        "</td>" +
                     "</tr>" +
                     "<tr class='tr_editcommend_" + j + "'>" +
-                    "<td>" +
-                    "<hr size='1' width='100%'>" +
-                    "</td>" +
-                    "<td>" +
-                    "<hr size='1' width='100%'>" +
-                    "</td>" +
+                        "<td>" +
+                            "<hr size='1' width='100%'>" +
+                        "</td>" +
+                        "<td>" +
+                            "<hr size='1' width='100%'>" +
+                        "</td>" +
                     "</tr>" +
                     "")
             }
@@ -331,28 +325,42 @@ $(document).ready(function () {
             } else {
                 $('#table_editHmongcommend').append("" +
                     "<tr class='tr_hmongcommend_" + j + "' id='tr_hmongcommend_" + j + "'>" +
-                    "<th id='th_hmongcommend_" + j + "'>คำแปลภาษาม้ง : </th>" +
-                    "<td id='td_hmongcommend_" + j + "'>" +
-                    "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
-                    "</td>" +
+                        "<th id='th_hmongcommend_" + j + "'>คำแปลเดิม : </th>" +
+                            "<td id='td_hmongcommend_" + j + "'>" +
+                                "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
+                            "</td>" +
+                        "</tr>" +
+                    "<tr class='tr_hmongcommend_" + j + "' id='tr_editHmongcommend_" + j + "'>" +
+                        "<th id='th_editHmongcommend_" + j + "'>"+ centend_select +"</th>" +
+                        "<td id='td_editHmongcommend_" + j + "'>" +
+                            "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_" + j + "'>" +
+                        "</td>" +
+                        "<td>" +
+                            "<button type='button' value='" + j + "' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +
+                            "<button type='button' value='" + j + "' class='color_button3' id='clearword_Hmongcommend'>ล้าง</button>" +
+                        "</td>" +
+                        "<th id='th_hmongcommend_" + j + "'>คำแปลภาษาม้ง : </th>" +
+                        "<td id='td_hmongcommend_" + j + "'>" +
+                            "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
+                        "</td>" +
                     "</tr>" +
                     "<tr class='tr_hmongcommend_" + j + "' id='tr_editHmongcommend_" + j + "'>" +
-                    "<th id='th_editHmongcommend_" + j + "'>" + centend_select + "</th>" +
-                    "<td id='td_editHmongcommend_" + j + "'>" +
-                    "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_" + j + "'>" +
-                    "</td>" +
-                    "<td>" +
-                    "<button type='button' value='" + j + "' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +
-                    "<button type='button' value='" + j + "' class='color_button3' id='clearword_Hmongcommend'>ล้าง</button>" +
-                    "</td>" +
+                        "<th id='th_editHmongcommend_" + j + "'>" + centend_select + "</th>" +
+                        "<td id='td_editHmongcommend_" + j + "'>" +
+                            "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_" + j + "'>" +
+                        "</td>" +
+                        "<td>" +
+                            "<button type='button' value='" + j + "' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +
+                            "<button type='button' value='" + j + "' class='color_button3' id='clearword_Hmongcommend'>ล้าง</button>" +
+                        "</td>" +
                     "</tr>" +
                     "<tr class='tr_hmongcommend_" + j + "'>" +
-                    "<td>" +
-                    "<hr size='1' width='100%'>" +
-                    "</td>" +
-                    "<td>" +
-                    "<hr size='1' width='100%'>" +
-                    "</td>" +
+                        "<td>" +
+                            "<hr size='1' width='100%'>" +
+                        "</td>" +
+                        "<td>" +
+                            "<hr size='1' width='100%'>" +
+                        "</td>" +
                     "</tr>" +
                     "")
             }
@@ -387,21 +395,7 @@ $(document).ready(function () {
             $('#th_editHmongcommend_' + elementName).append(centend_select)
         }
     })
-    // $('.selectOption').change(function () {
-    //     alert($(this).val())
-    // $.each($("#select_commend_" + num + " option:selected"), function () {
-    //     grammar.push($(this).val());
-    // });
-    // grammar = grammar[0]
-    // console.log("gramar:",grammar)
-    // if (grammar == 'new') {
-    //     centend_select = 'แก้ไขคำใหม่:'
-    //     $('#th_editHmongcommend_'+number).append(centend_select)
-    // } else if (grammar == 'grammar') {
-    //     centend_select = 'แก้ไขไวยากรณ์:'
-    //     $('#th_editHmongcommend_'+number).append(centend_select)
-    // }
-    // })
+
 
     $(this).on('click', 'button#saveword_Hmongcommend', function () {
         // $('button#saveword_Hmongcommend').click(function () {
@@ -413,13 +407,6 @@ $(document).ready(function () {
             grammar.push($(this).val());
         });
         grammar = grammar[0]
-        // if (grammar == 'new') {
-        //     centend_select = 'แก้ไขคำใหม่:'
-        //     $('#th_editHmongcommend_'+num).append(centend_select)
-        // } else if (grammar == 'grammar') {
-        //     centend_select = 'แก้ไขไวยากรณ์:'
-        //     $('#th_editHmongcommend_'+num).append(centend_select)
-        // }
 
         // alert("You have selected the country - " + grammar.join(", "));
         console.log("Hmongcommend:", Hmongcommend)
@@ -490,16 +477,10 @@ $(document).ready(function () {
         }
     })
 
-
     $(this).on('click', 'button#clearword_Hmongcommend', function () {
         var num = $(this).val()
         $('#input_editHmongcommend_' + num).val("")
     })
-
-    // function deleteRow(id){
-    //     $("#" + id).remove();
-    // }
-
 
     // from a NodeList
     autosize(document.querySelectorAll('textarea'));
@@ -635,13 +616,5 @@ $(document).ready(function () {
         }
     }
 
-
-    // ====== หน้าต่าง sidebar ===================================================================
-    // function menubar() {
-    //     document.getElementById("mySidenav").style.width = "250px";
-    // }
-    // function closeNav() {
-    //     document.getElementById("mySidenav").style.width = "0";
-    // }
 
 });
