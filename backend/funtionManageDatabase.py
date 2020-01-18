@@ -102,7 +102,5 @@ class Database_test() :
 if __name__ == '__main__':
 
 
-
-
     d = Database_test()
     a = d.add_word()
