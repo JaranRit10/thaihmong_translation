@@ -115,7 +115,7 @@ $(document).ready(function () {
     })
     var result = ""
     var DATARESPONSe
-
+    var text = ""
     function translate2() {
         var value_textarea
         $('#clear_textarea').click(function () {
@@ -140,46 +140,33 @@ $(document).ready(function () {
                 // console.log(data[0])
                 // console.log(data[1])
                 $("#result_translate").empty()
-                // console.log(data)
                 $('#input_hmongcommend').empty()
-                var hmongcommend = ""
-                var hmong = ""
-                var selectWord = ""
                 for (i = 0; i < data.length; i++) {
                     DATARESPONSe = data
                     console.log("data", data)
                     result = ""
-                    hmongcommend = ""
+                    text = ""
                     var list, show
                     for (j = 0; j < data[i].length; j++) {
 
                         // console.log(typeof (data[i][j]))
                         if (typeof (data[i][j]) == "object") {
-                            // <span class="span_result_translate '+"getHmongword"+(i+""+j)+'" style="float: left">'
                             result += '<span class="span_result_translate" name="' + "" + (i + "-" + j) + '" id="' + "" + (i + "-" + j) + '" style="float: left">' + data[i][j][0] + "&nbsp;" + '<span class="subResultSentence" id="subResult_' + "" + (i + "-" + j) + '"></span>' + '</span>'
-                            hmongcommend += data[i][j][0] + " "
+
                         } else {
                             result += '<span class="span_result_translate" name="' + "" + (i + "-" + j) + '" style="float: left">' + data[i][j] + "&nbsp;" + '</span>'
-                            hmongcommend += data[i][j] + " "
                         }
                     }
-
-                    // result += '<span class="span_result_translate"  style="float: left">' + hmongcommend + '</span><br>'
-                    hmong += hmongcommend + "\n"
-
-                    $("#result_translate").append(result)
+                    text += result + "."
+                    $("#result_translate").append(text)
                     $("#result_translate").append("<br>")
-                    $("#get_textarea").html(hmong)
-
                 }
             }),
             error: function (error) {
                 $('#success').hide()
                 $('#error').text(error)
             }
-
         });
-
     }
 
     $(this).on("click", ".span_result_translate", function (e) {
@@ -193,10 +180,12 @@ $(document).ready(function () {
                 var box = '<div class="box_results">'
                 // alert(data.length)
                 for (var i = 0; i < data.length; i++) {
-                    box += '<div class="row rowWord" name="' + "" + names + '">' + data[i] + '</div>'
+                    box += '<div class="row rowWord" name="' + "" + names + '">' + data[i] + '&nbsp;'+'</div>'
                 }
                 box += '</div>'
                 $('#subResult_' + names).append(box)
+
+                // $("#get_result_text").append(box)
             } else {
                 // console.log("if 2")
                 $('#subResult_' + names).empty()
@@ -266,17 +255,12 @@ $(document).ready(function () {
     var centend_select = 'แก้ไขความหมายของคุณ:'
 
     function thaiCommend() {
-        // $('#input_textCommend').empty()
         var thai = $('#thaiword').val()
-        // console.log("thai:",thai)
         var thai_split = " "
         var t = " "
         t = thai.split("\n");  //ถ้าเจอวรรคแตกเก็บลง array t
-        // console.log("plit_1:",t)
-
         $('#table_editcommend').empty()
         for (var i = 0; i < t.length; i++) {
-            // thai_split += t[i]+"<br/>"
             j = i + 1
             if (t[i] == "") {
 
@@ -313,8 +297,8 @@ $(document).ready(function () {
     }
 
     function hmong_commend() {
-        var hmong = $("#get_textarea").val()
-        var hmongword = hmong.split("\n");
+        var hmong = $("#result_translate").text()
+        var hmongword = hmong.split(".");
         // console.log("hmongword :",hmongword)
         $('#table_editHmongcommend').empty()
         var j = 0
@@ -325,20 +309,6 @@ $(document).ready(function () {
             } else {
                 $('#table_editHmongcommend').append("" +
                     "<tr class='tr_hmongcommend_" + j + "' id='tr_hmongcommend_" + j + "'>" +
-                        "<th id='th_hmongcommend_" + j + "'>คำแปลเดิม : </th>" +
-                            "<td id='td_hmongcommend_" + j + "'>" +
-                                "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
-                            "</td>" +
-                        "</tr>" +
-                    "<tr class='tr_hmongcommend_" + j + "' id='tr_editHmongcommend_" + j + "'>" +
-                        "<th id='th_editHmongcommend_" + j + "'>"+ centend_select +"</th>" +
-                        "<td id='td_editHmongcommend_" + j + "'>" +
-                            "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_" + j + "'>" +
-                        "</td>" +
-                        "<td>" +
-                            "<button type='button' value='" + j + "' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +
-                            "<button type='button' value='" + j + "' class='color_button3' id='clearword_Hmongcommend'>ล้าง</button>" +
-                        "</td>" +
                         "<th id='th_hmongcommend_" + j + "'>คำแปลภาษาม้ง : </th>" +
                         "<td id='td_hmongcommend_" + j + "'>" +
                             "<div id='input_hmongcommend_" + j + "' style='width: 270px; border: 0.7px solid rgba(42,50,48,0.39); border-radius: 5px; padding: 5px;'>" + hmongword[i] + "</div>" +
@@ -347,7 +317,7 @@ $(document).ready(function () {
                     "<tr class='tr_hmongcommend_" + j + "' id='tr_editHmongcommend_" + j + "'>" +
                         "<th id='th_editHmongcommend_" + j + "'>" + centend_select + "</th>" +
                         "<td id='td_editHmongcommend_" + j + "'>" +
-                            "<input type='text' class='form-control form-control' style='width: 270px; float: left' id='input_editHmongcommend_" + j + "'>" +
+                            "<input type='text' class='form-control form-control' style=' float: left' id='input_editHmongcommend_" + j + "'>" +
                         "</td>" +
                         "<td>" +
                             "<button type='button' value='" + j + "' class='color_button1' id='saveword_Hmongcommend' >บันทึก</button><span>  </span>" +

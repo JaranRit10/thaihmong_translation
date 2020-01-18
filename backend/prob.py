@@ -136,14 +136,15 @@ class prob:
 
 if __name__ == '__main__':
 
-    b = prob()
-    aa = b.start_add()
-    print(b.propbigram("lub",'tsev'))
-    print(0.00001*0.4)
     # b = prob()
-    # aa = b.start()
+    # aa = b.start_add()
+    # print(b.propbigram("lub",'tsev'))
+    # print(0.00001*0.4)
+
+    b = prob()
+    aa = b.start()
     # print("aa :",aa)
-    # for a,b in aa.items():
-    #     print(a,b)
+    for a,b in aa.items():
+        print(a,b)
 
 
