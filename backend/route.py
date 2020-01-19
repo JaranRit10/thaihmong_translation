@@ -1,6 +1,6 @@
 from flask import render_template, Flask, redirect, url_for, request,jsonify,session
-from backend.Database import Database
-from backend import Translate
+from Database import Database
+from Translate import Translate
 import base64
 from io import BytesIO
 from PIL import Image
@@ -776,6 +776,7 @@ def checkWord_Recommend ():
 
 
 if __name__ == "__main__" :
+    print("run flask!!")
     app.run()
     app.run(debug=True)
 

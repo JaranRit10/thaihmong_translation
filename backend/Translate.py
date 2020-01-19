@@ -1,6 +1,6 @@
-import backend.Database
-from backend.Grammar import Grammar
-from backend.prob import prob
+import Database
+from Grammar import Grammar
+from prob import prob
 import multiprocessing as mp
 import time
 
