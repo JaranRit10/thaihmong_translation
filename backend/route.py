@@ -211,6 +211,22 @@ def check_recommend():
         return redirect(url_for("Hompage"))
 
 
+
+@app.route("/check_newRecomment",methods=['POST'])
+def increase_reliability():
+    try:
+        print("increase_Reliability")
+        dataJson = request.form['sendJson']
+        # userID = dataJson['userID']
+        # id_recommend = dataJson['id_recommend']
+        # state_reliability = dataJson['state_reliability']
+        # print("data :",userID,id_recommend,state_reliability)
+        # db = Database()
+        # check = db.increase_Reliability(userID,id_recommend,state_reliability)
+        return jsonify({'status': 200})
+    except:
+        pass
+
 # for translate in weppage
 @app.route("/transtate",methods=['POST'])
 def transtate ():
@@ -739,12 +755,14 @@ def deleteWord():
 
 @app.route("/addnewWord-newword",methods=['POST'])
 def addnewWord_newword ():
-    if "USERNAME" in session and "USER_ID" in session:
-        userID = request.form['userID']
-        get = Database()
-        data = get.getNewword_toAdd(userID)
-        return jsonify(data)
-    return redirect(url_for("Hompage"))
+    try:
+        if "USERNAME" in session and "USER_ID" in session:
+            userID = request.form['userID']
+            get = Database()
+            data = get.getNewword_toAdd(userID)
+            return jsonify(data)
+    except:
+        return redirect(url_for("Hompage"))
 
 @app.route("/checkWord-Recommend",methods=['POST'])
 def checkWord_Recommend ():

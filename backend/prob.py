@@ -86,14 +86,18 @@ class prob:
         fileName = 'file/Dataset.txt'
         data = self.readFile(fileName)
         listOfBigrams, unigramCounts, bigramCounts = self.createBigram(data)
-        print(listOfBigrams)
-        print(unigramCounts)
-        print(bigramCounts)
-        # prob = self.calcBigramProb(listOfBigrams, unigramCounts, bigramCounts)
-        # return  prob
+        # print(listOfBigrams)
+        # print(unigramCounts)
+        # print(bigramCounts)
+        prob = self.calcBigramProb(listOfBigrams, unigramCounts, bigramCounts)
+        f = open("file/bigramProb.txt", "w")
+        f.write(str(prob))
+        f.close()
+        return prob
+
+        return  prob
 
     def start_add(self):
-
         fileName = 'file/Dataset.txt'
         data = self.readFile(fileName)
         listOfBigrams, unigramCounts, bigramCounts = self.createBigram(data)
@@ -108,7 +112,8 @@ class prob:
 
     def propbigram(self,w1,w2):
         dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, 'file/addOneSmoothing.txt')
+        filename = os.path.join(dirname, 'file/bigramProb.txt')
+        # filename = os.path.join(dirname, 'file/addOneSmoothing.txt')
         f = open(filename, "r")
         prob = f.read()
         prob = ast.literal_eval(prob)
@@ -130,15 +135,16 @@ class prob:
 
 
 if __name__ == '__main__':
-    # import time
-    # ss = time.time()
-    b = prob()
-    aa = b.start_add()
-    print(b.propbigram("rau",'koj'))
 
-    # import os
-    # path = os.getcwd()
-    # print(type(path))
-# G:\thaihmong_translation\backend\file\addOneSmoothing.txt
+    # b = prob()
+    # aa = b.start_add()
+    # print(b.propbigram("lub",'tsev'))
+    # print(0.00001*0.4)
+
+    b = prob()
+    aa = b.start()
+    # print("aa :",aa)
+    for a,b in aa.items():
+        print(a,b)
 
 

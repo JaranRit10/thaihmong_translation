@@ -140,7 +140,7 @@ class Database():
 
         except Exception as e:
             print(e)
-            print("Eror in method getRecommend")
+            print("Eror in method getRecommend_toCheck")
         return myresult
 
     def getNewword(self):
@@ -175,6 +175,44 @@ class Database():
             print(e)
             print("Eror in method getNewword")
         return myresult
+
+    def increase_Reliability(self, userID, id_recommend, state_reliability):
+        try:
+            connection = self.mydb
+            cursor = connection.cursor()
+
+            # รับค่า Reliability ใน recommend
+            query = """ SELECT recommend.Reliability FROM recommend
+                        WHERE recommend.id_recommend =%s """
+            value = (id_recommend,)
+            cursor.execute(query, value)
+            num_reliability = cursor.fetchall()
+            if (state_reliability == True):
+                num_reliability += 1
+                Status_recommend = 1
+            else:
+                num_reliability += 1
+                Status_recommend = -1
+
+            # เก็บ log สำหรับคนเข้ามาตรวจสอบ
+            sql = """ INSERT INTO `newword`
+                      (`User_id_user`,`id_recommend`, `Status_recommend`,`Datetime_Check_Recommendcol`) 
+                       VALUES (%s,%s,%s,%s)
+                                """
+            adr = (userID, id_recommend, Status_recommend, datetime.datetime(),)
+            cursor.execute(sql, adr)
+            self.mydb.commit()
+
+            update_query = """ UPDATE recommend SET Reliability =%s
+                              WHERE id_recommend = %s """
+            value_update = (num_reliability, id_recommend)
+            cursor.execute(update_query, value_update)
+            connection.commit()
+
+            print("Increase Reliability success")
+
+        except Exception as e:
+            print("setNewword_Reliability error.")
 
     def insertSentence_newword(self, Thai_sentence, Hmong_sentence):
         mycursor = self.mydb.cursor()
@@ -615,10 +653,10 @@ class Database():
         # connection = self.mydb
         try:
             sql = """ INSERT INTO `recommend`
-                    (`id_recommend`, `Thai_recommend`, `Hmong_recommend`, `type_error`, `Datetime`, `User_id`) 
+                    (`id_recommend`, `Thai_recommend`, `Hmong_recommend`, `type_error`, `Datetime`, `User_id`,, `Reliability`) 
                     VALUES (%s,%s,%s,%s,%s,%s)"""
 
-            adr = (id_recommend, Thai_recommend, Hmong_recommend, type_error, datetime.datetime.now(), User_id)
+            adr = (id_recommend, Thai_recommend, Hmong_recommend, type_error, datetime.datetime.now(), User_id, 0)
             mycursor.execute(sql, adr)
             self.mydb.commit()
         except Exception as e:
@@ -672,9 +710,9 @@ class Database():
                 for user in allUser:
                     lastLockin = user[1]
                     now = datetime.datetime.now()
-                    day = (now-lastLockin).days
+                    day = (now - lastLockin).days
                     # print(day)
-                    if(day>=365):
+                    if (day >= 365):
                         mycursor = self.mydb.cursor()
                         sql = """UPDATE user_ SET Status = %s
                                                 WHERE id_user = %s """
@@ -684,6 +722,7 @@ class Database():
 
             except Exception as e:
                 print(e, " in method mangeUser")
+
         setUser()
         # def checkUser():
         #     dateNow = date.today().day
@@ -699,6 +738,5 @@ class Database():
 
 
 if __name__ == '__main__':
-
     a = Database()
     a.mangeUser()
