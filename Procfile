@@ -1,1 +1,1 @@
-web: gunicorn route:app --log-file=-
+web: python backend\route.py
