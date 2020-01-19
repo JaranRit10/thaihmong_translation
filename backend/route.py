@@ -209,9 +209,7 @@ def check_recommend():
     else:
         return redirect(url_for("Hompage"))
 
-@app.route("/testConnect",methods=['POST'])
-def testConnect():
-    print("test ot get data")
+
 
 @app.route("/check_newRecomment",methods=['POST'])
 def increase_reliability():
