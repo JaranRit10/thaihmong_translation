@@ -92,8 +92,10 @@ def help():
 def checkLogin():
     user = request.form['username']
     password = request.form['password']
+    print(user,password)
     database = Database()
     get = database.login(user,password)
+    print(get)
     if(get=="None"):
         return render_template('public/login.html')
     elif (get == "notNone"):
@@ -138,7 +140,6 @@ def checkLogin():
         # print("sesion :::"+str( send[0])+"**"+ str(send[1]))
         return render_template('public/index.html',send = send)
     else:
-
         return redirect(url_for("Hompage"))
 
 @app.route('/getdata-user', methods=['POST'])

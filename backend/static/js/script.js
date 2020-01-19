@@ -30,9 +30,9 @@ $(document).ready(function () {
     }
 
     $("#submitLogin").click(function () {
-        console.log($("#username_login").text())
-        console.log($("#password_login").text())
-
+        // console.log($("#username_login").text())
+        // console.log($("#password_login").text())
+        //
         // $.ajax({
         //     data: {
         //         username: $("#username_login").text(),
