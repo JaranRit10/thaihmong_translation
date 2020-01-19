@@ -30,7 +30,8 @@ def Hompage ():
         send = [userName, userid, Privilege_user, user_image]
         return render_template('public/index.html', send=send)
     else:
-        return render_template('public/index.html')
+        # return render_template('public/index.html')
+        return "hello heroku.."
 
 @app.route('/about')
 def about():
