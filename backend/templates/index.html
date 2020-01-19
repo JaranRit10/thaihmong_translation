@@ -23,31 +23,53 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='upload-and-crop-image/croppie.css')}}">
 
     <!--  include tooltipster  -->
-    <link rel="stylesheet" type="text/css"
-          href="{{url_for('static',filename='node_modules/tooltipster/dist/css/tooltipster.bundle.min.css')}}">
+    <!--    <link rel="stylesheet" type="text/css"-->
+    <!--          href="{{url_for('static',filename='node_modules/tooltipster/dist/css/tooltipster.bundle.min.css')}}">-->
 
 
 </head>
-
 <body>
+<div id="wrapper">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <h2>Thai-Hmong translato</h2>
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Home</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-plug"></i>aboute</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-user"></i>help</a>
+            </li>
+        </ul>
+    </aside>
+    <!-- navbar -->
+    <div id="navbar-wrapper">
+        <nav class="navbar navbar-expand-md navbar-dark py-1 color_nav sticky-top">
+            <div class="navbar-header">
+<!--                <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fas fa-bars"></i></a>-->
+                <a><span class="navbar-toggler-icon navbar-brand" id="sidebar-toggle"></span></a>
+            </div>
+<!--            <span class="navbar-toggler-icon" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"></span>-->
+<!--            <button class="navbar-toggler" type="button" data-toggle="collapse"-->
+<!--                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"-->
+<!--                    aria-expanded="true" >-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
 
-<nav class="navbar navbar-expand-lg navbar-dark py-1 color_nav">
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+            <!--    <div class="col-10" >-->
+            <!--    <a id="wordBar" href="#"><i class="bars icon" onclick="menubar()"></i></a>-->
 
-    <!--    <div class="col-10" >-->
-<!--    <a id="wordBar" href="#"><i class="bars icon" onclick="menubar()"></i></a>-->
+            <a class="navbar-brand ml-lg-5" href="/"><h2>Thai-Hmong translator</h2></a>
+            <!--    <div><i class="copy outline icon"></i></div>-->
 
-    <a class="navbar-brand ml-lg-5" href="/"><h2>Thai-Hmong translator</h2></a>
-<!--    <div><i class="copy outline icon"></i></div>-->
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            {% if 'USERNAME' in session %}
-            <span class="nav-item nav-link">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    {% if 'USERNAME' in session %}
+                    <span class="nav-item nav-link">
                 {% if 'USERNAME' in session %}
                     <img id="icon_user" class="user_image" src="static/img/{{send[3]}}">
                 {% else %}
@@ -55,41 +77,57 @@
                 {% endif %}
                 <span>{{send[0][0]}}</span>
             </span>
-            <li class="nav-item dropdown">
-                <a class="nav-item nav-link dropdown-toggle"
-                   id="navbarDropdown" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    {% if send[2]==0%}
-                    <a class="dropdown-item" href="/admin">admin page</a>
-                    <a class="dropdown-item" href="/profile">โปรไฟล์</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-item nav-link dropdown-toggle"
+                           id="navbarDropdown" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            {% if send[2]==0%}
+                            <a class="dropdown-item" href="/admin">admin page</a>
+                            <a class="dropdown-item" href="/profile">โปรไฟล์</a>
+                            {% else %}
+                            <a class="dropdown-item" href="/profile">โปรไฟล์</a>
+                            {% endif %}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">ลงชื่อออก</a>
+                        </div>
+                    </li>
                     {% else %}
-                    <a class="dropdown-item" href="/profile">โปรไฟล์</a>
-                    {% endif %}
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/logout">ลงชื่อออก</a>
-                </div>
-            </li>
-            {% else %}
-            <span class="nav-link">
+                    <span class="nav-link">
                 <button type="button" class="color_button1" data-toggle="modal" data-target="#exampleModal">
                     ลงชื่อเข้าใช้
                 </button>
             </span>
-            {% endif %}
+                    {% endif %}
 
-        </ul>
+                </ul>
+            </div>
+        </nav>
     </div>
-</nav>
-
-<!--    ************ show menu bar  ******************-->
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="/">โปรแกรมแปลภาษาไทย-ม้งอัตโนมัติ</a>
-    <a href="/about">เกี่ยวกับ Thai-Hmong tranlator</a>
-    <a href="/help">ความช่วยเหลือ</a>
+    <section id="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="container">
+                    {%block body%}{%endblock%}
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+<!--<div class="dropdown-menu " id="navbarSupportedContent" style="top: 0; height: 100%; ">-->
+<!--    <span class="dropdown-item-text">Dropdown item text</span>-->
+<!--    <a class="dropdown-item" href="#">Action</a>-->
+<!--    <a class="dropdown-item" href="#">Another action</a>-->
+<!--    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--</div>-->
+<!--    ************ show menu bar  ******************-->
+<!--<div id="mySidenav" class="sidenav">-->
+<!--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+<!--    <a href="/">โปรแกรมแปลภาษาไทย-ม้งอัตโนมัติ</a>-->
+<!--    <a href="/about">เกี่ยวกับ Thai-Hmong tranlator</a>-->
+<!--    <a href="/help">ความช่วยเหลือ</a>-->
+<!--</div>-->
 
 
 <!-- Modal login -->
@@ -265,14 +303,9 @@
     </div>
 </div>
 
-
-<div class="container">
-    {%block body%}{%endblock%}
-</div>
-
 <!-- ************ footer ****************************-->
-<div class="footer color_nav">
-    <p>copyrigth &copy; 2019 Thai-hmong Translator</p>
+<div class="footer color_nav" style="margin-bottom: 0px;">
+    <p style="margin-bottom: 0px;">copyrigth &copy; 2019 Thai-hmong Translator</p>
 </div>
 
 {% block script %}
@@ -308,7 +341,7 @@
 <script src="{{url_for('static',filename='upload-and-crop-image/croppie.js')}}"></script>
 
 <!-- imclude tooltipster -->
-<script src="{{url_for('static',filename='node_modules/tooltipster/dist/js/tooltipster.bundle.min.js')}}"></script>
+<!--<script src="{{url_for('static',filename='node_modules/tooltipster/dist/js/tooltipster.bundle.min.js')}}"></script>-->
 
 <!-- include clipboard -->
 <script src="{{url_for('static',filename='node_modules/clipboard/dist/clipboard.min.js')}}"></script>

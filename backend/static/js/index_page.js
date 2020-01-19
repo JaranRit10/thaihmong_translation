@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    $("#sidebar-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
     $('#clear_textarea').click(function () {
         $('textarea#thaiword').val("")
         translate2()
@@ -401,7 +406,7 @@ $(document).ready(function () {
                     console.log("data garuser:", data)
                     var getUser = data.dataUser[1]
                     console.log("getUser_id:", getUser)
-                    if (getUser != "") {
+                    if (getUser != null) {
                         console.log("getUser:", getUser)
                         console.log("Thaicommend:", Thaicommend)
                         console.log("Hmongcommend:", Hmongcommend)
@@ -436,8 +441,9 @@ $(document).ready(function () {
                             }
                         });
                     } else {
+                        alert("กรุณาลงทะเบียนก่อน")
                         console.log("in else")
-                        alert("ลงทะเบียนก่อน แนะนำแก้ไข")
+                        // alert("ลงทะเบียนก่อน แนะนำแก้ไข")
                     }
                 }),
                 error: function (error) {

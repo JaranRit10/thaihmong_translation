@@ -77,21 +77,21 @@ class Database():
         mycursor = self.mydb.cursor()
         try:
             try:
-                sql = """SELECT id_user,Privilege_user,Datetime_register,Username,User_password,First_name,
-                Last_name,Email
-                FROM user_ 
-                WHERE Username = %s and User_password = %s and status_ != 0"""
+                sql = """SELECT id_user,Privilege_user,Datetime_register,Username,User_password,First_name,Last_name,Email
+                        FROM user_ 
+                        WHERE Username = %s and User_password = %s """
                 adr = (username, password,)
                 mycursor.execute(sql, adr)
-                myresult = mycursor.fetchall()
+                myresultlogin = mycursor.fetchall()
+                print(myresultlogin)
             except Exception as e:
                 print(e)
             # [(2, 0, datetime.datetime(2019, 7, 9, 17, 30, 32), 'admin', '1234', 'ทินวงศ์(admin)', 'แซ่เล้า',
             #   'tin@tin.co.th', 1)]
 
-            if (myresult != []):
+            if (myresultlogin != []):
                 mycursor2 = self.mydb.cursor()
-                user = myresult[0][0]
+                user = myresultlogin[0][0]
                 sql = """UPDATE user_ SET Last_login_time = %s
                         WHERE id_user = %s """
                 time = datetime.datetime.now()
@@ -99,20 +99,20 @@ class Database():
                 mycursor2.execute(sql, val)
                 self.mydb.commit()
 
-            if (myresult == []):
+            if (myresultlogin == []):
                 sql = "SELECT * FROM user_ WHERE Username = %s "
                 adr = (username,)
                 mycursor.execute(sql, adr)
-                myresult = mycursor.fetchall()
-                if (myresult == []):
-                    myresult = "None"
+                myresultlogin = mycursor.fetchall()
+                if (myresultlogin == []):
+                    myresultlogin = "None"
                 else:
-                    myresult = "notNone"
+                    myresultlogin = "notNone"
 
         except Exception as e:
             print(e)
             print("Eror in method login")
-        return myresult
+        return myresultlogin
 
     # ===========================================================
     def getRecommend(self):
@@ -703,7 +703,7 @@ class Database():
                 # id = id_user
                 sql = """
                     SELECT id_user,Last_login_time FROM user_ 
-                    WHERE Status_ = 1 AND Privilege_user != 0
+                    WHERE Status = 1 AND Privilege_user != 0
                 """
                 mycursor.execute(sql, )
                 allUser = mycursor.fetchall()
@@ -714,7 +714,7 @@ class Database():
                     # print(day)
                     if (day >= 365):
                         mycursor = self.mydb.cursor()
-                        sql = """UPDATE user_ SET Status_ = %s
+                        sql = """UPDATE user_ SET Status = %s
                                                 WHERE id_user = %s """
                         val = (0, user[0])
                         mycursor.execute(sql, val)
