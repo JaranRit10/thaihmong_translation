@@ -19,16 +19,21 @@
     <link rel="stylesheet" type="text/css"
           href="{{url_for('static',filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
 
+    <!--include font awesome-->
+    <link rel="stylesheet" type="text/css"
+          href="{{url_for('static',filename='node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css')}}">
+
     <!--  include crop image  -->
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='upload-and-crop-image/croppie.css')}}">
 
-    <!--  include tooltipster  -->
-    <!--    <link rel="stylesheet" type="text/css"-->
-    <!--          href="{{url_for('static',filename='node_modules/tooltipster/dist/css/tooltipster.bundle.min.css')}}">-->
+    <!--  include crop image  -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='node_modules\simple-keyboard\build\css\index.css')}}">
 
+    <!-- import vittual keybroad -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
 
 </head>
-<body>
+<body class="body-container">
 <div id="wrapper">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
@@ -36,13 +41,13 @@
         </div>
         <ul class="sidebar-nav">
             <li>
-                <a href="#"><i class="fa fa-home"></i>Home</a>
+                <a href="/"><i class="fa fa-home"></i>Home</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-plug"></i>aboute</a>
+                <a href="/about"><i class="fa fa-plug"></i>aboute</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-user"></i>help</a>
+                <a href="/help"><i class="fa fa-user"></i>help</a>
             </li>
         </ul>
     </aside>
@@ -50,8 +55,7 @@
     <div id="navbar-wrapper">
         <nav class="navbar navbar-expand-md navbar-dark py-1 color_nav sticky-top">
             <div class="navbar-header">
-<!--                <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fas fa-bars"></i></a>-->
-                <a><span class="navbar-toggler-icon navbar-brand" id="sidebar-toggle"></span></a>
+                <a href="#" class="navbar-brand" id="sidebar-toggle"><span class="navbar-toggler-icon" ></span></a>
             </div>
 <!--            <span class="navbar-toggler-icon" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"></span>-->
 <!--            <button class="navbar-toggler" type="button" data-toggle="collapse"-->
@@ -60,10 +64,7 @@
 <!--                <span class="navbar-toggler-icon"></span>-->
 <!--            </button>-->
 
-            <!--    <div class="col-10" >-->
-            <!--    <a id="wordBar" href="#"><i class="bars icon" onclick="menubar()"></i></a>-->
-
-            <a class="navbar-brand ml-lg-5" href="/"><h2>Thai-Hmong translator</h2></a>
+            <a class="navbar-brand ml-lg-5" href="/"><h3 style="margin-bottom: 0px;">Thai-Hmong translator</h3></a>
             <!--    <div><i class="copy outline icon"></i></div>-->
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -114,6 +115,10 @@
             </div>
         </div>
     </section>
+    <!-- ************ footer ****************************-->
+    <div class="footer color_nav" style="margin-bottom: 0px;">
+        <p style="margin-bottom: 0px;">copyrigth &copy; 2019 Thai-hmong Translator</p>
+    </div>
 </div>
 <!--<div class="dropdown-menu " id="navbarSupportedContent" style="top: 0; height: 100%; ">-->
 <!--    <span class="dropdown-item-text">Dropdown item text</span>-->
@@ -303,10 +308,6 @@
     </div>
 </div>
 
-<!-- ************ footer ****************************-->
-<div class="footer color_nav" style="margin-bottom: 0px;">
-    <p style="margin-bottom: 0px;">copyrigth &copy; 2019 Thai-hmong Translator</p>
-</div>
 
 {% block script %}
 
@@ -322,29 +323,24 @@
 <!--include boostrap js-->
 <script src="{{url_for('static',filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
+<!--include font awesome js-->
+<script src="{{url_for('static',filename='node_modules/@fortawesome/fontawesome-free/js/fontawesome.min.js')}}"></script>
 
-<!--include boostrap js-->
-<script src="{{url_for('static',filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <!--include autosize-->
 <script src="{{url_for('static',filename='node_modules/autosize/dist/autosize.min.js')}}"></script>
-
-<!--include js semantic ui-->
-<!--<script src="{{url_for('static',filename='css/Semantic-UI-CSS-master/semantic.min.js')}}"></script>-->
-
-<!--include semantic-->
-<!--<script src="{{url_for('static',filename='node_modules/semantic-ui/dist/semantic.min.js')}}"></script>-->
 
 
 <!--  include crop image  -->
 <script src="{{url_for('static',filename='upload-and-crop-image/jquery.min.js')}}"></script>
 <script src="{{url_for('static',filename='upload-and-crop-image/croppie.js')}}"></script>
 
-<!-- imclude tooltipster -->
-<!--<script src="{{url_for('static',filename='node_modules/tooltipster/dist/js/tooltipster.bundle.min.js')}}"></script>-->
-
 <!-- include clipboard -->
 <script src="{{url_for('static',filename='node_modules/clipboard/dist/clipboard.min.js')}}"></script>
+
+<!-- import vittual keybroad -->
+  <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"></script>
+  <script src="src/index.js"></script>
 
 {% block custom_js %}
 <!--custom js-->

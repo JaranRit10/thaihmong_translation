@@ -14,20 +14,107 @@
 
 $(document).ready(function () {
 
-    $('#cl').click(function () {
-        alert("ได้")
-        openNav()
-    })
-    $('#sidebar').click(function () {
-        alert("ได้")
-        openNav()
-    })
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
+    let Keyboard = window.SimpleKeyboard.default;
+
+    let myKeyboard = new Keyboard({
+        onChange: input => onChange(input),
+        onKeyPress: button => onKeyPress(button)
+    });
+
+    function onChange(input) {
+        document.querySelector(".input").value = input;
+        console.log("Input changed", input);
     }
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+
+    function onKeyPress(button) {
+        console.log("Button pressed", button);
     }
+    //=======================================
+    // let Keyboard = window.SimpleKeyboard.default;
+    //
+    // let keyboard = new Keyboard({
+    //     onChange: input => onChange(input),
+    //     onKeyPress: button => onKeyPress(button)
+    // });
+    //
+    // /**
+    //  * Update simple-keyboard when input is changed directly
+    //  */
+    // document.querySelector(".input").addEventListener("input", event => {
+    //     keyboard.setInput(event.target.value);
+    // });
+    //
+    // console.log(keyboard);
+    //
+    // function onChange(input) {
+    //     document.querySelector(".input").value = input;
+    //     console.log("Input changed", input);
+    // }
+    //
+    // function onKeyPress(button) {
+    //     console.log("Button pressed", button);
+    //
+    //     /**
+    //      * If you want to handle the shift and caps lock buttons
+    //      */
+    //     if (button === "{shift}" || button === "{lock}") handleShift();
+    // }
+    //
+    // function handleShift() {
+    //     let currentLayout = keyboard.options.layoutName;
+    //     let shiftToggle = currentLayout === "default" ? "shift" : "default";
+    //
+    //     keyboard.setOptions({
+    //         layoutName: shiftToggle
+    //     });
+    // }
+    //=================================================
+    var simulateTyping = "Hello World!";
+    $('.keyboard')
+        .keyboard({
+            layout: 'custom',
+            customLayout: {
+                'normal': [
+                    '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
+                    '{tab} q w e r t y u i o p [ ] \\',
+                    'a s d f g h j k l ; \' {enter}',
+                    '{shift} z x c v b n m , . / {shift}',
+                    '{accept} {space} {left} {right}'
+                ],
+                'shift': [
+                    '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
+                    '{tab} Q W E R T Y U I O P { } |',
+                    'A S D F G H J K L : " {enter}',
+                    '{shift} Z X C V B N M < > ? {shift}',
+                    '{accept} {space} {left} {right}'
+                ]
+            }
+        })
+        .addTyping()
+        .addCaret({
+            caretClass: '',
+            // *** for future use ***
+            // data-attribute containing the character(s) next to the caret
+            charAttr: 'data-character',
+            // # character(s) next to the caret (can be negative for RTL)
+            // default is 1 which shows the character to the right of the caret
+            // setting this to -1 shows the character to the left
+            charIndex: -1,
+            // tweak caret position & height
+            offsetX: 0,
+            offsetY: 0,
+            adjustHt: 0
+        });
+
+// Typing Extension
+    $('.icon').click(function () {
+        var kb = $(this).prev().getkeyboard();
+        // typeIn( text, delay, callback );
+        kb.reveal().typeIn(simulateTyping, 500, function () {
+            // do something after text is added
+            // kb.accept();
+        });
+    });
 
     $("#submitLogin").click(function () {
         // console.log($("#username_login").text())

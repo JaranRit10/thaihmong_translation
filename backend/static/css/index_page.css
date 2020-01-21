@@ -1,9 +1,46 @@
+/*.body-container {*/
+/*    background-color: rgba(45, 55, 56, 0.1);*/
+/*}*/
 /* navbar */
-body {
-  padding-bottom: 30px;
-  position: relative;
-  min-height: 100%;
+/*body {*/
+/*  padding-bottom: 30px;*/
+/*  position: relative;*/
+/*  min-height: 100%;*/
+/*}*/
+.card-in {
+    padding: 10px;
+    padding-top: 1px;
 }
+
+/*===========================================*/
+.ui-keyboard-preview-wrapper {
+    overflow: visible;
+}
+/* add caret character preview popup */
+.ui-keyboard-caret:after {
+    content: attr(data-character);
+    background: red;
+    color: white;
+    font-family: Verdana, Tahoma, Segoe, sans-serif;
+    font-size: 1.1em;
+    min-width: 1em;
+    position: absolute;
+    z-index: 100;
+    top: -1.4em;
+    left: -.5em;
+}
+input[type=password] {
+	font-family: monospace !important;
+}
+#wrap {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+.spacer {
+    height: 20px;
+}
+/*===============================================*/
 
 a {
   transition: background 0.2s, color 0.2s;
@@ -31,6 +68,7 @@ a:focus {
   color: black;
   background: rgba(246, 246, 246, 0.44);
   transition: all 0.5s ease;
+  box-shadow: 1px 0px 4px #b3b3b3;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -46,9 +84,9 @@ a:focus {
 }
 .sidebar-brand h2 {
   margin: 0;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 20px;
-  color: #000000;
+  color: #401947;
 }
 
 .sidebar-nav {
@@ -117,20 +155,20 @@ a:focus {
 
 @media (min-width: 992px) {
   #wrapper {
-    padding-left: 250px;
+    padding-left: 0px;
   }
 
   #wrapper.toggled {
-    padding-left: 60px;
+    padding-left: 0px;
   }
 
   #sidebar-wrapper {
-    width: 250px;
+    width: 0px;
     border: 1px ;
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    width: 60px;
+    width: 250px;
   }
 
   #wrapper.toggled #navbar-wrapper {
@@ -148,7 +186,7 @@ a:focus {
   }
 
   #wrapper.toggled {
-    padding-left: 60px;
+    padding-left: 250px;
   }
 
   #content-wrapper {
@@ -159,17 +197,17 @@ a:focus {
   #wrapper.toggled #navbar-wrapper,
   #wrapper.toggled #content-wrapper {
     position: relative;
-    margin-right: 60px;
+    margin-right: 0px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   #wrapper {
-    padding-left: 60px;
+    padding-left: 0px;
   }
 
   #sidebar-wrapper {
-    width: 60px;
+    width: 0px;
   }
 
 #wrapper.toggled #navbar-wrapper {
