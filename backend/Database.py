@@ -99,20 +99,20 @@ class Database():
                 mycursor2.execute(sql, val)
                 self.mydb.commit()
 
-            if (myresultlogin == []):
+            if (myresult == []):
                 sql = "SELECT * FROM user_ WHERE Username = %s "
                 adr = (username,)
                 mycursor.execute(sql, adr)
-                myresultlogin = mycursor.fetchall()
-                if (myresultlogin == []):
-                    myresultlogin = "None"
+                myresult = mycursor.fetchall()
+                if (myresult == []):
+                    myresult = "None"
                 else:
-                    myresultlogin = "notNone"
+                    myresult = "notNone"
 
         except Exception as e:
             print(e)
             print("Eror in method login")
-        return myresultlogin
+        return myresult
 
     # ===========================================================
     def getRecommend(self):
