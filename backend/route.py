@@ -30,8 +30,8 @@ def Hompage ():
         send = [userName, userid, Privilege_user, user_image]
         return render_template('public/index.html', send=send)
     else:
-        # return render_template('public/index.html')
-        return "hello heroku.."
+        return render_template('public/index.html')
+
 
 @app.route('/about')
 def about():
@@ -777,7 +777,6 @@ def checkWord_Recommend ():
 
 
 if __name__ == "__main__" :
-    print("run flask!!")
     app.run()
     app.run(debug=True)
 
