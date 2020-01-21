@@ -777,8 +777,7 @@ def checkWord_Recommend ():
 
 
 if __name__ == "__main__" :
-    print("test push tin branch")
     app.run()
     app.run(debug=True)
-    print("test branch running")
+
 
