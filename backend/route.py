@@ -1,6 +1,6 @@
 from flask import render_template, Flask, redirect, url_for, request,jsonify,session
-from backend.Database import Database
-from backend import Translate
+from Database import Database
+from Translate import Translate
 import base64
 from io import BytesIO
 from PIL import Image
@@ -30,7 +30,8 @@ def Hompage ():
         send = [userName, userid, Privilege_user, user_image]
         return render_template('public/index.html', send=send)
     else:
-        return render_template('public/index.html')
+        # return render_template('public/index.html')
+        return "hello heroku.."
 
 @app.route('/about')
 def about():
@@ -776,6 +777,7 @@ def checkWord_Recommend ():
 
 
 if __name__ == "__main__" :
+    print("run flask!!")
     app.run()
     app.run(debug=True)
 

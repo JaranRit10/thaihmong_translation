@@ -77,21 +77,21 @@ class Database():
         mycursor = self.mydb.cursor()
         try:
             try:
-                sql = """SELECT id_user,Privilege_user,Datetime_register,Username,User_password,First_name,Last_name,Email
-                        FROM user_ 
-                        WHERE Username = %s and User_password = %s """
+                sql = """SELECT id_user,Privilege_user,Datetime_register,Username,User_password,First_name,
+                Last_name,Email
+                FROM user_ 
+                WHERE Username = %s and User_password = %s and status_ != 0"""
                 adr = (username, password,)
                 mycursor.execute(sql, adr)
-                myresultlogin = mycursor.fetchall()
-                print(myresultlogin)
+                myresult = mycursor.fetchall()
             except Exception as e:
                 print(e)
             # [(2, 0, datetime.datetime(2019, 7, 9, 17, 30, 32), 'admin', '1234', 'ทินวงศ์(admin)', 'แซ่เล้า',
             #   'tin@tin.co.th', 1)]
 
-            if (myresultlogin != []):
+            if (myresult != []):
                 mycursor2 = self.mydb.cursor()
-                user = myresultlogin[0][0]
+                user = myresult[0][0]
                 sql = """UPDATE user_ SET Last_login_time = %s
                         WHERE id_user = %s """
                 time = datetime.datetime.now()
