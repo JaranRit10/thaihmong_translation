@@ -1,1 +1,1 @@
-web: python backend\route.py
+web: python backend/route.py
