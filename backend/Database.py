@@ -1,7 +1,6 @@
 import mysql.connector
 from langdetect import detect
 import datetime
-import schedule
 from datetime import date
 import time
 

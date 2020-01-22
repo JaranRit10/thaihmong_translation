@@ -777,8 +777,11 @@ def checkWord_Recommend ():
 
 
 if __name__ == "__main__" :
-    print("branch tin from office 2")
-    app.run()
-    app.run(debug=True)
+    from gevent.pywsgi import WSGIServer
+    host ='127.0.0.1'
+    port = 5000
 
-
+    import webbrowser
+    webbrowser.open('http://{}:{}'.format(host,port))
+    http_server = WSGIServer((host, port), app)
+    http_server.serve_forever()
