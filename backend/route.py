@@ -781,7 +781,5 @@ if __name__ == "__main__" :
     host ='127.0.0.1'
     port = 5000
 
-    import webbrowser
-    webbrowser.open('http://{}:{}'.format(host,port))
     http_server = WSGIServer((host, port), app)
     http_server.serve_forever()
