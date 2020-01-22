@@ -14,7 +14,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="33">
+          <list size="61">
             <item index="0" class="java.lang.String" itemvalue="mysqlclient" />
             <item index="1" class="java.lang.String" itemvalue="gensim" />
             <item index="2" class="java.lang.String" itemvalue="protobuf" />
@@ -48,6 +48,34 @@
             <item index="30" class="java.lang.String" itemvalue="Keras" />
             <item index="31" class="java.lang.String" itemvalue="ConfigArgParse" />
             <item index="32" class="java.lang.String" itemvalue="Pillow" />
+            <item index="33" class="java.lang.String" itemvalue="python-crfsuite" />
+            <item index="34" class="java.lang.String" itemvalue="scikit-learn" />
+            <item index="35" class="java.lang.String" itemvalue="sklearn" />
+            <item index="36" class="java.lang.String" itemvalue="Click" />
+            <item index="37" class="java.lang.String" itemvalue="astroid" />
+            <item index="38" class="java.lang.String" itemvalue="cycler" />
+            <item index="39" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="40" class="java.lang.String" itemvalue="requests" />
+            <item index="41" class="java.lang.String" itemvalue="seaborn" />
+            <item index="42" class="java.lang.String" itemvalue="mccabe" />
+            <item index="43" class="java.lang.String" itemvalue="itsdangerous" />
+            <item index="44" class="java.lang.String" itemvalue="sympy" />
+            <item index="45" class="java.lang.String" itemvalue="nose" />
+            <item index="46" class="java.lang.String" itemvalue="scipy" />
+            <item index="47" class="java.lang.String" itemvalue="six" />
+            <item index="48" class="java.lang.String" itemvalue="boto" />
+            <item index="49" class="java.lang.String" itemvalue="langdetect" />
+            <item index="50" class="java.lang.String" itemvalue="wrapt" />
+            <item index="51" class="java.lang.String" itemvalue="kiwisolver" />
+            <item index="52" class="java.lang.String" itemvalue="chardet" />
+            <item index="53" class="java.lang.String" itemvalue="jmespath" />
+            <item index="54" class="java.lang.String" itemvalue="pandas" />
+            <item index="55" class="java.lang.String" itemvalue="schedule" />
+            <item index="56" class="java.lang.String" itemvalue="sklearn-crfsuite" />
+            <item index="57" class="java.lang.String" itemvalue="colorama" />
+            <item index="58" class="java.lang.String" itemvalue="mpmath" />
+            <item index="59" class="java.lang.String" itemvalue="pylint" />
+            <item index="60" class="java.lang.String" itemvalue="idna" />
           </list>
         </value>
       </option>
