@@ -1,9 +1,9 @@
-import Database
-from Grammar import Grammar
-from prob import prob
+
+from backend.Grammar import Grammar
+from backend.prob import prob
 import multiprocessing as mp
 import time
-
+import backend.Database
 
 class Translate():
 

@@ -13,22 +13,222 @@
 
 
 $(document).ready(function () {
+    var init = function() {
+  var shift = false;
+  var caps = false;
 
-    let Keyboard = window.SimpleKeyboard.default;
+  $(".key").mousedown(function() {
+    // Setting the content to grab
+    var content = $(this).html();
+    var outputContent = $("#output").html();
 
-    let myKeyboard = new Keyboard({
-        onChange: input => onChange(input),
-        onKeyPress: button => onKeyPress(button)
-    });
-
-    function onChange(input) {
-        document.querySelector(".input").value = input;
-        console.log("Input changed", input);
+    if (content.substr(0,4) == "<div") {
+      if (shift) {
+        var subDiv = $(this).find(".first-ch");
+      }
+      else {
+        var subDiv = $(this).find(".second-ch");
+      }
+      content = subDiv.html();
     }
 
-    function onKeyPress(button) {
-        console.log("Button pressed", button);
+    // Setting special output, and then outputting
+    if (content == "Backspace") {
+      var stuff = outputContent;
+      var x = stuff.length - 1;
+
+      if (stuff.charAt(x) == ">") {
+        var tagStart = stuff.lastIndexOf("<");
+        $("#output").html(stuff.substr(0, tagStart));
+      }
+      else if (stuff.charAt(x) == ";") {
+        var charStart = stuff.lastIndexOf("&");
+        $("#output").html(stuff.substr(0, charStart));
+      }
+      else {
+        $("#output").html(stuff.substr(0, x));
+      }
     }
+    else if (content == "Enter") {
+      content = "<br />";
+      $("#output").html($("#output").html() + content);
+    }
+    else if (content == "Tab") {
+      content = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+      $("#output").html($("#output").html() + content);
+    }
+    else if (content == "Shift") {
+      if (shift) {
+        shift = false;
+      }
+      else {
+        shift = true;
+      }
+    }
+    else if (content == "Caps Lock") {
+      if (caps) {
+        caps = false;
+      }
+      else {
+        caps = true;
+      }
+    }
+    else if (content == "Ctrl" || content == "Alt" || content == "Win" || content == "Spl") {
+
+    }
+    else { // i.e. a letter
+      capitalize = false;
+
+      if (shift) {
+        capitalize = !capitalize;
+        shift = false;
+      }
+
+      if (caps) {
+        capitalize = !capitalize;
+      }
+
+      if ((content.length == 1) && capitalize) {
+        content = content.toUpperCase()
+      }
+
+      $("#output").html($("#output").html() + content);
+    }
+
+    outputContent = $("#output").html();
+
+    // creating the automatic line break
+    var sinceLastTag, relevantString, start, end, snippet;
+    sinceLastTag = outputContent.lastIndexOf(">");
+    relevantString = outputContent.substring(sinceLastTag).replace("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "1111");
+    var relevantLength = relevantString.length;
+
+    if (relevantLength > 1) {
+	    start = relevantString.indexOf("&");
+	    end = relevantString.indexOf(";") + 1;
+	    snippet = relevantString.substring(start, end);
+	    relevantString = relevantString.replace(snippet, "1");
+    }
+
+    if (relevantLength % 41 === 0 && relevantLength > 0) {
+      var sweetSpot = outputContent.lastIndexOf(" ");
+      var firstHalf = outputContent.substring(0, sweetSpot);
+      var secondHalf = outputContent.substring(sweetSpot);
+
+      $("#output").html(firstHalf + "<br />" + secondHalf);
+    }
+  });
+};
+
+$(document).ready(function() {
+  init();
+});
+    // =============================
+// var $keyboardWrapper = $('.virtual-keyboard'),
+//     $key = $keyboardWrapper.find("input"),
+//     $key_delete = $('.delete'),
+//     $key_shift = $('.shift'),
+//     $outputField = $('.output input'),
+//     $currentValue = $outputField.val(),
+//     actionKeys = $(".delete,.shift")
+//     activeShiftClass = "shift-activated";
+//
+// // handle keystrokes
+// function _keystroke(keyCase){
+//
+//   $key.not(actionKeys).on('click',function(e){
+//     e.preventDefault();
+//
+//     // check for shift key for upper
+//     if($key_shift.hasClass(activeShiftClass)){
+//       keyCase = 'upper';
+//       $key_shift.removeClass(activeShiftClass);
+//     }else{
+//       keyCase = 'lower';
+//     }
+//
+//     // handle case
+//     if(keyCase == 'upper'){
+//       var keyValue = $(this).val().toUpperCase();
+//     }else{
+//       var keyValue = $(this).val().toLowerCase();
+//     }
+//
+//     // grab current value
+//     var output = $('.output input').val();
+//         $outputField.val(output + keyValue);
+//         getCurrentVal();
+//         focusOutputField();
+//   });
+//
+// } // keystroke
+//
+// // delete
+// $key_delete.on('click',function(e){
+//   e.preventDefault();
+//   $outputField.val($currentValue.substr(0,$currentValue.length - 1));
+//   getCurrentVal();
+//   focusOutputField();
+// });
+//
+// // shift
+// $key_shift.on('click',function(e){
+//   e.preventDefault();
+//   $(this).toggleClass(activeShiftClass);
+// });
+//
+// // grab current value of typed text
+// function getCurrentVal(){
+//   $currentValue = $outputField.val();
+// }
+//
+// // focus for cursor hack
+// function focusOutputField(){
+//   $outputField.focus();
+// }
+//
+// _keystroke("lower"); // init keystrokes
+
+
+    //===============================
+    // let Keyboard = window.SimpleKeyboard.default;
+    //
+    // let keyboard = new Keyboard({
+    //     onChange: input => onChange(input),
+    //     onKeyPress: button => onKeyPress(button)
+    // });
+    //
+    // /**
+    //  * Update simple-keyboard when input is changed directly
+    //  */
+    // document.querySelector(".input").addEventListener("input", event => {
+    //     keyboard.setInput(event.target.value);
+    // });
+    //
+    // console.log(keyboard);
+    //
+    // function onChange(input) {
+    //     document.querySelector(".input").value = input;
+    //     console.log("Input changed", input);
+    // }
+    //
+    // function onKeyPress(button) {
+    //     console.log("Button pressed", button);
+    //
+    //     /**
+    //      * If you want to handle the shift and caps lock buttons
+    //      */
+    //     if (button === "{shift}" || button === "{lock}") handleShift();
+    // }
+    //
+    // function handleShift() {
+    //     let currentLayout = keyboard.options.layoutName;
+    //     let shiftToggle = currentLayout === "default" ? "shift" : "default";
+    //
+    //     keyboard.setOptions({
+    //         layoutName: shiftToggle
+    //     });
+    // }
     //=======================================
     // let Keyboard = window.SimpleKeyboard.default;
     //
@@ -69,52 +269,52 @@ $(document).ready(function () {
     //     });
     // }
     //=================================================
-    var simulateTyping = "Hello World!";
-    $('.keyboard')
-        .keyboard({
-            layout: 'custom',
-            customLayout: {
-                'normal': [
-                    '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
-                    '{tab} q w e r t y u i o p [ ] \\',
-                    'a s d f g h j k l ; \' {enter}',
-                    '{shift} z x c v b n m , . / {shift}',
-                    '{accept} {space} {left} {right}'
-                ],
-                'shift': [
-                    '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
-                    '{tab} Q W E R T Y U I O P { } |',
-                    'A S D F G H J K L : " {enter}',
-                    '{shift} Z X C V B N M < > ? {shift}',
-                    '{accept} {space} {left} {right}'
-                ]
-            }
-        })
-        .addTyping()
-        .addCaret({
-            caretClass: '',
-            // *** for future use ***
-            // data-attribute containing the character(s) next to the caret
-            charAttr: 'data-character',
-            // # character(s) next to the caret (can be negative for RTL)
-            // default is 1 which shows the character to the right of the caret
-            // setting this to -1 shows the character to the left
-            charIndex: -1,
-            // tweak caret position & height
-            offsetX: 0,
-            offsetY: 0,
-            adjustHt: 0
-        });
-
-// Typing Extension
-    $('.icon').click(function () {
-        var kb = $(this).prev().getkeyboard();
-        // typeIn( text, delay, callback );
-        kb.reveal().typeIn(simulateTyping, 500, function () {
-            // do something after text is added
-            // kb.accept();
-        });
-    });
+//     var simulateTyping = "Hello World!";
+//     $('.keyboard')
+//         .keyboard({
+//             layout: 'custom',
+//             customLayout: {
+//                 'normal': [
+//                     '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
+//                     '{tab} q w e r t y u i o p [ ] \\',
+//                     'a s d f g h j k l ; \' {enter}',
+//                     '{shift} z x c v b n m , . / {shift}',
+//                     '{accept} {space} {left} {right}'
+//                 ],
+//                 'shift': [
+//                     '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
+//                     '{tab} Q W E R T Y U I O P { } |',
+//                     'A S D F G H J K L : " {enter}',
+//                     '{shift} Z X C V B N M < > ? {shift}',
+//                     '{accept} {space} {left} {right}'
+//                 ]
+//             }
+//         })
+//         .addTyping()
+//         .addCaret({
+//             caretClass: '',
+//             // *** for future use ***
+//             // data-attribute containing the character(s) next to the caret
+//             charAttr: 'data-character',
+//             // # character(s) next to the caret (can be negative for RTL)
+//             // default is 1 which shows the character to the right of the caret
+//             // setting this to -1 shows the character to the left
+//             charIndex: -1,
+//             // tweak caret position & height
+//             offsetX: 0,
+//             offsetY: 0,
+//             adjustHt: 0
+//         });
+//
+// // Typing Extension
+//     $('.icon').click(function () {
+//         var kb = $(this).prev().getkeyboard();
+//         // typeIn( text, delay, callback );
+//         kb.reveal().typeIn(simulateTyping, 500, function () {
+//             // do something after text is added
+//             // kb.accept();
+//         });
+//     });
 
     $("#submitLogin").click(function () {
         // console.log($("#username_login").text())

@@ -21,7 +21,7 @@
         <div class="row">
 
             <div class="col-md-6 col-sm-12 ">
-                <input class="card">
+                <div class="card">
                     <div class="card-in" >
                         <div class="tooltipe" style="float: right">
                             <button type="button" id="clear_textarea" class="close">
@@ -33,26 +33,19 @@
                         <div id="side_thaiword">
                             <textarea placeholder="กรุณาป้อนประโยค" class="textareathai" id="thaiword" autofocus></textarea>
                         </div>
-<!--                        <a  type="button" id="char_textarea" style="float: right;">-->
-<!--                            <span aria-hidden="true">0/100</span>-->
-<!--                        </a>-->
+                        <a id="char_textarea" style="float: right; font-size: 10px; font-width: 3px;">
+                            <span aria-hidden="true">0/100</span>
+                        </a>
 <!--                        <span>-->
 <!--                            <img class="icon" src="http://mottie.github.com/Keyboard/docs/css/images/keyboard.png" />-->
 <!--                        </span>-->
                     </div>
-<!--                    <div id="wrap">-->
-<!--                        Text Input:<br/>-->
-<!--                        <input class="keyboard" type="text" />-->
-<!--                        <img class="icon" src="http://mottie.github.com/Keyboard/docs/css/images/keyboard.png" />-->
-<!--                        <div class="spacer"></div>-->
-<!--                        Password Input:<br/>-->
-<!--                        <input class="keyboard" type="password" />-->
-<!--                        <img class="icon" src="http://mottie.github.com/Keyboard/docs/css/images/keyboard.png" />-->
-<!--                    </div>-->
-                    <input class="input" placeholder="Tap on the virtual keyboard to start" />
-<!--                    <div class="simple-keyboard"></div>-->
                 </div>
-            </div>
+<!--                <input class="input" />-->
+<!--                <div class="simple-keyboard"></div>-->
+                <input class="input" placeholder="Tap on the virtual keyboard to start" />
+                <div class="simple-keyboard"></div>
+        </div>
 
             <div class="col-md-6 col-sm-12 ">
                 <div class="card">
@@ -144,6 +137,141 @@
     </div>
 </div> <!-- end model -->
 
+<!--<div class="output">-->
+<!--  <input type="text" name="output" id="output" placeholder="Virtual Keyboard">-->
+<!--</div>-->
+
+<!--<div class="virtual-keyboard">-->
+<!--  <div class="row">-->
+<!--    <input type="button" value="1">-->
+<!--    <input type="button" value="2">-->
+<!--    <input type="button" value="3">-->
+<!--    <input type="button" value="4">-->
+<!--    <input type="button" value="5">-->
+<!--    <input type="button" value="6">-->
+<!--    <input type="button" value="7">-->
+<!--    <input type="button" value="8">-->
+<!--    <input type="button" value="9">-->
+<!--    <input type="button" value="0">-->
+<!--    <input type="button" value="delete" class="delete">-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <input type="button" value="q">-->
+<!--    <input type="button" value="w">-->
+<!--    <input type="button" value="e">-->
+<!--    <input type="button" value="r">-->
+<!--    <input type="button" value="t">-->
+<!--    <input type="button" value="y">-->
+<!--    <input type="button" value="u">-->
+<!--    <input type="button" value="i">-->
+<!--    <input type="button" value="o">-->
+<!--    <input type="button" value="p">-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <input type="button" value="a">-->
+<!--    <input type="button" value="s">-->
+<!--    <input type="button" value="d">-->
+<!--    <input type="button" value="f">-->
+<!--    <input type="button" value="g">-->
+<!--    <input type="button" value="h">-->
+<!--    <input type="button" value="j">-->
+<!--    <input type="button" value="k">-->
+<!--    <input type="button" value="l">-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <input type="button" value="z">-->
+<!--    <input type="button" value="x">-->
+<!--    <input type="button" value="c">-->
+<!--    <input type="button" value="v">-->
+<!--    <input type="button" value="b">-->
+<!--    <input type="button" value="n">-->
+<!--    <input type="button" value="m">-->
+<!--    <input type="button" value="shift" class="shift">-->
+<!--  </div>-->
+<!--  <div class="row spacebar">-->
+<!--    <input type="button" value=" ">-->
+<!--  </div>-->
+<!--</div>&lt;!&ndash;// virtual-keyboard &ndash;&gt;-->
+
+
+<section class="keyboard" id="keyboard1">
+  <section class="row-1">
+    <div class="key w2"><div class="first-ch">~</div><div class="second-ch">`</div></div>
+    <div class="key w2"><div class="first-ch">!</div><div class="second-ch">1</div></div>
+    <div class="key w2"><div class="first-ch">@</div><div class="second-ch">2</div></div>
+    <div class="key w2"><div class="first-ch">#</div><div class="second-ch">3</div></div>
+    <div class="key w2"><div class="first-ch">$</div><div class="second-ch">4</div></div>
+    <div class="key w2"><div class="first-ch">%</div><div class="second-ch">5</div></div>
+    <div class="key w2"><div class="first-ch">^</div><div class="second-ch">6</div></div>
+    <div class="key w2"><div class="first-ch">&amp;</div><div class="second-ch">7</div></div>
+    <div class="key w2"><div class="first-ch">*</div><div class="second-ch">8</div></div>
+    <div class="key w2"><div class="first-ch">(</div><div class="second-ch">9</div></div>
+    <div class="key w2"><div class="first-ch">)</div><div class="second-ch">0</div></div>
+    <div class="key w2"><div class="first-ch">_</div><div class="second-ch">-</div></div>
+    <div class="key w2"><div class="first-ch">+</div><div class="second-ch">=</div></div>
+    <div class="key w4">Backspace</div>
+  </section>
+  <section class="row-2">
+    <div class="key w3">Tab</div>
+    <div class="key w2" id="Q">q</div>
+    <div class="key w2">w</div>
+    <div class="key w2">e</div>
+    <div class="key w2">r</div>
+    <div class="key w2">t</div>
+    <div class="key w2">y</div>
+    <div class="key w2">u</div>
+    <div class="key w2">i</div>
+    <div class="key w2">o</div>
+    <div class="key w2">p</div>
+    <div class="key w2"><div class="first-ch">{</div><div class="second-ch">[</div></div>
+    <div class="key w2"><div class="first-ch">}</div><div class="second-ch">]</div></div>
+    <div class="key w3"><div class="first-ch">|</div><div class="second-ch">\</div></div>
+  </section>
+  <section class="row-3">
+    <div class="key w4">Caps Lock</div>
+    <div class="key w2">a</div>
+    <div class="key w2">s</div>
+    <div class="key w2">d</div>
+    <div class="key w2">f</div>
+    <div class="key w2">g</div>
+    <div class="key w2">h</div>
+    <div class="key w2">j</div>
+    <div class="key w2">k</div>
+    <div class="key w2">l</div>
+    <div class="key w2"><div class="first-ch">:</div><div class="second-ch">&#59;</div></div>
+    <div class="key w2"><div class="first-ch">"</div><div class="second-ch">'</div></div>
+    <div class="key w4">Enter</div>
+  </section>
+  <section class="row-4">
+    <div class="key w5">Shift</div>
+    <div class="key w2">z</div>
+    <div class="key w2">x</div>
+    <div class="key w2">c</div>
+    <div class="key w2">v</div>
+    <div class="key w2">b</div>
+    <div class="key w2">n</div>
+    <div class="key w2">m</div>
+    <div class="key w2"><div class="first-ch">&lt;</div><div class="second-ch">,</div></div>
+    <div class="key w2"><div class="first-ch">&gt;</div><div class="second-ch">.</div></div>
+      <div class="key w2"><div class="first-ch">?</div><div class="second-ch">/</div></div>
+    <div class="key w5">Shift</div>
+  </section>
+  <section class="row-5">
+    <div class="key w3">Ctrl</div>
+    <div class="key w2">Win</div>
+    <div class="key w3">Alt</div>
+    <div class="key w12"> </div>
+    <div class="key w3">Alt</div>
+    <div class="key w2">Win</div>
+    <div class="key w2">Spl</div>
+    <div class="key w3">Ctrl</div>
+  </section>
+</section>
+<div class="monitor">
+  <div class="screen">
+    <p id="output"></p>
+  </div>
+</div>
 {%endblock%}
 
 {% block custom_js %}

@@ -1,6 +1,6 @@
 from flask import render_template, Flask, redirect, url_for, request,jsonify,session
-from Database import Database
-from Translate import Translate
+from backend.Database import Database
+from backend.Translate import Translate
 import base64
 from io import BytesIO
 from PIL import Image
@@ -236,7 +236,7 @@ def transtate ():
         check = str(text)
         check = check.strip()
         if(check!=""):
-            a = Translate.Translate()
+            a = Translate()
             aa = a.traslateThaiHmong_0(text)
             data = str(aa)
             data = data.split("|\\")
@@ -253,8 +253,8 @@ def transtate2 ():
         check = str(text)
         check = check.strip()
         if(check!=""):
-            data = Translate.Translate()
-            data = data.traslateThaiHmong(text)
+            d = Translate()
+            data = d.traslateThaiHmong(text)
         else:
             data = ""
     return jsonify(data)
